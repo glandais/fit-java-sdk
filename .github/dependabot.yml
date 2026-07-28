@@ -1,0 +1,17 @@
+version: 2
+
+updates:
+  # Actions utilisées par fit-kmp-check.yml, fit-kmp-release.yml et publishToMaven.yml.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: ci
+    # Une seule PR par lot : les bumps d'actions sont indépendants les uns des
+    # autres et ne méritent pas une PR chacun.
+    groups:
+      github-actions:
+        patterns:
+          - '*'
