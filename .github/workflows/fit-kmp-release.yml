@@ -1,0 +1,66 @@
+name: fit-kmp release
+
+on:
+  push:
+    tags: ['fit-kmp-v*']
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: fit-kmp
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          build-root-directory: fit-kmp
+
+      - name: Cache wasmtime
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/wasmtime
+          key: wasmtime-${{ runner.os }}-${{ hashFiles('fit-kmp/build.gradle.kts') }}
+          restore-keys: wasmtime-${{ runner.os }}-
+
+      # Le tag est la source de vérité côté humain, gradle.properties côté build :
+      # publier une version qui ne correspond pas au tag serait indétectable après coup.
+      - name: Verify tag matches gradle.properties
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#fit-kmp-v}"
+          FILE_VERSION="$(sed -n 's/^version=//p' gradle.properties)"
+          echo "tag=$TAG_VERSION gradle.properties=$FILE_VERSION"
+          if [ "$TAG_VERSION" != "$FILE_VERSION" ]; then
+            echo "::error::Tag version ($TAG_VERSION) does not match gradle.properties ($FILE_VERSION)"
+            exit 1
+          fi
+
+      - name: Build and test (jvm + wasmWasi)
+        run: ./gradlew check
+
+      - name: Publish to Maven Central
+        env:
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_TOKEN }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
+        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" \
+            --notes "Published \`io.github.glandais:fit-kmp:${GITHUB_REF_NAME#fit-kmp-v}\` to Maven Central."
