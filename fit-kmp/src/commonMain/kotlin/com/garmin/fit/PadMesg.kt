@@ -1,0 +1,20 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Converted from PadMesg.java (Garmin FIT SDK 21.205.0) by converter/convert.py.
+// Do NOT edit: re-run `python3 converter/convert.py` to regenerate.
+/////////////////////////////////////////////////////////////////////////////////////////////
+package com.garmin.fit
+
+open class PadMesg : Mesg {
+
+    companion object {
+        val padMesg: Mesg = run {
+            // pad
+            val padMesg = Mesg("pad", MesgNum.PAD)
+            padMesg
+        }
+    }
+
+    constructor() : super(Factory.createMesg(MesgNum.PAD))
+
+    constructor(mesg: Mesg?) : super(mesg)
+}

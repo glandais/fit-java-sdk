@@ -1,0 +1,174 @@
+{
+  "commonMain/Accumulator.kt": {
+    "sha256": "2a8047ca00d819c2bc7e665a6079fe7fc2ff737befa9b525d6d5b14cc16be7e8",
+    "source": "Accumulator.java"
+  },
+  "commonMain/BufferEncoder.kt": {
+    "sha256": "2f5a316dd29cd8d6a0b527699b8e26483ef7bd32c98f44eb97d22514b59bed58",
+    "source": "BufferEncoder.java"
+  },
+  "commonMain/BufferedMesgBroadcaster.kt": {
+    "sha256": "82088c5ba53f0344d3e185b7af5fb5ff7976de27fb3a90af72a7eded1bbbee34",
+    "source": "BufferedMesgBroadcaster.java"
+  },
+  "commonMain/BufferedMesgListener.kt": {
+    "sha256": "4b7a178378ba83e8286ff1b5e04f334ec76ce1cb00bc6795fafc3f52fbf7d442",
+    "source": "BufferedMesgListener.java"
+  },
+  "commonMain/BufferedRecordMesg.kt": {
+    "sha256": "1cd9147127478205b3e851a781c5546bb92a7b1f2c5aeeb7cce8dea37f706628",
+    "source": "BufferedRecordMesg.java"
+  },
+  "commonMain/BufferedRecordMesgBroadcaster.kt": {
+    "sha256": "2605e9e3b85d7ecae4c0fdf0c3755c0265e657dd4c7612bd2b643b0b50208eed",
+    "source": "BufferedRecordMesgBroadcaster.java"
+  },
+  "commonMain/ByteArrayDataInputStream.kt": {
+    "sha256": "8cf97efc48da368531b0cb30487c1a73ab923d74c7d3f8e0a1beaf22396059c5",
+    "source": "ByteArrayDataInputStream.java"
+  },
+  "commonMain/CRC.kt": {
+    "sha256": "1ac416842bf833399987ea690a3e3eb571b87a595a71764560d9671b2267e0fd",
+    "source": "CRC.java"
+  },
+  "commonMain/CRC16.kt": {
+    "sha256": "e20e87e7622345b67c0606f76639ef5a3855a33680bb6e324d0fcffbbfc07a99",
+    "source": "CRC16.java"
+  },
+  "commonMain/Checksum.kt": {
+    "sha256": "72b62249ada4deda84662b5e5bf8d8e767fdfcb93fbf4a289905d82ce9cf6667",
+    "source": "Checksum.java"
+  },
+  "commonMain/DateTime.kt": {
+    "sha256": "8b3a3de6e058dcecd739defda1071d3c2e46dafb3172292cd57301dfc18f4e2d",
+    "source": "DateTime.java"
+  },
+  "commonMain/Decode.kt": {
+    "sha256": "fb8e5407eb82e6724a07a227caacfd045d460bbe8f469dbb2f214380d9b3baad",
+    "source": "Decode.java"
+  },
+  "commonMain/Decoder.kt": {
+    "sha256": "734b555b701a53d9a4fdcbfffdde12b30aa0ba8c33479dfc804d052c2a12ae62",
+    "source": "Decoder.java"
+  },
+  "commonMain/DecoderBase.kt": {
+    "sha256": "5fcae0e382a368648c3632a371d88b9b78728ece7f4370e9dd1991b29f5e70b8",
+    "source": "DecoderBase.java"
+  },
+  "commonMain/DeveloperField.kt": {
+    "sha256": "1795b79b17459e477465c5925cf0de3680b000ab1085f3141a3b391f465d0726",
+    "source": "DeveloperField.java"
+  },
+  "commonMain/DeveloperFieldDefinition.kt": {
+    "sha256": "0384d2ac007776ade1e9b2d15b18745398a3d739dab7f46d89bf4685485a2173",
+    "source": "DeveloperFieldDefinition.java"
+  },
+  "commonMain/DeveloperFieldDescription.kt": {
+    "sha256": "bc10c8786497b7b4d6f7329be253d43d31f75a2b27c733e53d0bc8429c23c73f",
+    "source": "DeveloperFieldDescription.java"
+  },
+  "commonMain/EndianIo.kt": {
+    "sha256": null,
+    "source": null
+  },
+  "commonMain/Field.kt": {
+    "sha256": "4f8d6d247d23dac112290dabf033939ed5081f356575561a5b95ed03b5831b2e",
+    "source": "Field.java"
+  },
+  "commonMain/FieldBase.kt": {
+    "sha256": "00bad9e20a5121e4b2d415f56262358e477f5e702bd47e5603b249b6bb0752fc",
+    "source": "FieldBase.java"
+  },
+  "commonMain/FieldComponent.kt": {
+    "sha256": "a0ba6f5d77311afa2356b1f3d21efa94bb3e243d157ccb9b85a79667c9f14cf2",
+    "source": "FieldComponent.java"
+  },
+  "commonMain/FieldDefinition.kt": {
+    "sha256": "de03289b0a11862485d81a789cc409718f3ddc55a0e60a8c6f69ad9e441dbf0f",
+    "source": "FieldDefinition.java"
+  },
+  "commonMain/FieldDefinitionBase.kt": {
+    "sha256": "196b0180fb3197afa5288766ad607679f9f1789c6a5659822a52aad0fbd28b06",
+    "source": "FieldDefinitionBase.java"
+  },
+  "commonMain/FileUtil.kt": {
+    "sha256": "da1a3139da6a6654c527e638c31dbe369e5954c1186d6bdf59234fd6b204779b",
+    "source": "FileUtil.java"
+  },
+  "commonMain/Fit.kt": {
+    "sha256": "e34d1aae86ab1e8d03a5a13c2a0438058fb79c5b2c13ff50c767e05ffb840d20",
+    "source": "Fit.java"
+  },
+  "commonMain/FitDecoder.kt": {
+    "sha256": "71b5fd4e9e12105fd6b167fbe7099e46b1e86bbc16283c00f12a6ef25f4fe902",
+    "source": "FitDecoder.java"
+  },
+  "commonMain/FitRuntimeException.kt": {
+    "sha256": "85f94cae0031175c6dbc3d0fa767b835e83e3147e9053c2a504a0eea03d50bec",
+    "source": "FitRuntimeException.java"
+  },
+  "commonMain/LocalDateTime.kt": {
+    "sha256": "87b0698b9526c0145ca0dd09386b8cc88388b5637fd81f41c2a77eb4f119ef4e",
+    "source": "LocalDateTime.java"
+  },
+  "commonMain/Mesg.kt": {
+    "sha256": "e3fb4eaf0a0457a6ef9a9c0df8281bbffaaf801256997154dbcb56f739d324f2",
+    "source": "Mesg.java"
+  },
+  "commonMain/MesgBroadcastPlugin.kt": {
+    "sha256": "af459cd59cefc04aa0e4a0bc886f8537d5db2db1d34b5c6da76569edbeec9e2f",
+    "source": "MesgBroadcastPlugin.java"
+  },
+  "commonMain/MesgDefinition.kt": {
+    "sha256": "950d9fc9369d1094a91429d16590707ac959bc5c27357a095b28986d8e6fe210",
+    "source": "MesgDefinition.java"
+  },
+  "commonMain/MesgFilterBase.kt": {
+    "sha256": "e43f26d7a3a2ae03e5b767578c1c204fc942e13867ba60474847c8b385ff09dd",
+    "source": "MesgFilterBase.java"
+  },
+  "commonMain/MesgSource.kt": {
+    "sha256": "30243f8160aec8a6f530571757917a6407b63372e0b0de27ee81b5410aecdc34",
+    "source": "MesgSource.java"
+  },
+  "commonMain/MesgWithEvent.kt": {
+    "sha256": "f73fa18be3f6bf735b4b848c267e7888c605a379eb84d709da62df6b0fe3bea2",
+    "source": "MesgWithEvent.java"
+  },
+  "commonMain/MesgWithEventBroadcaster.kt": {
+    "sha256": "2282e742ec85f44e8d9342ae8589227f6ef311ee70fc95aa156f6de8cc37438c",
+    "source": "MesgWithEventBroadcaster.java"
+  },
+  "commonMain/MonitoringReader.kt": {
+    "sha256": "a4c0855e6b6513f6c625046012054cd4d8e7e31af3fcc5e4bb13435e24ace0b9",
+    "source": "MonitoringReader.java"
+  },
+  "commonMain/ProtocolValidator.kt": {
+    "sha256": "8fc247f50fdd31a8d8e489d31fc590ce4b69f4d10b4c046cafbb019dddfefa3b",
+    "source": "ProtocolValidator.java"
+  },
+  "commonMain/ProtocolValidatorFactory.kt": {
+    "sha256": "549c1758288154af380dadb2c09f9145f49768d35afed20922ff577a6c1ebe78",
+    "source": "ProtocolValidatorFactory.java"
+  },
+  "commonMain/Streams.kt": {
+    "sha256": null,
+    "source": null
+  },
+  "commonMain/SubField.kt": {
+    "sha256": "abd0612ccb9992686764499652ee4cf1e2c96f9d8baa757c3e8a4aa3a70f1e4e",
+    "source": "SubField.java"
+  },
+  "commonMain/Uuid.kt": {
+    "sha256": null,
+    "source": null
+  },
+  "jvmMain/DateTimeJvm.kt": {
+    "sha256": null,
+    "source": null
+  },
+  "jvmMain/FileEncoder.kt": {
+    "sha256": "d712832a1e16cba4e837b8a38763ae4429e26be2a0bf43e80ae9a50b18bbaf8c",
+    "source": "FileEncoder.java"
+  }
+}

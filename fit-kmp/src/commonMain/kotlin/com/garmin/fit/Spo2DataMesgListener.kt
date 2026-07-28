@@ -1,0 +1,9 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Converted from Spo2DataMesgListener.java (Garmin FIT SDK 21.205.0) by converter/convert.py.
+// Do NOT edit: re-run `python3 converter/convert.py` to regenerate.
+/////////////////////////////////////////////////////////////////////////////////////////////
+package com.garmin.fit
+
+fun interface Spo2DataMesgListener {
+    fun onMesg(mesg: Spo2DataMesg)
+}
