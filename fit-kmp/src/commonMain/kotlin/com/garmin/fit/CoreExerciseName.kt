@@ -1,0 +1,209 @@
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Converted from CoreExerciseName.java (Garmin FIT SDK 21.205.0) by converter/convert.py.
+// Do NOT edit: re-run `python3 converter/convert.py` to regenerate.
+/////////////////////////////////////////////////////////////////////////////////////////////
+package com.garmin.fit
+
+object CoreExerciseName {
+    const val ABS_JABS: Int = 0
+    const val WEIGHTED_ABS_JABS: Int = 1
+    const val ALTERNATING_PLATE_REACH: Int = 2
+    const val BARBELL_ROLLOUT: Int = 3
+    const val WEIGHTED_BARBELL_ROLLOUT: Int = 4
+    const val BODY_BAR_OBLIQUE_TWIST: Int = 5
+    const val CABLE_CORE_PRESS: Int = 6
+    const val CABLE_SIDE_BEND: Int = 7
+    const val SIDE_BEND: Int = 8
+    const val WEIGHTED_SIDE_BEND: Int = 9
+    const val CRESCENT_CIRCLE: Int = 10
+    const val WEIGHTED_CRESCENT_CIRCLE: Int = 11
+    const val CYCLING_RUSSIAN_TWIST: Int = 12
+    const val WEIGHTED_CYCLING_RUSSIAN_TWIST: Int = 13
+    const val ELEVATED_FEET_RUSSIAN_TWIST: Int = 14
+    const val WEIGHTED_ELEVATED_FEET_RUSSIAN_TWIST: Int = 15
+    const val HALF_TURKISH_GET_UP: Int = 16
+    const val KETTLEBELL_WINDMILL: Int = 17
+    const val KNEELING_AB_WHEEL: Int = 18
+    const val WEIGHTED_KNEELING_AB_WHEEL: Int = 19
+    const val MODIFIED_FRONT_LEVER: Int = 20
+    const val OPEN_KNEE_TUCKS: Int = 21
+    const val WEIGHTED_OPEN_KNEE_TUCKS: Int = 22
+    const val SIDE_ABS_LEG_LIFT: Int = 23
+    const val WEIGHTED_SIDE_ABS_LEG_LIFT: Int = 24
+    const val SWISS_BALL_JACKKNIFE: Int = 25
+    const val WEIGHTED_SWISS_BALL_JACKKNIFE: Int = 26
+    const val SWISS_BALL_PIKE: Int = 27
+    const val WEIGHTED_SWISS_BALL_PIKE: Int = 28
+    const val SWISS_BALL_ROLLOUT: Int = 29
+    const val WEIGHTED_SWISS_BALL_ROLLOUT: Int = 30
+    const val TRIANGLE_HIP_PRESS: Int = 31
+    const val WEIGHTED_TRIANGLE_HIP_PRESS: Int = 32
+    const val TRX_SUSPENDED_JACKKNIFE: Int = 33
+    const val WEIGHTED_TRX_SUSPENDED_JACKKNIFE: Int = 34
+    const val U_BOAT: Int = 35
+    const val WEIGHTED_U_BOAT: Int = 36
+    const val WINDMILL_SWITCHES: Int = 37
+    const val WEIGHTED_WINDMILL_SWITCHES: Int = 38
+    const val ALTERNATING_SLIDE_OUT: Int = 39
+    const val WEIGHTED_ALTERNATING_SLIDE_OUT: Int = 40
+    const val GHD_BACK_EXTENSIONS: Int = 41
+    const val WEIGHTED_GHD_BACK_EXTENSIONS: Int = 42
+    const val OVERHEAD_WALK: Int = 43
+    const val INCHWORM: Int = 44
+    const val WEIGHTED_MODIFIED_FRONT_LEVER: Int = 45
+    const val RUSSIAN_TWIST: Int = 46
+    const val ABDOMINAL_LEG_ROTATIONS: Int = 47 // Deprecated do not use
+    const val ARM_AND_LEG_EXTENSION_ON_KNEES: Int = 48
+    const val BICYCLE: Int = 49
+    const val BICEP_CURL_WITH_LEG_EXTENSION: Int = 50
+    const val CAT_COW: Int = 51
+    const val CORKSCREW: Int = 52
+    const val CRISS_CROSS: Int = 53
+    const val CRISS_CROSS_WITH_BALL: Int = 54 // Deprecated do not use
+    const val DOUBLE_LEG_STRETCH: Int = 55
+    const val KNEE_FOLDS: Int = 56
+    const val LOWER_LIFT: Int = 57
+    const val NECK_PULL: Int = 58
+    const val PELVIC_CLOCKS: Int = 59
+    const val ROLL_OVER: Int = 60
+    const val ROLL_UP: Int = 61
+    const val ROLLING: Int = 62
+    const val ROWING_1: Int = 63
+    const val ROWING_2: Int = 64
+    const val SCISSORS: Int = 65
+    const val SINGLE_LEG_CIRCLES: Int = 66
+    const val SINGLE_LEG_STRETCH: Int = 67
+    const val SNAKE_TWIST_1_AND_2: Int = 68 // Deprecated do not use
+    const val SWAN: Int = 69
+    const val SWIMMING: Int = 70
+    const val TEASER: Int = 71
+    const val THE_HUNDRED: Int = 72
+    const val BICEP_CURL_WITH_LEG_EXTENSION_WITH_WEIGHTS: Int = 73
+    const val HANGING_L_SIT: Int = 75
+    const val LOWER_LIFT_WITH_WEIGHTS: Int = 77
+    const val RING_L_SIT: Int = 79
+    const val ROWING_1_WITH_WEIGHTS: Int = 80
+    const val ROWING_2_WITH_WEIGHTS: Int = 81
+    const val SCISSORS_WITH_WEIGHTS: Int = 82
+    const val SINGLE_LEG_STRETCH_WITH_WEIGHTS: Int = 83
+    const val TOES_TO_ELBOWS: Int = 84
+    const val WEIGHTED_CRISS_CROSS: Int = 85
+    const val WEIGHTED_DOUBLE_LEG_STRETCH: Int = 86
+    const val WEIGHTED_THE_HUNDRED: Int = 87
+    const val L_SIT: Int = 88
+    const val TURKISH_GET_UP: Int = 89
+    const val WEIGHTED_RING_L_SIT: Int = 90
+    const val WEIGHTED_HANGING_L_SIT: Int = 91
+    const val WEIGHTED_L_SIT: Int = 92
+    const val SIDE_BEND_LOW_WHEELCHAIR: Int = 93
+    const val SIDE_BEND_MID_WHEELCHAIR: Int = 94
+    const val SIDE_BEND_HIGH_WHEELCHAIR: Int = 95
+    const val SEATED_SIDE_BEND: Int = 96
+    val INVALID: Int = Fit.UINT16_INVALID
+
+    private val stringMap: Map<Int, String> = mapOf(
+        ABS_JABS to "ABS_JABS",
+        WEIGHTED_ABS_JABS to "WEIGHTED_ABS_JABS",
+        ALTERNATING_PLATE_REACH to "ALTERNATING_PLATE_REACH",
+        BARBELL_ROLLOUT to "BARBELL_ROLLOUT",
+        WEIGHTED_BARBELL_ROLLOUT to "WEIGHTED_BARBELL_ROLLOUT",
+        BODY_BAR_OBLIQUE_TWIST to "BODY_BAR_OBLIQUE_TWIST",
+        CABLE_CORE_PRESS to "CABLE_CORE_PRESS",
+        CABLE_SIDE_BEND to "CABLE_SIDE_BEND",
+        SIDE_BEND to "SIDE_BEND",
+        WEIGHTED_SIDE_BEND to "WEIGHTED_SIDE_BEND",
+        CRESCENT_CIRCLE to "CRESCENT_CIRCLE",
+        WEIGHTED_CRESCENT_CIRCLE to "WEIGHTED_CRESCENT_CIRCLE",
+        CYCLING_RUSSIAN_TWIST to "CYCLING_RUSSIAN_TWIST",
+        WEIGHTED_CYCLING_RUSSIAN_TWIST to "WEIGHTED_CYCLING_RUSSIAN_TWIST",
+        ELEVATED_FEET_RUSSIAN_TWIST to "ELEVATED_FEET_RUSSIAN_TWIST",
+        WEIGHTED_ELEVATED_FEET_RUSSIAN_TWIST to "WEIGHTED_ELEVATED_FEET_RUSSIAN_TWIST",
+        HALF_TURKISH_GET_UP to "HALF_TURKISH_GET_UP",
+        KETTLEBELL_WINDMILL to "KETTLEBELL_WINDMILL",
+        KNEELING_AB_WHEEL to "KNEELING_AB_WHEEL",
+        WEIGHTED_KNEELING_AB_WHEEL to "WEIGHTED_KNEELING_AB_WHEEL",
+        MODIFIED_FRONT_LEVER to "MODIFIED_FRONT_LEVER",
+        OPEN_KNEE_TUCKS to "OPEN_KNEE_TUCKS",
+        WEIGHTED_OPEN_KNEE_TUCKS to "WEIGHTED_OPEN_KNEE_TUCKS",
+        SIDE_ABS_LEG_LIFT to "SIDE_ABS_LEG_LIFT",
+        WEIGHTED_SIDE_ABS_LEG_LIFT to "WEIGHTED_SIDE_ABS_LEG_LIFT",
+        SWISS_BALL_JACKKNIFE to "SWISS_BALL_JACKKNIFE",
+        WEIGHTED_SWISS_BALL_JACKKNIFE to "WEIGHTED_SWISS_BALL_JACKKNIFE",
+        SWISS_BALL_PIKE to "SWISS_BALL_PIKE",
+        WEIGHTED_SWISS_BALL_PIKE to "WEIGHTED_SWISS_BALL_PIKE",
+        SWISS_BALL_ROLLOUT to "SWISS_BALL_ROLLOUT",
+        WEIGHTED_SWISS_BALL_ROLLOUT to "WEIGHTED_SWISS_BALL_ROLLOUT",
+        TRIANGLE_HIP_PRESS to "TRIANGLE_HIP_PRESS",
+        WEIGHTED_TRIANGLE_HIP_PRESS to "WEIGHTED_TRIANGLE_HIP_PRESS",
+        TRX_SUSPENDED_JACKKNIFE to "TRX_SUSPENDED_JACKKNIFE",
+        WEIGHTED_TRX_SUSPENDED_JACKKNIFE to "WEIGHTED_TRX_SUSPENDED_JACKKNIFE",
+        U_BOAT to "U_BOAT",
+        WEIGHTED_U_BOAT to "WEIGHTED_U_BOAT",
+        WINDMILL_SWITCHES to "WINDMILL_SWITCHES",
+        WEIGHTED_WINDMILL_SWITCHES to "WEIGHTED_WINDMILL_SWITCHES",
+        ALTERNATING_SLIDE_OUT to "ALTERNATING_SLIDE_OUT",
+        WEIGHTED_ALTERNATING_SLIDE_OUT to "WEIGHTED_ALTERNATING_SLIDE_OUT",
+        GHD_BACK_EXTENSIONS to "GHD_BACK_EXTENSIONS",
+        WEIGHTED_GHD_BACK_EXTENSIONS to "WEIGHTED_GHD_BACK_EXTENSIONS",
+        OVERHEAD_WALK to "OVERHEAD_WALK",
+        INCHWORM to "INCHWORM",
+        WEIGHTED_MODIFIED_FRONT_LEVER to "WEIGHTED_MODIFIED_FRONT_LEVER",
+        RUSSIAN_TWIST to "RUSSIAN_TWIST",
+        ABDOMINAL_LEG_ROTATIONS to "ABDOMINAL_LEG_ROTATIONS",
+        ARM_AND_LEG_EXTENSION_ON_KNEES to "ARM_AND_LEG_EXTENSION_ON_KNEES",
+        BICYCLE to "BICYCLE",
+        BICEP_CURL_WITH_LEG_EXTENSION to "BICEP_CURL_WITH_LEG_EXTENSION",
+        CAT_COW to "CAT_COW",
+        CORKSCREW to "CORKSCREW",
+        CRISS_CROSS to "CRISS_CROSS",
+        CRISS_CROSS_WITH_BALL to "CRISS_CROSS_WITH_BALL",
+        DOUBLE_LEG_STRETCH to "DOUBLE_LEG_STRETCH",
+        KNEE_FOLDS to "KNEE_FOLDS",
+        LOWER_LIFT to "LOWER_LIFT",
+        NECK_PULL to "NECK_PULL",
+        PELVIC_CLOCKS to "PELVIC_CLOCKS",
+        ROLL_OVER to "ROLL_OVER",
+        ROLL_UP to "ROLL_UP",
+        ROLLING to "ROLLING",
+        ROWING_1 to "ROWING_1",
+        ROWING_2 to "ROWING_2",
+        SCISSORS to "SCISSORS",
+        SINGLE_LEG_CIRCLES to "SINGLE_LEG_CIRCLES",
+        SINGLE_LEG_STRETCH to "SINGLE_LEG_STRETCH",
+        SNAKE_TWIST_1_AND_2 to "SNAKE_TWIST_1_AND_2",
+        SWAN to "SWAN",
+        SWIMMING to "SWIMMING",
+        TEASER to "TEASER",
+        THE_HUNDRED to "THE_HUNDRED",
+        BICEP_CURL_WITH_LEG_EXTENSION_WITH_WEIGHTS to "BICEP_CURL_WITH_LEG_EXTENSION_WITH_WEIGHTS",
+        HANGING_L_SIT to "HANGING_L_SIT",
+        LOWER_LIFT_WITH_WEIGHTS to "LOWER_LIFT_WITH_WEIGHTS",
+        RING_L_SIT to "RING_L_SIT",
+        ROWING_1_WITH_WEIGHTS to "ROWING_1_WITH_WEIGHTS",
+        ROWING_2_WITH_WEIGHTS to "ROWING_2_WITH_WEIGHTS",
+        SCISSORS_WITH_WEIGHTS to "SCISSORS_WITH_WEIGHTS",
+        SINGLE_LEG_STRETCH_WITH_WEIGHTS to "SINGLE_LEG_STRETCH_WITH_WEIGHTS",
+        TOES_TO_ELBOWS to "TOES_TO_ELBOWS",
+        WEIGHTED_CRISS_CROSS to "WEIGHTED_CRISS_CROSS",
+        WEIGHTED_DOUBLE_LEG_STRETCH to "WEIGHTED_DOUBLE_LEG_STRETCH",
+        WEIGHTED_THE_HUNDRED to "WEIGHTED_THE_HUNDRED",
+        L_SIT to "L_SIT",
+        TURKISH_GET_UP to "TURKISH_GET_UP",
+        WEIGHTED_RING_L_SIT to "WEIGHTED_RING_L_SIT",
+        WEIGHTED_HANGING_L_SIT to "WEIGHTED_HANGING_L_SIT",
+        WEIGHTED_L_SIT to "WEIGHTED_L_SIT",
+        SIDE_BEND_LOW_WHEELCHAIR to "SIDE_BEND_LOW_WHEELCHAIR",
+        SIDE_BEND_MID_WHEELCHAIR to "SIDE_BEND_MID_WHEELCHAIR",
+        SIDE_BEND_HIGH_WHEELCHAIR to "SIDE_BEND_HIGH_WHEELCHAIR",
+        SEATED_SIDE_BEND to "SEATED_SIDE_BEND"
+    )
+
+    fun getStringFromValue(value: Int?): String = stringMap[value] ?: ""
+
+    fun getValueFromString(value: String): Int {
+        for ((k, v) in stringMap) {
+            if (v == value) return k
+        }
+        return INVALID
+    }
+}
