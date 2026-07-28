@@ -1,7 +1,10 @@
 name: Publish package to the Maven Central Repository
+# Workflow upstream (com.garmin:fit). Ce fork ne republie pas le SDK Java : le
+# déclencheur `release: [created]` a été retiré car fit-kmp-release.yml crée une
+# GitHub Release à chaque publication KMP, ce qui déclencherait un deploy com.garmin.
+# Conservé en manuel uniquement pour rester alignable avec upstream.
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
 
 jobs:
   publish-to-maven:

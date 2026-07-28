@@ -1,0 +1,51 @@
+name: fit-kmp check
+
+on:
+  pull_request:
+    paths:
+      - 'fit-kmp/**'
+      - '.github/workflows/fit-kmp-*.yml'
+  push:
+    branches: ['**']
+    paths:
+      - 'fit-kmp/**'
+      - '.github/workflows/fit-kmp-*.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: fit-kmp
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          build-root-directory: fit-kmp
+
+      # Le plugin Kotlin télécharge le runtime wasmtime pour la cible wasmWasi.
+      - name: Cache wasmtime
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/wasmtime
+          key: wasmtime-${{ runner.os }}-${{ hashFiles('fit-kmp/build.gradle.kts') }}
+          restore-keys: wasmtime-${{ runner.os }}-
+
+      - name: Build and test (jvm + wasmWasi)
+        run: ./gradlew check
+
+      # Smoke test de la publication : vérifie que POM et métadonnées KMP se génèrent.
+      # Non signé (aucune clé fournie), cf. la garde `hasSigningKey` du build.
+      - name: Publication smoke test
+        run: ./gradlew publishToMavenLocal
