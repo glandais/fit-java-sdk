@@ -15,3 +15,18 @@ updates:
       github-actions:
         patterns:
           - '*'
+
+  # Build Gradle autonome de fit-kmp (plugins Kotlin/vanniktech et wrapper Gradle).
+  # Le pom.xml à la racine est celui du SDK Java upstream : ce fork ne le republie
+  # pas, donc pas d'écosystème maven ici.
+  - package-ecosystem: gradle
+    directory: /fit-kmp
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: build
+    groups:
+      gradle:
+        patterns:
+          - '*'
