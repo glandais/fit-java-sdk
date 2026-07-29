@@ -96,52 +96,37 @@ open class DeveloperDataIdMesg : Mesg {
      *
      * @return manufacturer_id
      */
-    fun getManufacturerId(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set manufacturer_id field
-     *
-     * @param manufacturerId The new manufacturerId value to be set
-     */
-    fun setManufacturerId(manufacturerId: Int?) {
-        setFieldValue(2, 0, manufacturerId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var manufacturerId: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(manufacturerId) {
+            setFieldValue(2, 0, manufacturerId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get developer_data_index field
      *
      * @return developer_data_index
      */
-    fun getDeveloperDataIndex(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set developer_data_index field
-     *
-     * @param developerDataIndex The new developerDataIndex value to be set
-     */
-    fun setDeveloperDataIndex(developerDataIndex: Short?) {
-        setFieldValue(3, 0, developerDataIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var developerDataIndex: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(developerDataIndex) {
+            setFieldValue(3, 0, developerDataIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get application_version field
      *
      * @return application_version
      */
-    fun getApplicationVersion(): Long? {
-        return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set application_version field
-     *
-     * @param applicationVersion The new applicationVersion value to be set
-     */
-    fun setApplicationVersion(applicationVersion: Long?) {
-        setFieldValue(4, 0, applicationVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var applicationVersion: Long?
+        get() {
+            return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(applicationVersion) {
+            setFieldValue(4, 0, applicationVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -50,20 +50,13 @@ open class AccelerometerDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Whole second part of the timestamp
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -72,20 +65,13 @@ open class AccelerometerDataMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond part of the timestamp.
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getSampleTimeOffset(): Array<Int?>? {
         return getFieldIntegerValues(1, Fit.SUBFIELD_INDEX_MAIN_FIELD)

@@ -416,6 +416,121 @@ def _convert_setter_value(expr: str, params: list[tuple[str, str, str]], ctx: st
     raise ConversionError(f"{ctx}: valeur de setFieldValue non reconnue : « {expr} »")
 
 
+# Noms de champs FIT qui entrent en collision avec un membre de la classe de base
+# `Mesg` (override/commonMain/Mesg.kt). Les convertir en propriété produirait soit
+# un « accidental override » du getter JVM hérité, soit un conflit de type avec le
+# champ interne homonyme (cas de `name` : SportMesg.name est un champ FIT, Mesg.name
+# est l'identité du message). Ils gardent l'API fonction.
+_RESERVED_PROP_NAMES = {
+    "num",
+    "fields",
+    "developerFields",
+    "systemTimeOffset",
+    "localNum",
+    "decoderMesgIndex",
+}
+
+
+def _method_meta(
+    name: str,
+    params: list[tuple[str, str, str]],
+    lines: list[str],
+    ret_java: str,
+) -> dict | None:
+    """Décrit la candidature d'une méthode à devenir une moitié de propriété.
+
+    Seuls les accesseurs *scalaires* sont candidats : `getX()` sans paramètre
+    apparié à `setX(v)` à un paramètre. Les champs tableau (`getX()`,
+    `getNumX()`, `getX(i)`, `setX(i, v)`) n'ont pas de setter à un paramètre,
+    donc aucun appariement n'a lieu et ils gardent l'API fonction (DESIGN §4).
+    """
+    if not lines:
+        return None
+    head = lines[0]
+    body_lines = lines[1:-1]
+
+    if name.startswith("get") and len(name) > 3 and not params:
+        # Le type de retour est ce qui suit le dernier ": " de la signature.
+        if "): " not in head:
+            return None
+        prop = name[3].lower() + name[4:]
+        if prop in _RESERVED_PROP_NAMES:
+            return None
+        ret_kt = head.rsplit("): ", 1)[1].rstrip(" {")
+        return {
+            "half": "get",
+            "prop": prop,
+            "type": ret_kt,
+            "body": body_lines,
+        }
+
+    if name.startswith("set") and len(name) > 3 and len(params) == 1 and ret_java == "void":
+        prop = name[3].lower() + name[4:]
+        if prop in _RESERVED_PROP_NAMES:
+            return None
+        return {
+            "half": "set",
+            "prop": prop,
+            "type": params[0][2],
+            "param": params[0][0],
+            "body": body_lines,
+        }
+
+    return None
+
+
+def _pair_properties(members: list[dict]) -> list[dict]:
+    """Fusionne chaque paire (getX, setX) compatible en une propriété `var`.
+
+    Une paire n'est fusionnée que si les deux moitiés portent le même nom de
+    propriété *et* le même type — sinon les deux méthodes sont conservées
+    telles quelles, ce qui est le comportement sûr.
+    """
+    getters = {}
+    setters = {}
+    for idx, member in enumerate(members):
+        meta = member.get("meta")
+        if not meta:
+            continue
+        target = getters if meta["half"] == "get" else setters
+        # Un nom vu deux fois (surcharge) disqualifie la propriété.
+        target[meta["prop"]] = None if meta["prop"] in target else idx
+
+    out: list[dict] = []
+    consumed: set[int] = set()
+    for idx, member in enumerate(members):
+        if idx in consumed:
+            continue
+        meta = member.get("meta")
+        if not meta or meta["half"] != "get":
+            out.append(member)
+            continue
+
+        prop = meta["prop"]
+        get_idx, set_idx = getters.get(prop), setters.get(prop)
+        if get_idx != idx or set_idx is None:
+            out.append(member)
+            continue
+
+        setter = members[set_idx]
+        smeta = setter["meta"]
+        if smeta["type"] != meta["type"]:
+            out.append(member)
+            continue
+
+        modifier = "override var" if member["is_override"] else "var"
+        lines = [f"{modifier} {prop}: {meta['type']}", "    get() {"]
+        lines += [f"    {line}" for line in meta["body"]]
+        lines += ["    }", f"    set({smeta['param']}) {{"]
+        lines += [f"    {line}" for line in smeta["body"]]
+        lines += ["    }"]
+
+        consumed.add(set_idx)
+        out.append({"doc": member["doc"], "lines": lines, "meta": None, "is_override": member["is_override"]})
+
+    return out
+
+
 def _convert_method(
     ret_java: str,
     name: str,
@@ -654,7 +769,14 @@ def _convert_file(path: Path) -> tuple[str, str]:
             lines = _convert_method(
                 m.group(1), m.group(2), params, src[open_idx + 1 : close_idx], ctx, is_override
             )
-            members.append(pending_doc + lines)
+            members.append(
+                {
+                    "doc": pending_doc,
+                    "lines": lines,
+                    "meta": _method_meta(m.group(2), params, lines, m.group(1)),
+                    "is_override": is_override,
+                }
+            )
             pending_doc = []
             i = close_idx + 1
             continue
@@ -670,7 +792,7 @@ def _convert_file(path: Path) -> tuple[str, str]:
         raise ConversionError(f"{path.name}: les deux constructeurs attendus sont absents")
 
     return cls, _emit(path, cls, ifaces, consts, mesg_var, static_lines,
-                      ctor_default, members)
+                      ctor_default, _pair_properties(members))
 
 
 # ---------------------------------------------------------------------------
@@ -685,7 +807,7 @@ def _emit(
     mesg_var: str,
     static_lines: list[str],
     ctor_default: str,
-    members: list[list[str]],
+    members: list[dict],
 ) -> str:
     supertypes = ", ".join(["Mesg"] + ifaces)
     out: list[str] = []
@@ -714,9 +836,9 @@ def _emit(
     out.append(f"    constructor() : super(Factory.createMesg({ctor_default}))")
     out.append("")
     out.append("    constructor(mesg: Mesg?) : super(mesg)")
-    for lines in members:
+    for member in members:
         out.append("")
-        for line in lines:
+        for line in member["doc"] + member["lines"]:
             out.append(f"    {line}" if line else "")
     out.append("}")
     return "\n".join(out) + "\n"

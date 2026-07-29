@@ -57,109 +57,79 @@ open class FileIdMesg : Mesg {
      *
      * @return type
      */
-    fun getType(): File? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return File.fromValue(value)
-    }
-
-    /**
-     * Set type field
-     *
-     * @param type The new type value to be set
-     */
-    fun setType(type: File?) {
-        setFieldValue(0, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var type: File?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return File.fromValue(value)
+        }
+        set(type) {
+            setFieldValue(0, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get manufacturer field
      *
      * @return manufacturer
      */
-    fun getManufacturer(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set manufacturer field
-     *
-     * @param manufacturer The new manufacturer value to be set
-     */
-    fun setManufacturer(manufacturer: Int?) {
-        setFieldValue(1, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var manufacturer: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(manufacturer) {
+            setFieldValue(1, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product field
      *
      * @return product
      */
-    fun getProduct(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product field
-     *
-     * @param product The new product value to be set
-     */
-    fun setProduct(product: Int?) {
-        setFieldValue(2, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var product: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(product) {
+            setFieldValue(2, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get favero_product field
      *
      * @return favero_product
      */
-    fun getFaveroProduct(): Int? {
-        return getFieldIntegerValue(2, 0, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
-
-    /**
-     * Set favero_product field
-     *
-     * @param faveroProduct The new faveroProduct value to be set
-     */
-    fun setFaveroProduct(faveroProduct: Int?) {
-        setFieldValue(2, 0, faveroProduct, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
+    var faveroProduct: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
+        set(faveroProduct) {
+            setFieldValue(2, 0, faveroProduct, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
 
     /**
      * Get garmin_product field
      *
      * @return garmin_product
      */
-    fun getGarminProduct(): Int? {
-        return getFieldIntegerValue(2, 0, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
-
-    /**
-     * Set garmin_product field
-     *
-     * @param garminProduct The new garminProduct value to be set
-     */
-    fun setGarminProduct(garminProduct: Int?) {
-        setFieldValue(2, 0, garminProduct, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
+    var garminProduct: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
+        set(garminProduct) {
+            setFieldValue(2, 0, garminProduct, Profile.SubFields.FILE_ID_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
 
     /**
      * Get serial_number field
      *
      * @return serial_number
      */
-    fun getSerialNumber(): Long? {
-        return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set serial_number field
-     *
-     * @param serialNumber The new serialNumber value to be set
-     */
-    fun setSerialNumber(serialNumber: Long?) {
-        setFieldValue(3, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var serialNumber: Long?
+        get() {
+            return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(serialNumber) {
+            setFieldValue(3, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time_created field
@@ -167,19 +137,13 @@ open class FileIdMesg : Mesg {
      *
      * @return time_created
      */
-    fun getTimeCreated(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set time_created field
-     * Comment: Only set for files that are can be created/erased.
-     *
-     * @param timeCreated The new timeCreated value to be set
-     */
-    fun setTimeCreated(timeCreated: DateTime?) {
-        setFieldValue(4, 0, timeCreated?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timeCreated: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timeCreated) {
+            setFieldValue(4, 0, timeCreated?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get number field
@@ -187,19 +151,13 @@ open class FileIdMesg : Mesg {
      *
      * @return number
      */
-    fun getNumber(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set number field
-     * Comment: Only set for files that are not created/erased.
-     *
-     * @param number The new number value to be set
-     */
-    fun setNumber(number: Int?) {
-        setFieldValue(5, 0, number, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var number: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(number) {
+            setFieldValue(5, 0, number, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product_name field
@@ -207,17 +165,11 @@ open class FileIdMesg : Mesg {
      *
      * @return product_name
      */
-    fun getProductName(): String? {
-        return getFieldStringValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product_name field
-     * Comment: Optional free form string to indicate the devices name or model
-     *
-     * @param productName The new productName value to be set
-     */
-    fun setProductName(productName: String?) {
-        setFieldValue(8, 0, productName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var productName: String?
+        get() {
+            return getFieldStringValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(productName) {
+            setFieldValue(8, 0, productName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

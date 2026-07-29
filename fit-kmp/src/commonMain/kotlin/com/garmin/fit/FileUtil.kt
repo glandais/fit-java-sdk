@@ -90,11 +90,11 @@ object FileUtil {
                         if (mesg.name == "file_id") {
                             val fileIdMesg = FileIdMesg(mesg)
 
-                            if (fileIdMesg.getType() == fromFileType) {
+                            if (fileIdMesg.type == fromFileType) {
                                 fromFiles.add(file)
                             }
 
-                            if (fileIdMesg.getType() == toFileType) {
+                            if (fileIdMesg.type == toFileType) {
                                 toFiles.add(file)
                             }
 

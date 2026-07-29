@@ -383,16 +383,16 @@ class Decode : MesgSource {
                             when (mesg!!.num) {
                                 MesgNum.DEVELOPER_DATA_ID -> {
                                     val devIdMesg = DeveloperDataIdMesg(mesg!!)
-                                    val index: Short = devIdMesg.getDeveloperDataIndex()!!
+                                    val index: Short = devIdMesg.developerDataIndex!!
                                     developerDataIds[index] = devIdMesg
                                     developerFields[index] = HashMap()
                                 }
 
                                 MesgNum.FIELD_DESCRIPTION -> {
                                     val fieldDescriptionMesg = FieldDescriptionMesg(mesg!!)
-                                    val index: Short = fieldDescriptionMesg.getDeveloperDataIndex()!!
+                                    val index: Short = fieldDescriptionMesg.developerDataIndex!!
                                     if (developerFields.containsKey(index)) {
-                                        developerFields[index]!![fieldDescriptionMesg.getFieldDefinitionNumber()!!] = fieldDescriptionMesg
+                                        developerFields[index]!![fieldDescriptionMesg.fieldDefinitionNumber!!] = fieldDescriptionMesg
 
                                         val description = DeveloperFieldDescription(developerDataIds[index]!!, fieldDescriptionMesg)
                                         for (listener in devFieldDescListeners) {

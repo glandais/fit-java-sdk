@@ -28,18 +28,13 @@ open class StressLevelMesg : Mesg {
      *
      * @return stress_level_value
      */
-    fun getStressLevelValue(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set stress_level_value field
-     *
-     * @param stressLevelValue The new stressLevelValue value to be set
-     */
-    fun setStressLevelValue(stressLevelValue: Short?) {
-        setFieldValue(0, 0, stressLevelValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var stressLevelValue: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(stressLevelValue) {
+            setFieldValue(0, 0, stressLevelValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get stress_level_time field
@@ -48,18 +43,11 @@ open class StressLevelMesg : Mesg {
      *
      * @return stress_level_time
      */
-    fun getStressLevelTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set stress_level_time field
-     * Units: s
-     * Comment: Time stress score was calculated
-     *
-     * @param stressLevelTime The new stressLevelTime value to be set
-     */
-    fun setStressLevelTime(stressLevelTime: DateTime?) {
-        setFieldValue(1, 0, stressLevelTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var stressLevelTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(stressLevelTime) {
+            setFieldValue(1, 0, stressLevelTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

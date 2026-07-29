@@ -29,36 +29,25 @@ open class SleepLevelMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sleep_level field
      *
      * @return sleep_level
      */
-    fun getSleepLevel(): SleepLevel? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SleepLevel.fromValue(value)
-    }
-
-    /**
-     * Set sleep_level field
-     *
-     * @param sleepLevel The new sleepLevel value to be set
-     */
-    fun setSleepLevel(sleepLevel: SleepLevel?) {
-        setFieldValue(0, 0, sleepLevel?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sleepLevel: SleepLevel?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SleepLevel.fromValue(value)
+        }
+        set(sleepLevel) {
+            setFieldValue(0, 0, sleepLevel?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

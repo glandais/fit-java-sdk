@@ -32,20 +32,13 @@ open class NmeaSentenceMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Timestamp message was output
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -54,20 +47,13 @@ open class NmeaSentenceMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Fractional part of timestamp, added to timestamp
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sentence field
@@ -75,17 +61,11 @@ open class NmeaSentenceMesg : Mesg {
      *
      * @return sentence
      */
-    fun getSentence(): String? {
-        return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sentence field
-     * Comment: NMEA sentence
-     *
-     * @param sentence The new sentence value to be set
-     */
-    fun setSentence(sentence: String?) {
-        setFieldValue(1, 0, sentence, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sentence: String?
+        get() {
+            return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sentence) {
+            setFieldValue(1, 0, sentence, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

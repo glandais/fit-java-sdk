@@ -236,16 +236,16 @@ class Decoder(bytes: ByteArray) : DecoderBase(bytes) {
         when (mesg.num) {
             MesgNum.DEVELOPER_DATA_ID -> {
                 val devIdMesg = DeveloperDataIdMesg(mesg)
-                val index = devIdMesg.getDeveloperDataIndex()!!
+                val index = devIdMesg.developerDataIndex!!
                 developerDataIds[index] = devIdMesg
                 developerFields[index] = HashMap()
             }
 
             MesgNum.FIELD_DESCRIPTION -> {
                 val fieldDescriptionMesg = FieldDescriptionMesg(mesg)
-                val index = fieldDescriptionMesg.getDeveloperDataIndex()!!
+                val index = fieldDescriptionMesg.developerDataIndex!!
                 if (developerFields.containsKey(index)) {
-                    developerFields[index]!![fieldDescriptionMesg.getFieldDefinitionNumber()!!] = fieldDescriptionMesg
+                    developerFields[index]!![fieldDescriptionMesg.fieldDefinitionNumber!!] = fieldDescriptionMesg
 
                     val description = DeveloperFieldDescription(developerDataIds[index]!!, fieldDescriptionMesg)
                     for (listener in devFieldDescListeners) {

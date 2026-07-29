@@ -34,18 +34,13 @@ open class DiveGasMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get helium_content field
@@ -53,19 +48,13 @@ open class DiveGasMesg : Mesg {
      *
      * @return helium_content
      */
-    fun getHeliumContent(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set helium_content field
-     * Units: percent
-     *
-     * @param heliumContent The new heliumContent value to be set
-     */
-    fun setHeliumContent(heliumContent: Short?) {
-        setFieldValue(0, 0, heliumContent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heliumContent: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(heliumContent) {
+            setFieldValue(0, 0, heliumContent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get oxygen_content field
@@ -73,55 +62,39 @@ open class DiveGasMesg : Mesg {
      *
      * @return oxygen_content
      */
-    fun getOxygenContent(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set oxygen_content field
-     * Units: percent
-     *
-     * @param oxygenContent The new oxygenContent value to be set
-     */
-    fun setOxygenContent(oxygenContent: Short?) {
-        setFieldValue(1, 0, oxygenContent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var oxygenContent: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(oxygenContent) {
+            setFieldValue(1, 0, oxygenContent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get status field
      *
      * @return status
      */
-    fun getStatus(): DiveGasStatus? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DiveGasStatus.fromValue(value)
-    }
-
-    /**
-     * Set status field
-     *
-     * @param status The new status value to be set
-     */
-    fun setStatus(status: DiveGasStatus?) {
-        setFieldValue(2, 0, status?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var status: DiveGasStatus?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DiveGasStatus.fromValue(value)
+        }
+        set(status) {
+            setFieldValue(2, 0, status?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get mode field
      *
      * @return mode
      */
-    fun getMode(): DiveGasMode? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DiveGasMode.fromValue(value)
-    }
-
-    /**
-     * Set mode field
-     *
-     * @param mode The new mode value to be set
-     */
-    fun setMode(mode: DiveGasMode?) {
-        setFieldValue(3, 0, mode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mode: DiveGasMode?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DiveGasMode.fromValue(value)
+        }
+        set(mode) {
+            setFieldValue(3, 0, mode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

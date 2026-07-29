@@ -32,20 +32,13 @@ open class MonitoringHrDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Must align to logging interval, for example, time must be 00:00:00 for daily log.
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get resting_heart_rate field
@@ -54,20 +47,13 @@ open class MonitoringHrDataMesg : Mesg {
      *
      * @return resting_heart_rate
      */
-    fun getRestingHeartRate(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set resting_heart_rate field
-     * Units: bpm
-     * Comment: 7-day rolling average
-     *
-     * @param restingHeartRate The new restingHeartRate value to be set
-     */
-    fun setRestingHeartRate(restingHeartRate: Short?) {
-        setFieldValue(0, 0, restingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var restingHeartRate: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(restingHeartRate) {
+            setFieldValue(0, 0, restingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get current_day_resting_heart_rate field
@@ -76,18 +62,11 @@ open class MonitoringHrDataMesg : Mesg {
      *
      * @return current_day_resting_heart_rate
      */
-    fun getCurrentDayRestingHeartRate(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set current_day_resting_heart_rate field
-     * Units: bpm
-     * Comment: RHR for today only. (Feeds into 7-day average)
-     *
-     * @param currentDayRestingHeartRate The new currentDayRestingHeartRate value to be set
-     */
-    fun setCurrentDayRestingHeartRate(currentDayRestingHeartRate: Short?) {
-        setFieldValue(1, 0, currentDayRestingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var currentDayRestingHeartRate: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(currentDayRestingHeartRate) {
+            setFieldValue(1, 0, currentDayRestingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

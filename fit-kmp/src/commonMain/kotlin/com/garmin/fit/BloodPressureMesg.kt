@@ -47,19 +47,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get systolic_pressure field
@@ -67,19 +61,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return systolic_pressure
      */
-    fun getSystolicPressure(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set systolic_pressure field
-     * Units: mmHg
-     *
-     * @param systolicPressure The new systolicPressure value to be set
-     */
-    fun setSystolicPressure(systolicPressure: Int?) {
-        setFieldValue(0, 0, systolicPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var systolicPressure: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(systolicPressure) {
+            setFieldValue(0, 0, systolicPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get diastolic_pressure field
@@ -87,19 +75,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return diastolic_pressure
      */
-    fun getDiastolicPressure(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set diastolic_pressure field
-     * Units: mmHg
-     *
-     * @param diastolicPressure The new diastolicPressure value to be set
-     */
-    fun setDiastolicPressure(diastolicPressure: Int?) {
-        setFieldValue(1, 0, diastolicPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var diastolicPressure: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(diastolicPressure) {
+            setFieldValue(1, 0, diastolicPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get mean_arterial_pressure field
@@ -107,19 +89,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return mean_arterial_pressure
      */
-    fun getMeanArterialPressure(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set mean_arterial_pressure field
-     * Units: mmHg
-     *
-     * @param meanArterialPressure The new meanArterialPressure value to be set
-     */
-    fun setMeanArterialPressure(meanArterialPressure: Int?) {
-        setFieldValue(2, 0, meanArterialPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var meanArterialPressure: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(meanArterialPressure) {
+            setFieldValue(2, 0, meanArterialPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get map_3_sample_mean field
@@ -127,19 +103,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return map_3_sample_mean
      */
-    fun getMap3SampleMean(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set map_3_sample_mean field
-     * Units: mmHg
-     *
-     * @param map3SampleMean The new map3SampleMean value to be set
-     */
-    fun setMap3SampleMean(map3SampleMean: Int?) {
-        setFieldValue(3, 0, map3SampleMean, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var map3SampleMean: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(map3SampleMean) {
+            setFieldValue(3, 0, map3SampleMean, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get map_morning_values field
@@ -147,19 +117,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return map_morning_values
      */
-    fun getMapMorningValues(): Int? {
-        return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set map_morning_values field
-     * Units: mmHg
-     *
-     * @param mapMorningValues The new mapMorningValues value to be set
-     */
-    fun setMapMorningValues(mapMorningValues: Int?) {
-        setFieldValue(4, 0, mapMorningValues, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mapMorningValues: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(mapMorningValues) {
+            setFieldValue(4, 0, mapMorningValues, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get map_evening_values field
@@ -167,19 +131,13 @@ open class BloodPressureMesg : Mesg {
      *
      * @return map_evening_values
      */
-    fun getMapEveningValues(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set map_evening_values field
-     * Units: mmHg
-     *
-     * @param mapEveningValues The new mapEveningValues value to be set
-     */
-    fun setMapEveningValues(mapEveningValues: Int?) {
-        setFieldValue(5, 0, mapEveningValues, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mapEveningValues: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(mapEveningValues) {
+            setFieldValue(5, 0, mapEveningValues, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get heart_rate field
@@ -187,57 +145,41 @@ open class BloodPressureMesg : Mesg {
      *
      * @return heart_rate
      */
-    fun getHeartRate(): Short? {
-        return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set heart_rate field
-     * Units: bpm
-     *
-     * @param heartRate The new heartRate value to be set
-     */
-    fun setHeartRate(heartRate: Short?) {
-        setFieldValue(6, 0, heartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heartRate: Short?
+        get() {
+            return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(heartRate) {
+            setFieldValue(6, 0, heartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get heart_rate_type field
      *
      * @return heart_rate_type
      */
-    fun getHeartRateType(): HrType? {
-        val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return HrType.fromValue(value)
-    }
-
-    /**
-     * Set heart_rate_type field
-     *
-     * @param heartRateType The new heartRateType value to be set
-     */
-    fun setHeartRateType(heartRateType: HrType?) {
-        setFieldValue(7, 0, heartRateType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heartRateType: HrType?
+        get() {
+            val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return HrType.fromValue(value)
+        }
+        set(heartRateType) {
+            setFieldValue(7, 0, heartRateType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get status field
      *
      * @return status
      */
-    fun getStatus(): BpStatus? {
-        val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return BpStatus.fromValue(value)
-    }
-
-    /**
-     * Set status field
-     *
-     * @param status The new status value to be set
-     */
-    fun setStatus(status: BpStatus?) {
-        setFieldValue(8, 0, status?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var status: BpStatus?
+        get() {
+            val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return BpStatus.fromValue(value)
+        }
+        set(status) {
+            setFieldValue(8, 0, status?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get user_profile_index field
@@ -245,17 +187,11 @@ open class BloodPressureMesg : Mesg {
      *
      * @return user_profile_index
      */
-    fun getUserProfileIndex(): Int? {
-        return getFieldIntegerValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set user_profile_index field
-     * Comment: Associates this blood pressure message to a user. This corresponds to the index of the user profile message in the blood pressure file.
-     *
-     * @param userProfileIndex The new userProfileIndex value to be set
-     */
-    fun setUserProfileIndex(userProfileIndex: Int?) {
-        setFieldValue(9, 0, userProfileIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var userProfileIndex: Int?
+        get() {
+            return getFieldIntegerValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(userProfileIndex) {
+            setFieldValue(9, 0, userProfileIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

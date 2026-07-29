@@ -15,7 +15,7 @@ class DeveloperFieldDescription internal constructor(
      * @return 0xFFFF if there is no version encoded in the file
      */
     fun getApplicationVersion(): Long {
-        val applicationVer = developerId.getApplicationVersion()
+        val applicationVer = developerId.applicationVersion
         if (applicationVer == null) {
             return 0xFFFFL
         }
@@ -52,7 +52,7 @@ class DeveloperFieldDescription internal constructor(
      * @return Field Definition Number
      */
     fun getFieldDefinitionNumber(): Short {
-        val num = fieldDescription.getFieldDefinitionNumber()
+        val num = fieldDescription.fieldDefinitionNumber
         if (num == null) {
             return 0xFF.toShort()
         }

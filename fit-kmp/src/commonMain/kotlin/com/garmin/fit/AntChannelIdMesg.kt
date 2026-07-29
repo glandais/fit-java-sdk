@@ -34,88 +34,63 @@ open class AntChannelIdMesg : Mesg {
      *
      * @return channel_number
      */
-    fun getChannelNumber(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set channel_number field
-     *
-     * @param channelNumber The new channelNumber value to be set
-     */
-    fun setChannelNumber(channelNumber: Short?) {
-        setFieldValue(0, 0, channelNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var channelNumber: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(channelNumber) {
+            setFieldValue(0, 0, channelNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_type field
      *
      * @return device_type
      */
-    fun getDeviceType(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_type field
-     *
-     * @param deviceType The new deviceType value to be set
-     */
-    fun setDeviceType(deviceType: Short?) {
-        setFieldValue(1, 0, deviceType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceType: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceType) {
+            setFieldValue(1, 0, deviceType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_number field
      *
      * @return device_number
      */
-    fun getDeviceNumber(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_number field
-     *
-     * @param deviceNumber The new deviceNumber value to be set
-     */
-    fun setDeviceNumber(deviceNumber: Int?) {
-        setFieldValue(2, 0, deviceNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceNumber: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceNumber) {
+            setFieldValue(2, 0, deviceNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get transmission_type field
      *
      * @return transmission_type
      */
-    fun getTransmissionType(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set transmission_type field
-     *
-     * @param transmissionType The new transmissionType value to be set
-     */
-    fun setTransmissionType(transmissionType: Short?) {
-        setFieldValue(3, 0, transmissionType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var transmissionType: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(transmissionType) {
+            setFieldValue(3, 0, transmissionType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_index field
      *
      * @return device_index
      */
-    fun getDeviceIndex(): Short? {
-        return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_index field
-     *
-     * @param deviceIndex The new deviceIndex value to be set
-     */
-    fun setDeviceIndex(deviceIndex: Short?) {
-        setFieldValue(4, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceIndex: Short?
+        get() {
+            return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceIndex) {
+            setFieldValue(4, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

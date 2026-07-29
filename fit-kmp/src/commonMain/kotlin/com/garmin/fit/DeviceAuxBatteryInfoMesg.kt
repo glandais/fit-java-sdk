@@ -34,36 +34,26 @@ open class DeviceAuxBatteryInfoMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_index field
      *
      * @return device_index
      */
-    fun getDeviceIndex(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_index field
-     *
-     * @param deviceIndex The new deviceIndex value to be set
-     */
-    fun setDeviceIndex(deviceIndex: Short?) {
-        setFieldValue(0, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceIndex: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceIndex) {
+            setFieldValue(0, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get battery_voltage field
@@ -71,53 +61,37 @@ open class DeviceAuxBatteryInfoMesg : Mesg {
      *
      * @return battery_voltage
      */
-    fun getBatteryVoltage(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set battery_voltage field
-     * Units: V
-     *
-     * @param batteryVoltage The new batteryVoltage value to be set
-     */
-    fun setBatteryVoltage(batteryVoltage: Float?) {
-        setFieldValue(1, 0, batteryVoltage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var batteryVoltage: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(batteryVoltage) {
+            setFieldValue(1, 0, batteryVoltage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get battery_status field
      *
      * @return battery_status
      */
-    fun getBatteryStatus(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set battery_status field
-     *
-     * @param batteryStatus The new batteryStatus value to be set
-     */
-    fun setBatteryStatus(batteryStatus: Short?) {
-        setFieldValue(2, 0, batteryStatus, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var batteryStatus: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(batteryStatus) {
+            setFieldValue(2, 0, batteryStatus, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get battery_identifier field
      *
      * @return battery_identifier
      */
-    fun getBatteryIdentifier(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set battery_identifier field
-     *
-     * @param batteryIdentifier The new batteryIdentifier value to be set
-     */
-    fun setBatteryIdentifier(batteryIdentifier: Short?) {
-        setFieldValue(3, 0, batteryIdentifier, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var batteryIdentifier: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(batteryIdentifier) {
+            setFieldValue(3, 0, batteryIdentifier, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -59,55 +59,39 @@ open class TimeInZoneMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get reference_mesg field
      *
      * @return reference_mesg
      */
-    fun getReferenceMesg(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set reference_mesg field
-     *
-     * @param referenceMesg The new referenceMesg value to be set
-     */
-    fun setReferenceMesg(referenceMesg: Int?) {
-        setFieldValue(0, 0, referenceMesg, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var referenceMesg: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(referenceMesg) {
+            setFieldValue(0, 0, referenceMesg, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get reference_index field
      *
      * @return reference_index
      */
-    fun getReferenceIndex(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set reference_index field
-     *
-     * @param referenceIndex The new referenceIndex value to be set
-     */
-    fun setReferenceIndex(referenceIndex: Int?) {
-        setFieldValue(1, 0, referenceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var referenceIndex: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(referenceIndex) {
+            setFieldValue(1, 0, referenceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getTimeInHrZone(): Array<Float?>? {
         return getFieldFloatValues(2, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -378,108 +362,78 @@ open class TimeInZoneMesg : Mesg {
      *
      * @return hr_calc_type
      */
-    fun getHrCalcType(): HrZoneCalc? {
-        val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return HrZoneCalc.fromValue(value)
-    }
-
-    /**
-     * Set hr_calc_type field
-     *
-     * @param hrCalcType The new hrCalcType value to be set
-     */
-    fun setHrCalcType(hrCalcType: HrZoneCalc?) {
-        setFieldValue(10, 0, hrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hrCalcType: HrZoneCalc?
+        get() {
+            val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return HrZoneCalc.fromValue(value)
+        }
+        set(hrCalcType) {
+            setFieldValue(10, 0, hrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_heart_rate field
      *
      * @return max_heart_rate
      */
-    fun getMaxHeartRate(): Short? {
-        return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_heart_rate field
-     *
-     * @param maxHeartRate The new maxHeartRate value to be set
-     */
-    fun setMaxHeartRate(maxHeartRate: Short?) {
-        setFieldValue(11, 0, maxHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxHeartRate: Short?
+        get() {
+            return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxHeartRate) {
+            setFieldValue(11, 0, maxHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get resting_heart_rate field
      *
      * @return resting_heart_rate
      */
-    fun getRestingHeartRate(): Short? {
-        return getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set resting_heart_rate field
-     *
-     * @param restingHeartRate The new restingHeartRate value to be set
-     */
-    fun setRestingHeartRate(restingHeartRate: Short?) {
-        setFieldValue(12, 0, restingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var restingHeartRate: Short?
+        get() {
+            return getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(restingHeartRate) {
+            setFieldValue(12, 0, restingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get threshold_heart_rate field
      *
      * @return threshold_heart_rate
      */
-    fun getThresholdHeartRate(): Short? {
-        return getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set threshold_heart_rate field
-     *
-     * @param thresholdHeartRate The new thresholdHeartRate value to be set
-     */
-    fun setThresholdHeartRate(thresholdHeartRate: Short?) {
-        setFieldValue(13, 0, thresholdHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var thresholdHeartRate: Short?
+        get() {
+            return getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(thresholdHeartRate) {
+            setFieldValue(13, 0, thresholdHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pwr_calc_type field
      *
      * @return pwr_calc_type
      */
-    fun getPwrCalcType(): PwrZoneCalc? {
-        val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return PwrZoneCalc.fromValue(value)
-    }
-
-    /**
-     * Set pwr_calc_type field
-     *
-     * @param pwrCalcType The new pwrCalcType value to be set
-     */
-    fun setPwrCalcType(pwrCalcType: PwrZoneCalc?) {
-        setFieldValue(14, 0, pwrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var pwrCalcType: PwrZoneCalc?
+        get() {
+            val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return PwrZoneCalc.fromValue(value)
+        }
+        set(pwrCalcType) {
+            setFieldValue(14, 0, pwrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get functional_threshold_power field
      *
      * @return functional_threshold_power
      */
-    fun getFunctionalThresholdPower(): Int? {
-        return getFieldIntegerValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set functional_threshold_power field
-     *
-     * @param functionalThresholdPower The new functionalThresholdPower value to be set
-     */
-    fun setFunctionalThresholdPower(functionalThresholdPower: Int?) {
-        setFieldValue(15, 0, functionalThresholdPower, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var functionalThresholdPower: Int?
+        get() {
+            return getFieldIntegerValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(functionalThresholdPower) {
+            setFieldValue(15, 0, functionalThresholdPower, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

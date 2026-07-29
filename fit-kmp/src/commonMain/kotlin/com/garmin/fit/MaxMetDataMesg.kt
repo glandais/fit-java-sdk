@@ -41,19 +41,13 @@ open class MaxMetDataMesg : Mesg {
      *
      * @return update_time
      */
-    fun getUpdateTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set update_time field
-     * Comment: Time maxMET and vo2 were calculated
-     *
-     * @param updateTime The new updateTime value to be set
-     */
-    fun setUpdateTime(updateTime: DateTime?) {
-        setFieldValue(0, 0, updateTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var updateTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(updateTime) {
+            setFieldValue(0, 0, updateTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get vo2_max field
@@ -61,76 +55,55 @@ open class MaxMetDataMesg : Mesg {
      *
      * @return vo2_max
      */
-    fun getVo2Max(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set vo2_max field
-     * Units: mL/kg/min
-     *
-     * @param vo2Max The new vo2Max value to be set
-     */
-    fun setVo2Max(vo2Max: Float?) {
-        setFieldValue(2, 0, vo2Max, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var vo2Max: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(vo2Max) {
+            setFieldValue(2, 0, vo2Max, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport field
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(5, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(5, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sub_sport field
      *
      * @return sub_sport
      */
-    fun getSubSport(): SubSport? {
-        val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SubSport.fromValue(value)
-    }
-
-    /**
-     * Set sub_sport field
-     *
-     * @param subSport The new subSport value to be set
-     */
-    fun setSubSport(subSport: SubSport?) {
-        setFieldValue(6, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var subSport: SubSport?
+        get() {
+            val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SubSport.fromValue(value)
+        }
+        set(subSport) {
+            setFieldValue(6, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_met_category field
      *
      * @return max_met_category
      */
-    fun getMaxMetCategory(): MaxMetCategory? {
-        val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return MaxMetCategory.fromValue(value)
-    }
-
-    /**
-     * Set max_met_category field
-     *
-     * @param maxMetCategory The new maxMetCategory value to be set
-     */
-    fun setMaxMetCategory(maxMetCategory: MaxMetCategory?) {
-        setFieldValue(8, 0, maxMetCategory?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxMetCategory: MaxMetCategory?
+        get() {
+            val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return MaxMetCategory.fromValue(value)
+        }
+        set(maxMetCategory) {
+            setFieldValue(8, 0, maxMetCategory?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get calibrated_data field
@@ -138,20 +111,14 @@ open class MaxMetDataMesg : Mesg {
      *
      * @return calibrated_data
      */
-    fun getCalibratedData(): Bool? {
-        val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set calibrated_data field
-     * Comment: Indicates if calibrated data was used in the calculation
-     *
-     * @param calibratedData The new calibratedData value to be set
-     */
-    fun setCalibratedData(calibratedData: Bool?) {
-        setFieldValue(9, 0, calibratedData?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var calibratedData: Bool?
+        get() {
+            val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(calibratedData) {
+            setFieldValue(9, 0, calibratedData?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hr_source field
@@ -159,20 +126,14 @@ open class MaxMetDataMesg : Mesg {
      *
      * @return hr_source
      */
-    fun getHrSource(): MaxMetHeartRateSource? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return MaxMetHeartRateSource.fromValue(value)
-    }
-
-    /**
-     * Set hr_source field
-     * Comment: Indicates if the estimate was obtained using a chest strap or wrist heart rate
-     *
-     * @param hrSource The new hrSource value to be set
-     */
-    fun setHrSource(hrSource: MaxMetHeartRateSource?) {
-        setFieldValue(12, 0, hrSource?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hrSource: MaxMetHeartRateSource?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return MaxMetHeartRateSource.fromValue(value)
+        }
+        set(hrSource) {
+            setFieldValue(12, 0, hrSource?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get speed_source field
@@ -180,18 +141,12 @@ open class MaxMetDataMesg : Mesg {
      *
      * @return speed_source
      */
-    fun getSpeedSource(): MaxMetSpeedSource? {
-        val value = getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return MaxMetSpeedSource.fromValue(value)
-    }
-
-    /**
-     * Set speed_source field
-     * Comment: Indidcates if the estimate was obtained using onboard GPS or connected GPS
-     *
-     * @param speedSource The new speedSource value to be set
-     */
-    fun setSpeedSource(speedSource: MaxMetSpeedSource?) {
-        setFieldValue(13, 0, speedSource?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var speedSource: MaxMetSpeedSource?
+        get() {
+            val value = getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return MaxMetSpeedSource.fromValue(value)
+        }
+        set(speedSource) {
+            setFieldValue(13, 0, speedSource?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

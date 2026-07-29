@@ -40,20 +40,13 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Whole second part of UTC timestamp at the time the system timestamp was recorded.
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fractional_timestamp field
@@ -62,20 +55,13 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return fractional_timestamp
      */
-    fun getFractionalTimestamp(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fractional_timestamp field
-     * Units: s
-     * Comment: Fractional part of the UTC timestamp at the time the system timestamp was recorded.
-     *
-     * @param fractionalTimestamp The new fractionalTimestamp value to be set
-     */
-    fun setFractionalTimestamp(fractionalTimestamp: Float?) {
-        setFieldValue(0, 0, fractionalTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fractionalTimestamp: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fractionalTimestamp) {
+            setFieldValue(0, 0, fractionalTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get system_timestamp field
@@ -84,20 +70,13 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return system_timestamp
      */
-    fun getSystemTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set system_timestamp field
-     * Units: s
-     * Comment: Whole second part of the system timestamp
-     *
-     * @param systemTimestamp The new systemTimestamp value to be set
-     */
-    fun setSystemTimestamp(systemTimestamp: DateTime?) {
-        setFieldValue(1, 0, systemTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var systemTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(systemTimestamp) {
+            setFieldValue(1, 0, systemTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fractional_system_timestamp field
@@ -106,20 +85,13 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return fractional_system_timestamp
      */
-    fun getFractionalSystemTimestamp(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fractional_system_timestamp field
-     * Units: s
-     * Comment: Fractional part of the system timestamp
-     *
-     * @param fractionalSystemTimestamp The new fractionalSystemTimestamp value to be set
-     */
-    fun setFractionalSystemTimestamp(fractionalSystemTimestamp: Float?) {
-        setFieldValue(2, 0, fractionalSystemTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fractionalSystemTimestamp: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fractionalSystemTimestamp) {
+            setFieldValue(2, 0, fractionalSystemTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get local_timestamp field
@@ -128,20 +100,13 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return local_timestamp
      */
-    fun getLocalTimestamp(): Long? {
-        return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set local_timestamp field
-     * Units: s
-     * Comment: timestamp epoch expressed in local time used to convert timestamps to local time
-     *
-     * @param localTimestamp The new localTimestamp value to be set
-     */
-    fun setLocalTimestamp(localTimestamp: Long?) {
-        setFieldValue(3, 0, localTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var localTimestamp: Long?
+        get() {
+            return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(localTimestamp) {
+            setFieldValue(3, 0, localTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -150,20 +115,13 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond part of the UTC timestamp at the time the system timestamp was recorded.
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(4, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(4, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get system_timestamp_ms field
@@ -172,18 +130,11 @@ open class TimestampCorrelationMesg : Mesg {
      *
      * @return system_timestamp_ms
      */
-    fun getSystemTimestampMs(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set system_timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond part of the system timestamp
-     *
-     * @param systemTimestampMs The new systemTimestampMs value to be set
-     */
-    fun setSystemTimestampMs(systemTimestampMs: Int?) {
-        setFieldValue(5, 0, systemTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var systemTimestampMs: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(systemTimestampMs) {
+            setFieldValue(5, 0, systemTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

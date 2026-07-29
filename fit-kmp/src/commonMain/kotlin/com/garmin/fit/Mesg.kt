@@ -10,9 +10,26 @@
 package com.garmin.fit
 
 open class Mesg {
-    internal var name: String = "unknown"
+    // Identité du message (« record », « course »…). Stockée à part de la propriété
+    // publique `name` : certains mesgs générés (CourseMesg, SportMesg…) ont un *champ FIT*
+    // nommé `name` et redéfinissent la propriété ; sans ce découplage, écrire
+    // `CourseMesg().name = "x"` renommerait silencieusement le message au lieu
+    // d'alimenter le champ.
+    internal var mesgName: String = "unknown"
     internal var num: Int = MesgNum.INVALID
-    internal var localNum: Int = 0
+    private var _localNum: Int = 0
+
+    // Propriété publique (et non getLocalNum()/setLocalNum()) : sur JVM une paire
+    // de fonctions entrerait en collision de signature avec l'accesseur généré.
+    var localNum: Int
+        get() = _localNum
+        set(value) {
+            if (value >= Fit.MAX_LOCAL_MESGS) {
+                throw FitRuntimeException("Invalid local message number " + value
+                        + ".  Local message number must be < " + Fit.MAX_LOCAL_MESGS + ".")
+            }
+            _localNum = value
+        }
     internal val fields: ArrayList<Field> = ArrayList()
     internal val developerFields: ArrayList<DeveloperField> = ArrayList()
     internal var systemTimeOffset: Long = 0
@@ -23,7 +40,7 @@ open class Mesg {
             return
         }
 
-        this.name = mesg.name
+        this.mesgName = mesg.mesgName
         this.num = mesg.num
         this.localNum = mesg.localNum
         this.systemTimeOffset = mesg.systemTimeOffset
@@ -44,7 +61,7 @@ open class Mesg {
 
     // protected in Java; internal so the generated mesg companions can call it (DESIGN.md §4.8).
     internal constructor(name: String, num: Int) {
-        this.name = name
+        this.mesgName = name
         this.num = num
     }
 
@@ -101,11 +118,12 @@ open class Mesg {
         }
     }
 
-    // open + retour nullable : les mesgs générés ayant un champ "name" (ex. PowerZoneMesg)
-    // redéfinissent getName() avec une valeur de champ potentiellement nulle (comme en Java).
-    open fun getName(): String? {
-        return name
-    }
+    // `open val` et non `fun getName()` : les mesgs générés ayant un champ FIT "name"
+    // (CourseMesg, SportMesg…) la redéfinissent en `override var` — Kotlin autorise
+    // d'élargir un `val` en `var`, l'inverse d'une paire de fonctions qui entrerait en
+    // collision de signature sur JVM.
+    open val name: String?
+        get() = mesgName
 
     fun getNum(): Int {
         return num
@@ -1156,19 +1174,6 @@ open class Mesg {
         dateTime.convertSystemTimeToUTC(systemTimeOffset)
 
         return dateTime
-    }
-
-    fun getLocalNum(): Int {
-        return localNum
-    }
-
-    fun setLocalNum(localNum: Int) {
-        if (localNum >= Fit.MAX_LOCAL_MESGS) {
-            throw FitRuntimeException("Invalid local message number " + localNum
-                    + ".  Local message number must be < " + Fit.MAX_LOCAL_MESGS + ".")
-        }
-
-        this.localNum = localNum
     }
 
     // protected in Java; internal because Decode calls it.

@@ -230,7 +230,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
             if (mesg != null) {
                 broadcastMesgs[activityType] = mesg
 
-                if (mesg.getActivityType() == ActivityType.ALL) {
+                if (mesg.activityType == ActivityType.ALL) {
                     allActivityBroadcastMesg = mesg
                 }
             }
@@ -239,7 +239,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
             // One message at or before the end of the interval is retained to initialize the start of the next interval.
             i = 0
             while (i < mesgList.size) {
-                if (mesgList[i].getTimestamp()!!.getTimestamp() > endTimestamp) {
+                if (mesgList[i].timestamp!!.getTimestamp() > endTimestamp) {
                     break
                 }
 
@@ -257,15 +257,15 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
 
             // Compute totals for all activity.
             allActivityTotals = MonitoringMesg()
-            allActivityTotals.setTimestamp(mesg.getTimestamp())
-            allActivityTotals.setLocalTimestamp(mesg.getLocalTimestamp())
-            allActivityTotals.setActivityType(ActivityType.ALL)
-            allActivityTotals.setDuration(mesg.getDuration())
+            allActivityTotals.timestamp = mesg.timestamp
+            allActivityTotals.localTimestamp = mesg.localTimestamp
+            allActivityTotals.activityType = ActivityType.ALL
+            allActivityTotals.duration = mesg.duration
 
             for (activityType in sortedActivityTypes) {
                 mesg = broadcastMesgs[activityType]!!
 
-                if (mesg.getActivityType() != ActivityType.ALL) {
+                if (mesg.activityType != ActivityType.ALL) {
                     for (fieldName in accumulatedFieldNames) {
                         if (mesg.getFieldDoubleValue(fieldName) != null) {
                             if (allActivityTotals.getFieldDoubleValue(fieldName) == null) {
@@ -296,16 +296,14 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
             }
 
             // Compute total calories if not logged by device.
-            if (allActivityTotals.getCalories() == null) {
-                if (infoMesg!!.getRestingMetabolicRate() != null) {
-                    allActivityTotals.setCalories(
-                        (allActivityTotals.getDuration()!! * infoMesg!!.getRestingMetabolicRate()!! / (24 * 3600)).toInt()
-                    )
+            if (allActivityTotals.calories == null) {
+                if (infoMesg!!.restingMetabolicRate != null) {
+                    allActivityTotals.calories =
+                        (allActivityTotals.duration!! * infoMesg!!.restingMetabolicRate!! / (24 * 3600)).toInt()
 
-                    if (allActivityTotals.getActiveCalories() != null) {
-                        allActivityTotals.setCalories(
-                            allActivityTotals.getCalories()!! + allActivityTotals.getActiveCalories()!!
-                        )
+                    if (allActivityTotals.activeCalories != null) {
+                        allActivityTotals.calories =
+                            allActivityTotals.calories!! + allActivityTotals.activeCalories!!
                     }
                 }
             }
@@ -359,14 +357,14 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         val localTimestamp: LocalDateTime
 
         infoMesg = mesg
-        utcTimestamp = infoMesg!!.getTimestamp()!!
+        utcTimestamp = infoMesg!!.timestamp!!
         mesgTimestamp = utcTimestamp.getTimestamp()
         utcTimestamp.convertSystemTimeToUTC(systemToUtcTimestampOffset)
-        infoMesg!!.setTimestamp(utcTimestamp)
+        infoMesg!!.timestamp = utcTimestamp
         lastTimestamp = utcTimestamp.getTimestamp()
 
-        if (infoMesg!!.getLocalTimestamp() != null) {
-            localTimestamp = LocalDateTime(infoMesg!!.getLocalTimestamp()!!)
+        if (infoMesg!!.localTimestamp != null) {
+            localTimestamp = LocalDateTime(infoMesg!!.localTimestamp!!)
             localTimestamp.convertSystemTimeToLocal(systemToLocalTimestampOffset)
             localTimeOffset = localTimestamp.getTimestamp() - lastTimestamp
         } else {
@@ -397,19 +395,19 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         nextMesg = extract(mesg)
 
         // If activity type is not specified then the data applies to all.
-        if (nextMesg.getActivityType() == null) {
-            nextMesg.setActivityType(ActivityType.ALL)
+        if (nextMesg.activityType == null) {
+            nextMesg.activityType = ActivityType.ALL
         }
 
         // Ignore messages with no timestamp field (invalid).
-        if (nextMesg.getTimestamp() == null) {
+        if (nextMesg.timestamp == null) {
             return
         }
 
         // Wait for the next message with a different timestamp before
         // processing the last message because there can be multiple messages
         // (activity types) with the same timestamp.
-        if (lastTimestamp != nextMesg.getTimestamp()!!.getTimestamp()) {
+        if (lastTimestamp != nextMesg.timestamp!!.getTimestamp()) {
             // If we have all the messages for this interval.
             if ((lastTimestamp - modTimestampToLocalInterval(startTimestamp)) >= interval) {
                 broadcastCompleteIntervals()
@@ -418,25 +416,24 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
 
         // If the current activity type is logged then accumulated values for other activity types have not changed last since message.
         // This is an implied start for other activity types so insert a message with last known accumulated values.
-        if (mesg.getCurrentActivityTypeIntensity() != null) {
-            lastMesg = lastMesgs[nextMesg.getActivityType()!!]
+        if (mesg.currentActivityTypeIntensity != null) {
+            lastMesg = lastMesgs[nextMesg.activityType!!]
 
             if (lastMesg == null) {
                 intervalMesgList = ArrayList()
                 intervalMesg = MonitoringMesg()
-                intervalMesg.setActivityType(nextMesg.getActivityType())
-                intervalMesg.setTimestamp(
-                    DateTime(nextMesg.getTimestamp()!!.getTimestamp() - nextMesg.getActiveTime()!!.toLong())
-                )
+                intervalMesg.activityType = nextMesg.activityType
+                intervalMesg.timestamp =
+                    DateTime(nextMesg.timestamp!!.getTimestamp() - nextMesg.activeTime!!.toLong())
                 intervalMesgList.add(intervalMesg)
-                intervalMesgs[intervalMesg.getActivityType()!!] = intervalMesgList
+                intervalMesgs[intervalMesg.activityType!!] = intervalMesgList
             }
 
             for (otherActivityTypelastMesg in lastMesgs.keys.sorted().map { lastMesgs[it]!! }) {
-                if (otherActivityTypelastMesg.getActivityType() != nextMesg.getActivityType()) {
+                if (otherActivityTypelastMesg.activityType != nextMesg.activityType) {
                     val startMesg = MonitoringMesg()
-                    startMesg.setTimestamp(nextMesg.getTimestamp())
-                    startMesg.setActivityType(otherActivityTypelastMesg.getActivityType())
+                    startMesg.timestamp = nextMesg.timestamp
+                    startMesg.activityType = otherActivityTypelastMesg.activityType
 
                     for (fieldName in accumulatedFieldNames) {
                         if (otherActivityTypelastMesg.getField(fieldName) != null) {
@@ -444,28 +441,28 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
                         }
                     }
 
-                    intervalMesgs[startMesg.getActivityType()!!]!!.add(startMesg)
+                    intervalMesgs[startMesg.activityType!!]!!.add(startMesg)
                 }
             }
         }
 
         // Save the last message for decoding of accumulated fields.
-        lastTimestamp = nextMesg.getTimestamp()!!.getTimestamp()
-        lastMesg = lastMesgs[nextMesg.getActivityType()!!]
+        lastTimestamp = nextMesg.timestamp!!.getTimestamp()
+        lastMesg = lastMesgs[nextMesg.activityType!!]
         if (lastMesg == null) {
             lastMesg = MonitoringMesg()
-            lastMesgs[nextMesg.getActivityType()!!] = lastMesg
+            lastMesgs[nextMesg.activityType!!] = lastMesg
         }
         setFieldsFromMesg(lastMesg, nextMesg)
 
         // Add the next message to the list of messages in this interval.
         // Merge messages of the same activity type and timestamp.
-        intervalMesgList = intervalMesgs[nextMesg.getActivityType()!!]
+        intervalMesgList = intervalMesgs[nextMesg.activityType!!]
         intervalMesg = null
 
         if (intervalMesgList == null) {
             intervalMesgList = ArrayList()
-            intervalMesgs[nextMesg.getActivityType()!!] = intervalMesgList
+            intervalMesgs[nextMesg.activityType!!] = intervalMesgList
         }
 
         if (intervalMesgList.size > 0) {
@@ -473,7 +470,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         }
 
         if ((intervalMesg != null) &&
-            nextMesg.getTimestamp()!!.equals(intervalMesg.getTimestamp()!!)
+            nextMesg.timestamp!!.equals(intervalMesg.timestamp!!)
         ) {
             setFieldsFromMesg(intervalMesg, nextMesg)
         } else {
@@ -489,14 +486,14 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
      *           The message containing needed information
      */
     override fun onMesg(mesg: DeviceSettingsMesg) {
-        if (mesg.getUtcOffset() != null) {
+        if (mesg.utcOffset != null) {
             var timeZoneIndex = 0
-            var offset: Long = mesg.getUtcOffset()!!
+            var offset: Long = mesg.utcOffset!!
 
             setSystemToUtcTimestampOffset(offset)
 
-            if (mesg.getActiveTimeZone() != null) {
-                timeZoneIndex = mesg.getActiveTimeZone()!!.toInt()
+            if (mesg.activeTimeZone != null) {
+                timeZoneIndex = mesg.activeTimeZone!!.toInt()
             }
 
             if (mesg.getTimeZoneOffset(timeZoneIndex) != null) {
@@ -549,31 +546,31 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         var extractState: ExtractState? = null
 
         // Timestamp
-        if (inMesg.getTimestamp() != null) {
-            mesgTimestamp = inMesg.getTimestamp()!!.getTimestamp()
-        } else if (inMesg.getTimestamp16() != null) {
-            mesgTimestamp += (inMesg.getTimestamp16()!!.toLong() - (mesgTimestamp and 0xFFFF)) and 0xFFFF
-        } else if (inMesg.getTimestampMin8() != null) {
+        if (inMesg.timestamp != null) {
+            mesgTimestamp = inMesg.timestamp!!.getTimestamp()
+        } else if (inMesg.timestamp16 != null) {
+            mesgTimestamp += (inMesg.timestamp16!!.toLong() - (mesgTimestamp and 0xFFFF)) and 0xFFFF
+        } else if (inMesg.timestampMin8 != null) {
             mesgTimestamp /= 60 // Truncate to nearest minute.
-            mesgTimestamp += (inMesg.getTimestampMin8()!!.toLong() - (mesgTimestamp and 0xFF)) and 0xFF
+            mesgTimestamp += (inMesg.timestampMin8!!.toLong() - (mesgTimestamp and 0xFF)) and 0xFF
             mesgTimestamp *= 60 // Back to seconds.
         }
         timestamp = DateTime(mesgTimestamp)
         timestamp.convertSystemTimeToUTC(systemToUtcTimestampOffset)
-        out.setTimestamp(timestamp)
+        out.timestamp = timestamp
 
-        if (inMesg.getLocalTimestamp() != null) {
-            out.setLocalTimestamp(inMesg.getLocalTimestamp())
+        if (inMesg.localTimestamp != null) {
+            out.localTimestamp = inMesg.localTimestamp
         } else {
-            out.setLocalTimestamp(timestamp.getTimestamp() + localTimeOffset)
+            out.localTimestamp = timestamp.getTimestamp() + localTimeOffset
         }
 
         // Activity Type
-        if (inMesg.getActivityType() != null) {
-            out.setActivityType(inMesg.getActivityType())
+        if (inMesg.activityType != null) {
+            out.activityType = inMesg.activityType
         }
 
-        val outActivityType = out.getActivityType()
+        val outActivityType = out.activityType
         // Get extraction state for this activity type.
         if (outActivityType != null) {
             extractState = extractStates[outActivityType]
@@ -589,13 +586,13 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         // factors).
         if (infoMesg!!.getNumActivityType() > 0) {
             for (i in 0 until infoMesg!!.getNumActivityType()) {
-                if (infoMesg!!.getActivityType(i) == out.getActivityType()) {
+                if (infoMesg!!.getActivityType(i) == out.activityType) {
                     activityTypeInfoIndex = i
                 }
             }
         }
 
-        val inActivityType = inMesg.getActivityType()
+        val inActivityType = inMesg.activityType
         // Get the last message for decoding rolling over accumulated fields.
         if (inActivityType != null) {
             lastMesg = lastMesgs[inActivityType]
@@ -606,148 +603,146 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         }
 
         // Duration
-        if (inMesg.getDuration() != null) {
-            out.setDuration(inMesg.getDuration())
-        } else if (inMesg.getDurationMin() != null) {
-            out.setDuration(inMesg.getDurationMin()!!.toLong() * 60)
+        if (inMesg.duration != null) {
+            out.duration = inMesg.duration
+        } else if (inMesg.durationMin != null) {
+            out.duration = inMesg.durationMin!!.toLong() * 60
         }
 
         // Active time
-        if (inMesg.getActiveTime() != null) {
-            out.setActiveTime(inMesg.getActiveTime())
-        } else if (inMesg.getActiveTime16() != null) {
+        if (inMesg.activeTime != null) {
+            out.activeTime = inMesg.activeTime
+        } else if (inMesg.activeTime16 != null) {
             var time: Long = 0
 
-            if (lastMesg.getActiveTime() != null) {
-                time = (lastMesg.getActiveTime()!! + 0.5).toLong()
+            if (lastMesg.activeTime != null) {
+                time = (lastMesg.activeTime!! + 0.5).toLong()
             }
 
-            time += (inMesg.getActiveTime16()!!.toLong() - (time and 0xFFFF)) and 0xFFFF
-            out.setActiveTime(time.toFloat())
-        } else if (inMesg.getCurrentActivityTypeIntensity() != null) {
+            time += (inMesg.activeTime16!!.toLong() - (time and 0xFFFF)) and 0xFFFF
+            out.activeTime = time.toFloat()
+        } else if (inMesg.currentActivityTypeIntensity != null) {
             // If this is the current activity type then time since last message is
             // active time in the current activity type.
             var time: Long = 0
 
-            if (lastMesg.getActiveTime() != null) {
-                time = (lastMesg.getActiveTime()!! + 0.5).toLong()
+            if (lastMesg.activeTime != null) {
+                time = (lastMesg.activeTime!! + 0.5).toLong()
             }
 
             time += timestamp.getTimestamp() - lastTimestamp
-            out.setActiveTime(time.toFloat())
+            out.activeTime = time.toFloat()
         }
 
         // Cycles
-        if (inMesg.getCycles() != null) {
-            out.setCycles(inMesg.getCycles())
-        } else if (inMesg.getCycles16() != null) {
+        if (inMesg.cycles != null) {
+            out.cycles = inMesg.cycles
+        } else if (inMesg.cycles16 != null) {
             var cycles: Long = 0
 
-            if (lastMesg.getCycles() != null) {
-                cycles = (lastMesg.getCycles()!! * 2).toLong()
+            if (lastMesg.cycles != null) {
+                cycles = (lastMesg.cycles!! * 2).toLong()
             }
 
-            cycles += (inMesg.getCycles16()!!.toLong() - (cycles and 0xFFFF)) and 0xFFFF
-            out.setCycles(cycles.toFloat() / 2)
+            cycles += (inMesg.cycles16!!.toLong() - (cycles and 0xFFFF)) and 0xFFFF
+            out.cycles = cycles.toFloat() / 2
         }
 
         // Distance
-        if (inMesg.getDistance() != null) {
-            out.setDistance(inMesg.getDistance())
-        } else if (inMesg.getDistance16() != null) {
+        if (inMesg.distance != null) {
+            out.distance = inMesg.distance
+        } else if (inMesg.distance16 != null) {
             var distance: Long = 0
 
-            if (lastMesg.getDistance() != null) {
-                distance = (lastMesg.getDistance()!! * 100).toLong()
+            if (lastMesg.distance != null) {
+                distance = (lastMesg.distance!! * 100).toLong()
             }
 
-            distance += (inMesg.getDistance16()!!.toLong() - (distance and 0xFFFF)) and 0xFFFF
-            out.setDistance(distance.toFloat() / 100)
+            distance += (inMesg.distance16!!.toLong() - (distance and 0xFFFF)) and 0xFFFF
+            out.distance = distance.toFloat() / 100
         }
 
         // Active Calories
-        if (inMesg.getActiveCalories() != null) {
-            out.setActiveCalories(inMesg.getActiveCalories())
+        if (inMesg.activeCalories != null) {
+            out.activeCalories = inMesg.activeCalories
         }
 
         // Total Calories
-        if (inMesg.getCalories() != null) {
-            out.setCalories(inMesg.getCalories())
+        if (inMesg.calories != null) {
+            out.calories = inMesg.calories
         }
 
         // Intensity
-        if (inMesg.getIntensity() != null) {
-            out.setIntensity(inMesg.getIntensity())
+        if (inMesg.intensity != null) {
+            out.intensity = inMesg.intensity
         }
 
         // Heart Rate
-        if (inMesg.getHeartRate() != null) {
-            out.setHeartRate(inMesg.getHeartRate())
+        if (inMesg.heartRate != null) {
+            out.heartRate = inMesg.heartRate
         }
 
         // Temperature
-        if (inMesg.getTemperature() != null) {
-            out.setTemperature(inMesg.getTemperature())
+        if (inMesg.temperature != null) {
+            out.temperature = inMesg.temperature
         }
 
         // Ascent
-        if (inMesg.getAscent() != null) {
-            out.setAscent(inMesg.getAscent())
+        if (inMesg.ascent != null) {
+            out.ascent = inMesg.ascent
         }
 
         // Descent
-        if (inMesg.getDescent() != null) {
-            out.setDescent(inMesg.getDescent())
+        if (inMesg.descent != null) {
+            out.descent = inMesg.descent
         }
 
         // Moderate activity minutes
-        if (inMesg.getModerateActivityMinutes() != null) {
-            out.setModerateActivityMinutes(inMesg.getModerateActivityMinutes())
+        if (inMesg.moderateActivityMinutes != null) {
+            out.moderateActivityMinutes = inMesg.moderateActivityMinutes
         }
 
         // Vigorous activity minutes
-        if (inMesg.getVigorousActivityMinutes() != null) {
-            out.setVigorousActivityMinutes(inMesg.getVigorousActivityMinutes())
+        if (inMesg.vigorousActivityMinutes != null) {
+            out.vigorousActivityMinutes = inMesg.vigorousActivityMinutes
         }
 
         // Compute distance from cycles if not logged directly.
-        if (out.getDistance() != null) {
+        if (out.distance != null) {
             // Keep track of cycles at last logged distance to compute distance
             // from cycles.
-            extractState.cyclesToDistanceStartDist = out.getDistance()!!
-            extractState.cyclesToDistanceStartCycles = out.getCycles()!!
+            extractState.cyclesToDistanceStartDist = out.distance!!
+            extractState.cyclesToDistanceStartCycles = out.cycles!!
         } else if ((activityTypeInfoIndex < infoMesg!!.getNumCyclesToDistance()) &&
-            (out.getCycles() != null)
+            (out.cycles != null)
         ) {
             // Compute distance from cycles since last reported distance.
             // Distance is computed from total cycles since last reported
             // distance instead of accumulating computed distance which would
             // accumulate error.
-            out.setDistance(
+            out.distance =
                 extractState.cyclesToDistanceStartDist +
-                    (out.getCycles()!! - extractState.cyclesToDistanceStartCycles) *
+                    (out.cycles!! - extractState.cyclesToDistanceStartCycles) *
                     infoMesg!!.getCyclesToDistance(activityTypeInfoIndex)!!
-            )
         }
 
         // Compute active calories from cycles if not logged directly.
-        if (out.getActiveCalories() != null) {
+        if (out.activeCalories != null) {
             // Keep track of cycles at last logged calories to compute calories
             // from cycles.
-            extractState.cyclesToCaloriesStartCal = out.getActiveCalories()!!
-            extractState.cyclesToCaloriesStartCycles = out.getCycles()!!
+            extractState.cyclesToCaloriesStartCal = out.activeCalories!!
+            extractState.cyclesToCaloriesStartCycles = out.cycles!!
         } else if ((activityTypeInfoIndex < infoMesg!!.getNumCyclesToCalories()) &&
-            (out.getCycles() != null)
+            (out.cycles != null)
         ) {
             // Compute calories from cycles since last reported calories.
             // Calories is computed from total cycles since last reported
             // calories instead of accumulating computed calories which would
             // accumulate error.
-            out.setActiveCalories(
+            out.activeCalories =
                 (extractState.cyclesToCaloriesStartCal +
-                    (out.getCycles()!! - extractState.cyclesToCaloriesStartCycles) *
+                    (out.cycles!! - extractState.cyclesToCaloriesStartCycles) *
                     infoMesg!!.getCyclesToCalories(activityTypeInfoIndex)!!).toInt()
-            )
         }
 
         return out
@@ -778,10 +773,10 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
             return null
         }
 
-        intervalMesg.setTimestamp(DateTime(endTimestamp))
-        intervalMesg.setLocalTimestamp(endTimestamp + localTimeOffset)
-        intervalMesg.setActivityType(activityType)
-        intervalMesg.setDuration(endTimestamp - startTimestamp)
+        intervalMesg.timestamp = DateTime(endTimestamp)
+        intervalMesg.localTimestamp = endTimestamp + localTimeOffset
+        intervalMesg.activityType = activityType
+        intervalMesg.duration = endTimestamp - startTimestamp
 
         for (fieldName in accumulatedFieldNames) {
             fields.add(AccumField(MonitoringMesg.monitoringMesg.getField(fieldName)))
@@ -809,7 +804,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
         }
 
         for (mesg in intervalMesgs) {
-            val mesgTimestamp = mesg.getTimestamp()!!.getTimestamp()
+            val mesgTimestamp = mesg.timestamp!!.getTimestamp()
 
             if ((mesgTimestamp > startTimestamp) && (mesgTimestamp < (endTimestamp + interval))) {
                 mesgInInterval = true
@@ -921,7 +916,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
          */
         override fun onMesg(mesg: MonitoringMesg) {
             val field = mesg.getField(this.getNum())
-            val mesgTimestamp = mesg.getTimestamp()!!.getTimestamp()
+            val mesgTimestamp = mesg.timestamp!!.getTimestamp()
             var value: Double? = null
 
             if (includedFields[this.getName() ?: ""] != true) {
@@ -941,13 +936,13 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
             } else {
                 // Interpolate start value if not aligned to start of interval.
                 var lastAccumTimestamp: Long = 0
-                if ((lastAccumMesg != null) && (lastAccumMesg!!.getTimestamp() != null)) {
-                    lastAccumTimestamp = lastAccumMesg!!.getTimestamp()!!.getTimestamp()
+                if ((lastAccumMesg != null) && (lastAccumMesg!!.timestamp != null)) {
+                    lastAccumTimestamp = lastAccumMesg!!.timestamp!!.getTimestamp()
                 }
                 if ((startValueTimestamp < startTimestamp) &&
                     ((startTimestamp >= lastAccumTimestamp) ||
                         ((lastSummedInstMesg == null) ||
-                            (lastSummedInstMesg!!.getTimestamp()!!.getTimestamp() < startValueTimestamp)))
+                            (lastSummedInstMesg!!.timestamp!!.getTimestamp() < startValueTimestamp)))
                 ) {
                     if (value != null) {
                         if (startValueTimestamp == mesgTimestamp) {
@@ -1053,7 +1048,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
                 return
             }
 
-            mesgTimestamp = mesg.getTimestamp()!!.getTimestamp()
+            mesgTimestamp = mesg.timestamp!!.getTimestamp()
 
             if (mesgTimestamp > endTimestamp) {
                 mesgTimestamp = endTimestamp
@@ -1137,7 +1132,7 @@ class MonitoringReader(interval: Int) : MonitoringInfoMesgListener,
                 return
             }
 
-            mesgTimestamp = mesg.getTimestamp()!!.getTimestamp()
+            mesgTimestamp = mesg.timestamp!!.getTimestamp()
 
             if (mesgTimestamp > endTimestamp) {
                 mesgTimestamp = endTimestamp

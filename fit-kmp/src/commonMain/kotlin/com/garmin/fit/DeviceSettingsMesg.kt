@@ -73,19 +73,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return active_time_zone
      */
-    fun getActiveTimeZone(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set active_time_zone field
-     * Comment: Index into time zone arrays.
-     *
-     * @param activeTimeZone The new activeTimeZone value to be set
-     */
-    fun setActiveTimeZone(activeTimeZone: Short?) {
-        setFieldValue(0, 0, activeTimeZone, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var activeTimeZone: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(activeTimeZone) {
+            setFieldValue(0, 0, activeTimeZone, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get utc_offset field
@@ -93,19 +87,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return utc_offset
      */
-    fun getUtcOffset(): Long? {
-        return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set utc_offset field
-     * Comment: Offset from system time. Required to convert timestamp from system time to UTC.
-     *
-     * @param utcOffset The new utcOffset value to be set
-     */
-    fun setUtcOffset(utcOffset: Long?) {
-        setFieldValue(1, 0, utcOffset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var utcOffset: Long?
+        get() {
+            return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(utcOffset) {
+            setFieldValue(1, 0, utcOffset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getTimeOffset(): Array<Long?>? {
         return getFieldLongValues(2, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -218,20 +206,14 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return backlight_mode
      */
-    fun getBacklightMode(): BacklightMode? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return BacklightMode.fromValue(value)
-    }
-
-    /**
-     * Set backlight_mode field
-     * Comment: Mode for backlight
-     *
-     * @param backlightMode The new backlightMode value to be set
-     */
-    fun setBacklightMode(backlightMode: BacklightMode?) {
-        setFieldValue(12, 0, backlightMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var backlightMode: BacklightMode?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return BacklightMode.fromValue(value)
+        }
+        set(backlightMode) {
+            setFieldValue(12, 0, backlightMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get activity_tracker_enabled field
@@ -239,20 +221,14 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return activity_tracker_enabled
      */
-    fun getActivityTrackerEnabled(): Bool? {
-        val value = getFieldShortValue(36, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set activity_tracker_enabled field
-     * Comment: Enabled state of the activity tracker functionality
-     *
-     * @param activityTrackerEnabled The new activityTrackerEnabled value to be set
-     */
-    fun setActivityTrackerEnabled(activityTrackerEnabled: Bool?) {
-        setFieldValue(36, 0, activityTrackerEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var activityTrackerEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(36, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(activityTrackerEnabled) {
+            setFieldValue(36, 0, activityTrackerEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get clock_time field
@@ -260,19 +236,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return clock_time
      */
-    fun getClockTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(39, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set clock_time field
-     * Comment: UTC timestamp used to set the devices clock and date
-     *
-     * @param clockTime The new clockTime value to be set
-     */
-    fun setClockTime(clockTime: DateTime?) {
-        setFieldValue(39, 0, clockTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var clockTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(39, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(clockTime) {
+            setFieldValue(39, 0, clockTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getPagesEnabled(): Array<Int?>? {
         return getFieldIntegerValues(40, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -313,20 +283,14 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return move_alert_enabled
      */
-    fun getMoveAlertEnabled(): Bool? {
-        val value = getFieldShortValue(46, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set move_alert_enabled field
-     * Comment: Enabled state of the move alert
-     *
-     * @param moveAlertEnabled The new moveAlertEnabled value to be set
-     */
-    fun setMoveAlertEnabled(moveAlertEnabled: Bool?) {
-        setFieldValue(46, 0, moveAlertEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var moveAlertEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(46, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(moveAlertEnabled) {
+            setFieldValue(46, 0, moveAlertEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get date_mode field
@@ -334,58 +298,42 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return date_mode
      */
-    fun getDateMode(): DateMode? {
-        val value = getFieldShortValue(47, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DateMode.fromValue(value)
-    }
-
-    /**
-     * Set date_mode field
-     * Comment: Display mode for the date
-     *
-     * @param dateMode The new dateMode value to be set
-     */
-    fun setDateMode(dateMode: DateMode?) {
-        setFieldValue(47, 0, dateMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var dateMode: DateMode?
+        get() {
+            val value = getFieldShortValue(47, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DateMode.fromValue(value)
+        }
+        set(dateMode) {
+            setFieldValue(47, 0, dateMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get display_orientation field
      *
      * @return display_orientation
      */
-    fun getDisplayOrientation(): DisplayOrientation? {
-        val value = getFieldShortValue(55, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayOrientation.fromValue(value)
-    }
-
-    /**
-     * Set display_orientation field
-     *
-     * @param displayOrientation The new displayOrientation value to be set
-     */
-    fun setDisplayOrientation(displayOrientation: DisplayOrientation?) {
-        setFieldValue(55, 0, displayOrientation?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var displayOrientation: DisplayOrientation?
+        get() {
+            val value = getFieldShortValue(55, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayOrientation.fromValue(value)
+        }
+        set(displayOrientation) {
+            setFieldValue(55, 0, displayOrientation?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get mounting_side field
      *
      * @return mounting_side
      */
-    fun getMountingSide(): Side? {
-        val value = getFieldShortValue(56, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Side.fromValue(value)
-    }
-
-    /**
-     * Set mounting_side field
-     *
-     * @param mountingSide The new mountingSide value to be set
-     */
-    fun setMountingSide(mountingSide: Side?) {
-        setFieldValue(56, 0, mountingSide?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mountingSide: Side?
+        get() {
+            val value = getFieldShortValue(56, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Side.fromValue(value)
+        }
+        set(mountingSide) {
+            setFieldValue(56, 0, mountingSide?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getDefaultPage(): Array<Int?>? {
         return getFieldIntegerValues(57, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -427,20 +375,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return autosync_min_steps
      */
-    fun getAutosyncMinSteps(): Int? {
-        return getFieldIntegerValue(58, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set autosync_min_steps field
-     * Units: steps
-     * Comment: Minimum steps before an autosync can occur
-     *
-     * @param autosyncMinSteps The new autosyncMinSteps value to be set
-     */
-    fun setAutosyncMinSteps(autosyncMinSteps: Int?) {
-        setFieldValue(58, 0, autosyncMinSteps, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autosyncMinSteps: Int?
+        get() {
+            return getFieldIntegerValue(58, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(autosyncMinSteps) {
+            setFieldValue(58, 0, autosyncMinSteps, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get autosync_min_time field
@@ -449,20 +390,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return autosync_min_time
      */
-    fun getAutosyncMinTime(): Int? {
-        return getFieldIntegerValue(59, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set autosync_min_time field
-     * Units: minutes
-     * Comment: Minimum minutes before an autosync can occur
-     *
-     * @param autosyncMinTime The new autosyncMinTime value to be set
-     */
-    fun setAutosyncMinTime(autosyncMinTime: Int?) {
-        setFieldValue(59, 0, autosyncMinTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autosyncMinTime: Int?
+        get() {
+            return getFieldIntegerValue(59, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(autosyncMinTime) {
+            setFieldValue(59, 0, autosyncMinTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get lactate_threshold_autodetect_enabled field
@@ -470,20 +404,14 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return lactate_threshold_autodetect_enabled
      */
-    fun getLactateThresholdAutodetectEnabled(): Bool? {
-        val value = getFieldShortValue(80, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set lactate_threshold_autodetect_enabled field
-     * Comment: Enable auto-detect setting for the lactate threshold feature.
-     *
-     * @param lactateThresholdAutodetectEnabled The new lactateThresholdAutodetectEnabled value to be set
-     */
-    fun setLactateThresholdAutodetectEnabled(lactateThresholdAutodetectEnabled: Bool?) {
-        setFieldValue(80, 0, lactateThresholdAutodetectEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var lactateThresholdAutodetectEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(80, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(lactateThresholdAutodetectEnabled) {
+            setFieldValue(80, 0, lactateThresholdAutodetectEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ble_auto_upload_enabled field
@@ -491,20 +419,14 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return ble_auto_upload_enabled
      */
-    fun getBleAutoUploadEnabled(): Bool? {
-        val value = getFieldShortValue(86, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set ble_auto_upload_enabled field
-     * Comment: Automatically upload using BLE
-     *
-     * @param bleAutoUploadEnabled The new bleAutoUploadEnabled value to be set
-     */
-    fun setBleAutoUploadEnabled(bleAutoUploadEnabled: Bool?) {
-        setFieldValue(86, 0, bleAutoUploadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bleAutoUploadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(86, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(bleAutoUploadEnabled) {
+            setFieldValue(86, 0, bleAutoUploadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_sync_frequency field
@@ -512,20 +434,14 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return auto_sync_frequency
      */
-    fun getAutoSyncFrequency(): AutoSyncFrequency? {
-        val value = getFieldShortValue(89, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return AutoSyncFrequency.fromValue(value)
-    }
-
-    /**
-     * Set auto_sync_frequency field
-     * Comment: Helps to conserve battery by changing modes
-     *
-     * @param autoSyncFrequency The new autoSyncFrequency value to be set
-     */
-    fun setAutoSyncFrequency(autoSyncFrequency: AutoSyncFrequency?) {
-        setFieldValue(89, 0, autoSyncFrequency?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autoSyncFrequency: AutoSyncFrequency?
+        get() {
+            val value = getFieldShortValue(89, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return AutoSyncFrequency.fromValue(value)
+        }
+        set(autoSyncFrequency) {
+            setFieldValue(89, 0, autoSyncFrequency?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_activity_detect field
@@ -533,19 +449,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return auto_activity_detect
      */
-    fun getAutoActivityDetect(): Long? {
-        return getFieldLongValue(90, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set auto_activity_detect field
-     * Comment: Allows setting specific activities auto-activity detect enabled/disabled settings
-     *
-     * @param autoActivityDetect The new autoActivityDetect value to be set
-     */
-    fun setAutoActivityDetect(autoActivityDetect: Long?) {
-        setFieldValue(90, 0, autoActivityDetect, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autoActivityDetect: Long?
+        get() {
+            return getFieldLongValue(90, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(autoActivityDetect) {
+            setFieldValue(90, 0, autoActivityDetect, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get number_of_screens field
@@ -553,19 +463,13 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return number_of_screens
      */
-    fun getNumberOfScreens(): Short? {
-        return getFieldShortValue(94, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set number_of_screens field
-     * Comment: Number of screens configured to display
-     *
-     * @param numberOfScreens The new numberOfScreens value to be set
-     */
-    fun setNumberOfScreens(numberOfScreens: Short?) {
-        setFieldValue(94, 0, numberOfScreens, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var numberOfScreens: Short?
+        get() {
+            return getFieldShortValue(94, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(numberOfScreens) {
+            setFieldValue(94, 0, numberOfScreens, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get smart_notification_display_orientation field
@@ -573,39 +477,28 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return smart_notification_display_orientation
      */
-    fun getSmartNotificationDisplayOrientation(): DisplayOrientation? {
-        val value = getFieldShortValue(95, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayOrientation.fromValue(value)
-    }
-
-    /**
-     * Set smart_notification_display_orientation field
-     * Comment: Smart Notification display orientation
-     *
-     * @param smartNotificationDisplayOrientation The new smartNotificationDisplayOrientation value to be set
-     */
-    fun setSmartNotificationDisplayOrientation(smartNotificationDisplayOrientation: DisplayOrientation?) {
-        setFieldValue(95, 0, smartNotificationDisplayOrientation?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var smartNotificationDisplayOrientation: DisplayOrientation?
+        get() {
+            val value = getFieldShortValue(95, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayOrientation.fromValue(value)
+        }
+        set(smartNotificationDisplayOrientation) {
+            setFieldValue(95, 0, smartNotificationDisplayOrientation?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get tap_interface field
      *
      * @return tap_interface
      */
-    fun getTapInterface(): Switch? {
-        val value = getFieldShortValue(134, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Switch.fromValue(value)
-    }
-
-    /**
-     * Set tap_interface field
-     *
-     * @param tapInterface The new tapInterface value to be set
-     */
-    fun setTapInterface(tapInterface: Switch?) {
-        setFieldValue(134, 0, tapInterface?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var tapInterface: Switch?
+        get() {
+            val value = getFieldShortValue(134, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Switch.fromValue(value)
+        }
+        set(tapInterface) {
+            setFieldValue(134, 0, tapInterface?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get tap_sensitivity field
@@ -613,18 +506,12 @@ open class DeviceSettingsMesg : Mesg {
      *
      * @return tap_sensitivity
      */
-    fun getTapSensitivity(): TapSensitivity? {
-        val value = getFieldShortValue(174, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return TapSensitivity.fromValue(value)
-    }
-
-    /**
-     * Set tap_sensitivity field
-     * Comment: Used to hold the tap threshold setting
-     *
-     * @param tapSensitivity The new tapSensitivity value to be set
-     */
-    fun setTapSensitivity(tapSensitivity: TapSensitivity?) {
-        setFieldValue(174, 0, tapSensitivity?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var tapSensitivity: TapSensitivity?
+        get() {
+            val value = getFieldShortValue(174, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return TapSensitivity.fromValue(value)
+        }
+        set(tapSensitivity) {
+            setFieldValue(174, 0, tapSensitivity?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

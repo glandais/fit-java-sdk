@@ -30,18 +30,13 @@ open class CadenceZoneMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get high_value field
@@ -49,35 +44,24 @@ open class CadenceZoneMesg : Mesg {
      *
      * @return high_value
      */
-    fun getHighValue(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set high_value field
-     * Units: rpm
-     *
-     * @param highValue The new highValue value to be set
-     */
-    fun setHighValue(highValue: Short?) {
-        setFieldValue(0, 0, highValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var highValue: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(highValue) {
+            setFieldValue(0, 0, highValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get name field
      *
      * @return name
      */
-    override fun getName(): String? {
-        return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set name field
-     *
-     * @param name The new name value to be set
-     */
-    fun setName(name: String?) {
-        setFieldValue(1, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var name: String?
+        get() {
+            return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(name) {
+            setFieldValue(1, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

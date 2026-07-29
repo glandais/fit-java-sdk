@@ -93,92 +93,67 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp field
      *
      * @return timestamp
      */
-    override fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    override fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get event field
      *
      * @return event
      */
-    override fun getEvent(): Event? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Event.fromValue(value)
-    }
-
-    /**
-     * Set event field
-     *
-     * @param event The new event value to be set
-     */
-    override fun setEvent(event: Event?) {
-        setFieldValue(0, 0, event?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var event: Event?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Event.fromValue(value)
+        }
+        set(event) {
+            setFieldValue(0, 0, event?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get event_type field
      *
      * @return event_type
      */
-    override fun getEventType(): EventType? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return EventType.fromValue(value)
-    }
-
-    /**
-     * Set event_type field
-     *
-     * @param eventType The new eventType value to be set
-     */
-    override fun setEventType(eventType: EventType?) {
-        setFieldValue(1, 0, eventType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var eventType: EventType?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return EventType.fromValue(value)
+        }
+        set(eventType) {
+            setFieldValue(1, 0, eventType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_time field
      *
      * @return start_time
      */
-    fun getStartTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_time field
-     *
-     * @param startTime The new startTime value to be set
-     */
-    fun setStartTime(startTime: DateTime?) {
-        setFieldValue(2, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTime) {
+            setFieldValue(2, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_elapsed_time field
@@ -186,19 +161,13 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return total_elapsed_time
      */
-    fun getTotalElapsedTime(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_elapsed_time field
-     * Units: s
-     *
-     * @param totalElapsedTime The new totalElapsedTime value to be set
-     */
-    fun setTotalElapsedTime(totalElapsedTime: Float?) {
-        setFieldValue(3, 0, totalElapsedTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalElapsedTime: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalElapsedTime) {
+            setFieldValue(3, 0, totalElapsedTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_timer_time field
@@ -206,19 +175,13 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return total_timer_time
      */
-    fun getTotalTimerTime(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_timer_time field
-     * Units: s
-     *
-     * @param totalTimerTime The new totalTimerTime value to be set
-     */
-    fun setTotalTimerTime(totalTimerTime: Float?) {
-        setFieldValue(4, 0, totalTimerTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalTimerTime: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalTimerTime) {
+            setFieldValue(4, 0, totalTimerTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_strokes field
@@ -226,19 +189,13 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return total_strokes
      */
-    fun getTotalStrokes(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_strokes field
-     * Units: strokes
-     *
-     * @param totalStrokes The new totalStrokes value to be set
-     */
-    fun setTotalStrokes(totalStrokes: Int?) {
-        setFieldValue(5, 0, totalStrokes, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalStrokes: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalStrokes) {
+            setFieldValue(5, 0, totalStrokes, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get avg_speed field
@@ -246,19 +203,13 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return avg_speed
      */
-    fun getAvgSpeed(): Float? {
-        return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set avg_speed field
-     * Units: m/s
-     *
-     * @param avgSpeed The new avgSpeed value to be set
-     */
-    fun setAvgSpeed(avgSpeed: Float?) {
-        setFieldValue(6, 0, avgSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var avgSpeed: Float?
+        get() {
+            return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(avgSpeed) {
+            setFieldValue(6, 0, avgSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get swim_stroke field
@@ -266,20 +217,14 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return swim_stroke
      */
-    fun getSwimStroke(): SwimStroke? {
-        val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SwimStroke.fromValue(value)
-    }
-
-    /**
-     * Set swim_stroke field
-     * Units: swim_stroke
-     *
-     * @param swimStroke The new swimStroke value to be set
-     */
-    fun setSwimStroke(swimStroke: SwimStroke?) {
-        setFieldValue(7, 0, swimStroke?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var swimStroke: SwimStroke?
+        get() {
+            val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SwimStroke.fromValue(value)
+        }
+        set(swimStroke) {
+            setFieldValue(7, 0, swimStroke?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get avg_swimming_cadence field
@@ -287,37 +232,26 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return avg_swimming_cadence
      */
-    fun getAvgSwimmingCadence(): Short? {
-        return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set avg_swimming_cadence field
-     * Units: strokes/min
-     *
-     * @param avgSwimmingCadence The new avgSwimmingCadence value to be set
-     */
-    fun setAvgSwimmingCadence(avgSwimmingCadence: Short?) {
-        setFieldValue(9, 0, avgSwimmingCadence, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var avgSwimmingCadence: Short?
+        get() {
+            return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(avgSwimmingCadence) {
+            setFieldValue(9, 0, avgSwimmingCadence, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get event_group field
      *
      * @return event_group
      */
-    override fun getEventGroup(): Short? {
-        return getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set event_group field
-     *
-     * @param eventGroup The new eventGroup value to be set
-     */
-    override fun setEventGroup(eventGroup: Short?) {
-        setFieldValue(10, 0, eventGroup, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var eventGroup: Short?
+        get() {
+            return getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(eventGroup) {
+            setFieldValue(10, 0, eventGroup, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_calories field
@@ -325,74 +259,53 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return total_calories
      */
-    fun getTotalCalories(): Int? {
-        return getFieldIntegerValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_calories field
-     * Units: kcal
-     *
-     * @param totalCalories The new totalCalories value to be set
-     */
-    fun setTotalCalories(totalCalories: Int?) {
-        setFieldValue(11, 0, totalCalories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalCalories: Int?
+        get() {
+            return getFieldIntegerValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalCalories) {
+            setFieldValue(11, 0, totalCalories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get length_type field
      *
      * @return length_type
      */
-    fun getLengthType(): LengthType? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return LengthType.fromValue(value)
-    }
-
-    /**
-     * Set length_type field
-     *
-     * @param lengthType The new lengthType value to be set
-     */
-    fun setLengthType(lengthType: LengthType?) {
-        setFieldValue(12, 0, lengthType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var lengthType: LengthType?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return LengthType.fromValue(value)
+        }
+        set(lengthType) {
+            setFieldValue(12, 0, lengthType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get player_score field
      *
      * @return player_score
      */
-    fun getPlayerScore(): Int? {
-        return getFieldIntegerValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set player_score field
-     *
-     * @param playerScore The new playerScore value to be set
-     */
-    fun setPlayerScore(playerScore: Int?) {
-        setFieldValue(18, 0, playerScore, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var playerScore: Int?
+        get() {
+            return getFieldIntegerValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(playerScore) {
+            setFieldValue(18, 0, playerScore, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get opponent_score field
      *
      * @return opponent_score
      */
-    fun getOpponentScore(): Int? {
-        return getFieldIntegerValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set opponent_score field
-     *
-     * @param opponentScore The new opponentScore value to be set
-     */
-    fun setOpponentScore(opponentScore: Int?) {
-        setFieldValue(19, 0, opponentScore, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var opponentScore: Int?
+        get() {
+            return getFieldIntegerValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(opponentScore) {
+            setFieldValue(19, 0, opponentScore, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getStrokeCount(): Array<Int?>? {
         return getFieldIntegerValues(20, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -470,19 +383,13 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return enhanced_avg_respiration_rate
      */
-    fun getEnhancedAvgRespirationRate(): Float? {
-        return getFieldFloatValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set enhanced_avg_respiration_rate field
-     * Units: Breaths/min
-     *
-     * @param enhancedAvgRespirationRate The new enhancedAvgRespirationRate value to be set
-     */
-    fun setEnhancedAvgRespirationRate(enhancedAvgRespirationRate: Float?) {
-        setFieldValue(22, 0, enhancedAvgRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enhancedAvgRespirationRate: Float?
+        get() {
+            return getFieldFloatValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(enhancedAvgRespirationRate) {
+            setFieldValue(22, 0, enhancedAvgRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enhanced_max_respiration_rate field
@@ -490,53 +397,37 @@ open class LengthMesg : Mesg, MesgWithEvent {
      *
      * @return enhanced_max_respiration_rate
      */
-    fun getEnhancedMaxRespirationRate(): Float? {
-        return getFieldFloatValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set enhanced_max_respiration_rate field
-     * Units: Breaths/min
-     *
-     * @param enhancedMaxRespirationRate The new enhancedMaxRespirationRate value to be set
-     */
-    fun setEnhancedMaxRespirationRate(enhancedMaxRespirationRate: Float?) {
-        setFieldValue(23, 0, enhancedMaxRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enhancedMaxRespirationRate: Float?
+        get() {
+            return getFieldFloatValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(enhancedMaxRespirationRate) {
+            setFieldValue(23, 0, enhancedMaxRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get avg_respiration_rate field
      *
      * @return avg_respiration_rate
      */
-    fun getAvgRespirationRate(): Short? {
-        return getFieldShortValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set avg_respiration_rate field
-     *
-     * @param avgRespirationRate The new avgRespirationRate value to be set
-     */
-    fun setAvgRespirationRate(avgRespirationRate: Short?) {
-        setFieldValue(24, 0, avgRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var avgRespirationRate: Short?
+        get() {
+            return getFieldShortValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(avgRespirationRate) {
+            setFieldValue(24, 0, avgRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_respiration_rate field
      *
      * @return max_respiration_rate
      */
-    fun getMaxRespirationRate(): Short? {
-        return getFieldShortValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_respiration_rate field
-     *
-     * @param maxRespirationRate The new maxRespirationRate value to be set
-     */
-    fun setMaxRespirationRate(maxRespirationRate: Short?) {
-        setFieldValue(25, 0, maxRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxRespirationRate: Short?
+        get() {
+            return getFieldShortValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxRespirationRate) {
+            setFieldValue(25, 0, maxRespirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

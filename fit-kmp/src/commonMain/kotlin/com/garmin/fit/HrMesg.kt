@@ -54,18 +54,13 @@ open class HrMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fractional_timestamp field
@@ -73,19 +68,13 @@ open class HrMesg : Mesg {
      *
      * @return fractional_timestamp
      */
-    fun getFractionalTimestamp(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fractional_timestamp field
-     * Units: s
-     *
-     * @param fractionalTimestamp The new fractionalTimestamp value to be set
-     */
-    fun setFractionalTimestamp(fractionalTimestamp: Float?) {
-        setFieldValue(0, 0, fractionalTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fractionalTimestamp: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fractionalTimestamp) {
+            setFieldValue(0, 0, fractionalTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time256 field
@@ -93,19 +82,13 @@ open class HrMesg : Mesg {
      *
      * @return time256
      */
-    fun getTime256(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set time256 field
-     * Units: s
-     *
-     * @param time256 The new time256 value to be set
-     */
-    fun setTime256(time256: Float?) {
-        setFieldValue(1, 0, time256, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var time256: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(time256) {
+            setFieldValue(1, 0, time256, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getFilteredBpm(): Array<Short?>? {
         return getFieldShortValues(6, Fit.SUBFIELD_INDEX_MAIN_FIELD)

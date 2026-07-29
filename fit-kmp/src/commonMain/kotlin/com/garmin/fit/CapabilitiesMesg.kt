@@ -98,34 +98,24 @@ open class CapabilitiesMesg : Mesg {
      *
      * @return workouts_supported
      */
-    fun getWorkoutsSupported(): Long? {
-        return getFieldLongValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set workouts_supported field
-     *
-     * @param workoutsSupported The new workoutsSupported value to be set
-     */
-    fun setWorkoutsSupported(workoutsSupported: Long?) {
-        setFieldValue(21, 0, workoutsSupported, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var workoutsSupported: Long?
+        get() {
+            return getFieldLongValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(workoutsSupported) {
+            setFieldValue(21, 0, workoutsSupported, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get connectivity_supported field
      *
      * @return connectivity_supported
      */
-    fun getConnectivitySupported(): Long? {
-        return getFieldLongValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set connectivity_supported field
-     *
-     * @param connectivitySupported The new connectivitySupported value to be set
-     */
-    fun setConnectivitySupported(connectivitySupported: Long?) {
-        setFieldValue(23, 0, connectivitySupported, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var connectivitySupported: Long?
+        get() {
+            return getFieldLongValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(connectivitySupported) {
+            setFieldValue(23, 0, connectivitySupported, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

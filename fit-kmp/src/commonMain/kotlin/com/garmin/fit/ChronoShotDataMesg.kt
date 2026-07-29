@@ -30,18 +30,13 @@ open class ChronoShotDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get shot_speed field
@@ -49,35 +44,24 @@ open class ChronoShotDataMesg : Mesg {
      *
      * @return shot_speed
      */
-    fun getShotSpeed(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set shot_speed field
-     * Units: m/s
-     *
-     * @param shotSpeed The new shotSpeed value to be set
-     */
-    fun setShotSpeed(shotSpeed: Float?) {
-        setFieldValue(0, 0, shotSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var shotSpeed: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(shotSpeed) {
+            setFieldValue(0, 0, shotSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get shot_num field
      *
      * @return shot_num
      */
-    fun getShotNum(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set shot_num field
-     *
-     * @param shotNum The new shotNum value to be set
-     */
-    fun setShotNum(shotNum: Int?) {
-        setFieldValue(1, 0, shotNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var shotNum: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(shotNum) {
+            setFieldValue(1, 0, shotNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

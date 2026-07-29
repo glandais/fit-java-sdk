@@ -42,91 +42,66 @@ open class WatchfaceSettingsMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get mode field
      *
      * @return mode
      */
-    fun getMode(): WatchfaceMode? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return WatchfaceMode.fromValue(value)
-    }
-
-    /**
-     * Set mode field
-     *
-     * @param mode The new mode value to be set
-     */
-    fun setMode(mode: WatchfaceMode?) {
-        setFieldValue(0, 0, mode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mode: WatchfaceMode?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return WatchfaceMode.fromValue(value)
+        }
+        set(mode) {
+            setFieldValue(0, 0, mode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get layout field
      *
      * @return layout
      */
-    fun getLayout(): Byte? {
-        return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set layout field
-     *
-     * @param layout The new layout value to be set
-     */
-    fun setLayout(layout: Byte?) {
-        setFieldValue(1, 0, layout, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var layout: Byte?
+        get() {
+            return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(layout) {
+            setFieldValue(1, 0, layout, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get digital_layout field
      *
      * @return digital_layout
      */
-    fun getDigitalLayout(): DigitalWatchfaceLayout? {
-        val value = getFieldShortValue(1, 0, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_DIGITAL_LAYOUT) ?: return null
-        return DigitalWatchfaceLayout.fromValue(value)
-    }
-
-    /**
-     * Set digital_layout field
-     *
-     * @param digitalLayout The new digitalLayout value to be set
-     */
-    fun setDigitalLayout(digitalLayout: DigitalWatchfaceLayout?) {
-        setFieldValue(1, 0, digitalLayout?.value, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_DIGITAL_LAYOUT)
-    }
+    var digitalLayout: DigitalWatchfaceLayout?
+        get() {
+            val value = getFieldShortValue(1, 0, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_DIGITAL_LAYOUT) ?: return null
+            return DigitalWatchfaceLayout.fromValue(value)
+        }
+        set(digitalLayout) {
+            setFieldValue(1, 0, digitalLayout?.value, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_DIGITAL_LAYOUT)
+        }
 
     /**
      * Get analog_layout field
      *
      * @return analog_layout
      */
-    fun getAnalogLayout(): AnalogWatchfaceLayout? {
-        val value = getFieldShortValue(1, 0, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_ANALOG_LAYOUT) ?: return null
-        return AnalogWatchfaceLayout.fromValue(value)
-    }
-
-    /**
-     * Set analog_layout field
-     *
-     * @param analogLayout The new analogLayout value to be set
-     */
-    fun setAnalogLayout(analogLayout: AnalogWatchfaceLayout?) {
-        setFieldValue(1, 0, analogLayout?.value, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_ANALOG_LAYOUT)
-    }
+    var analogLayout: AnalogWatchfaceLayout?
+        get() {
+            val value = getFieldShortValue(1, 0, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_ANALOG_LAYOUT) ?: return null
+            return AnalogWatchfaceLayout.fromValue(value)
+        }
+        set(analogLayout) {
+            setFieldValue(1, 0, analogLayout?.value, Profile.SubFields.WATCHFACE_SETTINGS_MESG_LAYOUT_FIELD_ANALOG_LAYOUT)
+        }
 }

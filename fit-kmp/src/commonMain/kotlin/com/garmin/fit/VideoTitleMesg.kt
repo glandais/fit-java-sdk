@@ -31,19 +31,13 @@ open class VideoTitleMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     * Comment: Long titles will be split into multiple parts
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get message_count field
@@ -51,35 +45,24 @@ open class VideoTitleMesg : Mesg {
      *
      * @return message_count
      */
-    fun getMessageCount(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_count field
-     * Comment: Total number of title parts
-     *
-     * @param messageCount The new messageCount value to be set
-     */
-    fun setMessageCount(messageCount: Int?) {
-        setFieldValue(0, 0, messageCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageCount: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageCount) {
+            setFieldValue(0, 0, messageCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get text field
      *
      * @return text
      */
-    fun getText(): String? {
-        return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set text field
-     *
-     * @param text The new text value to be set
-     */
-    fun setText(text: String?) {
-        setFieldValue(1, 0, text, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var text: String?
+        get() {
+            return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(text) {
+            setFieldValue(1, 0, text, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

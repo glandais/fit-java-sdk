@@ -53,19 +53,13 @@ open class AntTxMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fractional_timestamp field
@@ -73,37 +67,26 @@ open class AntTxMesg : Mesg {
      *
      * @return fractional_timestamp
      */
-    fun getFractionalTimestamp(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fractional_timestamp field
-     * Units: s
-     *
-     * @param fractionalTimestamp The new fractionalTimestamp value to be set
-     */
-    fun setFractionalTimestamp(fractionalTimestamp: Float?) {
-        setFieldValue(0, 0, fractionalTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fractionalTimestamp: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fractionalTimestamp) {
+            setFieldValue(0, 0, fractionalTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get mesg_id field
      *
      * @return mesg_id
      */
-    fun getMesgId(): Byte? {
-        return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set mesg_id field
-     *
-     * @param mesgId The new mesgId value to be set
-     */
-    fun setMesgId(mesgId: Byte?) {
-        setFieldValue(1, 0, mesgId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mesgId: Byte?
+        get() {
+            return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(mesgId) {
+            setFieldValue(1, 0, mesgId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getMesgData(): Array<Byte?>? {
         return getFieldByteValues(2, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -141,18 +124,13 @@ open class AntTxMesg : Mesg {
      *
      * @return channel_number
      */
-    fun getChannelNumber(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set channel_number field
-     *
-     * @param channelNumber The new channelNumber value to be set
-     */
-    fun setChannelNumber(channelNumber: Short?) {
-        setFieldValue(3, 0, channelNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var channelNumber: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(channelNumber) {
+            setFieldValue(3, 0, channelNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getData(): Array<Byte?>? {
         return getFieldByteValues(4, Fit.SUBFIELD_INDEX_MAIN_FIELD)

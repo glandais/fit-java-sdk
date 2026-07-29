@@ -36,18 +36,13 @@ open class WeatherAlertMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get report_id field
@@ -55,19 +50,13 @@ open class WeatherAlertMesg : Mesg {
      *
      * @return report_id
      */
-    fun getReportId(): String? {
-        return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set report_id field
-     * Comment: Unique identifier from GCS report ID string, length is 12
-     *
-     * @param reportId The new reportId value to be set
-     */
-    fun setReportId(reportId: String?) {
-        setFieldValue(0, 0, reportId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var reportId: String?
+        get() {
+            return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(reportId) {
+            setFieldValue(0, 0, reportId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get issue_time field
@@ -75,19 +64,13 @@ open class WeatherAlertMesg : Mesg {
      *
      * @return issue_time
      */
-    fun getIssueTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set issue_time field
-     * Comment: Time alert was issued
-     *
-     * @param issueTime The new issueTime value to be set
-     */
-    fun setIssueTime(issueTime: DateTime?) {
-        setFieldValue(1, 0, issueTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var issueTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(issueTime) {
+            setFieldValue(1, 0, issueTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get expire_time field
@@ -95,19 +78,13 @@ open class WeatherAlertMesg : Mesg {
      *
      * @return expire_time
      */
-    fun getExpireTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set expire_time field
-     * Comment: Time alert expires
-     *
-     * @param expireTime The new expireTime value to be set
-     */
-    fun setExpireTime(expireTime: DateTime?) {
-        setFieldValue(2, 0, expireTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var expireTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(expireTime) {
+            setFieldValue(2, 0, expireTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get severity field
@@ -115,20 +92,14 @@ open class WeatherAlertMesg : Mesg {
      *
      * @return severity
      */
-    fun getSeverity(): WeatherSeverity? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return WeatherSeverity.fromValue(value)
-    }
-
-    /**
-     * Set severity field
-     * Comment: Warning, Watch, Advisory, Statement
-     *
-     * @param severity The new severity value to be set
-     */
-    fun setSeverity(severity: WeatherSeverity?) {
-        setFieldValue(3, 0, severity?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var severity: WeatherSeverity?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return WeatherSeverity.fromValue(value)
+        }
+        set(severity) {
+            setFieldValue(3, 0, severity?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get type field
@@ -136,18 +107,12 @@ open class WeatherAlertMesg : Mesg {
      *
      * @return type
      */
-    fun getType(): WeatherSevereType? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return WeatherSevereType.fromValue(value)
-    }
-
-    /**
-     * Set type field
-     * Comment: Tornado, Severe Thunderstorm, etc.
-     *
-     * @param type The new type value to be set
-     */
-    fun setType(type: WeatherSevereType?) {
-        setFieldValue(4, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var type: WeatherSevereType?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return WeatherSevereType.fromValue(value)
+        }
+        set(type) {
+            setFieldValue(4, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

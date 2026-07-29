@@ -39,19 +39,13 @@ open class ClimbProMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_lat field
@@ -59,19 +53,13 @@ open class ClimbProMesg : Mesg {
      *
      * @return position_lat
      */
-    fun getPositionLat(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set position_lat field
-     * Units: semicircles
-     *
-     * @param positionLat The new positionLat value to be set
-     */
-    fun setPositionLat(positionLat: Int?) {
-        setFieldValue(0, 0, positionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionLat: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(positionLat) {
+            setFieldValue(0, 0, positionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_long field
@@ -79,74 +67,53 @@ open class ClimbProMesg : Mesg {
      *
      * @return position_long
      */
-    fun getPositionLong(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set position_long field
-     * Units: semicircles
-     *
-     * @param positionLong The new positionLong value to be set
-     */
-    fun setPositionLong(positionLong: Int?) {
-        setFieldValue(1, 0, positionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionLong: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(positionLong) {
+            setFieldValue(1, 0, positionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get climb_pro_event field
      *
      * @return climb_pro_event
      */
-    fun getClimbProEvent(): ClimbProEvent? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ClimbProEvent.fromValue(value)
-    }
-
-    /**
-     * Set climb_pro_event field
-     *
-     * @param climbProEvent The new climbProEvent value to be set
-     */
-    fun setClimbProEvent(climbProEvent: ClimbProEvent?) {
-        setFieldValue(2, 0, climbProEvent?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var climbProEvent: ClimbProEvent?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ClimbProEvent.fromValue(value)
+        }
+        set(climbProEvent) {
+            setFieldValue(2, 0, climbProEvent?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get climb_number field
      *
      * @return climb_number
      */
-    fun getClimbNumber(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set climb_number field
-     *
-     * @param climbNumber The new climbNumber value to be set
-     */
-    fun setClimbNumber(climbNumber: Int?) {
-        setFieldValue(3, 0, climbNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var climbNumber: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(climbNumber) {
+            setFieldValue(3, 0, climbNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get climb_category field
      *
      * @return climb_category
      */
-    fun getClimbCategory(): Short? {
-        return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set climb_category field
-     *
-     * @param climbCategory The new climbCategory value to be set
-     */
-    fun setClimbCategory(climbCategory: Short?) {
-        setFieldValue(4, 0, climbCategory, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var climbCategory: Short?
+        get() {
+            return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(climbCategory) {
+            setFieldValue(4, 0, climbCategory, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get current_dist field
@@ -154,17 +121,11 @@ open class ClimbProMesg : Mesg {
      *
      * @return current_dist
      */
-    fun getCurrentDist(): Float? {
-        return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set current_dist field
-     * Units: m
-     *
-     * @param currentDist The new currentDist value to be set
-     */
-    fun setCurrentDist(currentDist: Float?) {
-        setFieldValue(5, 0, currentDist, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var currentDist: Float?
+        get() {
+            return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(currentDist) {
+            setFieldValue(5, 0, currentDist, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

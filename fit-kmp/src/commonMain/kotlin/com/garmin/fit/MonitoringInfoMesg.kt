@@ -37,19 +37,13 @@ open class MonitoringInfoMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get local_timestamp field
@@ -58,20 +52,13 @@ open class MonitoringInfoMesg : Mesg {
      *
      * @return local_timestamp
      */
-    fun getLocalTimestamp(): Long? {
-        return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set local_timestamp field
-     * Units: s
-     * Comment: Use to convert activity timestamps to local time if device does not support time zone and daylight savings time correction.
-     *
-     * @param localTimestamp The new localTimestamp value to be set
-     */
-    fun setLocalTimestamp(localTimestamp: Long?) {
-        setFieldValue(0, 0, localTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var localTimestamp: Long?
+        get() {
+            return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(localTimestamp) {
+            setFieldValue(0, 0, localTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getActivityType(): Array<ActivityType> {
         val values = getFieldShortValues(1, Fit.SUBFIELD_INDEX_MAIN_FIELD)!!
@@ -182,17 +169,11 @@ open class MonitoringInfoMesg : Mesg {
      *
      * @return resting_metabolic_rate
      */
-    fun getRestingMetabolicRate(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set resting_metabolic_rate field
-     * Units: kcal / day
-     *
-     * @param restingMetabolicRate The new restingMetabolicRate value to be set
-     */
-    fun setRestingMetabolicRate(restingMetabolicRate: Int?) {
-        setFieldValue(5, 0, restingMetabolicRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var restingMetabolicRate: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(restingMetabolicRate) {
+            setFieldValue(5, 0, restingMetabolicRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

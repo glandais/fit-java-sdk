@@ -33,19 +33,13 @@ open class Spo2DataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get reading_spo2 field
@@ -53,37 +47,26 @@ open class Spo2DataMesg : Mesg {
      *
      * @return reading_spo2
      */
-    fun getReadingSpo2(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set reading_spo2 field
-     * Units: percent
-     *
-     * @param readingSpo2 The new readingSpo2 value to be set
-     */
-    fun setReadingSpo2(readingSpo2: Short?) {
-        setFieldValue(0, 0, readingSpo2, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var readingSpo2: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(readingSpo2) {
+            setFieldValue(0, 0, readingSpo2, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get reading_confidence field
      *
      * @return reading_confidence
      */
-    fun getReadingConfidence(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set reading_confidence field
-     *
-     * @param readingConfidence The new readingConfidence value to be set
-     */
-    fun setReadingConfidence(readingConfidence: Short?) {
-        setFieldValue(1, 0, readingConfidence, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var readingConfidence: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(readingConfidence) {
+            setFieldValue(1, 0, readingConfidence, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get mode field
@@ -91,18 +74,12 @@ open class Spo2DataMesg : Mesg {
      *
      * @return mode
      */
-    fun getMode(): Spo2MeasurementType? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Spo2MeasurementType.fromValue(value)
-    }
-
-    /**
-     * Set mode field
-     * Comment: Mode when data was captured
-     *
-     * @param mode The new mode value to be set
-     */
-    fun setMode(mode: Spo2MeasurementType?) {
-        setFieldValue(2, 0, mode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mode: Spo2MeasurementType?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Spo2MeasurementType.fromValue(value)
+        }
+        set(mode) {
+            setFieldValue(2, 0, mode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

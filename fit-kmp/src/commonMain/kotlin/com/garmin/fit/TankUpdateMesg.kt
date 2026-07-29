@@ -31,37 +31,26 @@ open class TankUpdateMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sensor field
      *
      * @return sensor
      */
-    fun getSensor(): Long? {
-        return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sensor field
-     *
-     * @param sensor The new sensor value to be set
-     */
-    fun setSensor(sensor: Long?) {
-        setFieldValue(0, 0, sensor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sensor: Long?
+        get() {
+            return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sensor) {
+            setFieldValue(0, 0, sensor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pressure field
@@ -69,17 +58,11 @@ open class TankUpdateMesg : Mesg {
      *
      * @return pressure
      */
-    fun getPressure(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set pressure field
-     * Units: bar
-     *
-     * @param pressure The new pressure value to be set
-     */
-    fun setPressure(pressure: Float?) {
-        setFieldValue(1, 0, pressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var pressure: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(pressure) {
+            setFieldValue(1, 0, pressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

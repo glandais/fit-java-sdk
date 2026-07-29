@@ -32,7 +32,7 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
         var value: Long? = null
 
         if (isDefined()) {
-            value = developerDataIdMesg!!.getApplicationVersion()
+            value = developerDataIdMesg!!.applicationVersion
         }
 
         if (null == value) {
@@ -53,7 +53,7 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
     fun getDeveloperDataIndex(): Short {
         var value: Short? = null
         if (isDefined()) {
-            value = fieldDescriptionMesg!!.getDeveloperDataIndex()
+            value = fieldDescriptionMesg!!.developerDataIndex
         }
 
         if (null == value) {
@@ -77,9 +77,9 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
 
     fun getScale(): Short {
         if (isDefined() &&
-            (fieldDescriptionMesg!!.getScale() != null) &&
-            (fieldDescriptionMesg!!.getScale() != Fit.UINT8_INVALID)) {
-            return fieldDescriptionMesg!!.getScale()!!
+            (fieldDescriptionMesg!!.scale != null) &&
+            (fieldDescriptionMesg!!.scale != Fit.UINT8_INVALID)) {
+            return fieldDescriptionMesg!!.scale!!
         }
 
         return Fit.FIELD_DEFAULT_SCALE.toShort()
@@ -87,9 +87,9 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
 
     fun getOffset(): Short {
         if (isDefined() &&
-            (fieldDescriptionMesg!!.getOffset() != null) &&
-            (fieldDescriptionMesg!!.getOffset() != Fit.SINT8_INVALID)) {
-            return fieldDescriptionMesg!!.getOffset()!!.toShort()
+            (fieldDescriptionMesg!!.offset != null) &&
+            (fieldDescriptionMesg!!.offset != Fit.SINT8_INVALID)) {
+            return fieldDescriptionMesg!!.offset!!.toShort()
         }
 
         return Fit.FIELD_DEFAULT_OFFSET.toShort()
@@ -110,9 +110,9 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
     // protected in Java; internal because Mesg calls it.
     internal fun write(out: OutputStream) {
         try {
-            out.write(fieldDescriptionMesg!!.getFieldDefinitionNumber()!!.toInt())
+            out.write(fieldDescriptionMesg!!.fieldDefinitionNumber!!.toInt())
             out.write(size)
-            out.write(fieldDescriptionMesg!!.getDeveloperDataIndex()!!.toInt())
+            out.write(fieldDescriptionMesg!!.developerDataIndex!!.toInt())
         } catch (e: IOException) {
             throw FitRuntimeException(e)
         }
@@ -145,7 +145,7 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
      */
     fun getNativeOverride(): Short {
         if (isDefined()) {
-            val nativeNum = fieldDescriptionMesg!!.getNativeFieldNum()
+            val nativeNum = fieldDescriptionMesg!!.nativeFieldNum
             if (null != nativeNum) {
                 return nativeNum
             }
@@ -157,8 +157,8 @@ class DeveloperFieldDefinition : FieldDefinitionBase {
     // package-private in Java
     internal fun setFieldDescription(description: FieldDescriptionMesg?) {
         this.fieldDescriptionMesg = description
-        this.num = fieldDescriptionMesg!!.getFieldDefinitionNumber()!!
-        this.type = fieldDescriptionMesg!!.getFitBaseTypeId()!!.toInt()
+        this.num = fieldDescriptionMesg!!.fieldDefinitionNumber!!
+        this.type = fieldDescriptionMesg!!.fitBaseTypeId!!.toInt()
     }
 
     // package-private in Java

@@ -44,20 +44,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Whole second part of the timestamp.
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -66,20 +59,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond part of the timestamp.
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_lat field
@@ -87,19 +73,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return position_lat
      */
-    fun getPositionLat(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set position_lat field
-     * Units: semicircles
-     *
-     * @param positionLat The new positionLat value to be set
-     */
-    fun setPositionLat(positionLat: Int?) {
-        setFieldValue(1, 0, positionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionLat: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(positionLat) {
+            setFieldValue(1, 0, positionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_long field
@@ -107,19 +87,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return position_long
      */
-    fun getPositionLong(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set position_long field
-     * Units: semicircles
-     *
-     * @param positionLong The new positionLong value to be set
-     */
-    fun setPositionLong(positionLong: Int?) {
-        setFieldValue(2, 0, positionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionLong: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(positionLong) {
+            setFieldValue(2, 0, positionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enhanced_altitude field
@@ -127,19 +101,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return enhanced_altitude
      */
-    fun getEnhancedAltitude(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set enhanced_altitude field
-     * Units: m
-     *
-     * @param enhancedAltitude The new enhancedAltitude value to be set
-     */
-    fun setEnhancedAltitude(enhancedAltitude: Float?) {
-        setFieldValue(3, 0, enhancedAltitude, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enhancedAltitude: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(enhancedAltitude) {
+            setFieldValue(3, 0, enhancedAltitude, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enhanced_speed field
@@ -147,19 +115,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return enhanced_speed
      */
-    fun getEnhancedSpeed(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set enhanced_speed field
-     * Units: m/s
-     *
-     * @param enhancedSpeed The new enhancedSpeed value to be set
-     */
-    fun setEnhancedSpeed(enhancedSpeed: Float?) {
-        setFieldValue(4, 0, enhancedSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enhancedSpeed: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(enhancedSpeed) {
+            setFieldValue(4, 0, enhancedSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get heading field
@@ -167,19 +129,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return heading
      */
-    fun getHeading(): Float? {
-        return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set heading field
-     * Units: degrees
-     *
-     * @param heading The new heading value to be set
-     */
-    fun setHeading(heading: Float?) {
-        setFieldValue(5, 0, heading, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heading: Float?
+        get() {
+            return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(heading) {
+            setFieldValue(5, 0, heading, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get utc_timestamp field
@@ -188,20 +144,13 @@ open class GpsMetadataMesg : Mesg {
      *
      * @return utc_timestamp
      */
-    fun getUtcTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set utc_timestamp field
-     * Units: s
-     * Comment: Used to correlate UTC to system time if the timestamp of the message is in system time. This UTC time is derived from the GPS data.
-     *
-     * @param utcTimestamp The new utcTimestamp value to be set
-     */
-    fun setUtcTimestamp(utcTimestamp: DateTime?) {
-        setFieldValue(6, 0, utcTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var utcTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(utcTimestamp) {
+            setFieldValue(6, 0, utcTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getVelocity(): Array<Float?>? {
         return getFieldFloatValues(7, Fit.SUBFIELD_INDEX_MAIN_FIELD)

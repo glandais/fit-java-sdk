@@ -30,54 +30,39 @@ open class SportMesg : Mesg {
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(0, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(0, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sub_sport field
      *
      * @return sub_sport
      */
-    fun getSubSport(): SubSport? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SubSport.fromValue(value)
-    }
-
-    /**
-     * Set sub_sport field
-     *
-     * @param subSport The new subSport value to be set
-     */
-    fun setSubSport(subSport: SubSport?) {
-        setFieldValue(1, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var subSport: SubSport?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SubSport.fromValue(value)
+        }
+        set(subSport) {
+            setFieldValue(1, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get name field
      *
      * @return name
      */
-    override fun getName(): String? {
-        return getFieldStringValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set name field
-     *
-     * @param name The new name value to be set
-     */
-    fun setName(name: String?) {
-        setFieldValue(3, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var name: String?
+        get() {
+            return getFieldStringValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(name) {
+            setFieldValue(3, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

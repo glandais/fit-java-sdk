@@ -36,91 +36,66 @@ open class FileCapabilitiesMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get type field
      *
      * @return type
      */
-    fun getType(): File? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return File.fromValue(value)
-    }
-
-    /**
-     * Set type field
-     *
-     * @param type The new type value to be set
-     */
-    fun setType(type: File?) {
-        setFieldValue(0, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var type: File?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return File.fromValue(value)
+        }
+        set(type) {
+            setFieldValue(0, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get flags field
      *
      * @return flags
      */
-    fun getFlags(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set flags field
-     *
-     * @param flags The new flags value to be set
-     */
-    fun setFlags(flags: Short?) {
-        setFieldValue(1, 0, flags, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var flags: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(flags) {
+            setFieldValue(1, 0, flags, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get directory field
      *
      * @return directory
      */
-    fun getDirectory(): String? {
-        return getFieldStringValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set directory field
-     *
-     * @param directory The new directory value to be set
-     */
-    fun setDirectory(directory: String?) {
-        setFieldValue(2, 0, directory, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var directory: String?
+        get() {
+            return getFieldStringValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(directory) {
+            setFieldValue(2, 0, directory, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_count field
      *
      * @return max_count
      */
-    fun getMaxCount(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_count field
-     *
-     * @param maxCount The new maxCount value to be set
-     */
-    fun setMaxCount(maxCount: Int?) {
-        setFieldValue(3, 0, maxCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxCount: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxCount) {
+            setFieldValue(3, 0, maxCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_size field
@@ -128,17 +103,11 @@ open class FileCapabilitiesMesg : Mesg {
      *
      * @return max_size
      */
-    fun getMaxSize(): Long? {
-        return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_size field
-     * Units: bytes
-     *
-     * @param maxSize The new maxSize value to be set
-     */
-    fun setMaxSize(maxSize: Long?) {
-        setFieldValue(4, 0, maxSize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxSize: Long?
+        get() {
+            return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxSize) {
+            setFieldValue(4, 0, maxSize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -39,19 +39,13 @@ open class HsaAccelerometerDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -60,20 +54,13 @@ open class HsaAccelerometerDataMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond resolution of the timestamp
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sampling_interval field
@@ -82,20 +69,13 @@ open class HsaAccelerometerDataMesg : Mesg {
      *
      * @return sampling_interval
      */
-    fun getSamplingInterval(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sampling_interval field
-     * Units: ms
-     * Comment: Sampling Interval in Milliseconds
-     *
-     * @param samplingInterval The new samplingInterval value to be set
-     */
-    fun setSamplingInterval(samplingInterval: Int?) {
-        setFieldValue(1, 0, samplingInterval, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var samplingInterval: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(samplingInterval) {
+            setFieldValue(1, 0, samplingInterval, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getAccelX(): Array<Float?>? {
         return getFieldFloatValues(2, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -208,17 +188,11 @@ open class HsaAccelerometerDataMesg : Mesg {
      *
      * @return timestamp_32k
      */
-    fun getTimestamp32k(): Long? {
-        return getFieldLongValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_32k field
-     * Comment: 32 kHz timestamp
-     *
-     * @param timestamp32k The new timestamp32k value to be set
-     */
-    fun setTimestamp32k(timestamp32k: Long?) {
-        setFieldValue(5, 0, timestamp32k, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp32k: Long?
+        get() {
+            return getFieldLongValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestamp32k) {
+            setFieldValue(5, 0, timestamp32k, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

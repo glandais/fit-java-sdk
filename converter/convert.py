@@ -11,8 +11,9 @@ Usage :
   2. Génération des .kt via conv_enums / conv_constants / conv_listeners /
      conv_mesgs / conv_profile (imports tolérants : un module manquant est
      affiché en SKIP au lieu de faire planter le script).
-  3. Nettoyage puis recréation de fit-kmp/src/{commonMain,jvmMain}/kotlin/com/garmin/fit.
-  4. Copie des overrides (converter/overrides/commonMain, .../jvmMain) vers
+  3. Nettoyage puis recréation de fit-kmp/src/commonMain/kotlin/com/garmin/fit.
+     (src/commonTest/, écrit à la main, est préservé.)
+  4. Copie des overrides (converter/overrides/commonMain) vers
      fit-kmp/src/.../com/garmin/fit, avec suivi de overrides/hashes.json
      (création si absent, WARNING si le .java source correspondant a changé).
   5. Création (si absents) de settings.gradle.kts / build.gradle.kts /
@@ -39,7 +40,6 @@ OVERRIDES_DIR = CONVERTER_DIR / "overrides"
 HASHES_JSON = OVERRIDES_DIR / "hashes.json"
 
 COMMON_MAIN_OUT = FIT_KMP_DIR / "src/commonMain/kotlin/com/garmin/fit"
-JVM_MAIN_OUT = FIT_KMP_DIR / "src/jvmMain/kotlin/com/garmin/fit"
 
 # category -> (module name, function name) : chaque module expose
 # convert(files: list[Path], out_dir: Path) -> list[Path]
@@ -59,23 +59,22 @@ SETTINGS_GRADLE_KTS = """rootProject.name = "fit-kmp"
 """
 
 BUILD_GRADLE_KTS = """plugins {
-    kotlin("multiplatform") version "2.2.0"
-}
-
-group = "com.garmin.fit"
-version = "21.205.0"
-
-repositories {
-    mavenCentral()
+    kotlin("multiplatform") version "2.4.20-Beta2"
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
     jvm()
-    js {
+
+    js(IR) {
         nodejs()
+        browser()
     }
-    linuxX64()
+
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmWasi {
+        wasmtime()
+    }
 
     sourceSets {
         commonMain {
@@ -113,12 +112,18 @@ def ensure_gradle_project_files() -> None:
 
 
 def clean_generated_sources() -> None:
-    """Supprime intégralement fit-kmp/src/ puis recrée l'arborescence vide."""
-    src_dir = FIT_KMP_DIR / "src"
-    if src_dir.exists():
-        shutil.rmtree(src_dir)
+    """Supprime fit-kmp/src/commonMain/ puis recrée l'arborescence vide.
+
+    Seul commonMain est régénéré. src/commonTest/ est écrit à la main et doit
+    survivre au rejeu — c'est le seul garde-fou du port contre le SDK Java.
+    """
+    stale_jvm_main = FIT_KMP_DIR / "src/jvmMain"
+    if stale_jvm_main.exists():
+        shutil.rmtree(stale_jvm_main)
+    common_main_dir = FIT_KMP_DIR / "src/commonMain"
+    if common_main_dir.exists():
+        shutil.rmtree(common_main_dir)
     COMMON_MAIN_OUT.mkdir(parents=True, exist_ok=True)
-    JVM_MAIN_OUT.mkdir(parents=True, exist_ok=True)
     (FIT_KMP_DIR / "src/commonTest/kotlin/com/garmin/fit").mkdir(parents=True, exist_ok=True)
 
 
@@ -175,8 +180,8 @@ def save_hashes(hashes: dict) -> None:
 
 
 def copy_overrides(update_hashes: bool) -> tuple[list[Path], list[str]]:
-    """Copie overrides/commonMain -> COMMON_MAIN_OUT et overrides/jvmMain ->
-    JVM_MAIN_OUT. Gère overrides/hashes.json (création + WARNING sur drift).
+    """Copie overrides/commonMain -> COMMON_MAIN_OUT.
+    Gère overrides/hashes.json (création + WARNING sur drift).
     Retourne (fichiers copiés, warnings)."""
     hashes = load_hashes()
     warnings: list[str] = []
@@ -184,7 +189,6 @@ def copy_overrides(update_hashes: bool) -> tuple[list[Path], list[str]]:
 
     source_sets = {
         "commonMain": (OVERRIDES_DIR / "commonMain", COMMON_MAIN_OUT),
-        "jvmMain": (OVERRIDES_DIR / "jvmMain", JVM_MAIN_OUT),
     }
 
     for source_set, (override_dir, out_dir) in source_sets.items():

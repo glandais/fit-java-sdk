@@ -64,37 +64,27 @@ open class SplitMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get split_type field
      *
      * @return split_type
      */
-    fun getSplitType(): SplitType? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SplitType.fromValue(value)
-    }
-
-    /**
-     * Set split_type field
-     *
-     * @param splitType The new splitType value to be set
-     */
-    fun setSplitType(splitType: SplitType?) {
-        setFieldValue(0, 0, splitType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var splitType: SplitType?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SplitType.fromValue(value)
+        }
+        set(splitType) {
+            setFieldValue(0, 0, splitType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_elapsed_time field
@@ -102,19 +92,13 @@ open class SplitMesg : Mesg {
      *
      * @return total_elapsed_time
      */
-    fun getTotalElapsedTime(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_elapsed_time field
-     * Units: s
-     *
-     * @param totalElapsedTime The new totalElapsedTime value to be set
-     */
-    fun setTotalElapsedTime(totalElapsedTime: Float?) {
-        setFieldValue(1, 0, totalElapsedTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalElapsedTime: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalElapsedTime) {
+            setFieldValue(1, 0, totalElapsedTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_timer_time field
@@ -122,19 +106,13 @@ open class SplitMesg : Mesg {
      *
      * @return total_timer_time
      */
-    fun getTotalTimerTime(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_timer_time field
-     * Units: s
-     *
-     * @param totalTimerTime The new totalTimerTime value to be set
-     */
-    fun setTotalTimerTime(totalTimerTime: Float?) {
-        setFieldValue(2, 0, totalTimerTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalTimerTime: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalTimerTime) {
+            setFieldValue(2, 0, totalTimerTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_distance field
@@ -142,19 +120,13 @@ open class SplitMesg : Mesg {
      *
      * @return total_distance
      */
-    fun getTotalDistance(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_distance field
-     * Units: m
-     *
-     * @param totalDistance The new totalDistance value to be set
-     */
-    fun setTotalDistance(totalDistance: Float?) {
-        setFieldValue(3, 0, totalDistance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalDistance: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalDistance) {
+            setFieldValue(3, 0, totalDistance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get avg_speed field
@@ -162,37 +134,26 @@ open class SplitMesg : Mesg {
      *
      * @return avg_speed
      */
-    fun getAvgSpeed(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set avg_speed field
-     * Units: m/s
-     *
-     * @param avgSpeed The new avgSpeed value to be set
-     */
-    fun setAvgSpeed(avgSpeed: Float?) {
-        setFieldValue(4, 0, avgSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var avgSpeed: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(avgSpeed) {
+            setFieldValue(4, 0, avgSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_time field
      *
      * @return start_time
      */
-    fun getStartTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_time field
-     *
-     * @param startTime The new startTime value to be set
-     */
-    fun setStartTime(startTime: DateTime?) {
-        setFieldValue(9, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTime) {
+            setFieldValue(9, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_ascent field
@@ -200,19 +161,13 @@ open class SplitMesg : Mesg {
      *
      * @return total_ascent
      */
-    fun getTotalAscent(): Int? {
-        return getFieldIntegerValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_ascent field
-     * Units: m
-     *
-     * @param totalAscent The new totalAscent value to be set
-     */
-    fun setTotalAscent(totalAscent: Int?) {
-        setFieldValue(13, 0, totalAscent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalAscent: Int?
+        get() {
+            return getFieldIntegerValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalAscent) {
+            setFieldValue(13, 0, totalAscent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_descent field
@@ -220,19 +175,13 @@ open class SplitMesg : Mesg {
      *
      * @return total_descent
      */
-    fun getTotalDescent(): Int? {
-        return getFieldIntegerValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_descent field
-     * Units: m
-     *
-     * @param totalDescent The new totalDescent value to be set
-     */
-    fun setTotalDescent(totalDescent: Int?) {
-        setFieldValue(14, 0, totalDescent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalDescent: Int?
+        get() {
+            return getFieldIntegerValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalDescent) {
+            setFieldValue(14, 0, totalDescent, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_position_lat field
@@ -240,19 +189,13 @@ open class SplitMesg : Mesg {
      *
      * @return start_position_lat
      */
-    fun getStartPositionLat(): Int? {
-        return getFieldIntegerValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_position_lat field
-     * Units: semicircles
-     *
-     * @param startPositionLat The new startPositionLat value to be set
-     */
-    fun setStartPositionLat(startPositionLat: Int?) {
-        setFieldValue(21, 0, startPositionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startPositionLat: Int?
+        get() {
+            return getFieldIntegerValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startPositionLat) {
+            setFieldValue(21, 0, startPositionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_position_long field
@@ -260,19 +203,13 @@ open class SplitMesg : Mesg {
      *
      * @return start_position_long
      */
-    fun getStartPositionLong(): Int? {
-        return getFieldIntegerValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_position_long field
-     * Units: semicircles
-     *
-     * @param startPositionLong The new startPositionLong value to be set
-     */
-    fun setStartPositionLong(startPositionLong: Int?) {
-        setFieldValue(22, 0, startPositionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startPositionLong: Int?
+        get() {
+            return getFieldIntegerValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startPositionLong) {
+            setFieldValue(22, 0, startPositionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_position_lat field
@@ -280,19 +217,13 @@ open class SplitMesg : Mesg {
      *
      * @return end_position_lat
      */
-    fun getEndPositionLat(): Int? {
-        return getFieldIntegerValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set end_position_lat field
-     * Units: semicircles
-     *
-     * @param endPositionLat The new endPositionLat value to be set
-     */
-    fun setEndPositionLat(endPositionLat: Int?) {
-        setFieldValue(23, 0, endPositionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endPositionLat: Int?
+        get() {
+            return getFieldIntegerValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(endPositionLat) {
+            setFieldValue(23, 0, endPositionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_position_long field
@@ -300,19 +231,13 @@ open class SplitMesg : Mesg {
      *
      * @return end_position_long
      */
-    fun getEndPositionLong(): Int? {
-        return getFieldIntegerValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set end_position_long field
-     * Units: semicircles
-     *
-     * @param endPositionLong The new endPositionLong value to be set
-     */
-    fun setEndPositionLong(endPositionLong: Int?) {
-        setFieldValue(24, 0, endPositionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endPositionLong: Int?
+        get() {
+            return getFieldIntegerValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(endPositionLong) {
+            setFieldValue(24, 0, endPositionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_speed field
@@ -320,19 +245,13 @@ open class SplitMesg : Mesg {
      *
      * @return max_speed
      */
-    fun getMaxSpeed(): Float? {
-        return getFieldFloatValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_speed field
-     * Units: m/s
-     *
-     * @param maxSpeed The new maxSpeed value to be set
-     */
-    fun setMaxSpeed(maxSpeed: Float?) {
-        setFieldValue(25, 0, maxSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxSpeed: Float?
+        get() {
+            return getFieldFloatValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxSpeed) {
+            setFieldValue(25, 0, maxSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get avg_vert_speed field
@@ -340,37 +259,26 @@ open class SplitMesg : Mesg {
      *
      * @return avg_vert_speed
      */
-    fun getAvgVertSpeed(): Float? {
-        return getFieldFloatValue(26, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set avg_vert_speed field
-     * Units: m/s
-     *
-     * @param avgVertSpeed The new avgVertSpeed value to be set
-     */
-    fun setAvgVertSpeed(avgVertSpeed: Float?) {
-        setFieldValue(26, 0, avgVertSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var avgVertSpeed: Float?
+        get() {
+            return getFieldFloatValue(26, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(avgVertSpeed) {
+            setFieldValue(26, 0, avgVertSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_time field
      *
      * @return end_time
      */
-    fun getEndTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(27, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set end_time field
-     *
-     * @param endTime The new endTime value to be set
-     */
-    fun setEndTime(endTime: DateTime?) {
-        setFieldValue(27, 0, endTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(27, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(endTime) {
+            setFieldValue(27, 0, endTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_calories field
@@ -378,19 +286,13 @@ open class SplitMesg : Mesg {
      *
      * @return total_calories
      */
-    fun getTotalCalories(): Long? {
-        return getFieldLongValue(28, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_calories field
-     * Units: kcal
-     *
-     * @param totalCalories The new totalCalories value to be set
-     */
-    fun setTotalCalories(totalCalories: Long?) {
-        setFieldValue(28, 0, totalCalories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalCalories: Long?
+        get() {
+            return getFieldLongValue(28, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalCalories) {
+            setFieldValue(28, 0, totalCalories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_elevation field
@@ -398,19 +300,13 @@ open class SplitMesg : Mesg {
      *
      * @return start_elevation
      */
-    fun getStartElevation(): Float? {
-        return getFieldFloatValue(74, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_elevation field
-     * Units: m
-     *
-     * @param startElevation The new startElevation value to be set
-     */
-    fun setStartElevation(startElevation: Float?) {
-        setFieldValue(74, 0, startElevation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startElevation: Float?
+        get() {
+            return getFieldFloatValue(74, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startElevation) {
+            setFieldValue(74, 0, startElevation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get active_time field
@@ -419,20 +315,13 @@ open class SplitMesg : Mesg {
      *
      * @return active_time
      */
-    fun getActiveTime(): Float? {
-        return getFieldFloatValue(78, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set active_time field
-     * Units: s
-     * Comment: Active time of split rounds
-     *
-     * @param activeTime The new activeTime value to be set
-     */
-    fun setActiveTime(activeTime: Float?) {
-        setFieldValue(78, 0, activeTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var activeTime: Float?
+        get() {
+            return getFieldFloatValue(78, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(activeTime) {
+            setFieldValue(78, 0, activeTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get total_moving_time field
@@ -440,17 +329,11 @@ open class SplitMesg : Mesg {
      *
      * @return total_moving_time
      */
-    fun getTotalMovingTime(): Float? {
-        return getFieldFloatValue(110, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set total_moving_time field
-     * Units: s
-     *
-     * @param totalMovingTime The new totalMovingTime value to be set
-     */
-    fun setTotalMovingTime(totalMovingTime: Float?) {
-        setFieldValue(110, 0, totalMovingTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var totalMovingTime: Float?
+        get() {
+            return getFieldFloatValue(110, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(totalMovingTime) {
+            setFieldValue(110, 0, totalMovingTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

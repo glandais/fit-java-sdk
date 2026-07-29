@@ -33,19 +33,13 @@ open class HsaHeartRateDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get processing_interval field
@@ -54,20 +48,13 @@ open class HsaHeartRateDataMesg : Mesg {
      *
      * @return processing_interval
      */
-    fun getProcessingInterval(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set processing_interval field
-     * Units: s
-     * Comment: Processing interval length in seconds
-     *
-     * @param processingInterval The new processingInterval value to be set
-     */
-    fun setProcessingInterval(processingInterval: Int?) {
-        setFieldValue(0, 0, processingInterval, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var processingInterval: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(processingInterval) {
+            setFieldValue(0, 0, processingInterval, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get status field
@@ -75,19 +62,13 @@ open class HsaHeartRateDataMesg : Mesg {
      *
      * @return status
      */
-    fun getStatus(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set status field
-     * Comment: Status of measurements in buffer - 0 indicates SEARCHING 1 indicates LOCKED
-     *
-     * @param status The new status value to be set
-     */
-    fun setStatus(status: Short?) {
-        setFieldValue(1, 0, status, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var status: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(status) {
+            setFieldValue(1, 0, status, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getHeartRate(): Array<Short?>? {
         return getFieldShortValues(2, Fit.SUBFIELD_INDEX_MAIN_FIELD)

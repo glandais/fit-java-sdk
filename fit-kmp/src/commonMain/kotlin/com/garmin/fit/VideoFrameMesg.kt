@@ -32,20 +32,13 @@ open class VideoFrameMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Whole second part of the timestamp
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -54,20 +47,13 @@ open class VideoFrameMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond part of the timestamp.
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get frame_number field
@@ -75,17 +61,11 @@ open class VideoFrameMesg : Mesg {
      *
      * @return frame_number
      */
-    fun getFrameNumber(): Long? {
-        return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set frame_number field
-     * Comment: Number of the frame that the timestamp and timestamp_ms correlate to
-     *
-     * @param frameNumber The new frameNumber value to be set
-     */
-    fun setFrameNumber(frameNumber: Long?) {
-        setFieldValue(1, 0, frameNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var frameNumber: Long?
+        get() {
+            return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(frameNumber) {
+            setFieldValue(1, 0, frameNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

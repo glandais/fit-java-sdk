@@ -7,379 +7,379 @@ package com.garmin.fit
 
 class FitMessages {
 
-    internal val fileIdMesgs = ArrayList<FileIdMesg>()
-    internal val fileCreatorMesgs = ArrayList<FileCreatorMesg>()
-    internal val timestampCorrelationMesgs = ArrayList<TimestampCorrelationMesg>()
-    internal val softwareMesgs = ArrayList<SoftwareMesg>()
-    internal val slaveDeviceMesgs = ArrayList<SlaveDeviceMesg>()
-    internal val capabilitiesMesgs = ArrayList<CapabilitiesMesg>()
-    internal val fileCapabilitiesMesgs = ArrayList<FileCapabilitiesMesg>()
-    internal val mesgCapabilitiesMesgs = ArrayList<MesgCapabilitiesMesg>()
-    internal val fieldCapabilitiesMesgs = ArrayList<FieldCapabilitiesMesg>()
-    internal val deviceSettingsMesgs = ArrayList<DeviceSettingsMesg>()
-    internal val userProfileMesgs = ArrayList<UserProfileMesg>()
-    internal val hrmProfileMesgs = ArrayList<HrmProfileMesg>()
-    internal val sdmProfileMesgs = ArrayList<SdmProfileMesg>()
-    internal val bikeProfileMesgs = ArrayList<BikeProfileMesg>()
-    internal val connectivityMesgs = ArrayList<ConnectivityMesg>()
-    internal val watchfaceSettingsMesgs = ArrayList<WatchfaceSettingsMesg>()
-    internal val ohrSettingsMesgs = ArrayList<OhrSettingsMesg>()
-    internal val timeInZoneMesgs = ArrayList<TimeInZoneMesg>()
-    internal val zonesTargetMesgs = ArrayList<ZonesTargetMesg>()
-    internal val sportMesgs = ArrayList<SportMesg>()
-    internal val hrZoneMesgs = ArrayList<HrZoneMesg>()
-    internal val speedZoneMesgs = ArrayList<SpeedZoneMesg>()
-    internal val cadenceZoneMesgs = ArrayList<CadenceZoneMesg>()
-    internal val powerZoneMesgs = ArrayList<PowerZoneMesg>()
-    internal val metZoneMesgs = ArrayList<MetZoneMesg>()
-    internal val trainingSettingsMesgs = ArrayList<TrainingSettingsMesg>()
-    internal val diveSettingsMesgs = ArrayList<DiveSettingsMesg>()
-    internal val diveAlarmMesgs = ArrayList<DiveAlarmMesg>()
-    internal val diveApneaAlarmMesgs = ArrayList<DiveApneaAlarmMesg>()
-    internal val diveGasMesgs = ArrayList<DiveGasMesg>()
-    internal val goalMesgs = ArrayList<GoalMesg>()
-    internal val activityMesgs = ArrayList<ActivityMesg>()
-    internal val sessionMesgs = ArrayList<SessionMesg>()
-    internal val lapMesgs = ArrayList<LapMesg>()
-    internal val lengthMesgs = ArrayList<LengthMesg>()
-    internal val recordMesgs = ArrayList<RecordMesg>()
-    internal val eventMesgs = ArrayList<EventMesg>()
-    internal val deviceInfoMesgs = ArrayList<DeviceInfoMesg>()
-    internal val deviceAuxBatteryInfoMesgs = ArrayList<DeviceAuxBatteryInfoMesg>()
-    internal val trainingFileMesgs = ArrayList<TrainingFileMesg>()
-    internal val weatherConditionsMesgs = ArrayList<WeatherConditionsMesg>()
-    internal val weatherAlertMesgs = ArrayList<WeatherAlertMesg>()
-    internal val gpsMetadataMesgs = ArrayList<GpsMetadataMesg>()
-    internal val cameraEventMesgs = ArrayList<CameraEventMesg>()
-    internal val gyroscopeDataMesgs = ArrayList<GyroscopeDataMesg>()
-    internal val accelerometerDataMesgs = ArrayList<AccelerometerDataMesg>()
-    internal val magnetometerDataMesgs = ArrayList<MagnetometerDataMesg>()
-    internal val barometerDataMesgs = ArrayList<BarometerDataMesg>()
-    internal val threeDSensorCalibrationMesgs = ArrayList<ThreeDSensorCalibrationMesg>()
-    internal val oneDSensorCalibrationMesgs = ArrayList<OneDSensorCalibrationMesg>()
-    internal val videoFrameMesgs = ArrayList<VideoFrameMesg>()
-    internal val obdiiDataMesgs = ArrayList<ObdiiDataMesg>()
-    internal val nmeaSentenceMesgs = ArrayList<NmeaSentenceMesg>()
-    internal val aviationAttitudeMesgs = ArrayList<AviationAttitudeMesg>()
-    internal val videoMesgs = ArrayList<VideoMesg>()
-    internal val videoTitleMesgs = ArrayList<VideoTitleMesg>()
-    internal val videoDescriptionMesgs = ArrayList<VideoDescriptionMesg>()
-    internal val videoClipMesgs = ArrayList<VideoClipMesg>()
-    internal val setMesgs = ArrayList<SetMesg>()
-    internal val jumpMesgs = ArrayList<JumpMesg>()
-    internal val splitMesgs = ArrayList<SplitMesg>()
-    internal val splitSummaryMesgs = ArrayList<SplitSummaryMesg>()
-    internal val climbProMesgs = ArrayList<ClimbProMesg>()
-    internal val fieldDescriptionMesgs = ArrayList<FieldDescriptionMesg>()
-    internal val developerDataIdMesgs = ArrayList<DeveloperDataIdMesg>()
-    internal val courseMesgs = ArrayList<CourseMesg>()
-    internal val coursePointMesgs = ArrayList<CoursePointMesg>()
-    internal val segmentIdMesgs = ArrayList<SegmentIdMesg>()
-    internal val segmentLeaderboardEntryMesgs = ArrayList<SegmentLeaderboardEntryMesg>()
-    internal val segmentPointMesgs = ArrayList<SegmentPointMesg>()
-    internal val segmentLapMesgs = ArrayList<SegmentLapMesg>()
-    internal val segmentFileMesgs = ArrayList<SegmentFileMesg>()
-    internal val workoutMesgs = ArrayList<WorkoutMesg>()
-    internal val workoutSessionMesgs = ArrayList<WorkoutSessionMesg>()
-    internal val workoutStepMesgs = ArrayList<WorkoutStepMesg>()
-    internal val exerciseTitleMesgs = ArrayList<ExerciseTitleMesg>()
-    internal val scheduleMesgs = ArrayList<ScheduleMesg>()
-    internal val totalsMesgs = ArrayList<TotalsMesg>()
-    internal val weightScaleMesgs = ArrayList<WeightScaleMesg>()
-    internal val bloodPressureMesgs = ArrayList<BloodPressureMesg>()
-    internal val monitoringInfoMesgs = ArrayList<MonitoringInfoMesg>()
-    internal val monitoringMesgs = ArrayList<MonitoringMesg>()
-    internal val monitoringHrDataMesgs = ArrayList<MonitoringHrDataMesg>()
-    internal val spo2DataMesgs = ArrayList<Spo2DataMesg>()
-    internal val hrMesgs = ArrayList<HrMesg>()
-    internal val stressLevelMesgs = ArrayList<StressLevelMesg>()
-    internal val maxMetDataMesgs = ArrayList<MaxMetDataMesg>()
-    internal val hsaBodyBatteryDataMesgs = ArrayList<HsaBodyBatteryDataMesg>()
-    internal val hsaEventMesgs = ArrayList<HsaEventMesg>()
-    internal val hsaAccelerometerDataMesgs = ArrayList<HsaAccelerometerDataMesg>()
-    internal val hsaGyroscopeDataMesgs = ArrayList<HsaGyroscopeDataMesg>()
-    internal val hsaStepDataMesgs = ArrayList<HsaStepDataMesg>()
-    internal val hsaSpo2DataMesgs = ArrayList<HsaSpo2DataMesg>()
-    internal val hsaStressDataMesgs = ArrayList<HsaStressDataMesg>()
-    internal val hsaRespirationDataMesgs = ArrayList<HsaRespirationDataMesg>()
-    internal val hsaHeartRateDataMesgs = ArrayList<HsaHeartRateDataMesg>()
-    internal val hsaConfigurationDataMesgs = ArrayList<HsaConfigurationDataMesg>()
-    internal val hsaWristTemperatureDataMesgs = ArrayList<HsaWristTemperatureDataMesg>()
-    internal val memoGlobMesgs = ArrayList<MemoGlobMesg>()
-    internal val sleepLevelMesgs = ArrayList<SleepLevelMesg>()
-    internal val antChannelIdMesgs = ArrayList<AntChannelIdMesg>()
-    internal val antRxMesgs = ArrayList<AntRxMesg>()
-    internal val antTxMesgs = ArrayList<AntTxMesg>()
-    internal val exdScreenConfigurationMesgs = ArrayList<ExdScreenConfigurationMesg>()
-    internal val exdDataFieldConfigurationMesgs = ArrayList<ExdDataFieldConfigurationMesg>()
-    internal val exdDataConceptConfigurationMesgs = ArrayList<ExdDataConceptConfigurationMesg>()
-    internal val diveSummaryMesgs = ArrayList<DiveSummaryMesg>()
-    internal val aadAccelFeaturesMesgs = ArrayList<AadAccelFeaturesMesg>()
-    internal val hrvMesgs = ArrayList<HrvMesg>()
-    internal val beatIntervalsMesgs = ArrayList<BeatIntervalsMesg>()
-    internal val hrvStatusSummaryMesgs = ArrayList<HrvStatusSummaryMesg>()
-    internal val hrvValueMesgs = ArrayList<HrvValueMesg>()
-    internal val rawBbiMesgs = ArrayList<RawBbiMesg>()
-    internal val respirationRateMesgs = ArrayList<RespirationRateMesg>()
-    internal val chronoShotSessionMesgs = ArrayList<ChronoShotSessionMesg>()
-    internal val chronoShotDataMesgs = ArrayList<ChronoShotDataMesg>()
-    internal val tankUpdateMesgs = ArrayList<TankUpdateMesg>()
-    internal val tankSummaryMesgs = ArrayList<TankSummaryMesg>()
-    internal val sleepAssessmentMesgs = ArrayList<SleepAssessmentMesg>()
-    internal val sleepDisruptionSeverityPeriodMesgs = ArrayList<SleepDisruptionSeverityPeriodMesg>()
-    internal val sleepDisruptionOvernightSeverityMesgs = ArrayList<SleepDisruptionOvernightSeverityMesg>()
-    internal val napEventMesgs = ArrayList<NapEventMesg>()
-    internal val skinTempOvernightMesgs = ArrayList<SkinTempOvernightMesg>()
-    internal val padMesgs = ArrayList<PadMesg>()
-    internal val developerFieldDescriptionMesgs = ArrayList<DeveloperFieldDescription>()
+    internal val _fileIdMesgs = ArrayList<FileIdMesg>()
+    internal val _fileCreatorMesgs = ArrayList<FileCreatorMesg>()
+    internal val _timestampCorrelationMesgs = ArrayList<TimestampCorrelationMesg>()
+    internal val _softwareMesgs = ArrayList<SoftwareMesg>()
+    internal val _slaveDeviceMesgs = ArrayList<SlaveDeviceMesg>()
+    internal val _capabilitiesMesgs = ArrayList<CapabilitiesMesg>()
+    internal val _fileCapabilitiesMesgs = ArrayList<FileCapabilitiesMesg>()
+    internal val _mesgCapabilitiesMesgs = ArrayList<MesgCapabilitiesMesg>()
+    internal val _fieldCapabilitiesMesgs = ArrayList<FieldCapabilitiesMesg>()
+    internal val _deviceSettingsMesgs = ArrayList<DeviceSettingsMesg>()
+    internal val _userProfileMesgs = ArrayList<UserProfileMesg>()
+    internal val _hrmProfileMesgs = ArrayList<HrmProfileMesg>()
+    internal val _sdmProfileMesgs = ArrayList<SdmProfileMesg>()
+    internal val _bikeProfileMesgs = ArrayList<BikeProfileMesg>()
+    internal val _connectivityMesgs = ArrayList<ConnectivityMesg>()
+    internal val _watchfaceSettingsMesgs = ArrayList<WatchfaceSettingsMesg>()
+    internal val _ohrSettingsMesgs = ArrayList<OhrSettingsMesg>()
+    internal val _timeInZoneMesgs = ArrayList<TimeInZoneMesg>()
+    internal val _zonesTargetMesgs = ArrayList<ZonesTargetMesg>()
+    internal val _sportMesgs = ArrayList<SportMesg>()
+    internal val _hrZoneMesgs = ArrayList<HrZoneMesg>()
+    internal val _speedZoneMesgs = ArrayList<SpeedZoneMesg>()
+    internal val _cadenceZoneMesgs = ArrayList<CadenceZoneMesg>()
+    internal val _powerZoneMesgs = ArrayList<PowerZoneMesg>()
+    internal val _metZoneMesgs = ArrayList<MetZoneMesg>()
+    internal val _trainingSettingsMesgs = ArrayList<TrainingSettingsMesg>()
+    internal val _diveSettingsMesgs = ArrayList<DiveSettingsMesg>()
+    internal val _diveAlarmMesgs = ArrayList<DiveAlarmMesg>()
+    internal val _diveApneaAlarmMesgs = ArrayList<DiveApneaAlarmMesg>()
+    internal val _diveGasMesgs = ArrayList<DiveGasMesg>()
+    internal val _goalMesgs = ArrayList<GoalMesg>()
+    internal val _activityMesgs = ArrayList<ActivityMesg>()
+    internal val _sessionMesgs = ArrayList<SessionMesg>()
+    internal val _lapMesgs = ArrayList<LapMesg>()
+    internal val _lengthMesgs = ArrayList<LengthMesg>()
+    internal val _recordMesgs = ArrayList<RecordMesg>()
+    internal val _eventMesgs = ArrayList<EventMesg>()
+    internal val _deviceInfoMesgs = ArrayList<DeviceInfoMesg>()
+    internal val _deviceAuxBatteryInfoMesgs = ArrayList<DeviceAuxBatteryInfoMesg>()
+    internal val _trainingFileMesgs = ArrayList<TrainingFileMesg>()
+    internal val _weatherConditionsMesgs = ArrayList<WeatherConditionsMesg>()
+    internal val _weatherAlertMesgs = ArrayList<WeatherAlertMesg>()
+    internal val _gpsMetadataMesgs = ArrayList<GpsMetadataMesg>()
+    internal val _cameraEventMesgs = ArrayList<CameraEventMesg>()
+    internal val _gyroscopeDataMesgs = ArrayList<GyroscopeDataMesg>()
+    internal val _accelerometerDataMesgs = ArrayList<AccelerometerDataMesg>()
+    internal val _magnetometerDataMesgs = ArrayList<MagnetometerDataMesg>()
+    internal val _barometerDataMesgs = ArrayList<BarometerDataMesg>()
+    internal val _threeDSensorCalibrationMesgs = ArrayList<ThreeDSensorCalibrationMesg>()
+    internal val _oneDSensorCalibrationMesgs = ArrayList<OneDSensorCalibrationMesg>()
+    internal val _videoFrameMesgs = ArrayList<VideoFrameMesg>()
+    internal val _obdiiDataMesgs = ArrayList<ObdiiDataMesg>()
+    internal val _nmeaSentenceMesgs = ArrayList<NmeaSentenceMesg>()
+    internal val _aviationAttitudeMesgs = ArrayList<AviationAttitudeMesg>()
+    internal val _videoMesgs = ArrayList<VideoMesg>()
+    internal val _videoTitleMesgs = ArrayList<VideoTitleMesg>()
+    internal val _videoDescriptionMesgs = ArrayList<VideoDescriptionMesg>()
+    internal val _videoClipMesgs = ArrayList<VideoClipMesg>()
+    internal val _setMesgs = ArrayList<SetMesg>()
+    internal val _jumpMesgs = ArrayList<JumpMesg>()
+    internal val _splitMesgs = ArrayList<SplitMesg>()
+    internal val _splitSummaryMesgs = ArrayList<SplitSummaryMesg>()
+    internal val _climbProMesgs = ArrayList<ClimbProMesg>()
+    internal val _fieldDescriptionMesgs = ArrayList<FieldDescriptionMesg>()
+    internal val _developerDataIdMesgs = ArrayList<DeveloperDataIdMesg>()
+    internal val _courseMesgs = ArrayList<CourseMesg>()
+    internal val _coursePointMesgs = ArrayList<CoursePointMesg>()
+    internal val _segmentIdMesgs = ArrayList<SegmentIdMesg>()
+    internal val _segmentLeaderboardEntryMesgs = ArrayList<SegmentLeaderboardEntryMesg>()
+    internal val _segmentPointMesgs = ArrayList<SegmentPointMesg>()
+    internal val _segmentLapMesgs = ArrayList<SegmentLapMesg>()
+    internal val _segmentFileMesgs = ArrayList<SegmentFileMesg>()
+    internal val _workoutMesgs = ArrayList<WorkoutMesg>()
+    internal val _workoutSessionMesgs = ArrayList<WorkoutSessionMesg>()
+    internal val _workoutStepMesgs = ArrayList<WorkoutStepMesg>()
+    internal val _exerciseTitleMesgs = ArrayList<ExerciseTitleMesg>()
+    internal val _scheduleMesgs = ArrayList<ScheduleMesg>()
+    internal val _totalsMesgs = ArrayList<TotalsMesg>()
+    internal val _weightScaleMesgs = ArrayList<WeightScaleMesg>()
+    internal val _bloodPressureMesgs = ArrayList<BloodPressureMesg>()
+    internal val _monitoringInfoMesgs = ArrayList<MonitoringInfoMesg>()
+    internal val _monitoringMesgs = ArrayList<MonitoringMesg>()
+    internal val _monitoringHrDataMesgs = ArrayList<MonitoringHrDataMesg>()
+    internal val _spo2DataMesgs = ArrayList<Spo2DataMesg>()
+    internal val _hrMesgs = ArrayList<HrMesg>()
+    internal val _stressLevelMesgs = ArrayList<StressLevelMesg>()
+    internal val _maxMetDataMesgs = ArrayList<MaxMetDataMesg>()
+    internal val _hsaBodyBatteryDataMesgs = ArrayList<HsaBodyBatteryDataMesg>()
+    internal val _hsaEventMesgs = ArrayList<HsaEventMesg>()
+    internal val _hsaAccelerometerDataMesgs = ArrayList<HsaAccelerometerDataMesg>()
+    internal val _hsaGyroscopeDataMesgs = ArrayList<HsaGyroscopeDataMesg>()
+    internal val _hsaStepDataMesgs = ArrayList<HsaStepDataMesg>()
+    internal val _hsaSpo2DataMesgs = ArrayList<HsaSpo2DataMesg>()
+    internal val _hsaStressDataMesgs = ArrayList<HsaStressDataMesg>()
+    internal val _hsaRespirationDataMesgs = ArrayList<HsaRespirationDataMesg>()
+    internal val _hsaHeartRateDataMesgs = ArrayList<HsaHeartRateDataMesg>()
+    internal val _hsaConfigurationDataMesgs = ArrayList<HsaConfigurationDataMesg>()
+    internal val _hsaWristTemperatureDataMesgs = ArrayList<HsaWristTemperatureDataMesg>()
+    internal val _memoGlobMesgs = ArrayList<MemoGlobMesg>()
+    internal val _sleepLevelMesgs = ArrayList<SleepLevelMesg>()
+    internal val _antChannelIdMesgs = ArrayList<AntChannelIdMesg>()
+    internal val _antRxMesgs = ArrayList<AntRxMesg>()
+    internal val _antTxMesgs = ArrayList<AntTxMesg>()
+    internal val _exdScreenConfigurationMesgs = ArrayList<ExdScreenConfigurationMesg>()
+    internal val _exdDataFieldConfigurationMesgs = ArrayList<ExdDataFieldConfigurationMesg>()
+    internal val _exdDataConceptConfigurationMesgs = ArrayList<ExdDataConceptConfigurationMesg>()
+    internal val _diveSummaryMesgs = ArrayList<DiveSummaryMesg>()
+    internal val _aadAccelFeaturesMesgs = ArrayList<AadAccelFeaturesMesg>()
+    internal val _hrvMesgs = ArrayList<HrvMesg>()
+    internal val _beatIntervalsMesgs = ArrayList<BeatIntervalsMesg>()
+    internal val _hrvStatusSummaryMesgs = ArrayList<HrvStatusSummaryMesg>()
+    internal val _hrvValueMesgs = ArrayList<HrvValueMesg>()
+    internal val _rawBbiMesgs = ArrayList<RawBbiMesg>()
+    internal val _respirationRateMesgs = ArrayList<RespirationRateMesg>()
+    internal val _chronoShotSessionMesgs = ArrayList<ChronoShotSessionMesg>()
+    internal val _chronoShotDataMesgs = ArrayList<ChronoShotDataMesg>()
+    internal val _tankUpdateMesgs = ArrayList<TankUpdateMesg>()
+    internal val _tankSummaryMesgs = ArrayList<TankSummaryMesg>()
+    internal val _sleepAssessmentMesgs = ArrayList<SleepAssessmentMesg>()
+    internal val _sleepDisruptionSeverityPeriodMesgs = ArrayList<SleepDisruptionSeverityPeriodMesg>()
+    internal val _sleepDisruptionOvernightSeverityMesgs = ArrayList<SleepDisruptionOvernightSeverityMesg>()
+    internal val _napEventMesgs = ArrayList<NapEventMesg>()
+    internal val _skinTempOvernightMesgs = ArrayList<SkinTempOvernightMesg>()
+    internal val _padMesgs = ArrayList<PadMesg>()
+    internal val _developerFieldDescriptionMesgs = ArrayList<DeveloperFieldDescription>()
 
-    fun getFileIdMesgs(): List<FileIdMesg> = fileIdMesgs
+    val fileIdMesgs: List<FileIdMesg> get() = _fileIdMesgs
 
-    fun getFileCreatorMesgs(): List<FileCreatorMesg> = fileCreatorMesgs
+    val fileCreatorMesgs: List<FileCreatorMesg> get() = _fileCreatorMesgs
 
-    fun getTimestampCorrelationMesgs(): List<TimestampCorrelationMesg> = timestampCorrelationMesgs
+    val timestampCorrelationMesgs: List<TimestampCorrelationMesg> get() = _timestampCorrelationMesgs
 
-    fun getSoftwareMesgs(): List<SoftwareMesg> = softwareMesgs
+    val softwareMesgs: List<SoftwareMesg> get() = _softwareMesgs
 
-    fun getSlaveDeviceMesgs(): List<SlaveDeviceMesg> = slaveDeviceMesgs
+    val slaveDeviceMesgs: List<SlaveDeviceMesg> get() = _slaveDeviceMesgs
 
-    fun getCapabilitiesMesgs(): List<CapabilitiesMesg> = capabilitiesMesgs
+    val capabilitiesMesgs: List<CapabilitiesMesg> get() = _capabilitiesMesgs
 
-    fun getFileCapabilitiesMesgs(): List<FileCapabilitiesMesg> = fileCapabilitiesMesgs
+    val fileCapabilitiesMesgs: List<FileCapabilitiesMesg> get() = _fileCapabilitiesMesgs
 
-    fun getMesgCapabilitiesMesgs(): List<MesgCapabilitiesMesg> = mesgCapabilitiesMesgs
+    val mesgCapabilitiesMesgs: List<MesgCapabilitiesMesg> get() = _mesgCapabilitiesMesgs
 
-    fun getFieldCapabilitiesMesgs(): List<FieldCapabilitiesMesg> = fieldCapabilitiesMesgs
+    val fieldCapabilitiesMesgs: List<FieldCapabilitiesMesg> get() = _fieldCapabilitiesMesgs
 
-    fun getDeviceSettingsMesgs(): List<DeviceSettingsMesg> = deviceSettingsMesgs
+    val deviceSettingsMesgs: List<DeviceSettingsMesg> get() = _deviceSettingsMesgs
 
-    fun getUserProfileMesgs(): List<UserProfileMesg> = userProfileMesgs
+    val userProfileMesgs: List<UserProfileMesg> get() = _userProfileMesgs
 
-    fun getHrmProfileMesgs(): List<HrmProfileMesg> = hrmProfileMesgs
+    val hrmProfileMesgs: List<HrmProfileMesg> get() = _hrmProfileMesgs
 
-    fun getSdmProfileMesgs(): List<SdmProfileMesg> = sdmProfileMesgs
+    val sdmProfileMesgs: List<SdmProfileMesg> get() = _sdmProfileMesgs
 
-    fun getBikeProfileMesgs(): List<BikeProfileMesg> = bikeProfileMesgs
+    val bikeProfileMesgs: List<BikeProfileMesg> get() = _bikeProfileMesgs
 
-    fun getConnectivityMesgs(): List<ConnectivityMesg> = connectivityMesgs
+    val connectivityMesgs: List<ConnectivityMesg> get() = _connectivityMesgs
 
-    fun getWatchfaceSettingsMesgs(): List<WatchfaceSettingsMesg> = watchfaceSettingsMesgs
+    val watchfaceSettingsMesgs: List<WatchfaceSettingsMesg> get() = _watchfaceSettingsMesgs
 
-    fun getOhrSettingsMesgs(): List<OhrSettingsMesg> = ohrSettingsMesgs
+    val ohrSettingsMesgs: List<OhrSettingsMesg> get() = _ohrSettingsMesgs
 
-    fun getTimeInZoneMesgs(): List<TimeInZoneMesg> = timeInZoneMesgs
+    val timeInZoneMesgs: List<TimeInZoneMesg> get() = _timeInZoneMesgs
 
-    fun getZonesTargetMesgs(): List<ZonesTargetMesg> = zonesTargetMesgs
+    val zonesTargetMesgs: List<ZonesTargetMesg> get() = _zonesTargetMesgs
 
-    fun getSportMesgs(): List<SportMesg> = sportMesgs
+    val sportMesgs: List<SportMesg> get() = _sportMesgs
 
-    fun getHrZoneMesgs(): List<HrZoneMesg> = hrZoneMesgs
+    val hrZoneMesgs: List<HrZoneMesg> get() = _hrZoneMesgs
 
-    fun getSpeedZoneMesgs(): List<SpeedZoneMesg> = speedZoneMesgs
+    val speedZoneMesgs: List<SpeedZoneMesg> get() = _speedZoneMesgs
 
-    fun getCadenceZoneMesgs(): List<CadenceZoneMesg> = cadenceZoneMesgs
+    val cadenceZoneMesgs: List<CadenceZoneMesg> get() = _cadenceZoneMesgs
 
-    fun getPowerZoneMesgs(): List<PowerZoneMesg> = powerZoneMesgs
+    val powerZoneMesgs: List<PowerZoneMesg> get() = _powerZoneMesgs
 
-    fun getMetZoneMesgs(): List<MetZoneMesg> = metZoneMesgs
+    val metZoneMesgs: List<MetZoneMesg> get() = _metZoneMesgs
 
-    fun getTrainingSettingsMesgs(): List<TrainingSettingsMesg> = trainingSettingsMesgs
+    val trainingSettingsMesgs: List<TrainingSettingsMesg> get() = _trainingSettingsMesgs
 
-    fun getDiveSettingsMesgs(): List<DiveSettingsMesg> = diveSettingsMesgs
+    val diveSettingsMesgs: List<DiveSettingsMesg> get() = _diveSettingsMesgs
 
-    fun getDiveAlarmMesgs(): List<DiveAlarmMesg> = diveAlarmMesgs
+    val diveAlarmMesgs: List<DiveAlarmMesg> get() = _diveAlarmMesgs
 
-    fun getDiveApneaAlarmMesgs(): List<DiveApneaAlarmMesg> = diveApneaAlarmMesgs
+    val diveApneaAlarmMesgs: List<DiveApneaAlarmMesg> get() = _diveApneaAlarmMesgs
 
-    fun getDiveGasMesgs(): List<DiveGasMesg> = diveGasMesgs
+    val diveGasMesgs: List<DiveGasMesg> get() = _diveGasMesgs
 
-    fun getGoalMesgs(): List<GoalMesg> = goalMesgs
+    val goalMesgs: List<GoalMesg> get() = _goalMesgs
 
-    fun getActivityMesgs(): List<ActivityMesg> = activityMesgs
+    val activityMesgs: List<ActivityMesg> get() = _activityMesgs
 
-    fun getSessionMesgs(): List<SessionMesg> = sessionMesgs
+    val sessionMesgs: List<SessionMesg> get() = _sessionMesgs
 
-    fun getLapMesgs(): List<LapMesg> = lapMesgs
+    val lapMesgs: List<LapMesg> get() = _lapMesgs
 
-    fun getLengthMesgs(): List<LengthMesg> = lengthMesgs
+    val lengthMesgs: List<LengthMesg> get() = _lengthMesgs
 
-    fun getRecordMesgs(): List<RecordMesg> = recordMesgs
+    val recordMesgs: List<RecordMesg> get() = _recordMesgs
 
-    fun getEventMesgs(): List<EventMesg> = eventMesgs
+    val eventMesgs: List<EventMesg> get() = _eventMesgs
 
-    fun getDeviceInfoMesgs(): List<DeviceInfoMesg> = deviceInfoMesgs
+    val deviceInfoMesgs: List<DeviceInfoMesg> get() = _deviceInfoMesgs
 
-    fun getDeviceAuxBatteryInfoMesgs(): List<DeviceAuxBatteryInfoMesg> = deviceAuxBatteryInfoMesgs
+    val deviceAuxBatteryInfoMesgs: List<DeviceAuxBatteryInfoMesg> get() = _deviceAuxBatteryInfoMesgs
 
-    fun getTrainingFileMesgs(): List<TrainingFileMesg> = trainingFileMesgs
+    val trainingFileMesgs: List<TrainingFileMesg> get() = _trainingFileMesgs
 
-    fun getWeatherConditionsMesgs(): List<WeatherConditionsMesg> = weatherConditionsMesgs
+    val weatherConditionsMesgs: List<WeatherConditionsMesg> get() = _weatherConditionsMesgs
 
-    fun getWeatherAlertMesgs(): List<WeatherAlertMesg> = weatherAlertMesgs
+    val weatherAlertMesgs: List<WeatherAlertMesg> get() = _weatherAlertMesgs
 
-    fun getGpsMetadataMesgs(): List<GpsMetadataMesg> = gpsMetadataMesgs
+    val gpsMetadataMesgs: List<GpsMetadataMesg> get() = _gpsMetadataMesgs
 
-    fun getCameraEventMesgs(): List<CameraEventMesg> = cameraEventMesgs
+    val cameraEventMesgs: List<CameraEventMesg> get() = _cameraEventMesgs
 
-    fun getGyroscopeDataMesgs(): List<GyroscopeDataMesg> = gyroscopeDataMesgs
+    val gyroscopeDataMesgs: List<GyroscopeDataMesg> get() = _gyroscopeDataMesgs
 
-    fun getAccelerometerDataMesgs(): List<AccelerometerDataMesg> = accelerometerDataMesgs
+    val accelerometerDataMesgs: List<AccelerometerDataMesg> get() = _accelerometerDataMesgs
 
-    fun getMagnetometerDataMesgs(): List<MagnetometerDataMesg> = magnetometerDataMesgs
+    val magnetometerDataMesgs: List<MagnetometerDataMesg> get() = _magnetometerDataMesgs
 
-    fun getBarometerDataMesgs(): List<BarometerDataMesg> = barometerDataMesgs
+    val barometerDataMesgs: List<BarometerDataMesg> get() = _barometerDataMesgs
 
-    fun getThreeDSensorCalibrationMesgs(): List<ThreeDSensorCalibrationMesg> = threeDSensorCalibrationMesgs
+    val threeDSensorCalibrationMesgs: List<ThreeDSensorCalibrationMesg> get() = _threeDSensorCalibrationMesgs
 
-    fun getOneDSensorCalibrationMesgs(): List<OneDSensorCalibrationMesg> = oneDSensorCalibrationMesgs
+    val oneDSensorCalibrationMesgs: List<OneDSensorCalibrationMesg> get() = _oneDSensorCalibrationMesgs
 
-    fun getVideoFrameMesgs(): List<VideoFrameMesg> = videoFrameMesgs
+    val videoFrameMesgs: List<VideoFrameMesg> get() = _videoFrameMesgs
 
-    fun getObdiiDataMesgs(): List<ObdiiDataMesg> = obdiiDataMesgs
+    val obdiiDataMesgs: List<ObdiiDataMesg> get() = _obdiiDataMesgs
 
-    fun getNmeaSentenceMesgs(): List<NmeaSentenceMesg> = nmeaSentenceMesgs
+    val nmeaSentenceMesgs: List<NmeaSentenceMesg> get() = _nmeaSentenceMesgs
 
-    fun getAviationAttitudeMesgs(): List<AviationAttitudeMesg> = aviationAttitudeMesgs
+    val aviationAttitudeMesgs: List<AviationAttitudeMesg> get() = _aviationAttitudeMesgs
 
-    fun getVideoMesgs(): List<VideoMesg> = videoMesgs
+    val videoMesgs: List<VideoMesg> get() = _videoMesgs
 
-    fun getVideoTitleMesgs(): List<VideoTitleMesg> = videoTitleMesgs
+    val videoTitleMesgs: List<VideoTitleMesg> get() = _videoTitleMesgs
 
-    fun getVideoDescriptionMesgs(): List<VideoDescriptionMesg> = videoDescriptionMesgs
+    val videoDescriptionMesgs: List<VideoDescriptionMesg> get() = _videoDescriptionMesgs
 
-    fun getVideoClipMesgs(): List<VideoClipMesg> = videoClipMesgs
+    val videoClipMesgs: List<VideoClipMesg> get() = _videoClipMesgs
 
-    fun getSetMesgs(): List<SetMesg> = setMesgs
+    val setMesgs: List<SetMesg> get() = _setMesgs
 
-    fun getJumpMesgs(): List<JumpMesg> = jumpMesgs
+    val jumpMesgs: List<JumpMesg> get() = _jumpMesgs
 
-    fun getSplitMesgs(): List<SplitMesg> = splitMesgs
+    val splitMesgs: List<SplitMesg> get() = _splitMesgs
 
-    fun getSplitSummaryMesgs(): List<SplitSummaryMesg> = splitSummaryMesgs
+    val splitSummaryMesgs: List<SplitSummaryMesg> get() = _splitSummaryMesgs
 
-    fun getClimbProMesgs(): List<ClimbProMesg> = climbProMesgs
+    val climbProMesgs: List<ClimbProMesg> get() = _climbProMesgs
 
-    fun getFieldDescriptionMesgs(): List<FieldDescriptionMesg> = fieldDescriptionMesgs
+    val fieldDescriptionMesgs: List<FieldDescriptionMesg> get() = _fieldDescriptionMesgs
 
-    fun getDeveloperDataIdMesgs(): List<DeveloperDataIdMesg> = developerDataIdMesgs
+    val developerDataIdMesgs: List<DeveloperDataIdMesg> get() = _developerDataIdMesgs
 
-    fun getCourseMesgs(): List<CourseMesg> = courseMesgs
+    val courseMesgs: List<CourseMesg> get() = _courseMesgs
 
-    fun getCoursePointMesgs(): List<CoursePointMesg> = coursePointMesgs
+    val coursePointMesgs: List<CoursePointMesg> get() = _coursePointMesgs
 
-    fun getSegmentIdMesgs(): List<SegmentIdMesg> = segmentIdMesgs
+    val segmentIdMesgs: List<SegmentIdMesg> get() = _segmentIdMesgs
 
-    fun getSegmentLeaderboardEntryMesgs(): List<SegmentLeaderboardEntryMesg> = segmentLeaderboardEntryMesgs
+    val segmentLeaderboardEntryMesgs: List<SegmentLeaderboardEntryMesg> get() = _segmentLeaderboardEntryMesgs
 
-    fun getSegmentPointMesgs(): List<SegmentPointMesg> = segmentPointMesgs
+    val segmentPointMesgs: List<SegmentPointMesg> get() = _segmentPointMesgs
 
-    fun getSegmentLapMesgs(): List<SegmentLapMesg> = segmentLapMesgs
+    val segmentLapMesgs: List<SegmentLapMesg> get() = _segmentLapMesgs
 
-    fun getSegmentFileMesgs(): List<SegmentFileMesg> = segmentFileMesgs
+    val segmentFileMesgs: List<SegmentFileMesg> get() = _segmentFileMesgs
 
-    fun getWorkoutMesgs(): List<WorkoutMesg> = workoutMesgs
+    val workoutMesgs: List<WorkoutMesg> get() = _workoutMesgs
 
-    fun getWorkoutSessionMesgs(): List<WorkoutSessionMesg> = workoutSessionMesgs
+    val workoutSessionMesgs: List<WorkoutSessionMesg> get() = _workoutSessionMesgs
 
-    fun getWorkoutStepMesgs(): List<WorkoutStepMesg> = workoutStepMesgs
+    val workoutStepMesgs: List<WorkoutStepMesg> get() = _workoutStepMesgs
 
-    fun getExerciseTitleMesgs(): List<ExerciseTitleMesg> = exerciseTitleMesgs
+    val exerciseTitleMesgs: List<ExerciseTitleMesg> get() = _exerciseTitleMesgs
 
-    fun getScheduleMesgs(): List<ScheduleMesg> = scheduleMesgs
+    val scheduleMesgs: List<ScheduleMesg> get() = _scheduleMesgs
 
-    fun getTotalsMesgs(): List<TotalsMesg> = totalsMesgs
+    val totalsMesgs: List<TotalsMesg> get() = _totalsMesgs
 
-    fun getWeightScaleMesgs(): List<WeightScaleMesg> = weightScaleMesgs
+    val weightScaleMesgs: List<WeightScaleMesg> get() = _weightScaleMesgs
 
-    fun getBloodPressureMesgs(): List<BloodPressureMesg> = bloodPressureMesgs
+    val bloodPressureMesgs: List<BloodPressureMesg> get() = _bloodPressureMesgs
 
-    fun getMonitoringInfoMesgs(): List<MonitoringInfoMesg> = monitoringInfoMesgs
+    val monitoringInfoMesgs: List<MonitoringInfoMesg> get() = _monitoringInfoMesgs
 
-    fun getMonitoringMesgs(): List<MonitoringMesg> = monitoringMesgs
+    val monitoringMesgs: List<MonitoringMesg> get() = _monitoringMesgs
 
-    fun getMonitoringHrDataMesgs(): List<MonitoringHrDataMesg> = monitoringHrDataMesgs
+    val monitoringHrDataMesgs: List<MonitoringHrDataMesg> get() = _monitoringHrDataMesgs
 
-    fun getSpo2DataMesgs(): List<Spo2DataMesg> = spo2DataMesgs
+    val spo2DataMesgs: List<Spo2DataMesg> get() = _spo2DataMesgs
 
-    fun getHrMesgs(): List<HrMesg> = hrMesgs
+    val hrMesgs: List<HrMesg> get() = _hrMesgs
 
-    fun getStressLevelMesgs(): List<StressLevelMesg> = stressLevelMesgs
+    val stressLevelMesgs: List<StressLevelMesg> get() = _stressLevelMesgs
 
-    fun getMaxMetDataMesgs(): List<MaxMetDataMesg> = maxMetDataMesgs
+    val maxMetDataMesgs: List<MaxMetDataMesg> get() = _maxMetDataMesgs
 
-    fun getHsaBodyBatteryDataMesgs(): List<HsaBodyBatteryDataMesg> = hsaBodyBatteryDataMesgs
+    val hsaBodyBatteryDataMesgs: List<HsaBodyBatteryDataMesg> get() = _hsaBodyBatteryDataMesgs
 
-    fun getHsaEventMesgs(): List<HsaEventMesg> = hsaEventMesgs
+    val hsaEventMesgs: List<HsaEventMesg> get() = _hsaEventMesgs
 
-    fun getHsaAccelerometerDataMesgs(): List<HsaAccelerometerDataMesg> = hsaAccelerometerDataMesgs
+    val hsaAccelerometerDataMesgs: List<HsaAccelerometerDataMesg> get() = _hsaAccelerometerDataMesgs
 
-    fun getHsaGyroscopeDataMesgs(): List<HsaGyroscopeDataMesg> = hsaGyroscopeDataMesgs
+    val hsaGyroscopeDataMesgs: List<HsaGyroscopeDataMesg> get() = _hsaGyroscopeDataMesgs
 
-    fun getHsaStepDataMesgs(): List<HsaStepDataMesg> = hsaStepDataMesgs
+    val hsaStepDataMesgs: List<HsaStepDataMesg> get() = _hsaStepDataMesgs
 
-    fun getHsaSpo2DataMesgs(): List<HsaSpo2DataMesg> = hsaSpo2DataMesgs
+    val hsaSpo2DataMesgs: List<HsaSpo2DataMesg> get() = _hsaSpo2DataMesgs
 
-    fun getHsaStressDataMesgs(): List<HsaStressDataMesg> = hsaStressDataMesgs
+    val hsaStressDataMesgs: List<HsaStressDataMesg> get() = _hsaStressDataMesgs
 
-    fun getHsaRespirationDataMesgs(): List<HsaRespirationDataMesg> = hsaRespirationDataMesgs
+    val hsaRespirationDataMesgs: List<HsaRespirationDataMesg> get() = _hsaRespirationDataMesgs
 
-    fun getHsaHeartRateDataMesgs(): List<HsaHeartRateDataMesg> = hsaHeartRateDataMesgs
+    val hsaHeartRateDataMesgs: List<HsaHeartRateDataMesg> get() = _hsaHeartRateDataMesgs
 
-    fun getHsaConfigurationDataMesgs(): List<HsaConfigurationDataMesg> = hsaConfigurationDataMesgs
+    val hsaConfigurationDataMesgs: List<HsaConfigurationDataMesg> get() = _hsaConfigurationDataMesgs
 
-    fun getHsaWristTemperatureDataMesgs(): List<HsaWristTemperatureDataMesg> = hsaWristTemperatureDataMesgs
+    val hsaWristTemperatureDataMesgs: List<HsaWristTemperatureDataMesg> get() = _hsaWristTemperatureDataMesgs
 
-    fun getMemoGlobMesgs(): List<MemoGlobMesg> = memoGlobMesgs
+    val memoGlobMesgs: List<MemoGlobMesg> get() = _memoGlobMesgs
 
-    fun getSleepLevelMesgs(): List<SleepLevelMesg> = sleepLevelMesgs
+    val sleepLevelMesgs: List<SleepLevelMesg> get() = _sleepLevelMesgs
 
-    fun getAntChannelIdMesgs(): List<AntChannelIdMesg> = antChannelIdMesgs
+    val antChannelIdMesgs: List<AntChannelIdMesg> get() = _antChannelIdMesgs
 
-    fun getAntRxMesgs(): List<AntRxMesg> = antRxMesgs
+    val antRxMesgs: List<AntRxMesg> get() = _antRxMesgs
 
-    fun getAntTxMesgs(): List<AntTxMesg> = antTxMesgs
+    val antTxMesgs: List<AntTxMesg> get() = _antTxMesgs
 
-    fun getExdScreenConfigurationMesgs(): List<ExdScreenConfigurationMesg> = exdScreenConfigurationMesgs
+    val exdScreenConfigurationMesgs: List<ExdScreenConfigurationMesg> get() = _exdScreenConfigurationMesgs
 
-    fun getExdDataFieldConfigurationMesgs(): List<ExdDataFieldConfigurationMesg> = exdDataFieldConfigurationMesgs
+    val exdDataFieldConfigurationMesgs: List<ExdDataFieldConfigurationMesg> get() = _exdDataFieldConfigurationMesgs
 
-    fun getExdDataConceptConfigurationMesgs(): List<ExdDataConceptConfigurationMesg> = exdDataConceptConfigurationMesgs
+    val exdDataConceptConfigurationMesgs: List<ExdDataConceptConfigurationMesg> get() = _exdDataConceptConfigurationMesgs
 
-    fun getDiveSummaryMesgs(): List<DiveSummaryMesg> = diveSummaryMesgs
+    val diveSummaryMesgs: List<DiveSummaryMesg> get() = _diveSummaryMesgs
 
-    fun getAadAccelFeaturesMesgs(): List<AadAccelFeaturesMesg> = aadAccelFeaturesMesgs
+    val aadAccelFeaturesMesgs: List<AadAccelFeaturesMesg> get() = _aadAccelFeaturesMesgs
 
-    fun getHrvMesgs(): List<HrvMesg> = hrvMesgs
+    val hrvMesgs: List<HrvMesg> get() = _hrvMesgs
 
-    fun getBeatIntervalsMesgs(): List<BeatIntervalsMesg> = beatIntervalsMesgs
+    val beatIntervalsMesgs: List<BeatIntervalsMesg> get() = _beatIntervalsMesgs
 
-    fun getHrvStatusSummaryMesgs(): List<HrvStatusSummaryMesg> = hrvStatusSummaryMesgs
+    val hrvStatusSummaryMesgs: List<HrvStatusSummaryMesg> get() = _hrvStatusSummaryMesgs
 
-    fun getHrvValueMesgs(): List<HrvValueMesg> = hrvValueMesgs
+    val hrvValueMesgs: List<HrvValueMesg> get() = _hrvValueMesgs
 
-    fun getRawBbiMesgs(): List<RawBbiMesg> = rawBbiMesgs
+    val rawBbiMesgs: List<RawBbiMesg> get() = _rawBbiMesgs
 
-    fun getRespirationRateMesgs(): List<RespirationRateMesg> = respirationRateMesgs
+    val respirationRateMesgs: List<RespirationRateMesg> get() = _respirationRateMesgs
 
-    fun getChronoShotSessionMesgs(): List<ChronoShotSessionMesg> = chronoShotSessionMesgs
+    val chronoShotSessionMesgs: List<ChronoShotSessionMesg> get() = _chronoShotSessionMesgs
 
-    fun getChronoShotDataMesgs(): List<ChronoShotDataMesg> = chronoShotDataMesgs
+    val chronoShotDataMesgs: List<ChronoShotDataMesg> get() = _chronoShotDataMesgs
 
-    fun getTankUpdateMesgs(): List<TankUpdateMesg> = tankUpdateMesgs
+    val tankUpdateMesgs: List<TankUpdateMesg> get() = _tankUpdateMesgs
 
-    fun getTankSummaryMesgs(): List<TankSummaryMesg> = tankSummaryMesgs
+    val tankSummaryMesgs: List<TankSummaryMesg> get() = _tankSummaryMesgs
 
-    fun getSleepAssessmentMesgs(): List<SleepAssessmentMesg> = sleepAssessmentMesgs
+    val sleepAssessmentMesgs: List<SleepAssessmentMesg> get() = _sleepAssessmentMesgs
 
-    fun getSleepDisruptionSeverityPeriodMesgs(): List<SleepDisruptionSeverityPeriodMesg> = sleepDisruptionSeverityPeriodMesgs
+    val sleepDisruptionSeverityPeriodMesgs: List<SleepDisruptionSeverityPeriodMesg> get() = _sleepDisruptionSeverityPeriodMesgs
 
-    fun getSleepDisruptionOvernightSeverityMesgs(): List<SleepDisruptionOvernightSeverityMesg> = sleepDisruptionOvernightSeverityMesgs
+    val sleepDisruptionOvernightSeverityMesgs: List<SleepDisruptionOvernightSeverityMesg> get() = _sleepDisruptionOvernightSeverityMesgs
 
-    fun getNapEventMesgs(): List<NapEventMesg> = napEventMesgs
+    val napEventMesgs: List<NapEventMesg> get() = _napEventMesgs
 
-    fun getSkinTempOvernightMesgs(): List<SkinTempOvernightMesg> = skinTempOvernightMesgs
+    val skinTempOvernightMesgs: List<SkinTempOvernightMesg> get() = _skinTempOvernightMesgs
 
-    fun getPadMesgs(): List<PadMesg> = padMesgs
+    val padMesgs: List<PadMesg> get() = _padMesgs
 
-    fun getDeveloperFieldDescriptionMesgs(): List<DeveloperFieldDescription> = developerFieldDescriptionMesgs
+    val developerFieldDescriptionMesgs: List<DeveloperFieldDescription> get() = _developerFieldDescriptionMesgs
 }

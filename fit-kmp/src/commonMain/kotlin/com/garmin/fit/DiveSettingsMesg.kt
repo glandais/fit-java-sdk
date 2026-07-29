@@ -138,73 +138,53 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get message_index field
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get name field
      *
      * @return name
      */
-    override fun getName(): String? {
-        return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set name field
-     *
-     * @param name The new name value to be set
-     */
-    fun setName(name: String?) {
-        setFieldValue(0, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var name: String?
+        get() {
+            return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(name) {
+            setFieldValue(0, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get model field
      *
      * @return model
      */
-    fun getModel(): TissueModelType? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return TissueModelType.fromValue(value)
-    }
-
-    /**
-     * Set model field
-     *
-     * @param model The new model value to be set
-     */
-    fun setModel(model: TissueModelType?) {
-        setFieldValue(1, 0, model?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var model: TissueModelType?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return TissueModelType.fromValue(value)
+        }
+        set(model) {
+            setFieldValue(1, 0, model?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get gf_low field
@@ -212,19 +192,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return gf_low
      */
-    fun getGfLow(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set gf_low field
-     * Units: percent
-     *
-     * @param gfLow The new gfLow value to be set
-     */
-    fun setGfLow(gfLow: Short?) {
-        setFieldValue(2, 0, gfLow, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var gfLow: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(gfLow) {
+            setFieldValue(2, 0, gfLow, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get gf_high field
@@ -232,38 +206,27 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return gf_high
      */
-    fun getGfHigh(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set gf_high field
-     * Units: percent
-     *
-     * @param gfHigh The new gfHigh value to be set
-     */
-    fun setGfHigh(gfHigh: Short?) {
-        setFieldValue(3, 0, gfHigh, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var gfHigh: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(gfHigh) {
+            setFieldValue(3, 0, gfHigh, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get water_type field
      *
      * @return water_type
      */
-    fun getWaterType(): WaterType? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return WaterType.fromValue(value)
-    }
-
-    /**
-     * Set water_type field
-     *
-     * @param waterType The new waterType value to be set
-     */
-    fun setWaterType(waterType: WaterType?) {
-        setFieldValue(4, 0, waterType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var waterType: WaterType?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return WaterType.fromValue(value)
+        }
+        set(waterType) {
+            setFieldValue(4, 0, waterType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get water_density field
@@ -272,20 +235,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return water_density
      */
-    fun getWaterDensity(): Float? {
-        return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set water_density field
-     * Units: kg/m^3
-     * Comment: Fresh water is usually 1000; salt water is usually 1025
-     *
-     * @param waterDensity The new waterDensity value to be set
-     */
-    fun setWaterDensity(waterDensity: Float?) {
-        setFieldValue(5, 0, waterDensity, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var waterDensity: Float?
+        get() {
+            return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(waterDensity) {
+            setFieldValue(5, 0, waterDensity, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get po2_warn field
@@ -294,20 +250,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return po2_warn
      */
-    fun getPo2Warn(): Float? {
-        return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set po2_warn field
-     * Units: percent
-     * Comment: Typically 1.40
-     *
-     * @param po2Warn The new po2Warn value to be set
-     */
-    fun setPo2Warn(po2Warn: Float?) {
-        setFieldValue(6, 0, po2Warn, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var po2Warn: Float?
+        get() {
+            return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(po2Warn) {
+            setFieldValue(6, 0, po2Warn, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get po2_critical field
@@ -316,20 +265,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return po2_critical
      */
-    fun getPo2Critical(): Float? {
-        return getFieldFloatValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set po2_critical field
-     * Units: percent
-     * Comment: Typically 1.60
-     *
-     * @param po2Critical The new po2Critical value to be set
-     */
-    fun setPo2Critical(po2Critical: Float?) {
-        setFieldValue(7, 0, po2Critical, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var po2Critical: Float?
+        get() {
+            return getFieldFloatValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(po2Critical) {
+            setFieldValue(7, 0, po2Critical, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get po2_deco field
@@ -337,166 +279,120 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return po2_deco
      */
-    fun getPo2Deco(): Float? {
-        return getFieldFloatValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set po2_deco field
-     * Units: percent
-     *
-     * @param po2Deco The new po2Deco value to be set
-     */
-    fun setPo2Deco(po2Deco: Float?) {
-        setFieldValue(8, 0, po2Deco, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var po2Deco: Float?
+        get() {
+            return getFieldFloatValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(po2Deco) {
+            setFieldValue(8, 0, po2Deco, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get safety_stop_enabled field
      *
      * @return safety_stop_enabled
      */
-    fun getSafetyStopEnabled(): Bool? {
-        val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set safety_stop_enabled field
-     *
-     * @param safetyStopEnabled The new safetyStopEnabled value to be set
-     */
-    fun setSafetyStopEnabled(safetyStopEnabled: Bool?) {
-        setFieldValue(9, 0, safetyStopEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var safetyStopEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(safetyStopEnabled) {
+            setFieldValue(9, 0, safetyStopEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bottom_depth field
      *
      * @return bottom_depth
      */
-    fun getBottomDepth(): Float? {
-        return getFieldFloatValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bottom_depth field
-     *
-     * @param bottomDepth The new bottomDepth value to be set
-     */
-    fun setBottomDepth(bottomDepth: Float?) {
-        setFieldValue(10, 0, bottomDepth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bottomDepth: Float?
+        get() {
+            return getFieldFloatValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bottomDepth) {
+            setFieldValue(10, 0, bottomDepth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bottom_time field
      *
      * @return bottom_time
      */
-    fun getBottomTime(): Long? {
-        return getFieldLongValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bottom_time field
-     *
-     * @param bottomTime The new bottomTime value to be set
-     */
-    fun setBottomTime(bottomTime: Long?) {
-        setFieldValue(11, 0, bottomTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bottomTime: Long?
+        get() {
+            return getFieldLongValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bottomTime) {
+            setFieldValue(11, 0, bottomTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get apnea_countdown_enabled field
      *
      * @return apnea_countdown_enabled
      */
-    fun getApneaCountdownEnabled(): Bool? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set apnea_countdown_enabled field
-     *
-     * @param apneaCountdownEnabled The new apneaCountdownEnabled value to be set
-     */
-    fun setApneaCountdownEnabled(apneaCountdownEnabled: Bool?) {
-        setFieldValue(12, 0, apneaCountdownEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var apneaCountdownEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(apneaCountdownEnabled) {
+            setFieldValue(12, 0, apneaCountdownEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get apnea_countdown_time field
      *
      * @return apnea_countdown_time
      */
-    fun getApneaCountdownTime(): Long? {
-        return getFieldLongValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set apnea_countdown_time field
-     *
-     * @param apneaCountdownTime The new apneaCountdownTime value to be set
-     */
-    fun setApneaCountdownTime(apneaCountdownTime: Long?) {
-        setFieldValue(13, 0, apneaCountdownTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var apneaCountdownTime: Long?
+        get() {
+            return getFieldLongValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(apneaCountdownTime) {
+            setFieldValue(13, 0, apneaCountdownTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get backlight_mode field
      *
      * @return backlight_mode
      */
-    fun getBacklightMode(): DiveBacklightMode? {
-        val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DiveBacklightMode.fromValue(value)
-    }
-
-    /**
-     * Set backlight_mode field
-     *
-     * @param backlightMode The new backlightMode value to be set
-     */
-    fun setBacklightMode(backlightMode: DiveBacklightMode?) {
-        setFieldValue(14, 0, backlightMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var backlightMode: DiveBacklightMode?
+        get() {
+            val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DiveBacklightMode.fromValue(value)
+        }
+        set(backlightMode) {
+            setFieldValue(14, 0, backlightMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get backlight_brightness field
      *
      * @return backlight_brightness
      */
-    fun getBacklightBrightness(): Short? {
-        return getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set backlight_brightness field
-     *
-     * @param backlightBrightness The new backlightBrightness value to be set
-     */
-    fun setBacklightBrightness(backlightBrightness: Short?) {
-        setFieldValue(15, 0, backlightBrightness, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var backlightBrightness: Short?
+        get() {
+            return getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(backlightBrightness) {
+            setFieldValue(15, 0, backlightBrightness, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get backlight_timeout field
      *
      * @return backlight_timeout
      */
-    fun getBacklightTimeout(): Short? {
-        return getFieldShortValue(16, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set backlight_timeout field
-     *
-     * @param backlightTimeout The new backlightTimeout value to be set
-     */
-    fun setBacklightTimeout(backlightTimeout: Short?) {
-        setFieldValue(16, 0, backlightTimeout, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var backlightTimeout: Short?
+        get() {
+            return getFieldShortValue(16, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(backlightTimeout) {
+            setFieldValue(16, 0, backlightTimeout, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get repeat_dive_interval field
@@ -505,20 +401,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return repeat_dive_interval
      */
-    fun getRepeatDiveInterval(): Int? {
-        return getFieldIntegerValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set repeat_dive_interval field
-     * Units: s
-     * Comment: Time between surfacing and ending the activity
-     *
-     * @param repeatDiveInterval The new repeatDiveInterval value to be set
-     */
-    fun setRepeatDiveInterval(repeatDiveInterval: Int?) {
-        setFieldValue(17, 0, repeatDiveInterval, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var repeatDiveInterval: Int?
+        get() {
+            return getFieldIntegerValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(repeatDiveInterval) {
+            setFieldValue(17, 0, repeatDiveInterval, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get safety_stop_time field
@@ -527,93 +416,66 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return safety_stop_time
      */
-    fun getSafetyStopTime(): Int? {
-        return getFieldIntegerValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set safety_stop_time field
-     * Units: s
-     * Comment: Time at safety stop (if enabled)
-     *
-     * @param safetyStopTime The new safetyStopTime value to be set
-     */
-    fun setSafetyStopTime(safetyStopTime: Int?) {
-        setFieldValue(18, 0, safetyStopTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var safetyStopTime: Int?
+        get() {
+            return getFieldIntegerValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(safetyStopTime) {
+            setFieldValue(18, 0, safetyStopTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get heart_rate_source_type field
      *
      * @return heart_rate_source_type
      */
-    fun getHeartRateSourceType(): SourceType? {
-        val value = getFieldShortValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SourceType.fromValue(value)
-    }
-
-    /**
-     * Set heart_rate_source_type field
-     *
-     * @param heartRateSourceType The new heartRateSourceType value to be set
-     */
-    fun setHeartRateSourceType(heartRateSourceType: SourceType?) {
-        setFieldValue(19, 0, heartRateSourceType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heartRateSourceType: SourceType?
+        get() {
+            val value = getFieldShortValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SourceType.fromValue(value)
+        }
+        set(heartRateSourceType) {
+            setFieldValue(19, 0, heartRateSourceType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get heart_rate_source field
      *
      * @return heart_rate_source
      */
-    fun getHeartRateSource(): Short? {
-        return getFieldShortValue(20, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set heart_rate_source field
-     *
-     * @param heartRateSource The new heartRateSource value to be set
-     */
-    fun setHeartRateSource(heartRateSource: Short?) {
-        setFieldValue(20, 0, heartRateSource, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heartRateSource: Short?
+        get() {
+            return getFieldShortValue(20, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(heartRateSource) {
+            setFieldValue(20, 0, heartRateSource, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get heart_rate_antplus_device_type field
      *
      * @return heart_rate_antplus_device_type
      */
-    fun getHeartRateAntplusDeviceType(): Short? {
-        return getFieldShortValue(20, 0, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_ANTPLUS_DEVICE_TYPE)
-    }
-
-    /**
-     * Set heart_rate_antplus_device_type field
-     *
-     * @param heartRateAntplusDeviceType The new heartRateAntplusDeviceType value to be set
-     */
-    fun setHeartRateAntplusDeviceType(heartRateAntplusDeviceType: Short?) {
-        setFieldValue(20, 0, heartRateAntplusDeviceType, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_ANTPLUS_DEVICE_TYPE)
-    }
+    var heartRateAntplusDeviceType: Short?
+        get() {
+            return getFieldShortValue(20, 0, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_ANTPLUS_DEVICE_TYPE)
+        }
+        set(heartRateAntplusDeviceType) {
+            setFieldValue(20, 0, heartRateAntplusDeviceType, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_ANTPLUS_DEVICE_TYPE)
+        }
 
     /**
      * Get heart_rate_local_device_type field
      *
      * @return heart_rate_local_device_type
      */
-    fun getHeartRateLocalDeviceType(): Short? {
-        return getFieldShortValue(20, 0, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_LOCAL_DEVICE_TYPE)
-    }
-
-    /**
-     * Set heart_rate_local_device_type field
-     *
-     * @param heartRateLocalDeviceType The new heartRateLocalDeviceType value to be set
-     */
-    fun setHeartRateLocalDeviceType(heartRateLocalDeviceType: Short?) {
-        setFieldValue(20, 0, heartRateLocalDeviceType, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_LOCAL_DEVICE_TYPE)
-    }
+    var heartRateLocalDeviceType: Short?
+        get() {
+            return getFieldShortValue(20, 0, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_LOCAL_DEVICE_TYPE)
+        }
+        set(heartRateLocalDeviceType) {
+            setFieldValue(20, 0, heartRateLocalDeviceType, Profile.SubFields.DIVE_SETTINGS_MESG_HEART_RATE_SOURCE_FIELD_HEART_RATE_LOCAL_DEVICE_TYPE)
+        }
 
     /**
      * Get travel_gas field
@@ -621,19 +483,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return travel_gas
      */
-    fun getTravelGas(): Int? {
-        return getFieldIntegerValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set travel_gas field
-     * Comment: Index of travel dive_gas message
-     *
-     * @param travelGas The new travelGas value to be set
-     */
-    fun setTravelGas(travelGas: Int?) {
-        setFieldValue(21, 0, travelGas, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var travelGas: Int?
+        get() {
+            return getFieldIntegerValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(travelGas) {
+            setFieldValue(21, 0, travelGas, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ccr_low_setpoint_switch_mode field
@@ -641,20 +497,14 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return ccr_low_setpoint_switch_mode
      */
-    fun getCcrLowSetpointSwitchMode(): CcrSetpointSwitchMode? {
-        val value = getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return CcrSetpointSwitchMode.fromValue(value)
-    }
-
-    /**
-     * Set ccr_low_setpoint_switch_mode field
-     * Comment: If low PO2 should be switched to automatically
-     *
-     * @param ccrLowSetpointSwitchMode The new ccrLowSetpointSwitchMode value to be set
-     */
-    fun setCcrLowSetpointSwitchMode(ccrLowSetpointSwitchMode: CcrSetpointSwitchMode?) {
-        setFieldValue(22, 0, ccrLowSetpointSwitchMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var ccrLowSetpointSwitchMode: CcrSetpointSwitchMode?
+        get() {
+            val value = getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return CcrSetpointSwitchMode.fromValue(value)
+        }
+        set(ccrLowSetpointSwitchMode) {
+            setFieldValue(22, 0, ccrLowSetpointSwitchMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ccr_low_setpoint field
@@ -663,20 +513,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return ccr_low_setpoint
      */
-    fun getCcrLowSetpoint(): Float? {
-        return getFieldFloatValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set ccr_low_setpoint field
-     * Units: percent
-     * Comment: Target PO2 when using low setpoint
-     *
-     * @param ccrLowSetpoint The new ccrLowSetpoint value to be set
-     */
-    fun setCcrLowSetpoint(ccrLowSetpoint: Float?) {
-        setFieldValue(23, 0, ccrLowSetpoint, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var ccrLowSetpoint: Float?
+        get() {
+            return getFieldFloatValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(ccrLowSetpoint) {
+            setFieldValue(23, 0, ccrLowSetpoint, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ccr_low_setpoint_depth field
@@ -685,20 +528,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return ccr_low_setpoint_depth
      */
-    fun getCcrLowSetpointDepth(): Float? {
-        return getFieldFloatValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set ccr_low_setpoint_depth field
-     * Units: m
-     * Comment: Depth to switch to low setpoint in automatic mode
-     *
-     * @param ccrLowSetpointDepth The new ccrLowSetpointDepth value to be set
-     */
-    fun setCcrLowSetpointDepth(ccrLowSetpointDepth: Float?) {
-        setFieldValue(24, 0, ccrLowSetpointDepth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var ccrLowSetpointDepth: Float?
+        get() {
+            return getFieldFloatValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(ccrLowSetpointDepth) {
+            setFieldValue(24, 0, ccrLowSetpointDepth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ccr_high_setpoint_switch_mode field
@@ -706,20 +542,14 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return ccr_high_setpoint_switch_mode
      */
-    fun getCcrHighSetpointSwitchMode(): CcrSetpointSwitchMode? {
-        val value = getFieldShortValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return CcrSetpointSwitchMode.fromValue(value)
-    }
-
-    /**
-     * Set ccr_high_setpoint_switch_mode field
-     * Comment: If high PO2 should be switched to automatically
-     *
-     * @param ccrHighSetpointSwitchMode The new ccrHighSetpointSwitchMode value to be set
-     */
-    fun setCcrHighSetpointSwitchMode(ccrHighSetpointSwitchMode: CcrSetpointSwitchMode?) {
-        setFieldValue(25, 0, ccrHighSetpointSwitchMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var ccrHighSetpointSwitchMode: CcrSetpointSwitchMode?
+        get() {
+            val value = getFieldShortValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return CcrSetpointSwitchMode.fromValue(value)
+        }
+        set(ccrHighSetpointSwitchMode) {
+            setFieldValue(25, 0, ccrHighSetpointSwitchMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ccr_high_setpoint field
@@ -728,20 +558,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return ccr_high_setpoint
      */
-    fun getCcrHighSetpoint(): Float? {
-        return getFieldFloatValue(26, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set ccr_high_setpoint field
-     * Units: percent
-     * Comment: Target PO2 when using high setpoint
-     *
-     * @param ccrHighSetpoint The new ccrHighSetpoint value to be set
-     */
-    fun setCcrHighSetpoint(ccrHighSetpoint: Float?) {
-        setFieldValue(26, 0, ccrHighSetpoint, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var ccrHighSetpoint: Float?
+        get() {
+            return getFieldFloatValue(26, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(ccrHighSetpoint) {
+            setFieldValue(26, 0, ccrHighSetpoint, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ccr_high_setpoint_depth field
@@ -750,20 +573,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return ccr_high_setpoint_depth
      */
-    fun getCcrHighSetpointDepth(): Float? {
-        return getFieldFloatValue(27, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set ccr_high_setpoint_depth field
-     * Units: m
-     * Comment: Depth to switch to high setpoint in automatic mode
-     *
-     * @param ccrHighSetpointDepth The new ccrHighSetpointDepth value to be set
-     */
-    fun setCcrHighSetpointDepth(ccrHighSetpointDepth: Float?) {
-        setFieldValue(27, 0, ccrHighSetpointDepth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var ccrHighSetpointDepth: Float?
+        get() {
+            return getFieldFloatValue(27, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(ccrHighSetpointDepth) {
+            setFieldValue(27, 0, ccrHighSetpointDepth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get gas_consumption_display field
@@ -771,20 +587,14 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return gas_consumption_display
      */
-    fun getGasConsumptionDisplay(): GasConsumptionRateType? {
-        val value = getFieldShortValue(29, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return GasConsumptionRateType.fromValue(value)
-    }
-
-    /**
-     * Set gas_consumption_display field
-     * Comment: Type of gas consumption rate to display. Some values are only valid if tank volume is known.
-     *
-     * @param gasConsumptionDisplay The new gasConsumptionDisplay value to be set
-     */
-    fun setGasConsumptionDisplay(gasConsumptionDisplay: GasConsumptionRateType?) {
-        setFieldValue(29, 0, gasConsumptionDisplay?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var gasConsumptionDisplay: GasConsumptionRateType?
+        get() {
+            val value = getFieldShortValue(29, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return GasConsumptionRateType.fromValue(value)
+        }
+        set(gasConsumptionDisplay) {
+            setFieldValue(29, 0, gasConsumptionDisplay?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get up_key_enabled field
@@ -792,20 +602,14 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return up_key_enabled
      */
-    fun getUpKeyEnabled(): Bool? {
-        val value = getFieldShortValue(30, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set up_key_enabled field
-     * Comment: Indicates whether the up key is enabled during dives
-     *
-     * @param upKeyEnabled The new upKeyEnabled value to be set
-     */
-    fun setUpKeyEnabled(upKeyEnabled: Bool?) {
-        setFieldValue(30, 0, upKeyEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var upKeyEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(30, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(upKeyEnabled) {
+            setFieldValue(30, 0, upKeyEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get dive_sounds field
@@ -813,20 +617,14 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return dive_sounds
      */
-    fun getDiveSounds(): Tone? {
-        val value = getFieldShortValue(35, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Tone.fromValue(value)
-    }
-
-    /**
-     * Set dive_sounds field
-     * Comment: Sounds and vibration enabled or disabled in-dive
-     *
-     * @param diveSounds The new diveSounds value to be set
-     */
-    fun setDiveSounds(diveSounds: Tone?) {
-        setFieldValue(35, 0, diveSounds?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var diveSounds: Tone?
+        get() {
+            val value = getFieldShortValue(35, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Tone.fromValue(value)
+        }
+        set(diveSounds) {
+            setFieldValue(35, 0, diveSounds?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get last_stop_multiple field
@@ -834,19 +632,13 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return last_stop_multiple
      */
-    fun getLastStopMultiple(): Float? {
-        return getFieldFloatValue(36, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set last_stop_multiple field
-     * Comment: Usually 1.0/1.5/2.0 representing 3/4.5/6m or 10/15/20ft
-     *
-     * @param lastStopMultiple The new lastStopMultiple value to be set
-     */
-    fun setLastStopMultiple(lastStopMultiple: Float?) {
-        setFieldValue(36, 0, lastStopMultiple, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var lastStopMultiple: Float?
+        get() {
+            return getFieldFloatValue(36, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(lastStopMultiple) {
+            setFieldValue(36, 0, lastStopMultiple, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get no_fly_time_mode field
@@ -854,18 +646,12 @@ open class DiveSettingsMesg : Mesg {
      *
      * @return no_fly_time_mode
      */
-    fun getNoFlyTimeMode(): NoFlyTimeMode? {
-        val value = getFieldShortValue(37, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return NoFlyTimeMode.fromValue(value)
-    }
-
-    /**
-     * Set no_fly_time_mode field
-     * Comment: Indicates which guidelines to use for no-fly surface interval.
-     *
-     * @param noFlyTimeMode The new noFlyTimeMode value to be set
-     */
-    fun setNoFlyTimeMode(noFlyTimeMode: NoFlyTimeMode?) {
-        setFieldValue(37, 0, noFlyTimeMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var noFlyTimeMode: NoFlyTimeMode?
+        get() {
+            val value = getFieldShortValue(37, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return NoFlyTimeMode.fromValue(value)
+        }
+        set(noFlyTimeMode) {
+            setFieldValue(37, 0, noFlyTimeMode?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

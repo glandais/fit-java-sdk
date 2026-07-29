@@ -44,36 +44,26 @@ open class NapEventMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp field
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_time field
@@ -81,19 +71,13 @@ open class NapEventMesg : Mesg {
      *
      * @return start_time
      */
-    fun getStartTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_time field
-     * Units: seconds
-     *
-     * @param startTime The new startTime value to be set
-     */
-    fun setStartTime(startTime: DateTime?) {
-        setFieldValue(0, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTime) {
+            setFieldValue(0, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_timezone_offset field
@@ -101,19 +85,13 @@ open class NapEventMesg : Mesg {
      *
      * @return start_timezone_offset
      */
-    fun getStartTimezoneOffset(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_timezone_offset field
-     * Units: minutes
-     *
-     * @param startTimezoneOffset The new startTimezoneOffset value to be set
-     */
-    fun setStartTimezoneOffset(startTimezoneOffset: Short?) {
-        setFieldValue(1, 0, startTimezoneOffset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTimezoneOffset: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startTimezoneOffset) {
+            setFieldValue(1, 0, startTimezoneOffset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_time field
@@ -121,19 +99,13 @@ open class NapEventMesg : Mesg {
      *
      * @return end_time
      */
-    fun getEndTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set end_time field
-     * Units: seconds
-     *
-     * @param endTime The new endTime value to be set
-     */
-    fun setEndTime(endTime: DateTime?) {
-        setFieldValue(2, 0, endTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(endTime) {
+            setFieldValue(2, 0, endTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_timezone_offset field
@@ -141,76 +113,55 @@ open class NapEventMesg : Mesg {
      *
      * @return end_timezone_offset
      */
-    fun getEndTimezoneOffset(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set end_timezone_offset field
-     * Units: minutes
-     *
-     * @param endTimezoneOffset The new endTimezoneOffset value to be set
-     */
-    fun setEndTimezoneOffset(endTimezoneOffset: Short?) {
-        setFieldValue(3, 0, endTimezoneOffset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endTimezoneOffset: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(endTimezoneOffset) {
+            setFieldValue(3, 0, endTimezoneOffset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get feedback field
      *
      * @return feedback
      */
-    fun getFeedback(): NapPeriodFeedback? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return NapPeriodFeedback.fromValue(value)
-    }
-
-    /**
-     * Set feedback field
-     *
-     * @param feedback The new feedback value to be set
-     */
-    fun setFeedback(feedback: NapPeriodFeedback?) {
-        setFieldValue(4, 0, feedback?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var feedback: NapPeriodFeedback?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return NapPeriodFeedback.fromValue(value)
+        }
+        set(feedback) {
+            setFieldValue(4, 0, feedback?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get is_deleted field
      *
      * @return is_deleted
      */
-    fun getIsDeleted(): Bool? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set is_deleted field
-     *
-     * @param isDeleted The new isDeleted value to be set
-     */
-    fun setIsDeleted(isDeleted: Bool?) {
-        setFieldValue(5, 0, isDeleted?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var isDeleted: Bool?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(isDeleted) {
+            setFieldValue(5, 0, isDeleted?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get source field
      *
      * @return source
      */
-    fun getSource(): NapSource? {
-        val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return NapSource.fromValue(value)
-    }
-
-    /**
-     * Set source field
-     *
-     * @param source The new source value to be set
-     */
-    fun setSource(source: NapSource?) {
-        setFieldValue(6, 0, source?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var source: NapSource?
+        get() {
+            val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return NapSource.fromValue(value)
+        }
+        set(source) {
+            setFieldValue(6, 0, source?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get update_timestamp field
@@ -218,17 +169,11 @@ open class NapEventMesg : Mesg {
      *
      * @return update_timestamp
      */
-    fun getUpdateTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set update_timestamp field
-     * Comment: The timestamp representing when this nap event was last updated
-     *
-     * @param updateTimestamp The new updateTimestamp value to be set
-     */
-    fun setUpdateTimestamp(updateTimestamp: DateTime?) {
-        setFieldValue(7, 0, updateTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var updateTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(updateTimestamp) {
+            setFieldValue(7, 0, updateTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

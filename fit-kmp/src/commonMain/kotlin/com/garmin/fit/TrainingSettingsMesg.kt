@@ -33,19 +33,13 @@ open class TrainingSettingsMesg : Mesg {
      *
      * @return target_distance
      */
-    fun getTargetDistance(): Float? {
-        return getFieldFloatValue(31, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set target_distance field
-     * Units: m
-     *
-     * @param targetDistance The new targetDistance value to be set
-     */
-    fun setTargetDistance(targetDistance: Float?) {
-        setFieldValue(31, 0, targetDistance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var targetDistance: Float?
+        get() {
+            return getFieldFloatValue(31, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(targetDistance) {
+            setFieldValue(31, 0, targetDistance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get target_speed field
@@ -53,19 +47,13 @@ open class TrainingSettingsMesg : Mesg {
      *
      * @return target_speed
      */
-    fun getTargetSpeed(): Float? {
-        return getFieldFloatValue(32, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set target_speed field
-     * Units: m/s
-     *
-     * @param targetSpeed The new targetSpeed value to be set
-     */
-    fun setTargetSpeed(targetSpeed: Float?) {
-        setFieldValue(32, 0, targetSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var targetSpeed: Float?
+        get() {
+            return getFieldFloatValue(32, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(targetSpeed) {
+            setFieldValue(32, 0, targetSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get target_time field
@@ -73,19 +61,13 @@ open class TrainingSettingsMesg : Mesg {
      *
      * @return target_time
      */
-    fun getTargetTime(): Long? {
-        return getFieldLongValue(33, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set target_time field
-     * Units: s
-     *
-     * @param targetTime The new targetTime value to be set
-     */
-    fun setTargetTime(targetTime: Long?) {
-        setFieldValue(33, 0, targetTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var targetTime: Long?
+        get() {
+            return getFieldLongValue(33, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(targetTime) {
+            setFieldValue(33, 0, targetTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get precise_target_speed field
@@ -94,18 +76,11 @@ open class TrainingSettingsMesg : Mesg {
      *
      * @return precise_target_speed
      */
-    fun getPreciseTargetSpeed(): Float? {
-        return getFieldFloatValue(153, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set precise_target_speed field
-     * Units: m/s
-     * Comment: A more precise target speed field
-     *
-     * @param preciseTargetSpeed The new preciseTargetSpeed value to be set
-     */
-    fun setPreciseTargetSpeed(preciseTargetSpeed: Float?) {
-        setFieldValue(153, 0, preciseTargetSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var preciseTargetSpeed: Float?
+        get() {
+            return getFieldFloatValue(153, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(preciseTargetSpeed) {
+            setFieldValue(153, 0, preciseTargetSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

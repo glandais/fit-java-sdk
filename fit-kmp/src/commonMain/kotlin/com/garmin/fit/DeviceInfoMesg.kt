@@ -107,253 +107,182 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_index field
      *
      * @return device_index
      */
-    fun getDeviceIndex(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_index field
-     *
-     * @param deviceIndex The new deviceIndex value to be set
-     */
-    fun setDeviceIndex(deviceIndex: Short?) {
-        setFieldValue(0, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceIndex: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceIndex) {
+            setFieldValue(0, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_type field
      *
      * @return device_type
      */
-    fun getDeviceType(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_type field
-     *
-     * @param deviceType The new deviceType value to be set
-     */
-    fun setDeviceType(deviceType: Short?) {
-        setFieldValue(1, 0, deviceType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceType: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceType) {
+            setFieldValue(1, 0, deviceType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ble_device_type field
      *
      * @return ble_device_type
      */
-    fun getBleDeviceType(): Short? {
-        return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_BLE_DEVICE_TYPE)
-    }
-
-    /**
-     * Set ble_device_type field
-     *
-     * @param bleDeviceType The new bleDeviceType value to be set
-     */
-    fun setBleDeviceType(bleDeviceType: Short?) {
-        setFieldValue(1, 0, bleDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_BLE_DEVICE_TYPE)
-    }
+    var bleDeviceType: Short?
+        get() {
+            return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_BLE_DEVICE_TYPE)
+        }
+        set(bleDeviceType) {
+            setFieldValue(1, 0, bleDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_BLE_DEVICE_TYPE)
+        }
 
     /**
      * Get antplus_device_type field
      *
      * @return antplus_device_type
      */
-    fun getAntplusDeviceType(): Short? {
-        return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANTPLUS_DEVICE_TYPE)
-    }
-
-    /**
-     * Set antplus_device_type field
-     *
-     * @param antplusDeviceType The new antplusDeviceType value to be set
-     */
-    fun setAntplusDeviceType(antplusDeviceType: Short?) {
-        setFieldValue(1, 0, antplusDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANTPLUS_DEVICE_TYPE)
-    }
+    var antplusDeviceType: Short?
+        get() {
+            return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANTPLUS_DEVICE_TYPE)
+        }
+        set(antplusDeviceType) {
+            setFieldValue(1, 0, antplusDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANTPLUS_DEVICE_TYPE)
+        }
 
     /**
      * Get ant_device_type field
      *
      * @return ant_device_type
      */
-    fun getAntDeviceType(): Short? {
-        return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANT_DEVICE_TYPE)
-    }
-
-    /**
-     * Set ant_device_type field
-     *
-     * @param antDeviceType The new antDeviceType value to be set
-     */
-    fun setAntDeviceType(antDeviceType: Short?) {
-        setFieldValue(1, 0, antDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANT_DEVICE_TYPE)
-    }
+    var antDeviceType: Short?
+        get() {
+            return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANT_DEVICE_TYPE)
+        }
+        set(antDeviceType) {
+            setFieldValue(1, 0, antDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_ANT_DEVICE_TYPE)
+        }
 
     /**
      * Get local_device_type field
      *
      * @return local_device_type
      */
-    fun getLocalDeviceType(): Short? {
-        return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_LOCAL_DEVICE_TYPE)
-    }
-
-    /**
-     * Set local_device_type field
-     *
-     * @param localDeviceType The new localDeviceType value to be set
-     */
-    fun setLocalDeviceType(localDeviceType: Short?) {
-        setFieldValue(1, 0, localDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_LOCAL_DEVICE_TYPE)
-    }
+    var localDeviceType: Short?
+        get() {
+            return getFieldShortValue(1, 0, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_LOCAL_DEVICE_TYPE)
+        }
+        set(localDeviceType) {
+            setFieldValue(1, 0, localDeviceType, Profile.SubFields.DEVICE_INFO_MESG_DEVICE_TYPE_FIELD_LOCAL_DEVICE_TYPE)
+        }
 
     /**
      * Get manufacturer field
      *
      * @return manufacturer
      */
-    fun getManufacturer(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set manufacturer field
-     *
-     * @param manufacturer The new manufacturer value to be set
-     */
-    fun setManufacturer(manufacturer: Int?) {
-        setFieldValue(2, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var manufacturer: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(manufacturer) {
+            setFieldValue(2, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get serial_number field
      *
      * @return serial_number
      */
-    fun getSerialNumber(): Long? {
-        return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set serial_number field
-     *
-     * @param serialNumber The new serialNumber value to be set
-     */
-    fun setSerialNumber(serialNumber: Long?) {
-        setFieldValue(3, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var serialNumber: Long?
+        get() {
+            return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(serialNumber) {
+            setFieldValue(3, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product field
      *
      * @return product
      */
-    fun getProduct(): Int? {
-        return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product field
-     *
-     * @param product The new product value to be set
-     */
-    fun setProduct(product: Int?) {
-        setFieldValue(4, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var product: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(product) {
+            setFieldValue(4, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get favero_product field
      *
      * @return favero_product
      */
-    fun getFaveroProduct(): Int? {
-        return getFieldIntegerValue(4, 0, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
-
-    /**
-     * Set favero_product field
-     *
-     * @param faveroProduct The new faveroProduct value to be set
-     */
-    fun setFaveroProduct(faveroProduct: Int?) {
-        setFieldValue(4, 0, faveroProduct, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
+    var faveroProduct: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
+        set(faveroProduct) {
+            setFieldValue(4, 0, faveroProduct, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
 
     /**
      * Get garmin_product field
      *
      * @return garmin_product
      */
-    fun getGarminProduct(): Int? {
-        return getFieldIntegerValue(4, 0, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
-
-    /**
-     * Set garmin_product field
-     *
-     * @param garminProduct The new garminProduct value to be set
-     */
-    fun setGarminProduct(garminProduct: Int?) {
-        setFieldValue(4, 0, garminProduct, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
+    var garminProduct: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
+        set(garminProduct) {
+            setFieldValue(4, 0, garminProduct, Profile.SubFields.DEVICE_INFO_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
 
     /**
      * Get software_version field
      *
      * @return software_version
      */
-    fun getSoftwareVersion(): Float? {
-        return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set software_version field
-     *
-     * @param softwareVersion The new softwareVersion value to be set
-     */
-    fun setSoftwareVersion(softwareVersion: Float?) {
-        setFieldValue(5, 0, softwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var softwareVersion: Float?
+        get() {
+            return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(softwareVersion) {
+            setFieldValue(5, 0, softwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hardware_version field
      *
      * @return hardware_version
      */
-    fun getHardwareVersion(): Short? {
-        return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set hardware_version field
-     *
-     * @param hardwareVersion The new hardwareVersion value to be set
-     */
-    fun setHardwareVersion(hardwareVersion: Short?) {
-        setFieldValue(6, 0, hardwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hardwareVersion: Short?
+        get() {
+            return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(hardwareVersion) {
+            setFieldValue(6, 0, hardwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get cum_operating_time field
@@ -362,20 +291,13 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return cum_operating_time
      */
-    fun getCumOperatingTime(): Long? {
-        return getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set cum_operating_time field
-     * Units: s
-     * Comment: Reset by new battery or charge.
-     *
-     * @param cumOperatingTime The new cumOperatingTime value to be set
-     */
-    fun setCumOperatingTime(cumOperatingTime: Long?) {
-        setFieldValue(7, 0, cumOperatingTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var cumOperatingTime: Long?
+        get() {
+            return getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(cumOperatingTime) {
+            setFieldValue(7, 0, cumOperatingTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get battery_voltage field
@@ -383,37 +305,26 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return battery_voltage
      */
-    fun getBatteryVoltage(): Float? {
-        return getFieldFloatValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set battery_voltage field
-     * Units: V
-     *
-     * @param batteryVoltage The new batteryVoltage value to be set
-     */
-    fun setBatteryVoltage(batteryVoltage: Float?) {
-        setFieldValue(10, 0, batteryVoltage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var batteryVoltage: Float?
+        get() {
+            return getFieldFloatValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(batteryVoltage) {
+            setFieldValue(10, 0, batteryVoltage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get battery_status field
      *
      * @return battery_status
      */
-    fun getBatteryStatus(): Short? {
-        return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set battery_status field
-     *
-     * @param batteryStatus The new batteryStatus value to be set
-     */
-    fun setBatteryStatus(batteryStatus: Short?) {
-        setFieldValue(11, 0, batteryStatus, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var batteryStatus: Short?
+        get() {
+            return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(batteryStatus) {
+            setFieldValue(11, 0, batteryStatus, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sensor_position field
@@ -421,20 +332,14 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return sensor_position
      */
-    fun getSensorPosition(): BodyLocation? {
-        val value = getFieldShortValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return BodyLocation.fromValue(value)
-    }
-
-    /**
-     * Set sensor_position field
-     * Comment: Indicates the location of the sensor
-     *
-     * @param sensorPosition The new sensorPosition value to be set
-     */
-    fun setSensorPosition(sensorPosition: BodyLocation?) {
-        setFieldValue(18, 0, sensorPosition?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sensorPosition: BodyLocation?
+        get() {
+            val value = getFieldShortValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return BodyLocation.fromValue(value)
+        }
+        set(sensorPosition) {
+            setFieldValue(18, 0, sensorPosition?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get descriptor field
@@ -442,93 +347,67 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return descriptor
      */
-    fun getDescriptor(): String? {
-        return getFieldStringValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set descriptor field
-     * Comment: Used to describe the sensor or location
-     *
-     * @param descriptor The new descriptor value to be set
-     */
-    fun setDescriptor(descriptor: String?) {
-        setFieldValue(19, 0, descriptor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var descriptor: String?
+        get() {
+            return getFieldStringValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(descriptor) {
+            setFieldValue(19, 0, descriptor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ant_transmission_type field
      *
      * @return ant_transmission_type
      */
-    fun getAntTransmissionType(): Short? {
-        return getFieldShortValue(20, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set ant_transmission_type field
-     *
-     * @param antTransmissionType The new antTransmissionType value to be set
-     */
-    fun setAntTransmissionType(antTransmissionType: Short?) {
-        setFieldValue(20, 0, antTransmissionType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var antTransmissionType: Short?
+        get() {
+            return getFieldShortValue(20, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(antTransmissionType) {
+            setFieldValue(20, 0, antTransmissionType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ant_device_number field
      *
      * @return ant_device_number
      */
-    fun getAntDeviceNumber(): Int? {
-        return getFieldIntegerValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set ant_device_number field
-     *
-     * @param antDeviceNumber The new antDeviceNumber value to be set
-     */
-    fun setAntDeviceNumber(antDeviceNumber: Int?) {
-        setFieldValue(21, 0, antDeviceNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var antDeviceNumber: Int?
+        get() {
+            return getFieldIntegerValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(antDeviceNumber) {
+            setFieldValue(21, 0, antDeviceNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ant_network field
      *
      * @return ant_network
      */
-    fun getAntNetwork(): AntNetwork? {
-        val value = getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return AntNetwork.fromValue(value)
-    }
-
-    /**
-     * Set ant_network field
-     *
-     * @param antNetwork The new antNetwork value to be set
-     */
-    fun setAntNetwork(antNetwork: AntNetwork?) {
-        setFieldValue(22, 0, antNetwork?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var antNetwork: AntNetwork?
+        get() {
+            val value = getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return AntNetwork.fromValue(value)
+        }
+        set(antNetwork) {
+            setFieldValue(22, 0, antNetwork?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get source_type field
      *
      * @return source_type
      */
-    fun getSourceType(): SourceType? {
-        val value = getFieldShortValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SourceType.fromValue(value)
-    }
-
-    /**
-     * Set source_type field
-     *
-     * @param sourceType The new sourceType value to be set
-     */
-    fun setSourceType(sourceType: SourceType?) {
-        setFieldValue(25, 0, sourceType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sourceType: SourceType?
+        get() {
+            val value = getFieldShortValue(25, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SourceType.fromValue(value)
+        }
+        set(sourceType) {
+            setFieldValue(25, 0, sourceType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product_name field
@@ -536,19 +415,13 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return product_name
      */
-    fun getProductName(): String? {
-        return getFieldStringValue(27, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product_name field
-     * Comment: Optional free form string to indicate the devices name or model
-     *
-     * @param productName The new productName value to be set
-     */
-    fun setProductName(productName: String?) {
-        setFieldValue(27, 0, productName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var productName: String?
+        get() {
+            return getFieldStringValue(27, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(productName) {
+            setFieldValue(27, 0, productName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get battery_level field
@@ -556,17 +429,11 @@ open class DeviceInfoMesg : Mesg {
      *
      * @return battery_level
      */
-    fun getBatteryLevel(): Short? {
-        return getFieldShortValue(32, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set battery_level field
-     * Units: %
-     *
-     * @param batteryLevel The new batteryLevel value to be set
-     */
-    fun setBatteryLevel(batteryLevel: Short?) {
-        setFieldValue(32, 0, batteryLevel, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var batteryLevel: Short?
+        get() {
+            return getFieldShortValue(32, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(batteryLevel) {
+            setFieldValue(32, 0, batteryLevel, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

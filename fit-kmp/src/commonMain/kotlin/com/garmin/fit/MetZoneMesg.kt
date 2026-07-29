@@ -32,36 +32,26 @@ open class MetZoneMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get high_bpm field
      *
      * @return high_bpm
      */
-    fun getHighBpm(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set high_bpm field
-     *
-     * @param highBpm The new highBpm value to be set
-     */
-    fun setHighBpm(highBpm: Short?) {
-        setFieldValue(1, 0, highBpm, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var highBpm: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(highBpm) {
+            setFieldValue(1, 0, highBpm, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get calories field
@@ -69,19 +59,13 @@ open class MetZoneMesg : Mesg {
      *
      * @return calories
      */
-    fun getCalories(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set calories field
-     * Units: kcal / min
-     *
-     * @param calories The new calories value to be set
-     */
-    fun setCalories(calories: Float?) {
-        setFieldValue(2, 0, calories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var calories: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(calories) {
+            setFieldValue(2, 0, calories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fat_calories field
@@ -89,17 +73,11 @@ open class MetZoneMesg : Mesg {
      *
      * @return fat_calories
      */
-    fun getFatCalories(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fat_calories field
-     * Units: kcal / min
-     *
-     * @param fatCalories The new fatCalories value to be set
-     */
-    fun setFatCalories(fatCalories: Float?) {
-        setFieldValue(3, 0, fatCalories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fatCalories: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fatCalories) {
+            setFieldValue(3, 0, fatCalories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

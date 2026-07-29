@@ -34,90 +34,65 @@ open class HrmProfileMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enabled field
      *
      * @return enabled
      */
-    fun getEnabled(): Bool? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set enabled field
-     *
-     * @param enabled The new enabled value to be set
-     */
-    fun setEnabled(enabled: Bool?) {
-        setFieldValue(0, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enabled: Bool?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(enabled) {
+            setFieldValue(0, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hrm_ant_id field
      *
      * @return hrm_ant_id
      */
-    fun getHrmAntId(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set hrm_ant_id field
-     *
-     * @param hrmAntId The new hrmAntId value to be set
-     */
-    fun setHrmAntId(hrmAntId: Int?) {
-        setFieldValue(1, 0, hrmAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hrmAntId: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(hrmAntId) {
+            setFieldValue(1, 0, hrmAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get log_hrv field
      *
      * @return log_hrv
      */
-    fun getLogHrv(): Bool? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set log_hrv field
-     *
-     * @param logHrv The new logHrv value to be set
-     */
-    fun setLogHrv(logHrv: Bool?) {
-        setFieldValue(2, 0, logHrv?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var logHrv: Bool?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(logHrv) {
+            setFieldValue(2, 0, logHrv?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hrm_ant_id_trans_type field
      *
      * @return hrm_ant_id_trans_type
      */
-    fun getHrmAntIdTransType(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set hrm_ant_id_trans_type field
-     *
-     * @param hrmAntIdTransType The new hrmAntIdTransType value to be set
-     */
-    fun setHrmAntIdTransType(hrmAntIdTransType: Short?) {
-        setFieldValue(3, 0, hrmAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hrmAntIdTransType: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(hrmAntIdTransType) {
+            setFieldValue(3, 0, hrmAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -82,18 +82,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get friendly_name field
@@ -101,38 +96,27 @@ open class UserProfileMesg : Mesg {
      *
      * @return friendly_name
      */
-    fun getFriendlyName(): String? {
-        return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set friendly_name field
-     * Comment: Used for Morning Report greeting
-     *
-     * @param friendlyName The new friendlyName value to be set
-     */
-    fun setFriendlyName(friendlyName: String?) {
-        setFieldValue(0, 0, friendlyName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var friendlyName: String?
+        get() {
+            return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(friendlyName) {
+            setFieldValue(0, 0, friendlyName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get gender field
      *
      * @return gender
      */
-    fun getGender(): Gender? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Gender.fromValue(value)
-    }
-
-    /**
-     * Set gender field
-     *
-     * @param gender The new gender value to be set
-     */
-    fun setGender(gender: Gender?) {
-        setFieldValue(1, 0, gender?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var gender: Gender?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Gender.fromValue(value)
+        }
+        set(gender) {
+            setFieldValue(1, 0, gender?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get age field
@@ -140,19 +124,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return age
      */
-    fun getAge(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set age field
-     * Units: years
-     *
-     * @param age The new age value to be set
-     */
-    fun setAge(age: Short?) {
-        setFieldValue(2, 0, age, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var age: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(age) {
+            setFieldValue(2, 0, age, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get height field
@@ -160,19 +138,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return height
      */
-    fun getHeight(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set height field
-     * Units: m
-     *
-     * @param height The new height value to be set
-     */
-    fun setHeight(height: Float?) {
-        setFieldValue(3, 0, height, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var height: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(height) {
+            setFieldValue(3, 0, height, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get weight field
@@ -180,76 +152,55 @@ open class UserProfileMesg : Mesg {
      *
      * @return weight
      */
-    fun getWeight(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set weight field
-     * Units: kg
-     *
-     * @param weight The new weight value to be set
-     */
-    fun setWeight(weight: Float?) {
-        setFieldValue(4, 0, weight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weight: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(weight) {
+            setFieldValue(4, 0, weight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get language field
      *
      * @return language
      */
-    fun getLanguage(): Language? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Language.fromValue(value)
-    }
-
-    /**
-     * Set language field
-     *
-     * @param language The new language value to be set
-     */
-    fun setLanguage(language: Language?) {
-        setFieldValue(5, 0, language?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var language: Language?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Language.fromValue(value)
+        }
+        set(language) {
+            setFieldValue(5, 0, language?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get elev_setting field
      *
      * @return elev_setting
      */
-    fun getElevSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set elev_setting field
-     *
-     * @param elevSetting The new elevSetting value to be set
-     */
-    fun setElevSetting(elevSetting: DisplayMeasure?) {
-        setFieldValue(6, 0, elevSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var elevSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(elevSetting) {
+            setFieldValue(6, 0, elevSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get weight_setting field
      *
      * @return weight_setting
      */
-    fun getWeightSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set weight_setting field
-     *
-     * @param weightSetting The new weightSetting value to be set
-     */
-    fun setWeightSetting(weightSetting: DisplayMeasure?) {
-        setFieldValue(7, 0, weightSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weightSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(weightSetting) {
+            setFieldValue(7, 0, weightSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get resting_heart_rate field
@@ -257,19 +208,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return resting_heart_rate
      */
-    fun getRestingHeartRate(): Short? {
-        return getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set resting_heart_rate field
-     * Units: bpm
-     *
-     * @param restingHeartRate The new restingHeartRate value to be set
-     */
-    fun setRestingHeartRate(restingHeartRate: Short?) {
-        setFieldValue(8, 0, restingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var restingHeartRate: Short?
+        get() {
+            return getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(restingHeartRate) {
+            setFieldValue(8, 0, restingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get default_max_running_heart_rate field
@@ -277,19 +222,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return default_max_running_heart_rate
      */
-    fun getDefaultMaxRunningHeartRate(): Short? {
-        return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set default_max_running_heart_rate field
-     * Units: bpm
-     *
-     * @param defaultMaxRunningHeartRate The new defaultMaxRunningHeartRate value to be set
-     */
-    fun setDefaultMaxRunningHeartRate(defaultMaxRunningHeartRate: Short?) {
-        setFieldValue(9, 0, defaultMaxRunningHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var defaultMaxRunningHeartRate: Short?
+        get() {
+            return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(defaultMaxRunningHeartRate) {
+            setFieldValue(9, 0, defaultMaxRunningHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get default_max_biking_heart_rate field
@@ -297,19 +236,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return default_max_biking_heart_rate
      */
-    fun getDefaultMaxBikingHeartRate(): Short? {
-        return getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set default_max_biking_heart_rate field
-     * Units: bpm
-     *
-     * @param defaultMaxBikingHeartRate The new defaultMaxBikingHeartRate value to be set
-     */
-    fun setDefaultMaxBikingHeartRate(defaultMaxBikingHeartRate: Short?) {
-        setFieldValue(10, 0, defaultMaxBikingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var defaultMaxBikingHeartRate: Short?
+        get() {
+            return getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(defaultMaxBikingHeartRate) {
+            setFieldValue(10, 0, defaultMaxBikingHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get default_max_heart_rate field
@@ -317,170 +250,124 @@ open class UserProfileMesg : Mesg {
      *
      * @return default_max_heart_rate
      */
-    fun getDefaultMaxHeartRate(): Short? {
-        return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set default_max_heart_rate field
-     * Units: bpm
-     *
-     * @param defaultMaxHeartRate The new defaultMaxHeartRate value to be set
-     */
-    fun setDefaultMaxHeartRate(defaultMaxHeartRate: Short?) {
-        setFieldValue(11, 0, defaultMaxHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var defaultMaxHeartRate: Short?
+        get() {
+            return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(defaultMaxHeartRate) {
+            setFieldValue(11, 0, defaultMaxHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hr_setting field
      *
      * @return hr_setting
      */
-    fun getHrSetting(): DisplayHeart? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayHeart.fromValue(value)
-    }
-
-    /**
-     * Set hr_setting field
-     *
-     * @param hrSetting The new hrSetting value to be set
-     */
-    fun setHrSetting(hrSetting: DisplayHeart?) {
-        setFieldValue(12, 0, hrSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hrSetting: DisplayHeart?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayHeart.fromValue(value)
+        }
+        set(hrSetting) {
+            setFieldValue(12, 0, hrSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get speed_setting field
      *
      * @return speed_setting
      */
-    fun getSpeedSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set speed_setting field
-     *
-     * @param speedSetting The new speedSetting value to be set
-     */
-    fun setSpeedSetting(speedSetting: DisplayMeasure?) {
-        setFieldValue(13, 0, speedSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var speedSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(speedSetting) {
+            setFieldValue(13, 0, speedSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get dist_setting field
      *
      * @return dist_setting
      */
-    fun getDistSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set dist_setting field
-     *
-     * @param distSetting The new distSetting value to be set
-     */
-    fun setDistSetting(distSetting: DisplayMeasure?) {
-        setFieldValue(14, 0, distSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var distSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(distSetting) {
+            setFieldValue(14, 0, distSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get power_setting field
      *
      * @return power_setting
      */
-    fun getPowerSetting(): DisplayPower? {
-        val value = getFieldShortValue(16, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayPower.fromValue(value)
-    }
-
-    /**
-     * Set power_setting field
-     *
-     * @param powerSetting The new powerSetting value to be set
-     */
-    fun setPowerSetting(powerSetting: DisplayPower?) {
-        setFieldValue(16, 0, powerSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var powerSetting: DisplayPower?
+        get() {
+            val value = getFieldShortValue(16, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayPower.fromValue(value)
+        }
+        set(powerSetting) {
+            setFieldValue(16, 0, powerSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get activity_class field
      *
      * @return activity_class
      */
-    fun getActivityClass(): ActivityClass? {
-        val value = getFieldShortValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ActivityClass.fromValue(value)
-    }
-
-    /**
-     * Set activity_class field
-     *
-     * @param activityClass The new activityClass value to be set
-     */
-    fun setActivityClass(activityClass: ActivityClass?) {
-        setFieldValue(17, 0, activityClass?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var activityClass: ActivityClass?
+        get() {
+            val value = getFieldShortValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ActivityClass.fromValue(value)
+        }
+        set(activityClass) {
+            setFieldValue(17, 0, activityClass?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_setting field
      *
      * @return position_setting
      */
-    fun getPositionSetting(): DisplayPosition? {
-        val value = getFieldShortValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayPosition.fromValue(value)
-    }
-
-    /**
-     * Set position_setting field
-     *
-     * @param positionSetting The new positionSetting value to be set
-     */
-    fun setPositionSetting(positionSetting: DisplayPosition?) {
-        setFieldValue(18, 0, positionSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionSetting: DisplayPosition?
+        get() {
+            val value = getFieldShortValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayPosition.fromValue(value)
+        }
+        set(positionSetting) {
+            setFieldValue(18, 0, positionSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get temperature_setting field
      *
      * @return temperature_setting
      */
-    fun getTemperatureSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set temperature_setting field
-     *
-     * @param temperatureSetting The new temperatureSetting value to be set
-     */
-    fun setTemperatureSetting(temperatureSetting: DisplayMeasure?) {
-        setFieldValue(21, 0, temperatureSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var temperatureSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(temperatureSetting) {
+            setFieldValue(21, 0, temperatureSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get local_id field
      *
      * @return local_id
      */
-    fun getLocalId(): Int? {
-        return getFieldIntegerValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set local_id field
-     *
-     * @param localId The new localId value to be set
-     */
-    fun setLocalId(localId: Int?) {
-        setFieldValue(22, 0, localId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var localId: Int?
+        get() {
+            return getFieldIntegerValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(localId) {
+            setFieldValue(22, 0, localId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getGlobalId(): Array<Byte?>? {
         return getFieldByteValues(23, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -519,19 +406,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return wake_time
      */
-    fun getWakeTime(): Long? {
-        return getFieldLongValue(28, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set wake_time field
-     * Comment: Typical wake time
-     *
-     * @param wakeTime The new wakeTime value to be set
-     */
-    fun setWakeTime(wakeTime: Long?) {
-        setFieldValue(28, 0, wakeTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var wakeTime: Long?
+        get() {
+            return getFieldLongValue(28, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(wakeTime) {
+            setFieldValue(28, 0, wakeTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sleep_time field
@@ -539,38 +420,27 @@ open class UserProfileMesg : Mesg {
      *
      * @return sleep_time
      */
-    fun getSleepTime(): Long? {
-        return getFieldLongValue(29, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sleep_time field
-     * Comment: Typical bed time
-     *
-     * @param sleepTime The new sleepTime value to be set
-     */
-    fun setSleepTime(sleepTime: Long?) {
-        setFieldValue(29, 0, sleepTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sleepTime: Long?
+        get() {
+            return getFieldLongValue(29, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sleepTime) {
+            setFieldValue(29, 0, sleepTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get height_setting field
      *
      * @return height_setting
      */
-    fun getHeightSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(30, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set height_setting field
-     *
-     * @param heightSetting The new heightSetting value to be set
-     */
-    fun setHeightSetting(heightSetting: DisplayMeasure?) {
-        setFieldValue(30, 0, heightSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var heightSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(30, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(heightSetting) {
+            setFieldValue(30, 0, heightSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get user_running_step_length field
@@ -579,20 +449,13 @@ open class UserProfileMesg : Mesg {
      *
      * @return user_running_step_length
      */
-    fun getUserRunningStepLength(): Float? {
-        return getFieldFloatValue(31, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set user_running_step_length field
-     * Units: m
-     * Comment: User defined running step length set to 0 for auto length
-     *
-     * @param userRunningStepLength The new userRunningStepLength value to be set
-     */
-    fun setUserRunningStepLength(userRunningStepLength: Float?) {
-        setFieldValue(31, 0, userRunningStepLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var userRunningStepLength: Float?
+        get() {
+            return getFieldFloatValue(31, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(userRunningStepLength) {
+            setFieldValue(31, 0, userRunningStepLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get user_walking_step_length field
@@ -601,55 +464,38 @@ open class UserProfileMesg : Mesg {
      *
      * @return user_walking_step_length
      */
-    fun getUserWalkingStepLength(): Float? {
-        return getFieldFloatValue(32, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set user_walking_step_length field
-     * Units: m
-     * Comment: User defined walking step length set to 0 for auto length
-     *
-     * @param userWalkingStepLength The new userWalkingStepLength value to be set
-     */
-    fun setUserWalkingStepLength(userWalkingStepLength: Float?) {
-        setFieldValue(32, 0, userWalkingStepLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var userWalkingStepLength: Float?
+        get() {
+            return getFieldFloatValue(32, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(userWalkingStepLength) {
+            setFieldValue(32, 0, userWalkingStepLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get depth_setting field
      *
      * @return depth_setting
      */
-    fun getDepthSetting(): DisplayMeasure? {
-        val value = getFieldShortValue(47, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set depth_setting field
-     *
-     * @param depthSetting The new depthSetting value to be set
-     */
-    fun setDepthSetting(depthSetting: DisplayMeasure?) {
-        setFieldValue(47, 0, depthSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var depthSetting: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(47, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(depthSetting) {
+            setFieldValue(47, 0, depthSetting?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get dive_count field
      *
      * @return dive_count
      */
-    fun getDiveCount(): Long? {
-        return getFieldLongValue(49, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set dive_count field
-     *
-     * @param diveCount The new diveCount value to be set
-     */
-    fun setDiveCount(diveCount: Long?) {
-        setFieldValue(49, 0, diveCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var diveCount: Long?
+        get() {
+            return getFieldLongValue(49, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(diveCount) {
+            setFieldValue(49, 0, diveCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

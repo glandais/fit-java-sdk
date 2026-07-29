@@ -36,18 +36,13 @@ open class AadAccelFeaturesMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time field
@@ -56,20 +51,13 @@ open class AadAccelFeaturesMesg : Mesg {
      *
      * @return time
      */
-    fun getTime(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set time field
-     * Units: s
-     * Comment: Time interval length in seconds
-     *
-     * @param time The new time value to be set
-     */
-    fun setTime(time: Int?) {
-        setFieldValue(0, 0, time, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var time: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(time) {
+            setFieldValue(0, 0, time, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get energy_total field
@@ -77,19 +65,13 @@ open class AadAccelFeaturesMesg : Mesg {
      *
      * @return energy_total
      */
-    fun getEnergyTotal(): Long? {
-        return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set energy_total field
-     * Comment: Total accelerometer energy in the interval
-     *
-     * @param energyTotal The new energyTotal value to be set
-     */
-    fun setEnergyTotal(energyTotal: Long?) {
-        setFieldValue(1, 0, energyTotal, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var energyTotal: Long?
+        get() {
+            return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(energyTotal) {
+            setFieldValue(1, 0, energyTotal, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get zero_cross_cnt field
@@ -97,19 +79,13 @@ open class AadAccelFeaturesMesg : Mesg {
      *
      * @return zero_cross_cnt
      */
-    fun getZeroCrossCnt(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set zero_cross_cnt field
-     * Comment: Count of zero crossings
-     *
-     * @param zeroCrossCnt The new zeroCrossCnt value to be set
-     */
-    fun setZeroCrossCnt(zeroCrossCnt: Int?) {
-        setFieldValue(2, 0, zeroCrossCnt, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var zeroCrossCnt: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(zeroCrossCnt) {
+            setFieldValue(2, 0, zeroCrossCnt, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get instance field
@@ -117,19 +93,13 @@ open class AadAccelFeaturesMesg : Mesg {
      *
      * @return instance
      */
-    fun getInstance(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set instance field
-     * Comment: Instance ID of zero crossing algorithm
-     *
-     * @param instance The new instance value to be set
-     */
-    fun setInstance(instance: Short?) {
-        setFieldValue(3, 0, instance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var instance: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(instance) {
+            setFieldValue(3, 0, instance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time_above_threshold field
@@ -138,18 +108,11 @@ open class AadAccelFeaturesMesg : Mesg {
      *
      * @return time_above_threshold
      */
-    fun getTimeAboveThreshold(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set time_above_threshold field
-     * Units: s
-     * Comment: Total accelerometer time above threshold in the interval
-     *
-     * @param timeAboveThreshold The new timeAboveThreshold value to be set
-     */
-    fun setTimeAboveThreshold(timeAboveThreshold: Float?) {
-        setFieldValue(4, 0, timeAboveThreshold, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timeAboveThreshold: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timeAboveThreshold) {
+            setFieldValue(4, 0, timeAboveThreshold, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

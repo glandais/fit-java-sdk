@@ -88,74 +88,54 @@ open class BikeProfileMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get name field
      *
      * @return name
      */
-    override fun getName(): String? {
-        return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set name field
-     *
-     * @param name The new name value to be set
-     */
-    fun setName(name: String?) {
-        setFieldValue(0, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var name: String?
+        get() {
+            return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(name) {
+            setFieldValue(0, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport field
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(1, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(1, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sub_sport field
      *
      * @return sub_sport
      */
-    fun getSubSport(): SubSport? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SubSport.fromValue(value)
-    }
-
-    /**
-     * Set sub_sport field
-     *
-     * @param subSport The new subSport value to be set
-     */
-    fun setSubSport(subSport: SubSport?) {
-        setFieldValue(2, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var subSport: SubSport?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SubSport.fromValue(value)
+        }
+        set(subSport) {
+            setFieldValue(2, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get odometer field
@@ -163,91 +143,65 @@ open class BikeProfileMesg : Mesg {
      *
      * @return odometer
      */
-    fun getOdometer(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set odometer field
-     * Units: m
-     *
-     * @param odometer The new odometer value to be set
-     */
-    fun setOdometer(odometer: Float?) {
-        setFieldValue(3, 0, odometer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var odometer: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(odometer) {
+            setFieldValue(3, 0, odometer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_spd_ant_id field
      *
      * @return bike_spd_ant_id
      */
-    fun getBikeSpdAntId(): Int? {
-        return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_spd_ant_id field
-     *
-     * @param bikeSpdAntId The new bikeSpdAntId value to be set
-     */
-    fun setBikeSpdAntId(bikeSpdAntId: Int?) {
-        setFieldValue(4, 0, bikeSpdAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeSpdAntId: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeSpdAntId) {
+            setFieldValue(4, 0, bikeSpdAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_cad_ant_id field
      *
      * @return bike_cad_ant_id
      */
-    fun getBikeCadAntId(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_cad_ant_id field
-     *
-     * @param bikeCadAntId The new bikeCadAntId value to be set
-     */
-    fun setBikeCadAntId(bikeCadAntId: Int?) {
-        setFieldValue(5, 0, bikeCadAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeCadAntId: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeCadAntId) {
+            setFieldValue(5, 0, bikeCadAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_spdcad_ant_id field
      *
      * @return bike_spdcad_ant_id
      */
-    fun getBikeSpdcadAntId(): Int? {
-        return getFieldIntegerValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_spdcad_ant_id field
-     *
-     * @param bikeSpdcadAntId The new bikeSpdcadAntId value to be set
-     */
-    fun setBikeSpdcadAntId(bikeSpdcadAntId: Int?) {
-        setFieldValue(6, 0, bikeSpdcadAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeSpdcadAntId: Int?
+        get() {
+            return getFieldIntegerValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeSpdcadAntId) {
+            setFieldValue(6, 0, bikeSpdcadAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_power_ant_id field
      *
      * @return bike_power_ant_id
      */
-    fun getBikePowerAntId(): Int? {
-        return getFieldIntegerValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_power_ant_id field
-     *
-     * @param bikePowerAntId The new bikePowerAntId value to be set
-     */
-    fun setBikePowerAntId(bikePowerAntId: Int?) {
-        setFieldValue(7, 0, bikePowerAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikePowerAntId: Int?
+        get() {
+            return getFieldIntegerValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikePowerAntId) {
+            setFieldValue(7, 0, bikePowerAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get custom_wheelsize field
@@ -255,19 +209,13 @@ open class BikeProfileMesg : Mesg {
      *
      * @return custom_wheelsize
      */
-    fun getCustomWheelsize(): Float? {
-        return getFieldFloatValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set custom_wheelsize field
-     * Units: m
-     *
-     * @param customWheelsize The new customWheelsize value to be set
-     */
-    fun setCustomWheelsize(customWheelsize: Float?) {
-        setFieldValue(8, 0, customWheelsize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var customWheelsize: Float?
+        get() {
+            return getFieldFloatValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(customWheelsize) {
+            setFieldValue(8, 0, customWheelsize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_wheelsize field
@@ -275,19 +223,13 @@ open class BikeProfileMesg : Mesg {
      *
      * @return auto_wheelsize
      */
-    fun getAutoWheelsize(): Float? {
-        return getFieldFloatValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set auto_wheelsize field
-     * Units: m
-     *
-     * @param autoWheelsize The new autoWheelsize value to be set
-     */
-    fun setAutoWheelsize(autoWheelsize: Float?) {
-        setFieldValue(9, 0, autoWheelsize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autoWheelsize: Float?
+        get() {
+            return getFieldFloatValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(autoWheelsize) {
+            setFieldValue(9, 0, autoWheelsize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_weight field
@@ -295,19 +237,13 @@ open class BikeProfileMesg : Mesg {
      *
      * @return bike_weight
      */
-    fun getBikeWeight(): Float? {
-        return getFieldFloatValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_weight field
-     * Units: kg
-     *
-     * @param bikeWeight The new bikeWeight value to be set
-     */
-    fun setBikeWeight(bikeWeight: Float?) {
-        setFieldValue(10, 0, bikeWeight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeWeight: Float?
+        get() {
+            return getFieldFloatValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeWeight) {
+            setFieldValue(10, 0, bikeWeight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get power_cal_factor field
@@ -315,151 +251,110 @@ open class BikeProfileMesg : Mesg {
      *
      * @return power_cal_factor
      */
-    fun getPowerCalFactor(): Float? {
-        return getFieldFloatValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set power_cal_factor field
-     * Units: %
-     *
-     * @param powerCalFactor The new powerCalFactor value to be set
-     */
-    fun setPowerCalFactor(powerCalFactor: Float?) {
-        setFieldValue(11, 0, powerCalFactor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var powerCalFactor: Float?
+        get() {
+            return getFieldFloatValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(powerCalFactor) {
+            setFieldValue(11, 0, powerCalFactor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_wheel_cal field
      *
      * @return auto_wheel_cal
      */
-    fun getAutoWheelCal(): Bool? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set auto_wheel_cal field
-     *
-     * @param autoWheelCal The new autoWheelCal value to be set
-     */
-    fun setAutoWheelCal(autoWheelCal: Bool?) {
-        setFieldValue(12, 0, autoWheelCal?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autoWheelCal: Bool?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(autoWheelCal) {
+            setFieldValue(12, 0, autoWheelCal?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_power_zero field
      *
      * @return auto_power_zero
      */
-    fun getAutoPowerZero(): Bool? {
-        val value = getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set auto_power_zero field
-     *
-     * @param autoPowerZero The new autoPowerZero value to be set
-     */
-    fun setAutoPowerZero(autoPowerZero: Bool?) {
-        setFieldValue(13, 0, autoPowerZero?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autoPowerZero: Bool?
+        get() {
+            val value = getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(autoPowerZero) {
+            setFieldValue(13, 0, autoPowerZero?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get id field
      *
      * @return id
      */
-    fun getId(): Short? {
-        return getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set id field
-     *
-     * @param id The new id value to be set
-     */
-    fun setId(id: Short?) {
-        setFieldValue(14, 0, id, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var id: Short?
+        get() {
+            return getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(id) {
+            setFieldValue(14, 0, id, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get spd_enabled field
      *
      * @return spd_enabled
      */
-    fun getSpdEnabled(): Bool? {
-        val value = getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set spd_enabled field
-     *
-     * @param spdEnabled The new spdEnabled value to be set
-     */
-    fun setSpdEnabled(spdEnabled: Bool?) {
-        setFieldValue(15, 0, spdEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var spdEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(spdEnabled) {
+            setFieldValue(15, 0, spdEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get cad_enabled field
      *
      * @return cad_enabled
      */
-    fun getCadEnabled(): Bool? {
-        val value = getFieldShortValue(16, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set cad_enabled field
-     *
-     * @param cadEnabled The new cadEnabled value to be set
-     */
-    fun setCadEnabled(cadEnabled: Bool?) {
-        setFieldValue(16, 0, cadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var cadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(16, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(cadEnabled) {
+            setFieldValue(16, 0, cadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get spdcad_enabled field
      *
      * @return spdcad_enabled
      */
-    fun getSpdcadEnabled(): Bool? {
-        val value = getFieldShortValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set spdcad_enabled field
-     *
-     * @param spdcadEnabled The new spdcadEnabled value to be set
-     */
-    fun setSpdcadEnabled(spdcadEnabled: Bool?) {
-        setFieldValue(17, 0, spdcadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var spdcadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(spdcadEnabled) {
+            setFieldValue(17, 0, spdcadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get power_enabled field
      *
      * @return power_enabled
      */
-    fun getPowerEnabled(): Bool? {
-        val value = getFieldShortValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set power_enabled field
-     *
-     * @param powerEnabled The new powerEnabled value to be set
-     */
-    fun setPowerEnabled(powerEnabled: Bool?) {
-        setFieldValue(18, 0, powerEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var powerEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(18, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(powerEnabled) {
+            setFieldValue(18, 0, powerEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get crank_length field
@@ -467,110 +362,79 @@ open class BikeProfileMesg : Mesg {
      *
      * @return crank_length
      */
-    fun getCrankLength(): Float? {
-        return getFieldFloatValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set crank_length field
-     * Units: mm
-     *
-     * @param crankLength The new crankLength value to be set
-     */
-    fun setCrankLength(crankLength: Float?) {
-        setFieldValue(19, 0, crankLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var crankLength: Float?
+        get() {
+            return getFieldFloatValue(19, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(crankLength) {
+            setFieldValue(19, 0, crankLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enabled field
      *
      * @return enabled
      */
-    fun getEnabled(): Bool? {
-        val value = getFieldShortValue(20, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set enabled field
-     *
-     * @param enabled The new enabled value to be set
-     */
-    fun setEnabled(enabled: Bool?) {
-        setFieldValue(20, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enabled: Bool?
+        get() {
+            val value = getFieldShortValue(20, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(enabled) {
+            setFieldValue(20, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_spd_ant_id_trans_type field
      *
      * @return bike_spd_ant_id_trans_type
      */
-    fun getBikeSpdAntIdTransType(): Short? {
-        return getFieldShortValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_spd_ant_id_trans_type field
-     *
-     * @param bikeSpdAntIdTransType The new bikeSpdAntIdTransType value to be set
-     */
-    fun setBikeSpdAntIdTransType(bikeSpdAntIdTransType: Short?) {
-        setFieldValue(21, 0, bikeSpdAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeSpdAntIdTransType: Short?
+        get() {
+            return getFieldShortValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeSpdAntIdTransType) {
+            setFieldValue(21, 0, bikeSpdAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_cad_ant_id_trans_type field
      *
      * @return bike_cad_ant_id_trans_type
      */
-    fun getBikeCadAntIdTransType(): Short? {
-        return getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_cad_ant_id_trans_type field
-     *
-     * @param bikeCadAntIdTransType The new bikeCadAntIdTransType value to be set
-     */
-    fun setBikeCadAntIdTransType(bikeCadAntIdTransType: Short?) {
-        setFieldValue(22, 0, bikeCadAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeCadAntIdTransType: Short?
+        get() {
+            return getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeCadAntIdTransType) {
+            setFieldValue(22, 0, bikeCadAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_spdcad_ant_id_trans_type field
      *
      * @return bike_spdcad_ant_id_trans_type
      */
-    fun getBikeSpdcadAntIdTransType(): Short? {
-        return getFieldShortValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_spdcad_ant_id_trans_type field
-     *
-     * @param bikeSpdcadAntIdTransType The new bikeSpdcadAntIdTransType value to be set
-     */
-    fun setBikeSpdcadAntIdTransType(bikeSpdcadAntIdTransType: Short?) {
-        setFieldValue(23, 0, bikeSpdcadAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikeSpdcadAntIdTransType: Short?
+        get() {
+            return getFieldShortValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikeSpdcadAntIdTransType) {
+            setFieldValue(23, 0, bikeSpdcadAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bike_power_ant_id_trans_type field
      *
      * @return bike_power_ant_id_trans_type
      */
-    fun getBikePowerAntIdTransType(): Short? {
-        return getFieldShortValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bike_power_ant_id_trans_type field
-     *
-     * @param bikePowerAntIdTransType The new bikePowerAntIdTransType value to be set
-     */
-    fun setBikePowerAntIdTransType(bikePowerAntIdTransType: Short?) {
-        setFieldValue(24, 0, bikePowerAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bikePowerAntIdTransType: Short?
+        get() {
+            return getFieldShortValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bikePowerAntIdTransType) {
+            setFieldValue(24, 0, bikePowerAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get odometer_rollover field
@@ -578,19 +442,13 @@ open class BikeProfileMesg : Mesg {
      *
      * @return odometer_rollover
      */
-    fun getOdometerRollover(): Short? {
-        return getFieldShortValue(37, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set odometer_rollover field
-     * Comment: Rollover counter that can be used to extend the odometer
-     *
-     * @param odometerRollover The new odometerRollover value to be set
-     */
-    fun setOdometerRollover(odometerRollover: Short?) {
-        setFieldValue(37, 0, odometerRollover, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var odometerRollover: Short?
+        get() {
+            return getFieldShortValue(37, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(odometerRollover) {
+            setFieldValue(37, 0, odometerRollover, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get front_gear_num field
@@ -598,19 +456,13 @@ open class BikeProfileMesg : Mesg {
      *
      * @return front_gear_num
      */
-    fun getFrontGearNum(): Short? {
-        return getFieldShortValue(38, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set front_gear_num field
-     * Comment: Number of front gears
-     *
-     * @param frontGearNum The new frontGearNum value to be set
-     */
-    fun setFrontGearNum(frontGearNum: Short?) {
-        setFieldValue(38, 0, frontGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var frontGearNum: Short?
+        get() {
+            return getFieldShortValue(38, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(frontGearNum) {
+            setFieldValue(38, 0, frontGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getFrontGear(): Array<Short?>? {
         return getFieldShortValues(39, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -651,19 +503,13 @@ open class BikeProfileMesg : Mesg {
      *
      * @return rear_gear_num
      */
-    fun getRearGearNum(): Short? {
-        return getFieldShortValue(40, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set rear_gear_num field
-     * Comment: Number of rear gears
-     *
-     * @param rearGearNum The new rearGearNum value to be set
-     */
-    fun setRearGearNum(rearGearNum: Short?) {
-        setFieldValue(40, 0, rearGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var rearGearNum: Short?
+        get() {
+            return getFieldShortValue(40, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(rearGearNum) {
+            setFieldValue(40, 0, rearGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getRearGear(): Array<Short?>? {
         return getFieldShortValues(41, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -703,17 +549,12 @@ open class BikeProfileMesg : Mesg {
      *
      * @return shimano_di2_enabled
      */
-    fun getShimanoDi2Enabled(): Bool? {
-        val value = getFieldShortValue(44, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set shimano_di2_enabled field
-     *
-     * @param shimanoDi2Enabled The new shimanoDi2Enabled value to be set
-     */
-    fun setShimanoDi2Enabled(shimanoDi2Enabled: Bool?) {
-        setFieldValue(44, 0, shimanoDi2Enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var shimanoDi2Enabled: Bool?
+        get() {
+            val value = getFieldShortValue(44, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(shimanoDi2Enabled) {
+            setFieldValue(44, 0, shimanoDi2Enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

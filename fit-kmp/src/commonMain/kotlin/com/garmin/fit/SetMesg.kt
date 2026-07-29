@@ -47,19 +47,13 @@ open class SetMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Comment: Timestamp of the set
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(254, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(254, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get duration field
@@ -67,19 +61,13 @@ open class SetMesg : Mesg {
      *
      * @return duration
      */
-    fun getDuration(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set duration field
-     * Units: s
-     *
-     * @param duration The new duration value to be set
-     */
-    fun setDuration(duration: Float?) {
-        setFieldValue(0, 0, duration, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var duration: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(duration) {
+            setFieldValue(0, 0, duration, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get repetitions field
@@ -87,19 +75,13 @@ open class SetMesg : Mesg {
      *
      * @return repetitions
      */
-    fun getRepetitions(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set repetitions field
-     * Comment: # of repitions of the movement
-     *
-     * @param repetitions The new repetitions value to be set
-     */
-    fun setRepetitions(repetitions: Int?) {
-        setFieldValue(3, 0, repetitions, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var repetitions: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(repetitions) {
+            setFieldValue(3, 0, repetitions, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get weight field
@@ -108,38 +90,26 @@ open class SetMesg : Mesg {
      *
      * @return weight
      */
-    fun getWeight(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set weight field
-     * Units: kg
-     * Comment: Amount of weight applied for the set
-     *
-     * @param weight The new weight value to be set
-     */
-    fun setWeight(weight: Float?) {
-        setFieldValue(4, 0, weight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weight: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(weight) {
+            setFieldValue(4, 0, weight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get set_type field
      *
      * @return set_type
      */
-    fun getSetType(): Short? {
-        return getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set set_type field
-     *
-     * @param setType The new setType value to be set
-     */
-    fun setSetType(setType: Short?) {
-        setFieldValue(5, 0, setType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var setType: Short?
+        get() {
+            return getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(setType) {
+            setFieldValue(5, 0, setType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_time field
@@ -147,19 +117,13 @@ open class SetMesg : Mesg {
      *
      * @return start_time
      */
-    fun getStartTime(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_time field
-     * Comment: Start time of the set
-     *
-     * @param startTime The new startTime value to be set
-     */
-    fun setStartTime(startTime: DateTime?) {
-        setFieldValue(6, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTime: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTime) {
+            setFieldValue(6, 0, startTime?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getCategory(): Array<Int?>? {
         return getFieldIntegerValues(7, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -230,52 +194,37 @@ open class SetMesg : Mesg {
      *
      * @return weight_display_unit
      */
-    fun getWeightDisplayUnit(): Int? {
-        return getFieldIntegerValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set weight_display_unit field
-     *
-     * @param weightDisplayUnit The new weightDisplayUnit value to be set
-     */
-    fun setWeightDisplayUnit(weightDisplayUnit: Int?) {
-        setFieldValue(9, 0, weightDisplayUnit, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weightDisplayUnit: Int?
+        get() {
+            return getFieldIntegerValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(weightDisplayUnit) {
+            setFieldValue(9, 0, weightDisplayUnit, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get message_index field
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(10, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(10, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get wkt_step_index field
      *
      * @return wkt_step_index
      */
-    fun getWktStepIndex(): Int? {
-        return getFieldIntegerValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set wkt_step_index field
-     *
-     * @param wktStepIndex The new wktStepIndex value to be set
-     */
-    fun setWktStepIndex(wktStepIndex: Int?) {
-        setFieldValue(11, 0, wktStepIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var wktStepIndex: Int?
+        get() {
+            return getFieldIntegerValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(wktStepIndex) {
+            setFieldValue(11, 0, wktStepIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

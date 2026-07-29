@@ -27,52 +27,52 @@ class MesgWithEventBroadcaster : MesgWithEventListener {
         val broadcastMesg = Factory.createMesg(mesg as Mesg) as MesgWithEvent
         var group = DEFAULT_GROUP
 
-        if (broadcastMesg.getEventGroup() != null) {
-            group = broadcastMesg.getEventGroup()!!.toInt()
+        if (broadcastMesg.eventGroup != null) {
+            group = broadcastMesg.eventGroup!!.toInt()
         }
 
-        if (broadcastMesg.getEventType() == null) {
+        if (broadcastMesg.eventType == null) {
             return  // Invalid so ignore.
         }
 
         // Convert depreciated events types for backwards compatibility.
-        when (broadcastMesg.getEventType()) {
+        when (broadcastMesg.eventType) {
             EventType.BEGIN_DEPRECIATED -> {
                 group = BEGIN_END_GROUP
-                broadcastMesg.setEventType(EventType.START)
+                broadcastMesg.eventType = EventType.START
             }
 
             EventType.END_DEPRECIATED -> {
                 group = BEGIN_END_GROUP
-                broadcastMesg.setEventType(EventType.STOP)
+                broadcastMesg.eventType = EventType.STOP
             }
 
             EventType.CONSECUTIVE_DEPRECIATED -> {
-                broadcastMesg.setEventType(EventType.STOP)
+                broadcastMesg.eventType = EventType.STOP
             }
 
             EventType.END_ALL_DEPRECIATED -> {
                 group = BEGIN_END_GROUP
-                broadcastMesg.setEventType(EventType.STOP_ALL)
+                broadcastMesg.eventType = EventType.STOP_ALL
             }
 
             else -> {}
         }
 
-        when (broadcastMesg.getEventType()) {
+        when (broadcastMesg.eventType) {
             EventType.START -> {
                 // NOTE: mirrors the original Java `for (i = 0; i < size; i++)` loop, which
                 // increments `i` unconditionally even after `remove(i)` shrinks the list
                 // (so the element shifted into slot `i` is skipped) -- preserved as-is for fidelity.
                 var i = 0
                 while (i < startedEvents[group].size) {
-                    if (startedEvents[group][i].getEvent() == broadcastMesg.getEvent()) {
+                    if (startedEvents[group][i].event == broadcastMesg.event) {
                         val stopEvent = Factory.createMesg(startedEvents[group][i] as Mesg) as MesgWithEvent
-                        val timestamp = broadcastMesg.getTimestamp()
-                        stopEvent.setEventType(EventType.STOP)
+                        val timestamp = broadcastMesg.timestamp
+                        stopEvent.eventType = EventType.STOP
 
                         if (timestamp != null) {
-                            stopEvent.setTimestamp(timestamp)
+                            stopEvent.timestamp = timestamp
                         }
 
                         broadcast(stopEvent)
@@ -88,7 +88,7 @@ class MesgWithEventBroadcaster : MesgWithEventListener {
                 // Same unconditional-increment quirk as above, preserved for fidelity.
                 var i = 0
                 while (i < startedEvents[group].size) {
-                    if (startedEvents[group][i].getEvent() == broadcastMesg.getEvent()) {
+                    if (startedEvents[group][i].event == broadcastMesg.event) {
                         startedEvents[group].removeAt(i)
                     }
                     i++
@@ -97,13 +97,13 @@ class MesgWithEventBroadcaster : MesgWithEventListener {
 
             EventType.STOP_ALL -> {
                 for (i in 0 until startedEvents[group].size) {
-                    if (startedEvents[group][i].getEvent() != broadcastMesg.getEvent()) {
+                    if (startedEvents[group][i].event != broadcastMesg.event) {
                         val stopEvent = Factory.createMesg(startedEvents[group][i] as Mesg) as MesgWithEvent
-                        val timestamp = broadcastMesg.getTimestamp()
-                        stopEvent.setEventType(EventType.STOP)
+                        val timestamp = broadcastMesg.timestamp
+                        stopEvent.eventType = EventType.STOP
 
                         if (timestamp != null) {
-                            stopEvent.setTimestamp(timestamp)
+                            stopEvent.timestamp = timestamp
                         }
 
                         broadcast(stopEvent)
@@ -111,18 +111,18 @@ class MesgWithEventBroadcaster : MesgWithEventListener {
                 }
 
                 startedEvents[group].clear()
-                broadcastMesg.setEventType(EventType.STOP)
+                broadcastMesg.eventType = EventType.STOP
             }
 
             EventType.STOP_DISABLE_ALL -> {
                 for (i in 0 until startedEvents[group].size) {
-                    if (startedEvents[group][i].getEvent() != broadcastMesg.getEvent()) {
+                    if (startedEvents[group][i].event != broadcastMesg.event) {
                         val stopEvent = Factory.createMesg(startedEvents[group][i] as Mesg) as MesgWithEvent
-                        val timestamp = broadcastMesg.getTimestamp()
-                        stopEvent.setEventType(EventType.STOP_DISABLE)
+                        val timestamp = broadcastMesg.timestamp
+                        stopEvent.eventType = EventType.STOP_DISABLE
 
                         if (timestamp != null) {
-                            stopEvent.setTimestamp(timestamp)
+                            stopEvent.timestamp = timestamp
                         }
 
                         broadcast(stopEvent)
@@ -130,7 +130,7 @@ class MesgWithEventBroadcaster : MesgWithEventListener {
                 }
 
                 startedEvents[group].clear()
-                broadcastMesg.setEventType(EventType.STOP_DISABLE)
+                broadcastMesg.eventType = EventType.STOP_DISABLE
             }
 
             else -> {}

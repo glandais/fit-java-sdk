@@ -32,20 +32,13 @@ open class HsaConfigurationDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Encoded configuration data
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getData(): Array<Byte?>? {
         return getFieldByteValues(0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -86,17 +79,11 @@ open class HsaConfigurationDataMesg : Mesg {
      *
      * @return data_size
      */
-    fun getDataSize(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set data_size field
-     * Comment: Size in bytes of data field
-     *
-     * @param dataSize The new dataSize value to be set
-     */
-    fun setDataSize(dataSize: Short?) {
-        setFieldValue(1, 0, dataSize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var dataSize: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(dataSize) {
+            setFieldValue(1, 0, dataSize, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

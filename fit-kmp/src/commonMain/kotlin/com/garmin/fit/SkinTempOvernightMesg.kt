@@ -34,36 +34,26 @@ open class SkinTempOvernightMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get local_timestamp field
      *
      * @return local_timestamp
      */
-    fun getLocalTimestamp(): Long? {
-        return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set local_timestamp field
-     *
-     * @param localTimestamp The new localTimestamp value to be set
-     */
-    fun setLocalTimestamp(localTimestamp: Long?) {
-        setFieldValue(0, 0, localTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var localTimestamp: Long?
+        get() {
+            return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(localTimestamp) {
+            setFieldValue(0, 0, localTimestamp, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get average_deviation field
@@ -71,19 +61,13 @@ open class SkinTempOvernightMesg : Mesg {
      *
      * @return average_deviation
      */
-    fun getAverageDeviation(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set average_deviation field
-     * Comment: The average overnight deviation from baseline temperature in degrees C
-     *
-     * @param averageDeviation The new averageDeviation value to be set
-     */
-    fun setAverageDeviation(averageDeviation: Float?) {
-        setFieldValue(1, 0, averageDeviation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var averageDeviation: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(averageDeviation) {
+            setFieldValue(1, 0, averageDeviation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get average_7_day_deviation field
@@ -91,19 +75,13 @@ open class SkinTempOvernightMesg : Mesg {
      *
      * @return average_7_day_deviation
      */
-    fun getAverage7DayDeviation(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set average_7_day_deviation field
-     * Comment: The average 7 day overnight deviation from baseline temperature in degrees C
-     *
-     * @param average7DayDeviation The new average7DayDeviation value to be set
-     */
-    fun setAverage7DayDeviation(average7DayDeviation: Float?) {
-        setFieldValue(2, 0, average7DayDeviation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var average7DayDeviation: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(average7DayDeviation) {
+            setFieldValue(2, 0, average7DayDeviation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get nightly_value field
@@ -111,17 +89,11 @@ open class SkinTempOvernightMesg : Mesg {
      *
      * @return nightly_value
      */
-    fun getNightlyValue(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set nightly_value field
-     * Comment: Final overnight temperature value
-     *
-     * @param nightlyValue The new nightlyValue value to be set
-     */
-    fun setNightlyValue(nightlyValue: Float?) {
-        setFieldValue(4, 0, nightlyValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var nightlyValue: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(nightlyValue) {
+            setFieldValue(4, 0, nightlyValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

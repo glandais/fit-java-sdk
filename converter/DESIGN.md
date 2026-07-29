@@ -272,19 +272,16 @@ class CRC16 {
 
 `CRC.kt` : port direct (arithmétique pure, aucune dépendance).
 
-### 2.6 Répartition commonMain / jvmMain
+### 2.6 Kotlin pur : aucun source set plateforme
 
-- **jvmMain (seul fichier issu de l'inventaire `jvmOnlyCandidates`)** :
-  `FileEncoder.kt` — utilise `java.io.File`, `java.io.FileOutputStream`,
-  `java.io.RandomAccessFile` DIRECTEMENT (qualifiés `java.io.*` pour éviter la
-  collision avec les shims common). API Java conservée
-  (`open(File)`, `write(Mesg)`, `close()`...).
-- **jvmMain, fichiers support** : `DateTimeJvm.kt` (voir §3),
-  `InteropStreams.kt` (facultatif : `fun java.io.InputStream.readAllToByteArray()`
-  helper pour alimenter le décodeur depuis un flux JVM).
-- **Encodage multiplateforme** : `BufferEncoder.kt` (commonMain) est le chemin
-  d'encodage officiel pour js/linuxX64 (il produit un `ByteArray` via
-  `close(): ByteArray`).
+**Il n'y a pas de `jvmMain`.** Tout vit dans `commonMain`, sans `expect`/`actual`.
+Deux conséquences assumées :
+
+- `FileEncoder` (java.io.File / FileOutputStream / RandomAccessFile) **n'est pas
+  porté**. `BufferEncoder.kt` est le seul chemin d'encodage : il produit le fichier
+  complet via `close(): ByteArray`, et l'écriture sur disque appartient à l'appelant.
+- Les extensions JVM de `DateTime` (`getDate()`, `getInstant()`, `from(Date|Instant)`)
+  **n'existent pas**. Le pont est `fromUnixEpochMillis(ms)` / `getUnixEpochMillis()`.
 - Les méthodes core prenant `InputStream` (Decode.read, FitDecoder.decode,
   DecoderBase.isFIT...) restent en commonMain avec le shim `InputStream` ;
   surcharges `ByteArray` conservées telles quelles.
@@ -349,6 +346,35 @@ fun DateTime.Companion.from(instant: java.time.Instant): DateTime = fromUnixEpoc
 
 Le constructeur Java `DateTime(java.util.Date)` disparaît de commonMain ;
 équivalent : `DateTime.fromUnixEpochMillis(date.getTime())`.
+
+---
+
+### 3.bis Accesseurs : propriétés Kotlin
+
+Les champs **scalaires** des messages générés sont émis en `var` (getter + setter
+appariés par `_pair_properties` dans `conv_mesgs.py`), et non en paire
+`getX()`/`setX()` : sur JVM une propriété `x` et une fonction `getX()` entrent en
+*platform declaration clash*, donc la propriété **remplace** la paire.
+
+- Champs **tableau** (`getX()`, `getNumX()`, `getX(i)`, `setX(i, v)`) : inchangés,
+  Kotlin n'a pas de propriété indexée.
+- `Mesg.localNum` et `Mesg.name` sont des propriétés pour la même raison.
+  `Mesg.name` est un `open val` adossé au champ interne `mesgName` (l'identité du
+  message) ; les mesgs ayant un *champ FIT* nommé `name` (CourseMesg, SportMesg…)
+  le redéfinissent en `override var`. Sans ce découplage,
+  `CourseMesg().name = "x"` renommerait silencieusement le message au lieu
+  d'alimenter le champ — piège attrapé par `GoldenCourseEncodeTest`.
+- `MesgWithEvent` déclare `var timestamp/event/eventType/eventGroup` : une `var` ne
+  peut pas implémenter une paire de fonctions.
+- `_RESERVED_PROP_NAMES` (conv_mesgs.py) exclut les noms qui entreraient en
+  collision avec un membre de `Mesg`.
+
+### 3.ter Déviation connue : `Float` sur Kotlin/JS
+
+Kotlin/JS n'a pas de flottant 32 bits — `Float` y est un `number` JS (double). Les
+getters de champs scalés (`altitude`, `speed`, `distance`…) rendent donc
+`350.20000000000005` là où la JVM rend `350.2f`. C'est la même valeur FIT ; seule la
+représentation diffère. Les tests comparent ces champs avec une tolérance.
 
 ---
 
@@ -478,8 +504,10 @@ kotlin.code.style=official
 org.gradle.jvmargs=-Xmx2g
 ```
 
-Cibles js et linuxX64 compilent le même commonMain ; seul jvmMain ajoute
-FileEncoder + interop java.io/java.time.
+Les trois cibles compilent exactement le même `commonMain`.
+
+`convert.py` ne supprime que `src/commonMain/` : `src/commonTest/` est écrit à la
+main et doit survivre au rejeu.
 
 ---
 
@@ -733,10 +761,10 @@ ProtocolValidatorFactory.kt, SubField.kt
 
 Streams.kt (§2.1), EndianIo.kt (§2.2), Uuid.kt (§2.4).
 
-### 7.3 `overrides/jvmMain/`
+### 7.3 `overrides/jvmMain/` — supprimé
 
-FileEncoder.kt (port de FileEncoder.java, java.io qualifié), DateTimeJvm.kt
-(support), InteropStreams.kt (support, facultatif).
+Il n'existe plus (cf. §2.6). `FileEncoder.java` est le seul .java du SDK
+délibérément non porté.
 
 ### 7.4 `overrides/hashes.json`
 

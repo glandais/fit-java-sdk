@@ -28,34 +28,24 @@ open class FileCreatorMesg : Mesg {
      *
      * @return software_version
      */
-    fun getSoftwareVersion(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set software_version field
-     *
-     * @param softwareVersion The new softwareVersion value to be set
-     */
-    fun setSoftwareVersion(softwareVersion: Int?) {
-        setFieldValue(0, 0, softwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var softwareVersion: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(softwareVersion) {
+            setFieldValue(0, 0, softwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hardware_version field
      *
      * @return hardware_version
      */
-    fun getHardwareVersion(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set hardware_version field
-     *
-     * @param hardwareVersion The new hardwareVersion value to be set
-     */
-    fun setHardwareVersion(hardwareVersion: Short?) {
-        setFieldValue(1, 0, hardwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hardwareVersion: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(hardwareVersion) {
+            setFieldValue(1, 0, hardwareVersion, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

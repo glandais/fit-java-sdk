@@ -44,20 +44,13 @@ open class ObdiiDataMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Timestamp message was output
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -66,20 +59,13 @@ open class ObdiiDataMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Fractional part of timestamp, added to timestamp
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getTimeOffset(): Array<Int?>? {
         return getFieldIntegerValues(1, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -122,19 +108,13 @@ open class ObdiiDataMesg : Mesg {
      *
      * @return pid
      */
-    fun getPid(): Byte? {
-        return getFieldByteValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set pid field
-     * Comment: Parameter ID
-     *
-     * @param pid The new pid value to be set
-     */
-    fun setPid(pid: Byte?) {
-        setFieldValue(2, 0, pid, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var pid: Byte?
+        get() {
+            return getFieldByteValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(pid) {
+            setFieldValue(2, 0, pid, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getRawData(): Array<Byte?>? {
         return getFieldByteValues(3, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -241,19 +221,13 @@ open class ObdiiDataMesg : Mesg {
      *
      * @return start_timestamp
      */
-    fun getStartTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_timestamp field
-     * Comment: Timestamp of first sample recorded in the message. Used with time_offset to generate time of each sample
-     *
-     * @param startTimestamp The new startTimestamp value to be set
-     */
-    fun setStartTimestamp(startTimestamp: DateTime?) {
-        setFieldValue(6, 0, startTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTimestamp) {
+            setFieldValue(6, 0, startTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_timestamp_ms field
@@ -262,18 +236,11 @@ open class ObdiiDataMesg : Mesg {
      *
      * @return start_timestamp_ms
      */
-    fun getStartTimestampMs(): Int? {
-        return getFieldIntegerValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_timestamp_ms field
-     * Units: ms
-     * Comment: Fractional part of start_timestamp
-     *
-     * @param startTimestampMs The new startTimestampMs value to be set
-     */
-    fun setStartTimestampMs(startTimestampMs: Int?) {
-        setFieldValue(7, 0, startTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTimestampMs: Int?
+        get() {
+            return getFieldIntegerValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startTimestampMs) {
+            setFieldValue(7, 0, startTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

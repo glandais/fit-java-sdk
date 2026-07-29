@@ -29,19 +29,13 @@ open class HsaEventMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get event_id field
@@ -49,17 +43,11 @@ open class HsaEventMesg : Mesg {
      *
      * @return event_id
      */
-    fun getEventId(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set event_id field
-     * Comment: Event ID. Health SDK use only
-     *
-     * @param eventId The new eventId value to be set
-     */
-    fun setEventId(eventId: Short?) {
-        setFieldValue(0, 0, eventId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var eventId: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(eventId) {
+            setFieldValue(0, 0, eventId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

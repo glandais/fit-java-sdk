@@ -38,90 +38,65 @@ open class VideoClipMesg : Mesg {
      *
      * @return clip_number
      */
-    fun getClipNumber(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set clip_number field
-     *
-     * @param clipNumber The new clipNumber value to be set
-     */
-    fun setClipNumber(clipNumber: Int?) {
-        setFieldValue(0, 0, clipNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var clipNumber: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(clipNumber) {
+            setFieldValue(0, 0, clipNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_timestamp field
      *
      * @return start_timestamp
      */
-    fun getStartTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_timestamp field
-     *
-     * @param startTimestamp The new startTimestamp value to be set
-     */
-    fun setStartTimestamp(startTimestamp: DateTime?) {
-        setFieldValue(1, 0, startTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTimestamp) {
+            setFieldValue(1, 0, startTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_timestamp_ms field
      *
      * @return start_timestamp_ms
      */
-    fun getStartTimestampMs(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_timestamp_ms field
-     *
-     * @param startTimestampMs The new startTimestampMs value to be set
-     */
-    fun setStartTimestampMs(startTimestampMs: Int?) {
-        setFieldValue(2, 0, startTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTimestampMs: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startTimestampMs) {
+            setFieldValue(2, 0, startTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_timestamp field
      *
      * @return end_timestamp
      */
-    fun getEndTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set end_timestamp field
-     *
-     * @param endTimestamp The new endTimestamp value to be set
-     */
-    fun setEndTimestamp(endTimestamp: DateTime?) {
-        setFieldValue(3, 0, endTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(endTimestamp) {
+            setFieldValue(3, 0, endTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_timestamp_ms field
      *
      * @return end_timestamp_ms
      */
-    fun getEndTimestampMs(): Int? {
-        return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set end_timestamp_ms field
-     *
-     * @param endTimestampMs The new endTimestampMs value to be set
-     */
-    fun setEndTimestampMs(endTimestampMs: Int?) {
-        setFieldValue(4, 0, endTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endTimestampMs: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(endTimestampMs) {
+            setFieldValue(4, 0, endTimestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get clip_start field
@@ -130,20 +105,13 @@ open class VideoClipMesg : Mesg {
      *
      * @return clip_start
      */
-    fun getClipStart(): Long? {
-        return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set clip_start field
-     * Units: ms
-     * Comment: Start of clip in video time
-     *
-     * @param clipStart The new clipStart value to be set
-     */
-    fun setClipStart(clipStart: Long?) {
-        setFieldValue(6, 0, clipStart, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var clipStart: Long?
+        get() {
+            return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(clipStart) {
+            setFieldValue(6, 0, clipStart, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get clip_end field
@@ -152,18 +120,11 @@ open class VideoClipMesg : Mesg {
      *
      * @return clip_end
      */
-    fun getClipEnd(): Long? {
-        return getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set clip_end field
-     * Units: ms
-     * Comment: End of clip in video time
-     *
-     * @param clipEnd The new clipEnd value to be set
-     */
-    fun setClipEnd(clipEnd: Long?) {
-        setFieldValue(7, 0, clipEnd, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var clipEnd: Long?
+        get() {
+            return getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(clipEnd) {
+            setFieldValue(7, 0, clipEnd, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

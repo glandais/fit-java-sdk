@@ -28,18 +28,13 @@ open class RespirationRateMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get respiration_rate field
@@ -48,18 +43,11 @@ open class RespirationRateMesg : Mesg {
      *
      * @return respiration_rate
      */
-    fun getRespirationRate(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set respiration_rate field
-     * Units: breaths/min
-     * Comment: Breaths * 100 /min, -300 indicates invalid, -200 indicates large motion, -100 indicates off wrist
-     *
-     * @param respirationRate The new respirationRate value to be set
-     */
-    fun setRespirationRate(respirationRate: Float?) {
-        setFieldValue(0, 0, respirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var respirationRate: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(respirationRate) {
+            setFieldValue(0, 0, respirationRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

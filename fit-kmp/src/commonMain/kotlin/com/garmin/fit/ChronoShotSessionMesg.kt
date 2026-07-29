@@ -40,18 +40,13 @@ open class ChronoShotSessionMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get min_speed field
@@ -59,19 +54,13 @@ open class ChronoShotSessionMesg : Mesg {
      *
      * @return min_speed
      */
-    fun getMinSpeed(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set min_speed field
-     * Units: m/s
-     *
-     * @param minSpeed The new minSpeed value to be set
-     */
-    fun setMinSpeed(minSpeed: Float?) {
-        setFieldValue(0, 0, minSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var minSpeed: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(minSpeed) {
+            setFieldValue(0, 0, minSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get max_speed field
@@ -79,19 +68,13 @@ open class ChronoShotSessionMesg : Mesg {
      *
      * @return max_speed
      */
-    fun getMaxSpeed(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_speed field
-     * Units: m/s
-     *
-     * @param maxSpeed The new maxSpeed value to be set
-     */
-    fun setMaxSpeed(maxSpeed: Float?) {
-        setFieldValue(1, 0, maxSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxSpeed: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxSpeed) {
+            setFieldValue(1, 0, maxSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get avg_speed field
@@ -99,56 +82,40 @@ open class ChronoShotSessionMesg : Mesg {
      *
      * @return avg_speed
      */
-    fun getAvgSpeed(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set avg_speed field
-     * Units: m/s
-     *
-     * @param avgSpeed The new avgSpeed value to be set
-     */
-    fun setAvgSpeed(avgSpeed: Float?) {
-        setFieldValue(2, 0, avgSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var avgSpeed: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(avgSpeed) {
+            setFieldValue(2, 0, avgSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get shot_count field
      *
      * @return shot_count
      */
-    fun getShotCount(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set shot_count field
-     *
-     * @param shotCount The new shotCount value to be set
-     */
-    fun setShotCount(shotCount: Int?) {
-        setFieldValue(3, 0, shotCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var shotCount: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(shotCount) {
+            setFieldValue(3, 0, shotCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get projectile_type field
      *
      * @return projectile_type
      */
-    fun getProjectileType(): ProjectileType? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ProjectileType.fromValue(value)
-    }
-
-    /**
-     * Set projectile_type field
-     *
-     * @param projectileType The new projectileType value to be set
-     */
-    fun setProjectileType(projectileType: ProjectileType?) {
-        setFieldValue(4, 0, projectileType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var projectileType: ProjectileType?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ProjectileType.fromValue(value)
+        }
+        set(projectileType) {
+            setFieldValue(4, 0, projectileType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get grain_weight field
@@ -156,19 +123,13 @@ open class ChronoShotSessionMesg : Mesg {
      *
      * @return grain_weight
      */
-    fun getGrainWeight(): Float? {
-        return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set grain_weight field
-     * Units: gr
-     *
-     * @param grainWeight The new grainWeight value to be set
-     */
-    fun setGrainWeight(grainWeight: Float?) {
-        setFieldValue(5, 0, grainWeight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var grainWeight: Float?
+        get() {
+            return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(grainWeight) {
+            setFieldValue(5, 0, grainWeight, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get standard_deviation field
@@ -176,17 +137,11 @@ open class ChronoShotSessionMesg : Mesg {
      *
      * @return standard_deviation
      */
-    fun getStandardDeviation(): Float? {
-        return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set standard_deviation field
-     * Units: m/s
-     *
-     * @param standardDeviation The new standardDeviation value to be set
-     */
-    fun setStandardDeviation(standardDeviation: Float?) {
-        setFieldValue(6, 0, standardDeviation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var standardDeviation: Float?
+        get() {
+            return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(standardDeviation) {
+            setFieldValue(6, 0, standardDeviation, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

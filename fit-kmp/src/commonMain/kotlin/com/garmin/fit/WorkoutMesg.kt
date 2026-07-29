@@ -42,55 +42,40 @@ open class WorkoutMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport field
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(4, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(4, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get capabilities field
      *
      * @return capabilities
      */
-    fun getCapabilities(): Long? {
-        return getFieldLongValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set capabilities field
-     *
-     * @param capabilities The new capabilities value to be set
-     */
-    fun setCapabilities(capabilities: Long?) {
-        setFieldValue(5, 0, capabilities, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var capabilities: Long?
+        get() {
+            return getFieldLongValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(capabilities) {
+            setFieldValue(5, 0, capabilities, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get num_valid_steps field
@@ -98,56 +83,40 @@ open class WorkoutMesg : Mesg {
      *
      * @return num_valid_steps
      */
-    fun getNumValidSteps(): Int? {
-        return getFieldIntegerValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set num_valid_steps field
-     * Comment: number of valid steps
-     *
-     * @param numValidSteps The new numValidSteps value to be set
-     */
-    fun setNumValidSteps(numValidSteps: Int?) {
-        setFieldValue(6, 0, numValidSteps, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var numValidSteps: Int?
+        get() {
+            return getFieldIntegerValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(numValidSteps) {
+            setFieldValue(6, 0, numValidSteps, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get wkt_name field
      *
      * @return wkt_name
      */
-    fun getWktName(): String? {
-        return getFieldStringValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set wkt_name field
-     *
-     * @param wktName The new wktName value to be set
-     */
-    fun setWktName(wktName: String?) {
-        setFieldValue(8, 0, wktName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var wktName: String?
+        get() {
+            return getFieldStringValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(wktName) {
+            setFieldValue(8, 0, wktName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sub_sport field
      *
      * @return sub_sport
      */
-    fun getSubSport(): SubSport? {
-        val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SubSport.fromValue(value)
-    }
-
-    /**
-     * Set sub_sport field
-     *
-     * @param subSport The new subSport value to be set
-     */
-    fun setSubSport(subSport: SubSport?) {
-        setFieldValue(11, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var subSport: SubSport?
+        get() {
+            val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SubSport.fromValue(value)
+        }
+        set(subSport) {
+            setFieldValue(11, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pool_length field
@@ -155,38 +124,27 @@ open class WorkoutMesg : Mesg {
      *
      * @return pool_length
      */
-    fun getPoolLength(): Float? {
-        return getFieldFloatValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set pool_length field
-     * Units: m
-     *
-     * @param poolLength The new poolLength value to be set
-     */
-    fun setPoolLength(poolLength: Float?) {
-        setFieldValue(14, 0, poolLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var poolLength: Float?
+        get() {
+            return getFieldFloatValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(poolLength) {
+            setFieldValue(14, 0, poolLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pool_length_unit field
      *
      * @return pool_length_unit
      */
-    fun getPoolLengthUnit(): DisplayMeasure? {
-        val value = getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set pool_length_unit field
-     *
-     * @param poolLengthUnit The new poolLengthUnit value to be set
-     */
-    fun setPoolLengthUnit(poolLengthUnit: DisplayMeasure?) {
-        setFieldValue(15, 0, poolLengthUnit?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var poolLengthUnit: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(poolLengthUnit) {
+            setFieldValue(15, 0, poolLengthUnit?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get wkt_description field
@@ -194,17 +152,11 @@ open class WorkoutMesg : Mesg {
      *
      * @return wkt_description
      */
-    fun getWktDescription(): String? {
-        return getFieldStringValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set wkt_description field
-     * Comment: Description of the workout
-     *
-     * @param wktDescription The new wktDescription value to be set
-     */
-    fun setWktDescription(wktDescription: String?) {
-        setFieldValue(17, 0, wktDescription, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var wktDescription: String?
+        get() {
+            return getFieldStringValue(17, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(wktDescription) {
+            setFieldValue(17, 0, wktDescription, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

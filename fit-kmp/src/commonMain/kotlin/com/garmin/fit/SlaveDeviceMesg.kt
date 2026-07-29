@@ -42,70 +42,50 @@ open class SlaveDeviceMesg : Mesg {
      *
      * @return manufacturer
      */
-    fun getManufacturer(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set manufacturer field
-     *
-     * @param manufacturer The new manufacturer value to be set
-     */
-    fun setManufacturer(manufacturer: Int?) {
-        setFieldValue(0, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var manufacturer: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(manufacturer) {
+            setFieldValue(0, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product field
      *
      * @return product
      */
-    fun getProduct(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product field
-     *
-     * @param product The new product value to be set
-     */
-    fun setProduct(product: Int?) {
-        setFieldValue(1, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var product: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(product) {
+            setFieldValue(1, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get favero_product field
      *
      * @return favero_product
      */
-    fun getFaveroProduct(): Int? {
-        return getFieldIntegerValue(1, 0, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
-
-    /**
-     * Set favero_product field
-     *
-     * @param faveroProduct The new faveroProduct value to be set
-     */
-    fun setFaveroProduct(faveroProduct: Int?) {
-        setFieldValue(1, 0, faveroProduct, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
+    var faveroProduct: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
+        set(faveroProduct) {
+            setFieldValue(1, 0, faveroProduct, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
 
     /**
      * Get garmin_product field
      *
      * @return garmin_product
      */
-    fun getGarminProduct(): Int? {
-        return getFieldIntegerValue(1, 0, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
-
-    /**
-     * Set garmin_product field
-     *
-     * @param garminProduct The new garminProduct value to be set
-     */
-    fun setGarminProduct(garminProduct: Int?) {
-        setFieldValue(1, 0, garminProduct, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
+    var garminProduct: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
+        set(garminProduct) {
+            setFieldValue(1, 0, garminProduct, Profile.SubFields.SLAVE_DEVICE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
 }

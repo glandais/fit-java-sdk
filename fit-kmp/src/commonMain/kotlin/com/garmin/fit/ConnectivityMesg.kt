@@ -51,20 +51,14 @@ open class ConnectivityMesg : Mesg {
      *
      * @return bluetooth_enabled
      */
-    fun getBluetoothEnabled(): Bool? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set bluetooth_enabled field
-     * Comment: Use Bluetooth for connectivity features
-     *
-     * @param bluetoothEnabled The new bluetoothEnabled value to be set
-     */
-    fun setBluetoothEnabled(bluetoothEnabled: Bool?) {
-        setFieldValue(0, 0, bluetoothEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bluetoothEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(bluetoothEnabled) {
+            setFieldValue(0, 0, bluetoothEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get bluetooth_le_enabled field
@@ -72,20 +66,14 @@ open class ConnectivityMesg : Mesg {
      *
      * @return bluetooth_le_enabled
      */
-    fun getBluetoothLeEnabled(): Bool? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set bluetooth_le_enabled field
-     * Comment: Use Bluetooth Low Energy for connectivity features
-     *
-     * @param bluetoothLeEnabled The new bluetoothLeEnabled value to be set
-     */
-    fun setBluetoothLeEnabled(bluetoothLeEnabled: Bool?) {
-        setFieldValue(1, 0, bluetoothLeEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bluetoothLeEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(bluetoothLeEnabled) {
+            setFieldValue(1, 0, bluetoothLeEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get ant_enabled field
@@ -93,207 +81,151 @@ open class ConnectivityMesg : Mesg {
      *
      * @return ant_enabled
      */
-    fun getAntEnabled(): Bool? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set ant_enabled field
-     * Comment: Use ANT for connectivity features
-     *
-     * @param antEnabled The new antEnabled value to be set
-     */
-    fun setAntEnabled(antEnabled: Bool?) {
-        setFieldValue(2, 0, antEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var antEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(antEnabled) {
+            setFieldValue(2, 0, antEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get name field
      *
      * @return name
      */
-    override fun getName(): String? {
-        return getFieldStringValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set name field
-     *
-     * @param name The new name value to be set
-     */
-    fun setName(name: String?) {
-        setFieldValue(3, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var name: String?
+        get() {
+            return getFieldStringValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(name) {
+            setFieldValue(3, 0, name, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get live_tracking_enabled field
      *
      * @return live_tracking_enabled
      */
-    fun getLiveTrackingEnabled(): Bool? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set live_tracking_enabled field
-     *
-     * @param liveTrackingEnabled The new liveTrackingEnabled value to be set
-     */
-    fun setLiveTrackingEnabled(liveTrackingEnabled: Bool?) {
-        setFieldValue(4, 0, liveTrackingEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var liveTrackingEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(liveTrackingEnabled) {
+            setFieldValue(4, 0, liveTrackingEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get weather_conditions_enabled field
      *
      * @return weather_conditions_enabled
      */
-    fun getWeatherConditionsEnabled(): Bool? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set weather_conditions_enabled field
-     *
-     * @param weatherConditionsEnabled The new weatherConditionsEnabled value to be set
-     */
-    fun setWeatherConditionsEnabled(weatherConditionsEnabled: Bool?) {
-        setFieldValue(5, 0, weatherConditionsEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weatherConditionsEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(weatherConditionsEnabled) {
+            setFieldValue(5, 0, weatherConditionsEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get weather_alerts_enabled field
      *
      * @return weather_alerts_enabled
      */
-    fun getWeatherAlertsEnabled(): Bool? {
-        val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set weather_alerts_enabled field
-     *
-     * @param weatherAlertsEnabled The new weatherAlertsEnabled value to be set
-     */
-    fun setWeatherAlertsEnabled(weatherAlertsEnabled: Bool?) {
-        setFieldValue(6, 0, weatherAlertsEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weatherAlertsEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(weatherAlertsEnabled) {
+            setFieldValue(6, 0, weatherAlertsEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_activity_upload_enabled field
      *
      * @return auto_activity_upload_enabled
      */
-    fun getAutoActivityUploadEnabled(): Bool? {
-        val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set auto_activity_upload_enabled field
-     *
-     * @param autoActivityUploadEnabled The new autoActivityUploadEnabled value to be set
-     */
-    fun setAutoActivityUploadEnabled(autoActivityUploadEnabled: Bool?) {
-        setFieldValue(7, 0, autoActivityUploadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var autoActivityUploadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(autoActivityUploadEnabled) {
+            setFieldValue(7, 0, autoActivityUploadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get course_download_enabled field
      *
      * @return course_download_enabled
      */
-    fun getCourseDownloadEnabled(): Bool? {
-        val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set course_download_enabled field
-     *
-     * @param courseDownloadEnabled The new courseDownloadEnabled value to be set
-     */
-    fun setCourseDownloadEnabled(courseDownloadEnabled: Bool?) {
-        setFieldValue(8, 0, courseDownloadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var courseDownloadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(courseDownloadEnabled) {
+            setFieldValue(8, 0, courseDownloadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get workout_download_enabled field
      *
      * @return workout_download_enabled
      */
-    fun getWorkoutDownloadEnabled(): Bool? {
-        val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set workout_download_enabled field
-     *
-     * @param workoutDownloadEnabled The new workoutDownloadEnabled value to be set
-     */
-    fun setWorkoutDownloadEnabled(workoutDownloadEnabled: Bool?) {
-        setFieldValue(9, 0, workoutDownloadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var workoutDownloadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(workoutDownloadEnabled) {
+            setFieldValue(9, 0, workoutDownloadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get gps_ephemeris_download_enabled field
      *
      * @return gps_ephemeris_download_enabled
      */
-    fun getGpsEphemerisDownloadEnabled(): Bool? {
-        val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set gps_ephemeris_download_enabled field
-     *
-     * @param gpsEphemerisDownloadEnabled The new gpsEphemerisDownloadEnabled value to be set
-     */
-    fun setGpsEphemerisDownloadEnabled(gpsEphemerisDownloadEnabled: Bool?) {
-        setFieldValue(10, 0, gpsEphemerisDownloadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var gpsEphemerisDownloadEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(gpsEphemerisDownloadEnabled) {
+            setFieldValue(10, 0, gpsEphemerisDownloadEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get incident_detection_enabled field
      *
      * @return incident_detection_enabled
      */
-    fun getIncidentDetectionEnabled(): Bool? {
-        val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set incident_detection_enabled field
-     *
-     * @param incidentDetectionEnabled The new incidentDetectionEnabled value to be set
-     */
-    fun setIncidentDetectionEnabled(incidentDetectionEnabled: Bool?) {
-        setFieldValue(11, 0, incidentDetectionEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var incidentDetectionEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(incidentDetectionEnabled) {
+            setFieldValue(11, 0, incidentDetectionEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get grouptrack_enabled field
      *
      * @return grouptrack_enabled
      */
-    fun getGrouptrackEnabled(): Bool? {
-        val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set grouptrack_enabled field
-     *
-     * @param grouptrackEnabled The new grouptrackEnabled value to be set
-     */
-    fun setGrouptrackEnabled(grouptrackEnabled: Bool?) {
-        setFieldValue(12, 0, grouptrackEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var grouptrackEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(grouptrackEnabled) {
+            setFieldValue(12, 0, grouptrackEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

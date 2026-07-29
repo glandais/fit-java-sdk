@@ -34,90 +34,65 @@ open class ZonesTargetMesg : Mesg {
      *
      * @return max_heart_rate
      */
-    fun getMaxHeartRate(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set max_heart_rate field
-     *
-     * @param maxHeartRate The new maxHeartRate value to be set
-     */
-    fun setMaxHeartRate(maxHeartRate: Short?) {
-        setFieldValue(1, 0, maxHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var maxHeartRate: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(maxHeartRate) {
+            setFieldValue(1, 0, maxHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get threshold_heart_rate field
      *
      * @return threshold_heart_rate
      */
-    fun getThresholdHeartRate(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set threshold_heart_rate field
-     *
-     * @param thresholdHeartRate The new thresholdHeartRate value to be set
-     */
-    fun setThresholdHeartRate(thresholdHeartRate: Short?) {
-        setFieldValue(2, 0, thresholdHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var thresholdHeartRate: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(thresholdHeartRate) {
+            setFieldValue(2, 0, thresholdHeartRate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get functional_threshold_power field
      *
      * @return functional_threshold_power
      */
-    fun getFunctionalThresholdPower(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set functional_threshold_power field
-     *
-     * @param functionalThresholdPower The new functionalThresholdPower value to be set
-     */
-    fun setFunctionalThresholdPower(functionalThresholdPower: Int?) {
-        setFieldValue(3, 0, functionalThresholdPower, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var functionalThresholdPower: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(functionalThresholdPower) {
+            setFieldValue(3, 0, functionalThresholdPower, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hr_calc_type field
      *
      * @return hr_calc_type
      */
-    fun getHrCalcType(): HrZoneCalc? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return HrZoneCalc.fromValue(value)
-    }
-
-    /**
-     * Set hr_calc_type field
-     *
-     * @param hrCalcType The new hrCalcType value to be set
-     */
-    fun setHrCalcType(hrCalcType: HrZoneCalc?) {
-        setFieldValue(5, 0, hrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hrCalcType: HrZoneCalc?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return HrZoneCalc.fromValue(value)
+        }
+        set(hrCalcType) {
+            setFieldValue(5, 0, hrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pwr_calc_type field
      *
      * @return pwr_calc_type
      */
-    fun getPwrCalcType(): PwrZoneCalc? {
-        val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return PwrZoneCalc.fromValue(value)
-    }
-
-    /**
-     * Set pwr_calc_type field
-     *
-     * @param pwrCalcType The new pwrCalcType value to be set
-     */
-    fun setPwrCalcType(pwrCalcType: PwrZoneCalc?) {
-        setFieldValue(7, 0, pwrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var pwrCalcType: PwrZoneCalc?
+        get() {
+            val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return PwrZoneCalc.fromValue(value)
+        }
+        set(pwrCalcType) {
+            setFieldValue(7, 0, pwrCalcType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -42,18 +42,13 @@ open class SegmentFileMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get file_uuid field
@@ -61,19 +56,13 @@ open class SegmentFileMesg : Mesg {
      *
      * @return file_uuid
      */
-    fun getFileUuid(): String? {
-        return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set file_uuid field
-     * Comment: UUID of the segment file
-     *
-     * @param fileUuid The new fileUuid value to be set
-     */
-    fun setFileUuid(fileUuid: String?) {
-        setFieldValue(1, 0, fileUuid, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fileUuid: String?
+        get() {
+            return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fileUuid) {
+            setFieldValue(1, 0, fileUuid, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enabled field
@@ -81,20 +70,14 @@ open class SegmentFileMesg : Mesg {
      *
      * @return enabled
      */
-    fun getEnabled(): Bool? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set enabled field
-     * Comment: Enabled state of the segment file
-     *
-     * @param enabled The new enabled value to be set
-     */
-    fun setEnabled(enabled: Bool?) {
-        setFieldValue(3, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enabled: Bool?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(enabled) {
+            setFieldValue(3, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get user_profile_primary_key field
@@ -102,19 +85,13 @@ open class SegmentFileMesg : Mesg {
      *
      * @return user_profile_primary_key
      */
-    fun getUserProfilePrimaryKey(): Long? {
-        return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set user_profile_primary_key field
-     * Comment: Primary key of the user that created the segment file
-     *
-     * @param userProfilePrimaryKey The new userProfilePrimaryKey value to be set
-     */
-    fun setUserProfilePrimaryKey(userProfilePrimaryKey: Long?) {
-        setFieldValue(4, 0, userProfilePrimaryKey, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var userProfilePrimaryKey: Long?
+        get() {
+            return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(userProfilePrimaryKey) {
+            setFieldValue(4, 0, userProfilePrimaryKey, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getLeaderType(): Array<SegmentLeaderboardType> {
         val values = getFieldShortValues(7, Fit.SUBFIELD_INDEX_MAIN_FIELD)!!
@@ -256,17 +233,11 @@ open class SegmentFileMesg : Mesg {
      *
      * @return default_race_leader
      */
-    fun getDefaultRaceLeader(): Short? {
-        return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set default_race_leader field
-     * Comment: Index for the Leader Board entry selected as the default race participant
-     *
-     * @param defaultRaceLeader The new defaultRaceLeader value to be set
-     */
-    fun setDefaultRaceLeader(defaultRaceLeader: Short?) {
-        setFieldValue(11, 0, defaultRaceLeader, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var defaultRaceLeader: Short?
+        get() {
+            return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(defaultRaceLeader) {
+            setFieldValue(11, 0, defaultRaceLeader, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

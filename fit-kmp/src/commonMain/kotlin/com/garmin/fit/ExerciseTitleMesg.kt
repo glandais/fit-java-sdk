@@ -32,54 +32,39 @@ open class ExerciseTitleMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get exercise_category field
      *
      * @return exercise_category
      */
-    fun getExerciseCategory(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set exercise_category field
-     *
-     * @param exerciseCategory The new exerciseCategory value to be set
-     */
-    fun setExerciseCategory(exerciseCategory: Int?) {
-        setFieldValue(0, 0, exerciseCategory, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var exerciseCategory: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(exerciseCategory) {
+            setFieldValue(0, 0, exerciseCategory, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get exercise_name field
      *
      * @return exercise_name
      */
-    fun getExerciseName(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set exercise_name field
-     *
-     * @param exerciseName The new exerciseName value to be set
-     */
-    fun setExerciseName(exerciseName: Int?) {
-        setFieldValue(1, 0, exerciseName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var exerciseName: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(exerciseName) {
+            setFieldValue(1, 0, exerciseName, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getWktStepName(): Array<String?>? {
         return getFieldStringValues(2, Fit.SUBFIELD_INDEX_MAIN_FIELD)

@@ -37,19 +37,13 @@ open class MemoGlobMesg : Mesg {
      *
      * @return part_index
      */
-    fun getPartIndex(): Long? {
-        return getFieldLongValue(250, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set part_index field
-     * Comment: Sequence number of memo blocks
-     *
-     * @param partIndex The new partIndex value to be set
-     */
-    fun setPartIndex(partIndex: Long?) {
-        setFieldValue(250, 0, partIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var partIndex: Long?
+        get() {
+            return getFieldLongValue(250, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(partIndex) {
+            setFieldValue(250, 0, partIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getMemo(): Array<Byte?>? {
         return getFieldByteValues(0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -90,19 +84,13 @@ open class MemoGlobMesg : Mesg {
      *
      * @return mesg_num
      */
-    fun getMesgNum(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set mesg_num field
-     * Comment: Message Number of the parent message
-     *
-     * @param mesgNum The new mesgNum value to be set
-     */
-    fun setMesgNum(mesgNum: Int?) {
-        setFieldValue(1, 0, mesgNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var mesgNum: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(mesgNum) {
+            setFieldValue(1, 0, mesgNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get parent_index field
@@ -110,19 +98,13 @@ open class MemoGlobMesg : Mesg {
      *
      * @return parent_index
      */
-    fun getParentIndex(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set parent_index field
-     * Comment: Index of mesg that this glob is associated with.
-     *
-     * @param parentIndex The new parentIndex value to be set
-     */
-    fun setParentIndex(parentIndex: Int?) {
-        setFieldValue(2, 0, parentIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var parentIndex: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(parentIndex) {
+            setFieldValue(2, 0, parentIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get field_num field
@@ -130,19 +112,13 @@ open class MemoGlobMesg : Mesg {
      *
      * @return field_num
      */
-    fun getFieldNum(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set field_num field
-     * Comment: Field within the parent that this glob is associated with
-     *
-     * @param fieldNum The new fieldNum value to be set
-     */
-    fun setFieldNum(fieldNum: Short?) {
-        setFieldValue(3, 0, fieldNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fieldNum: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fieldNum) {
+            setFieldValue(3, 0, fieldNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getData(): Array<Short?>? {
         return getFieldShortValues(4, Fit.SUBFIELD_INDEX_MAIN_FIELD)

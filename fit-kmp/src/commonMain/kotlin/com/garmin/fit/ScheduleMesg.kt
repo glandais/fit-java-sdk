@@ -58,19 +58,13 @@ open class ScheduleMesg : Mesg {
      *
      * @return manufacturer
      */
-    fun getManufacturer(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set manufacturer field
-     * Comment: Corresponds to file_id of scheduled workout / course.
-     *
-     * @param manufacturer The new manufacturer value to be set
-     */
-    fun setManufacturer(manufacturer: Int?) {
-        setFieldValue(0, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var manufacturer: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(manufacturer) {
+            setFieldValue(0, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product field
@@ -78,55 +72,39 @@ open class ScheduleMesg : Mesg {
      *
      * @return product
      */
-    fun getProduct(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product field
-     * Comment: Corresponds to file_id of scheduled workout / course.
-     *
-     * @param product The new product value to be set
-     */
-    fun setProduct(product: Int?) {
-        setFieldValue(1, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var product: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(product) {
+            setFieldValue(1, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get favero_product field
      *
      * @return favero_product
      */
-    fun getFaveroProduct(): Int? {
-        return getFieldIntegerValue(1, 0, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
-
-    /**
-     * Set favero_product field
-     *
-     * @param faveroProduct The new faveroProduct value to be set
-     */
-    fun setFaveroProduct(faveroProduct: Int?) {
-        setFieldValue(1, 0, faveroProduct, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
+    var faveroProduct: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
+        set(faveroProduct) {
+            setFieldValue(1, 0, faveroProduct, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
 
     /**
      * Get garmin_product field
      *
      * @return garmin_product
      */
-    fun getGarminProduct(): Int? {
-        return getFieldIntegerValue(1, 0, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
-
-    /**
-     * Set garmin_product field
-     *
-     * @param garminProduct The new garminProduct value to be set
-     */
-    fun setGarminProduct(garminProduct: Int?) {
-        setFieldValue(1, 0, garminProduct, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
+    var garminProduct: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
+        set(garminProduct) {
+            setFieldValue(1, 0, garminProduct, Profile.SubFields.SCHEDULE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
 
     /**
      * Get serial_number field
@@ -134,19 +112,13 @@ open class ScheduleMesg : Mesg {
      *
      * @return serial_number
      */
-    fun getSerialNumber(): Long? {
-        return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set serial_number field
-     * Comment: Corresponds to file_id of scheduled workout / course.
-     *
-     * @param serialNumber The new serialNumber value to be set
-     */
-    fun setSerialNumber(serialNumber: Long?) {
-        setFieldValue(2, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var serialNumber: Long?
+        get() {
+            return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(serialNumber) {
+            setFieldValue(2, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time_created field
@@ -154,19 +126,13 @@ open class ScheduleMesg : Mesg {
      *
      * @return time_created
      */
-    fun getTimeCreated(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set time_created field
-     * Comment: Corresponds to file_id of scheduled workout / course.
-     *
-     * @param timeCreated The new timeCreated value to be set
-     */
-    fun setTimeCreated(timeCreated: DateTime?) {
-        setFieldValue(3, 0, timeCreated?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timeCreated: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timeCreated) {
+            setFieldValue(3, 0, timeCreated?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get completed field
@@ -174,55 +140,39 @@ open class ScheduleMesg : Mesg {
      *
      * @return completed
      */
-    fun getCompleted(): Bool? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set completed field
-     * Comment: TRUE if this activity has been started
-     *
-     * @param completed The new completed value to be set
-     */
-    fun setCompleted(completed: Bool?) {
-        setFieldValue(4, 0, completed?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var completed: Bool?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(completed) {
+            setFieldValue(4, 0, completed?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get type field
      *
      * @return type
      */
-    fun getType(): Schedule? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Schedule.fromValue(value)
-    }
-
-    /**
-     * Set type field
-     *
-     * @param type The new type value to be set
-     */
-    fun setType(type: Schedule?) {
-        setFieldValue(5, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var type: Schedule?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Schedule.fromValue(value)
+        }
+        set(type) {
+            setFieldValue(5, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get scheduled_time field
      *
      * @return scheduled_time
      */
-    fun getScheduledTime(): Long? {
-        return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set scheduled_time field
-     *
-     * @param scheduledTime The new scheduledTime value to be set
-     */
-    fun setScheduledTime(scheduledTime: Long?) {
-        setFieldValue(6, 0, scheduledTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var scheduledTime: Long?
+        get() {
+            return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(scheduledTime) {
+            setFieldValue(6, 0, scheduledTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

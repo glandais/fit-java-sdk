@@ -51,19 +51,13 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     * Comment: Index of the alarm
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get depth field
@@ -72,20 +66,13 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return depth
      */
-    fun getDepth(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set depth field
-     * Units: m
-     * Comment: Depth setting (m) for depth type alarms
-     *
-     * @param depth The new depth value to be set
-     */
-    fun setDepth(depth: Float?) {
-        setFieldValue(0, 0, depth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var depth: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(depth) {
+            setFieldValue(0, 0, depth, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time field
@@ -94,20 +81,13 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return time
      */
-    fun getTime(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set time field
-     * Units: s
-     * Comment: Time setting (s) for time type alarms
-     *
-     * @param time The new time value to be set
-     */
-    fun setTime(time: Int?) {
-        setFieldValue(1, 0, time, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var time: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(time) {
+            setFieldValue(1, 0, time, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enabled field
@@ -115,20 +95,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return enabled
      */
-    fun getEnabled(): Bool? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set enabled field
-     * Comment: Enablement flag
-     *
-     * @param enabled The new enabled value to be set
-     */
-    fun setEnabled(enabled: Bool?) {
-        setFieldValue(2, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enabled: Bool?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(enabled) {
+            setFieldValue(2, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get alarm_type field
@@ -136,20 +110,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return alarm_type
      */
-    fun getAlarmType(): DiveAlarmType? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DiveAlarmType.fromValue(value)
-    }
-
-    /**
-     * Set alarm_type field
-     * Comment: Alarm type setting
-     *
-     * @param alarmType The new alarmType value to be set
-     */
-    fun setAlarmType(alarmType: DiveAlarmType?) {
-        setFieldValue(3, 0, alarmType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var alarmType: DiveAlarmType?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DiveAlarmType.fromValue(value)
+        }
+        set(alarmType) {
+            setFieldValue(3, 0, alarmType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sound field
@@ -157,20 +125,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return sound
      */
-    fun getSound(): Tone? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Tone.fromValue(value)
-    }
-
-    /**
-     * Set sound field
-     * Comment: Tone and Vibe setting for the alarm.
-     *
-     * @param sound The new sound value to be set
-     */
-    fun setSound(sound: Tone?) {
-        setFieldValue(4, 0, sound?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sound: Tone?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Tone.fromValue(value)
+        }
+        set(sound) {
+            setFieldValue(4, 0, sound?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getDiveTypes(): Array<SubSport> {
         val values = getFieldShortValues(5, Fit.SUBFIELD_INDEX_MAIN_FIELD)!!
@@ -213,19 +175,13 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return id
      */
-    fun getId(): Long? {
-        return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set id field
-     * Comment: Alarm ID
-     *
-     * @param id The new id value to be set
-     */
-    fun setId(id: Long?) {
-        setFieldValue(6, 0, id, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var id: Long?
+        get() {
+            return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(id) {
+            setFieldValue(6, 0, id, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get popup_enabled field
@@ -233,20 +189,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return popup_enabled
      */
-    fun getPopupEnabled(): Bool? {
-        val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set popup_enabled field
-     * Comment: Show a visible pop-up for this alarm
-     *
-     * @param popupEnabled The new popupEnabled value to be set
-     */
-    fun setPopupEnabled(popupEnabled: Bool?) {
-        setFieldValue(7, 0, popupEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var popupEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(popupEnabled) {
+            setFieldValue(7, 0, popupEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get trigger_on_descent field
@@ -254,20 +204,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return trigger_on_descent
      */
-    fun getTriggerOnDescent(): Bool? {
-        val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set trigger_on_descent field
-     * Comment: Trigger the alarm on descent
-     *
-     * @param triggerOnDescent The new triggerOnDescent value to be set
-     */
-    fun setTriggerOnDescent(triggerOnDescent: Bool?) {
-        setFieldValue(8, 0, triggerOnDescent?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var triggerOnDescent: Bool?
+        get() {
+            val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(triggerOnDescent) {
+            setFieldValue(8, 0, triggerOnDescent?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get trigger_on_ascent field
@@ -275,20 +219,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return trigger_on_ascent
      */
-    fun getTriggerOnAscent(): Bool? {
-        val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set trigger_on_ascent field
-     * Comment: Trigger the alarm on ascent
-     *
-     * @param triggerOnAscent The new triggerOnAscent value to be set
-     */
-    fun setTriggerOnAscent(triggerOnAscent: Bool?) {
-        setFieldValue(9, 0, triggerOnAscent?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var triggerOnAscent: Bool?
+        get() {
+            val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(triggerOnAscent) {
+            setFieldValue(9, 0, triggerOnAscent?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get repeating field
@@ -296,20 +234,14 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return repeating
      */
-    fun getRepeating(): Bool? {
-        val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set repeating field
-     * Comment: Repeat alarm each time threshold is crossed?
-     *
-     * @param repeating The new repeating value to be set
-     */
-    fun setRepeating(repeating: Bool?) {
-        setFieldValue(10, 0, repeating?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var repeating: Bool?
+        get() {
+            val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(repeating) {
+            setFieldValue(10, 0, repeating?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get speed field
@@ -318,18 +250,11 @@ open class DiveApneaAlarmMesg : Mesg {
      *
      * @return speed
      */
-    fun getSpeed(): Float? {
-        return getFieldFloatValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set speed field
-     * Units: mps
-     * Comment: Ascent/descent rate (mps) setting for speed type alarms
-     *
-     * @param speed The new speed value to be set
-     */
-    fun setSpeed(speed: Float?) {
-        setFieldValue(11, 0, speed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var speed: Float?
+        get() {
+            return getFieldFloatValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(speed) {
+            setFieldValue(11, 0, speed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

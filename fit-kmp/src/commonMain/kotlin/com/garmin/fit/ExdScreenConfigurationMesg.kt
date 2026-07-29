@@ -32,18 +32,13 @@ open class ExdScreenConfigurationMesg : Mesg {
      *
      * @return screen_index
      */
-    fun getScreenIndex(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set screen_index field
-     *
-     * @param screenIndex The new screenIndex value to be set
-     */
-    fun setScreenIndex(screenIndex: Short?) {
-        setFieldValue(0, 0, screenIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var screenIndex: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(screenIndex) {
+            setFieldValue(0, 0, screenIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get field_count field
@@ -51,55 +46,39 @@ open class ExdScreenConfigurationMesg : Mesg {
      *
      * @return field_count
      */
-    fun getFieldCount(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set field_count field
-     * Comment: number of fields in screen
-     *
-     * @param fieldCount The new fieldCount value to be set
-     */
-    fun setFieldCount(fieldCount: Short?) {
-        setFieldValue(1, 0, fieldCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fieldCount: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fieldCount) {
+            setFieldValue(1, 0, fieldCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get layout field
      *
      * @return layout
      */
-    fun getLayout(): ExdLayout? {
-        val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ExdLayout.fromValue(value)
-    }
-
-    /**
-     * Set layout field
-     *
-     * @param layout The new layout value to be set
-     */
-    fun setLayout(layout: ExdLayout?) {
-        setFieldValue(2, 0, layout?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var layout: ExdLayout?
+        get() {
+            val value = getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ExdLayout.fromValue(value)
+        }
+        set(layout) {
+            setFieldValue(2, 0, layout?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get screen_enabled field
      *
      * @return screen_enabled
      */
-    fun getScreenEnabled(): Bool? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set screen_enabled field
-     *
-     * @param screenEnabled The new screenEnabled value to be set
-     */
-    fun setScreenEnabled(screenEnabled: Bool?) {
-        setFieldValue(3, 0, screenEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var screenEnabled: Bool?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(screenEnabled) {
+            setFieldValue(3, 0, screenEnabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

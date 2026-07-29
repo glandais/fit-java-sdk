@@ -38,92 +38,67 @@ open class WorkoutSessionMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport field
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(0, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(0, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sub_sport field
      *
      * @return sub_sport
      */
-    fun getSubSport(): SubSport? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SubSport.fromValue(value)
-    }
-
-    /**
-     * Set sub_sport field
-     *
-     * @param subSport The new subSport value to be set
-     */
-    fun setSubSport(subSport: SubSport?) {
-        setFieldValue(1, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var subSport: SubSport?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SubSport.fromValue(value)
+        }
+        set(subSport) {
+            setFieldValue(1, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get num_valid_steps field
      *
      * @return num_valid_steps
      */
-    fun getNumValidSteps(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set num_valid_steps field
-     *
-     * @param numValidSteps The new numValidSteps value to be set
-     */
-    fun setNumValidSteps(numValidSteps: Int?) {
-        setFieldValue(2, 0, numValidSteps, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var numValidSteps: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(numValidSteps) {
+            setFieldValue(2, 0, numValidSteps, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get first_step_index field
      *
      * @return first_step_index
      */
-    fun getFirstStepIndex(): Int? {
-        return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set first_step_index field
-     *
-     * @param firstStepIndex The new firstStepIndex value to be set
-     */
-    fun setFirstStepIndex(firstStepIndex: Int?) {
-        setFieldValue(3, 0, firstStepIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var firstStepIndex: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(firstStepIndex) {
+            setFieldValue(3, 0, firstStepIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pool_length field
@@ -131,36 +106,25 @@ open class WorkoutSessionMesg : Mesg {
      *
      * @return pool_length
      */
-    fun getPoolLength(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set pool_length field
-     * Units: m
-     *
-     * @param poolLength The new poolLength value to be set
-     */
-    fun setPoolLength(poolLength: Float?) {
-        setFieldValue(4, 0, poolLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var poolLength: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(poolLength) {
+            setFieldValue(4, 0, poolLength, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get pool_length_unit field
      *
      * @return pool_length_unit
      */
-    fun getPoolLengthUnit(): DisplayMeasure? {
-        val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return DisplayMeasure.fromValue(value)
-    }
-
-    /**
-     * Set pool_length_unit field
-     *
-     * @param poolLengthUnit The new poolLengthUnit value to be set
-     */
-    fun setPoolLengthUnit(poolLengthUnit: DisplayMeasure?) {
-        setFieldValue(5, 0, poolLengthUnit?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var poolLengthUnit: DisplayMeasure?
+        get() {
+            val value = getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return DisplayMeasure.fromValue(value)
+        }
+        set(poolLengthUnit) {
+            setFieldValue(5, 0, poolLengthUnit?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

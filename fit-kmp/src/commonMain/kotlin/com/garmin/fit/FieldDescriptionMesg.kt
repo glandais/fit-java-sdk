@@ -52,54 +52,39 @@ open class FieldDescriptionMesg : Mesg {
      *
      * @return developer_data_index
      */
-    fun getDeveloperDataIndex(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set developer_data_index field
-     *
-     * @param developerDataIndex The new developerDataIndex value to be set
-     */
-    fun setDeveloperDataIndex(developerDataIndex: Short?) {
-        setFieldValue(0, 0, developerDataIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var developerDataIndex: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(developerDataIndex) {
+            setFieldValue(0, 0, developerDataIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get field_definition_number field
      *
      * @return field_definition_number
      */
-    fun getFieldDefinitionNumber(): Short? {
-        return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set field_definition_number field
-     *
-     * @param fieldDefinitionNumber The new fieldDefinitionNumber value to be set
-     */
-    fun setFieldDefinitionNumber(fieldDefinitionNumber: Short?) {
-        setFieldValue(1, 0, fieldDefinitionNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fieldDefinitionNumber: Short?
+        get() {
+            return getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fieldDefinitionNumber) {
+            setFieldValue(1, 0, fieldDefinitionNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fit_base_type_id field
      *
      * @return fit_base_type_id
      */
-    fun getFitBaseTypeId(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fit_base_type_id field
-     *
-     * @param fitBaseTypeId The new fitBaseTypeId value to be set
-     */
-    fun setFitBaseTypeId(fitBaseTypeId: Short?) {
-        setFieldValue(2, 0, fitBaseTypeId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fitBaseTypeId: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fitBaseTypeId) {
+            setFieldValue(2, 0, fitBaseTypeId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getFieldName(): Array<String?>? {
         return getFieldStringValues(3, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -137,72 +122,52 @@ open class FieldDescriptionMesg : Mesg {
      *
      * @return array
      */
-    fun getArray(): Short? {
-        return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set array field
-     *
-     * @param array The new array value to be set
-     */
-    fun setArray(array: Short?) {
-        setFieldValue(4, 0, array, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var array: Short?
+        get() {
+            return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(array) {
+            setFieldValue(4, 0, array, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get components field
      *
      * @return components
      */
-    fun getComponents(): String? {
-        return getFieldStringValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set components field
-     *
-     * @param components The new components value to be set
-     */
-    fun setComponents(components: String?) {
-        setFieldValue(5, 0, components, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var components: String?
+        get() {
+            return getFieldStringValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(components) {
+            setFieldValue(5, 0, components, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get scale field
      *
      * @return scale
      */
-    fun getScale(): Short? {
-        return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set scale field
-     *
-     * @param scale The new scale value to be set
-     */
-    fun setScale(scale: Short?) {
-        setFieldValue(6, 0, scale, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var scale: Short?
+        get() {
+            return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(scale) {
+            setFieldValue(6, 0, scale, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get offset field
      *
      * @return offset
      */
-    fun getOffset(): Byte? {
-        return getFieldByteValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set offset field
-     *
-     * @param offset The new offset value to be set
-     */
-    fun setOffset(offset: Byte?) {
-        setFieldValue(7, 0, offset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var offset: Byte?
+        get() {
+            return getFieldByteValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(offset) {
+            setFieldValue(7, 0, offset, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getUnits(): Array<String?>? {
         return getFieldStringValues(8, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -240,88 +205,63 @@ open class FieldDescriptionMesg : Mesg {
      *
      * @return bits
      */
-    fun getBits(): String? {
-        return getFieldStringValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set bits field
-     *
-     * @param bits The new bits value to be set
-     */
-    fun setBits(bits: String?) {
-        setFieldValue(9, 0, bits, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var bits: String?
+        get() {
+            return getFieldStringValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(bits) {
+            setFieldValue(9, 0, bits, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get accumulate field
      *
      * @return accumulate
      */
-    fun getAccumulate(): String? {
-        return getFieldStringValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set accumulate field
-     *
-     * @param accumulate The new accumulate value to be set
-     */
-    fun setAccumulate(accumulate: String?) {
-        setFieldValue(10, 0, accumulate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var accumulate: String?
+        get() {
+            return getFieldStringValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(accumulate) {
+            setFieldValue(10, 0, accumulate, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get fit_base_unit_id field
      *
      * @return fit_base_unit_id
      */
-    fun getFitBaseUnitId(): Int? {
-        return getFieldIntegerValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set fit_base_unit_id field
-     *
-     * @param fitBaseUnitId The new fitBaseUnitId value to be set
-     */
-    fun setFitBaseUnitId(fitBaseUnitId: Int?) {
-        setFieldValue(13, 0, fitBaseUnitId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fitBaseUnitId: Int?
+        get() {
+            return getFieldIntegerValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fitBaseUnitId) {
+            setFieldValue(13, 0, fitBaseUnitId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get native_mesg_num field
      *
      * @return native_mesg_num
      */
-    fun getNativeMesgNum(): Int? {
-        return getFieldIntegerValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set native_mesg_num field
-     *
-     * @param nativeMesgNum The new nativeMesgNum value to be set
-     */
-    fun setNativeMesgNum(nativeMesgNum: Int?) {
-        setFieldValue(14, 0, nativeMesgNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var nativeMesgNum: Int?
+        get() {
+            return getFieldIntegerValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(nativeMesgNum) {
+            setFieldValue(14, 0, nativeMesgNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get native_field_num field
      *
      * @return native_field_num
      */
-    fun getNativeFieldNum(): Short? {
-        return getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set native_field_num field
-     *
-     * @param nativeFieldNum The new nativeFieldNum value to be set
-     */
-    fun setNativeFieldNum(nativeFieldNum: Short?) {
-        setFieldValue(15, 0, nativeFieldNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var nativeFieldNum: Short?
+        get() {
+            return getFieldShortValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(nativeFieldNum) {
+            setFieldValue(15, 0, nativeFieldNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

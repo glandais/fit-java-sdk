@@ -50,20 +50,13 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Whole second part of the timestamp
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sensor_type field
@@ -71,20 +64,14 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return sensor_type
      */
-    fun getSensorType(): SensorType? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SensorType.fromValue(value)
-    }
-
-    /**
-     * Set sensor_type field
-     * Comment: Indicates which sensor the calibration is for
-     *
-     * @param sensorType The new sensorType value to be set
-     */
-    fun setSensorType(sensorType: SensorType?) {
-        setFieldValue(0, 0, sensorType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sensorType: SensorType?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SensorType.fromValue(value)
+        }
+        set(sensorType) {
+            setFieldValue(0, 0, sensorType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get calibration_factor field
@@ -92,19 +79,13 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return calibration_factor
      */
-    fun getCalibrationFactor(): Long? {
-        return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set calibration_factor field
-     * Comment: Calibration factor used to convert from raw ADC value to degrees, g, etc.
-     *
-     * @param calibrationFactor The new calibrationFactor value to be set
-     */
-    fun setCalibrationFactor(calibrationFactor: Long?) {
-        setFieldValue(1, 0, calibrationFactor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var calibrationFactor: Long?
+        get() {
+            return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(calibrationFactor) {
+            setFieldValue(1, 0, calibrationFactor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get baro_cal_factor field
@@ -113,20 +94,13 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return baro_cal_factor
      */
-    fun getBaroCalFactor(): Long? {
-        return getFieldLongValue(1, 0, Profile.SubFields.ONE_D_SENSOR_CALIBRATION_MESG_CALIBRATION_FACTOR_FIELD_BARO_CAL_FACTOR)
-    }
-
-    /**
-     * Set baro_cal_factor field
-     * Units: Pa
-     * Comment: Barometer calibration factor
-     *
-     * @param baroCalFactor The new baroCalFactor value to be set
-     */
-    fun setBaroCalFactor(baroCalFactor: Long?) {
-        setFieldValue(1, 0, baroCalFactor, Profile.SubFields.ONE_D_SENSOR_CALIBRATION_MESG_CALIBRATION_FACTOR_FIELD_BARO_CAL_FACTOR)
-    }
+    var baroCalFactor: Long?
+        get() {
+            return getFieldLongValue(1, 0, Profile.SubFields.ONE_D_SENSOR_CALIBRATION_MESG_CALIBRATION_FACTOR_FIELD_BARO_CAL_FACTOR)
+        }
+        set(baroCalFactor) {
+            setFieldValue(1, 0, baroCalFactor, Profile.SubFields.ONE_D_SENSOR_CALIBRATION_MESG_CALIBRATION_FACTOR_FIELD_BARO_CAL_FACTOR)
+        }
 
     /**
      * Get calibration_divisor field
@@ -135,20 +109,13 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return calibration_divisor
      */
-    fun getCalibrationDivisor(): Long? {
-        return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set calibration_divisor field
-     * Units: counts
-     * Comment: Calibration factor divisor
-     *
-     * @param calibrationDivisor The new calibrationDivisor value to be set
-     */
-    fun setCalibrationDivisor(calibrationDivisor: Long?) {
-        setFieldValue(2, 0, calibrationDivisor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var calibrationDivisor: Long?
+        get() {
+            return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(calibrationDivisor) {
+            setFieldValue(2, 0, calibrationDivisor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get level_shift field
@@ -156,19 +123,13 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return level_shift
      */
-    fun getLevelShift(): Long? {
-        return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set level_shift field
-     * Comment: Level shift value used to shift the ADC value back into range
-     *
-     * @param levelShift The new levelShift value to be set
-     */
-    fun setLevelShift(levelShift: Long?) {
-        setFieldValue(3, 0, levelShift, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var levelShift: Long?
+        get() {
+            return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(levelShift) {
+            setFieldValue(3, 0, levelShift, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get offset_cal field
@@ -176,17 +137,11 @@ open class OneDSensorCalibrationMesg : Mesg {
      *
      * @return offset_cal
      */
-    fun getOffsetCal(): Int? {
-        return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set offset_cal field
-     * Comment: Internal Calibration factor
-     *
-     * @param offsetCal The new offsetCal value to be set
-     */
-    fun setOffsetCal(offsetCal: Int?) {
-        setFieldValue(4, 0, offsetCal, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var offsetCal: Int?
+        get() {
+            return getFieldIntegerValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(offsetCal) {
+            setFieldValue(4, 0, offsetCal, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -30,52 +30,37 @@ open class SoftwareMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get version field
      *
      * @return version
      */
-    fun getVersion(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set version field
-     *
-     * @param version The new version value to be set
-     */
-    fun setVersion(version: Float?) {
-        setFieldValue(3, 0, version, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var version: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(version) {
+            setFieldValue(3, 0, version, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get part_number field
      *
      * @return part_number
      */
-    fun getPartNumber(): String? {
-        return getFieldStringValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set part_number field
-     *
-     * @param partNumber The new partNumber value to be set
-     */
-    fun setPartNumber(partNumber: String?) {
-        setFieldValue(5, 0, partNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var partNumber: String?
+        get() {
+            return getFieldStringValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(partNumber) {
+            setFieldValue(5, 0, partNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

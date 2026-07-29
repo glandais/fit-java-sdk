@@ -47,18 +47,13 @@ open class SegmentPointMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_lat field
@@ -66,19 +61,13 @@ open class SegmentPointMesg : Mesg {
      *
      * @return position_lat
      */
-    fun getPositionLat(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set position_lat field
-     * Units: semicircles
-     *
-     * @param positionLat The new positionLat value to be set
-     */
-    fun setPositionLat(positionLat: Int?) {
-        setFieldValue(1, 0, positionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionLat: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(positionLat) {
+            setFieldValue(1, 0, positionLat, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get position_long field
@@ -86,19 +75,13 @@ open class SegmentPointMesg : Mesg {
      *
      * @return position_long
      */
-    fun getPositionLong(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set position_long field
-     * Units: semicircles
-     *
-     * @param positionLong The new positionLong value to be set
-     */
-    fun setPositionLong(positionLong: Int?) {
-        setFieldValue(2, 0, positionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var positionLong: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(positionLong) {
+            setFieldValue(2, 0, positionLong, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get distance field
@@ -107,20 +90,13 @@ open class SegmentPointMesg : Mesg {
      *
      * @return distance
      */
-    fun getDistance(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set distance field
-     * Units: m
-     * Comment: Accumulated distance along the segment at the described point
-     *
-     * @param distance The new distance value to be set
-     */
-    fun setDistance(distance: Float?) {
-        setFieldValue(3, 0, distance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var distance: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(distance) {
+            setFieldValue(3, 0, distance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get altitude field
@@ -129,20 +105,13 @@ open class SegmentPointMesg : Mesg {
      *
      * @return altitude
      */
-    fun getAltitude(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set altitude field
-     * Units: m
-     * Comment: Accumulated altitude along the segment at the described point
-     *
-     * @param altitude The new altitude value to be set
-     */
-    fun setAltitude(altitude: Float?) {
-        setFieldValue(4, 0, altitude, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var altitude: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(altitude) {
+            setFieldValue(4, 0, altitude, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getLeaderTime(): Array<Float?>? {
         return getFieldFloatValues(5, Fit.SUBFIELD_INDEX_MAIN_FIELD)
@@ -186,18 +155,11 @@ open class SegmentPointMesg : Mesg {
      *
      * @return enhanced_altitude
      */
-    fun getEnhancedAltitude(): Float? {
-        return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set enhanced_altitude field
-     * Units: m
-     * Comment: Accumulated altitude along the segment at the described point
-     *
-     * @param enhancedAltitude The new enhancedAltitude value to be set
-     */
-    fun setEnhancedAltitude(enhancedAltitude: Float?) {
-        setFieldValue(6, 0, enhancedAltitude, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enhancedAltitude: Float?
+        get() {
+            return getFieldFloatValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(enhancedAltitude) {
+            setFieldValue(6, 0, enhancedAltitude, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

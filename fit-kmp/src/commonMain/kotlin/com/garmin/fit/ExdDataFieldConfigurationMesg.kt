@@ -45,91 +45,66 @@ open class ExdDataFieldConfigurationMesg : Mesg {
      *
      * @return screen_index
      */
-    fun getScreenIndex(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set screen_index field
-     *
-     * @param screenIndex The new screenIndex value to be set
-     */
-    fun setScreenIndex(screenIndex: Short?) {
-        setFieldValue(0, 0, screenIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var screenIndex: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(screenIndex) {
+            setFieldValue(0, 0, screenIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get concept_field field
      *
      * @return concept_field
      */
-    fun getConceptField(): Byte? {
-        return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set concept_field field
-     *
-     * @param conceptField The new conceptField value to be set
-     */
-    fun setConceptField(conceptField: Byte?) {
-        setFieldValue(1, 0, conceptField, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var conceptField: Byte?
+        get() {
+            return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(conceptField) {
+            setFieldValue(1, 0, conceptField, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get field_id field
      *
      * @return field_id
      */
-    fun getFieldId(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set field_id field
-     *
-     * @param fieldId The new fieldId value to be set
-     */
-    fun setFieldId(fieldId: Short?) {
-        setFieldValue(2, 0, fieldId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fieldId: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fieldId) {
+            setFieldValue(2, 0, fieldId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get concept_count field
      *
      * @return concept_count
      */
-    fun getConceptCount(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set concept_count field
-     *
-     * @param conceptCount The new conceptCount value to be set
-     */
-    fun setConceptCount(conceptCount: Short?) {
-        setFieldValue(3, 0, conceptCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var conceptCount: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(conceptCount) {
+            setFieldValue(3, 0, conceptCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get display_type field
      *
      * @return display_type
      */
-    fun getDisplayType(): ExdDisplayType? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ExdDisplayType.fromValue(value)
-    }
-
-    /**
-     * Set display_type field
-     *
-     * @param displayType The new displayType value to be set
-     */
-    fun setDisplayType(displayType: ExdDisplayType?) {
-        setFieldValue(4, 0, displayType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var displayType: ExdDisplayType?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ExdDisplayType.fromValue(value)
+        }
+        set(displayType) {
+            setFieldValue(4, 0, displayType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     fun getTitle(): Array<String?>? {
         return getFieldStringValues(5, Fit.SUBFIELD_INDEX_MAIN_FIELD)

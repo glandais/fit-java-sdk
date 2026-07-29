@@ -440,14 +440,18 @@ def _convert_fit_messages(src: str, java_name: str) -> str:
     out: list[str] = [_header(java_name, _sdk_version(src)), ""]
     out.append("class FitMessages {")
     out.append("")
+    # Le backing est interne (le décodeur y ajoute), l'accès public est une propriété
+    # `List` en lecture seule : `messages.recordMesgs`. Une propriété *et* un
+    # `getRecordMesgs()` entreraient en collision de signature sur JVM, donc la
+    # propriété remplace le getter (DESIGN.md §3.bis).
     for cls, name in fields:
-        out.append(f"    internal val {name} = ArrayList<{cls}>()")
+        out.append(f"    internal val _{name} = ArrayList<{cls}>()")
     out.append("")
     for cls, name in fields:
         gcls, getter = by_field[name]
         if gcls != cls:
             _fail(java_name, None, f"getter for {name} returns List<{gcls}> but field is List<{cls}>")
-        out.append(f"    fun {getter}(): List<{cls}> = {name}")
+        out.append(f"    val {name}: List<{cls}> get() = _{name}")
         out.append("")
     while out[-1] == "":
         out.pop()
@@ -500,13 +504,13 @@ def _convert_fit_listener(src: str, java_name: str) -> str:
     out.append("    override fun onMesg(mesg: Mesg) {")
     out.append("        when (mesg.getNum()) {")
     for num, listName, cls in cases:
-        out.append(f"            MesgNum.{num} -> fitMessages.{listName}.add({cls}(mesg))")
+        out.append(f"            MesgNum.{num} -> fitMessages._{listName}.add({cls}(mesg))")
     out.append("            else -> {}")
     out.append("        }")
     out.append("    }")
     out.append("")
     out.append("    override fun onDescription(desc: DeveloperFieldDescription) {")
-    out.append("        fitMessages.developerFieldDescriptionMesgs.add(desc)")
+    out.append("        fitMessages._developerFieldDescriptionMesgs.add(desc)")
     out.append("    }")
     out.append("}")
     out.append("")

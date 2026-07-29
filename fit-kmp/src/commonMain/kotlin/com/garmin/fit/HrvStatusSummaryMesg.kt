@@ -40,18 +40,13 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get weekly_average field
@@ -60,20 +55,13 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return weekly_average
      */
-    fun getWeeklyAverage(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set weekly_average field
-     * Units: ms
-     * Comment: 7 day RMSSD average over sleep
-     *
-     * @param weeklyAverage The new weeklyAverage value to be set
-     */
-    fun setWeeklyAverage(weeklyAverage: Float?) {
-        setFieldValue(0, 0, weeklyAverage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var weeklyAverage: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(weeklyAverage) {
+            setFieldValue(0, 0, weeklyAverage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get last_night_average field
@@ -82,20 +70,13 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return last_night_average
      */
-    fun getLastNightAverage(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set last_night_average field
-     * Units: ms
-     * Comment: Last night RMSSD average over sleep
-     *
-     * @param lastNightAverage The new lastNightAverage value to be set
-     */
-    fun setLastNightAverage(lastNightAverage: Float?) {
-        setFieldValue(1, 0, lastNightAverage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var lastNightAverage: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(lastNightAverage) {
+            setFieldValue(1, 0, lastNightAverage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get last_night_5_min_high field
@@ -104,20 +85,13 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return last_night_5_min_high
      */
-    fun getLastNight5MinHigh(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set last_night_5_min_high field
-     * Units: ms
-     * Comment: 5 minute high RMSSD value over sleep
-     *
-     * @param lastNight5MinHigh The new lastNight5MinHigh value to be set
-     */
-    fun setLastNight5MinHigh(lastNight5MinHigh: Float?) {
-        setFieldValue(2, 0, lastNight5MinHigh, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var lastNight5MinHigh: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(lastNight5MinHigh) {
+            setFieldValue(2, 0, lastNight5MinHigh, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get baseline_low_upper field
@@ -126,20 +100,13 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return baseline_low_upper
      */
-    fun getBaselineLowUpper(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set baseline_low_upper field
-     * Units: ms
-     * Comment: 3 week baseline, upper boundary of low HRV status
-     *
-     * @param baselineLowUpper The new baselineLowUpper value to be set
-     */
-    fun setBaselineLowUpper(baselineLowUpper: Float?) {
-        setFieldValue(3, 0, baselineLowUpper, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var baselineLowUpper: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(baselineLowUpper) {
+            setFieldValue(3, 0, baselineLowUpper, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get baseline_balanced_lower field
@@ -148,20 +115,13 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return baseline_balanced_lower
      */
-    fun getBaselineBalancedLower(): Float? {
-        return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set baseline_balanced_lower field
-     * Units: ms
-     * Comment: 3 week baseline, lower boundary of balanced HRV status
-     *
-     * @param baselineBalancedLower The new baselineBalancedLower value to be set
-     */
-    fun setBaselineBalancedLower(baselineBalancedLower: Float?) {
-        setFieldValue(4, 0, baselineBalancedLower, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var baselineBalancedLower: Float?
+        get() {
+            return getFieldFloatValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(baselineBalancedLower) {
+            setFieldValue(4, 0, baselineBalancedLower, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get baseline_balanced_upper field
@@ -170,37 +130,25 @@ open class HrvStatusSummaryMesg : Mesg {
      *
      * @return baseline_balanced_upper
      */
-    fun getBaselineBalancedUpper(): Float? {
-        return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set baseline_balanced_upper field
-     * Units: ms
-     * Comment: 3 week baseline, upper boundary of balanced HRV status
-     *
-     * @param baselineBalancedUpper The new baselineBalancedUpper value to be set
-     */
-    fun setBaselineBalancedUpper(baselineBalancedUpper: Float?) {
-        setFieldValue(5, 0, baselineBalancedUpper, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var baselineBalancedUpper: Float?
+        get() {
+            return getFieldFloatValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(baselineBalancedUpper) {
+            setFieldValue(5, 0, baselineBalancedUpper, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get status field
      *
      * @return status
      */
-    fun getStatus(): HrvStatus? {
-        val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return HrvStatus.fromValue(value)
-    }
-
-    /**
-     * Set status field
-     *
-     * @param status The new status value to be set
-     */
-    fun setStatus(status: HrvStatus?) {
-        setFieldValue(6, 0, status?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var status: HrvStatus?
+        get() {
+            val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return HrvStatus.fromValue(value)
+        }
+        set(status) {
+            setFieldValue(6, 0, status?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

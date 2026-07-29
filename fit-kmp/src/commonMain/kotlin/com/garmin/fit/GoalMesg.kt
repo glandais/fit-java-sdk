@@ -50,239 +50,174 @@ open class GoalMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport field
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(0, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(0, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sub_sport field
      *
      * @return sub_sport
      */
-    fun getSubSport(): SubSport? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return SubSport.fromValue(value)
-    }
-
-    /**
-     * Set sub_sport field
-     *
-     * @param subSport The new subSport value to be set
-     */
-    fun setSubSport(subSport: SubSport?) {
-        setFieldValue(1, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var subSport: SubSport?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return SubSport.fromValue(value)
+        }
+        set(subSport) {
+            setFieldValue(1, 0, subSport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_date field
      *
      * @return start_date
      */
-    fun getStartDate(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_date field
-     *
-     * @param startDate The new startDate value to be set
-     */
-    fun setStartDate(startDate: DateTime?) {
-        setFieldValue(2, 0, startDate?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startDate: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startDate) {
+            setFieldValue(2, 0, startDate?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_date field
      *
      * @return end_date
      */
-    fun getEndDate(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set end_date field
-     *
-     * @param endDate The new endDate value to be set
-     */
-    fun setEndDate(endDate: DateTime?) {
-        setFieldValue(3, 0, endDate?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endDate: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(endDate) {
+            setFieldValue(3, 0, endDate?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get type field
      *
      * @return type
      */
-    fun getType(): Goal? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Goal.fromValue(value)
-    }
-
-    /**
-     * Set type field
-     *
-     * @param type The new type value to be set
-     */
-    fun setType(type: Goal?) {
-        setFieldValue(4, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var type: Goal?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Goal.fromValue(value)
+        }
+        set(type) {
+            setFieldValue(4, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get value field
      *
      * @return value
      */
-    fun getValue(): Long? {
-        return getFieldLongValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set value field
-     *
-     * @param value The new value value to be set
-     */
-    fun setValue(value: Long?) {
-        setFieldValue(5, 0, value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var value: Long?
+        get() {
+            return getFieldLongValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(value) {
+            setFieldValue(5, 0, value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get repeat field
      *
      * @return repeat
      */
-    fun getRepeat(): Bool? {
-        val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set repeat field
-     *
-     * @param repeat The new repeat value to be set
-     */
-    fun setRepeat(repeat: Bool?) {
-        setFieldValue(6, 0, repeat?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var repeat: Bool?
+        get() {
+            val value = getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(repeat) {
+            setFieldValue(6, 0, repeat?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get target_value field
      *
      * @return target_value
      */
-    fun getTargetValue(): Long? {
-        return getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set target_value field
-     *
-     * @param targetValue The new targetValue value to be set
-     */
-    fun setTargetValue(targetValue: Long?) {
-        setFieldValue(7, 0, targetValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var targetValue: Long?
+        get() {
+            return getFieldLongValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(targetValue) {
+            setFieldValue(7, 0, targetValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get recurrence field
      *
      * @return recurrence
      */
-    fun getRecurrence(): GoalRecurrence? {
-        val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return GoalRecurrence.fromValue(value)
-    }
-
-    /**
-     * Set recurrence field
-     *
-     * @param recurrence The new recurrence value to be set
-     */
-    fun setRecurrence(recurrence: GoalRecurrence?) {
-        setFieldValue(8, 0, recurrence?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var recurrence: GoalRecurrence?
+        get() {
+            val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return GoalRecurrence.fromValue(value)
+        }
+        set(recurrence) {
+            setFieldValue(8, 0, recurrence?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get recurrence_value field
      *
      * @return recurrence_value
      */
-    fun getRecurrenceValue(): Int? {
-        return getFieldIntegerValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set recurrence_value field
-     *
-     * @param recurrenceValue The new recurrenceValue value to be set
-     */
-    fun setRecurrenceValue(recurrenceValue: Int?) {
-        setFieldValue(9, 0, recurrenceValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var recurrenceValue: Int?
+        get() {
+            return getFieldIntegerValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(recurrenceValue) {
+            setFieldValue(9, 0, recurrenceValue, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enabled field
      *
      * @return enabled
      */
-    fun getEnabled(): Bool? {
-        val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set enabled field
-     *
-     * @param enabled The new enabled value to be set
-     */
-    fun setEnabled(enabled: Bool?) {
-        setFieldValue(10, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enabled: Bool?
+        get() {
+            val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(enabled) {
+            setFieldValue(10, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get source field
      *
      * @return source
      */
-    fun getSource(): GoalSource? {
-        val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return GoalSource.fromValue(value)
-    }
-
-    /**
-     * Set source field
-     *
-     * @param source The new source value to be set
-     */
-    fun setSource(source: GoalSource?) {
-        setFieldValue(11, 0, source?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var source: GoalSource?
+        get() {
+            val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return GoalSource.fromValue(value)
+        }
+        set(source) {
+            setFieldValue(11, 0, source?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

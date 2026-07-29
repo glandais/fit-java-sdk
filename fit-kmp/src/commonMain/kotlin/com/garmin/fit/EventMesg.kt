@@ -170,130 +170,94 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return timestamp
      */
-    override fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    override fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get event field
      *
      * @return event
      */
-    override fun getEvent(): Event? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Event.fromValue(value)
-    }
-
-    /**
-     * Set event field
-     *
-     * @param event The new event value to be set
-     */
-    override fun setEvent(event: Event?) {
-        setFieldValue(0, 0, event?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var event: Event?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Event.fromValue(value)
+        }
+        set(event) {
+            setFieldValue(0, 0, event?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get event_type field
      *
      * @return event_type
      */
-    override fun getEventType(): EventType? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return EventType.fromValue(value)
-    }
-
-    /**
-     * Set event_type field
-     *
-     * @param eventType The new eventType value to be set
-     */
-    override fun setEventType(eventType: EventType?) {
-        setFieldValue(1, 0, eventType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var eventType: EventType?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return EventType.fromValue(value)
+        }
+        set(eventType) {
+            setFieldValue(1, 0, eventType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get data16 field
      *
      * @return data16
      */
-    fun getData16(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set data16 field
-     *
-     * @param data16 The new data16 value to be set
-     */
-    fun setData16(data16: Int?) {
-        setFieldValue(2, 0, data16, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var data16: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(data16) {
+            setFieldValue(2, 0, data16, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get data field
      *
      * @return data
      */
-    fun getData(): Long? {
-        return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set data field
-     *
-     * @param data The new data value to be set
-     */
-    fun setData(data: Long?) {
-        setFieldValue(3, 0, data, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var data: Long?
+        get() {
+            return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(data) {
+            setFieldValue(3, 0, data, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timer_trigger field
      *
      * @return timer_trigger
      */
-    fun getTimerTrigger(): TimerTrigger? {
-        val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIMER_TRIGGER) ?: return null
-        return TimerTrigger.fromValue(value)
-    }
-
-    /**
-     * Set timer_trigger field
-     *
-     * @param timerTrigger The new timerTrigger value to be set
-     */
-    fun setTimerTrigger(timerTrigger: TimerTrigger?) {
-        setFieldValue(3, 0, timerTrigger?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIMER_TRIGGER)
-    }
+    var timerTrigger: TimerTrigger?
+        get() {
+            val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIMER_TRIGGER) ?: return null
+            return TimerTrigger.fromValue(value)
+        }
+        set(timerTrigger) {
+            setFieldValue(3, 0, timerTrigger?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIMER_TRIGGER)
+        }
 
     /**
      * Get course_point_index field
      *
      * @return course_point_index
      */
-    fun getCoursePointIndex(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_COURSE_POINT_INDEX)
-    }
-
-    /**
-     * Set course_point_index field
-     *
-     * @param coursePointIndex The new coursePointIndex value to be set
-     */
-    fun setCoursePointIndex(coursePointIndex: Int?) {
-        setFieldValue(3, 0, coursePointIndex, Profile.SubFields.EVENT_MESG_DATA_FIELD_COURSE_POINT_INDEX)
-    }
+    var coursePointIndex: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_COURSE_POINT_INDEX)
+        }
+        set(coursePointIndex) {
+            setFieldValue(3, 0, coursePointIndex, Profile.SubFields.EVENT_MESG_DATA_FIELD_COURSE_POINT_INDEX)
+        }
 
     /**
      * Get battery_level field
@@ -301,19 +265,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return battery_level
      */
-    fun getBatteryLevel(): Float? {
-        return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_BATTERY_LEVEL)
-    }
-
-    /**
-     * Set battery_level field
-     * Units: V
-     *
-     * @param batteryLevel The new batteryLevel value to be set
-     */
-    fun setBatteryLevel(batteryLevel: Float?) {
-        setFieldValue(3, 0, batteryLevel, Profile.SubFields.EVENT_MESG_DATA_FIELD_BATTERY_LEVEL)
-    }
+    var batteryLevel: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_BATTERY_LEVEL)
+        }
+        set(batteryLevel) {
+            setFieldValue(3, 0, batteryLevel, Profile.SubFields.EVENT_MESG_DATA_FIELD_BATTERY_LEVEL)
+        }
 
     /**
      * Get virtual_partner_speed field
@@ -321,19 +279,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return virtual_partner_speed
      */
-    fun getVirtualPartnerSpeed(): Float? {
-        return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_VIRTUAL_PARTNER_SPEED)
-    }
-
-    /**
-     * Set virtual_partner_speed field
-     * Units: m/s
-     *
-     * @param virtualPartnerSpeed The new virtualPartnerSpeed value to be set
-     */
-    fun setVirtualPartnerSpeed(virtualPartnerSpeed: Float?) {
-        setFieldValue(3, 0, virtualPartnerSpeed, Profile.SubFields.EVENT_MESG_DATA_FIELD_VIRTUAL_PARTNER_SPEED)
-    }
+    var virtualPartnerSpeed: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_VIRTUAL_PARTNER_SPEED)
+        }
+        set(virtualPartnerSpeed) {
+            setFieldValue(3, 0, virtualPartnerSpeed, Profile.SubFields.EVENT_MESG_DATA_FIELD_VIRTUAL_PARTNER_SPEED)
+        }
 
     /**
      * Get hr_high_alert field
@@ -341,19 +293,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return hr_high_alert
      */
-    fun getHrHighAlert(): Short? {
-        return getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_HIGH_ALERT)
-    }
-
-    /**
-     * Set hr_high_alert field
-     * Units: bpm
-     *
-     * @param hrHighAlert The new hrHighAlert value to be set
-     */
-    fun setHrHighAlert(hrHighAlert: Short?) {
-        setFieldValue(3, 0, hrHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_HIGH_ALERT)
-    }
+    var hrHighAlert: Short?
+        get() {
+            return getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_HIGH_ALERT)
+        }
+        set(hrHighAlert) {
+            setFieldValue(3, 0, hrHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_HIGH_ALERT)
+        }
 
     /**
      * Get hr_low_alert field
@@ -361,19 +307,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return hr_low_alert
      */
-    fun getHrLowAlert(): Short? {
-        return getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_LOW_ALERT)
-    }
-
-    /**
-     * Set hr_low_alert field
-     * Units: bpm
-     *
-     * @param hrLowAlert The new hrLowAlert value to be set
-     */
-    fun setHrLowAlert(hrLowAlert: Short?) {
-        setFieldValue(3, 0, hrLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_LOW_ALERT)
-    }
+    var hrLowAlert: Short?
+        get() {
+            return getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_LOW_ALERT)
+        }
+        set(hrLowAlert) {
+            setFieldValue(3, 0, hrLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_HR_LOW_ALERT)
+        }
 
     /**
      * Get speed_high_alert field
@@ -381,19 +321,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return speed_high_alert
      */
-    fun getSpeedHighAlert(): Float? {
-        return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_HIGH_ALERT)
-    }
-
-    /**
-     * Set speed_high_alert field
-     * Units: m/s
-     *
-     * @param speedHighAlert The new speedHighAlert value to be set
-     */
-    fun setSpeedHighAlert(speedHighAlert: Float?) {
-        setFieldValue(3, 0, speedHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_HIGH_ALERT)
-    }
+    var speedHighAlert: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_HIGH_ALERT)
+        }
+        set(speedHighAlert) {
+            setFieldValue(3, 0, speedHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_HIGH_ALERT)
+        }
 
     /**
      * Get speed_low_alert field
@@ -401,19 +335,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return speed_low_alert
      */
-    fun getSpeedLowAlert(): Float? {
-        return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_LOW_ALERT)
-    }
-
-    /**
-     * Set speed_low_alert field
-     * Units: m/s
-     *
-     * @param speedLowAlert The new speedLowAlert value to be set
-     */
-    fun setSpeedLowAlert(speedLowAlert: Float?) {
-        setFieldValue(3, 0, speedLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_LOW_ALERT)
-    }
+    var speedLowAlert: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_LOW_ALERT)
+        }
+        set(speedLowAlert) {
+            setFieldValue(3, 0, speedLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPEED_LOW_ALERT)
+        }
 
     /**
      * Get cad_high_alert field
@@ -421,19 +349,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return cad_high_alert
      */
-    fun getCadHighAlert(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_HIGH_ALERT)
-    }
-
-    /**
-     * Set cad_high_alert field
-     * Units: rpm
-     *
-     * @param cadHighAlert The new cadHighAlert value to be set
-     */
-    fun setCadHighAlert(cadHighAlert: Int?) {
-        setFieldValue(3, 0, cadHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_HIGH_ALERT)
-    }
+    var cadHighAlert: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_HIGH_ALERT)
+        }
+        set(cadHighAlert) {
+            setFieldValue(3, 0, cadHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_HIGH_ALERT)
+        }
 
     /**
      * Get cad_low_alert field
@@ -441,19 +363,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return cad_low_alert
      */
-    fun getCadLowAlert(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_LOW_ALERT)
-    }
-
-    /**
-     * Set cad_low_alert field
-     * Units: rpm
-     *
-     * @param cadLowAlert The new cadLowAlert value to be set
-     */
-    fun setCadLowAlert(cadLowAlert: Int?) {
-        setFieldValue(3, 0, cadLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_LOW_ALERT)
-    }
+    var cadLowAlert: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_LOW_ALERT)
+        }
+        set(cadLowAlert) {
+            setFieldValue(3, 0, cadLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_CAD_LOW_ALERT)
+        }
 
     /**
      * Get power_high_alert field
@@ -461,19 +377,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return power_high_alert
      */
-    fun getPowerHighAlert(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_HIGH_ALERT)
-    }
-
-    /**
-     * Set power_high_alert field
-     * Units: watts
-     *
-     * @param powerHighAlert The new powerHighAlert value to be set
-     */
-    fun setPowerHighAlert(powerHighAlert: Int?) {
-        setFieldValue(3, 0, powerHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_HIGH_ALERT)
-    }
+    var powerHighAlert: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_HIGH_ALERT)
+        }
+        set(powerHighAlert) {
+            setFieldValue(3, 0, powerHighAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_HIGH_ALERT)
+        }
 
     /**
      * Get power_low_alert field
@@ -481,19 +391,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return power_low_alert
      */
-    fun getPowerLowAlert(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_LOW_ALERT)
-    }
-
-    /**
-     * Set power_low_alert field
-     * Units: watts
-     *
-     * @param powerLowAlert The new powerLowAlert value to be set
-     */
-    fun setPowerLowAlert(powerLowAlert: Int?) {
-        setFieldValue(3, 0, powerLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_LOW_ALERT)
-    }
+    var powerLowAlert: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_LOW_ALERT)
+        }
+        set(powerLowAlert) {
+            setFieldValue(3, 0, powerLowAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_POWER_LOW_ALERT)
+        }
 
     /**
      * Get time_duration_alert field
@@ -501,19 +405,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return time_duration_alert
      */
-    fun getTimeDurationAlert(): Float? {
-        return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIME_DURATION_ALERT)
-    }
-
-    /**
-     * Set time_duration_alert field
-     * Units: s
-     *
-     * @param timeDurationAlert The new timeDurationAlert value to be set
-     */
-    fun setTimeDurationAlert(timeDurationAlert: Float?) {
-        setFieldValue(3, 0, timeDurationAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIME_DURATION_ALERT)
-    }
+    var timeDurationAlert: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIME_DURATION_ALERT)
+        }
+        set(timeDurationAlert) {
+            setFieldValue(3, 0, timeDurationAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_TIME_DURATION_ALERT)
+        }
 
     /**
      * Get distance_duration_alert field
@@ -521,19 +419,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return distance_duration_alert
      */
-    fun getDistanceDurationAlert(): Float? {
-        return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_DISTANCE_DURATION_ALERT)
-    }
-
-    /**
-     * Set distance_duration_alert field
-     * Units: m
-     *
-     * @param distanceDurationAlert The new distanceDurationAlert value to be set
-     */
-    fun setDistanceDurationAlert(distanceDurationAlert: Float?) {
-        setFieldValue(3, 0, distanceDurationAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_DISTANCE_DURATION_ALERT)
-    }
+    var distanceDurationAlert: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_DISTANCE_DURATION_ALERT)
+        }
+        set(distanceDurationAlert) {
+            setFieldValue(3, 0, distanceDurationAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_DISTANCE_DURATION_ALERT)
+        }
 
     /**
      * Get calorie_duration_alert field
@@ -541,74 +433,53 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return calorie_duration_alert
      */
-    fun getCalorieDurationAlert(): Long? {
-        return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_CALORIE_DURATION_ALERT)
-    }
-
-    /**
-     * Set calorie_duration_alert field
-     * Units: calories
-     *
-     * @param calorieDurationAlert The new calorieDurationAlert value to be set
-     */
-    fun setCalorieDurationAlert(calorieDurationAlert: Long?) {
-        setFieldValue(3, 0, calorieDurationAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_CALORIE_DURATION_ALERT)
-    }
+    var calorieDurationAlert: Long?
+        get() {
+            return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_CALORIE_DURATION_ALERT)
+        }
+        set(calorieDurationAlert) {
+            setFieldValue(3, 0, calorieDurationAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_CALORIE_DURATION_ALERT)
+        }
 
     /**
      * Get fitness_equipment_state field
      *
      * @return fitness_equipment_state
      */
-    fun getFitnessEquipmentState(): FitnessEquipmentState? {
-        val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_FITNESS_EQUIPMENT_STATE) ?: return null
-        return FitnessEquipmentState.fromValue(value)
-    }
-
-    /**
-     * Set fitness_equipment_state field
-     *
-     * @param fitnessEquipmentState The new fitnessEquipmentState value to be set
-     */
-    fun setFitnessEquipmentState(fitnessEquipmentState: FitnessEquipmentState?) {
-        setFieldValue(3, 0, fitnessEquipmentState?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_FITNESS_EQUIPMENT_STATE)
-    }
+    var fitnessEquipmentState: FitnessEquipmentState?
+        get() {
+            val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_FITNESS_EQUIPMENT_STATE) ?: return null
+            return FitnessEquipmentState.fromValue(value)
+        }
+        set(fitnessEquipmentState) {
+            setFieldValue(3, 0, fitnessEquipmentState?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_FITNESS_EQUIPMENT_STATE)
+        }
 
     /**
      * Get sport_point field
      *
      * @return sport_point
      */
-    fun getSportPoint(): Long? {
-        return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPORT_POINT)
-    }
-
-    /**
-     * Set sport_point field
-     *
-     * @param sportPoint The new sportPoint value to be set
-     */
-    fun setSportPoint(sportPoint: Long?) {
-        setFieldValue(3, 0, sportPoint, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPORT_POINT)
-    }
+    var sportPoint: Long?
+        get() {
+            return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPORT_POINT)
+        }
+        set(sportPoint) {
+            setFieldValue(3, 0, sportPoint, Profile.SubFields.EVENT_MESG_DATA_FIELD_SPORT_POINT)
+        }
 
     /**
      * Get gear_change_data field
      *
      * @return gear_change_data
      */
-    fun getGearChangeData(): Long? {
-        return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_GEAR_CHANGE_DATA)
-    }
-
-    /**
-     * Set gear_change_data field
-     *
-     * @param gearChangeData The new gearChangeData value to be set
-     */
-    fun setGearChangeData(gearChangeData: Long?) {
-        setFieldValue(3, 0, gearChangeData, Profile.SubFields.EVENT_MESG_DATA_FIELD_GEAR_CHANGE_DATA)
-    }
+    var gearChangeData: Long?
+        get() {
+            return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_GEAR_CHANGE_DATA)
+        }
+        set(gearChangeData) {
+            setFieldValue(3, 0, gearChangeData, Profile.SubFields.EVENT_MESG_DATA_FIELD_GEAR_CHANGE_DATA)
+        }
 
     /**
      * Get rider_position field
@@ -616,57 +487,41 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return rider_position
      */
-    fun getRiderPosition(): RiderPositionType? {
-        val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_RIDER_POSITION) ?: return null
-        return RiderPositionType.fromValue(value)
-    }
-
-    /**
-     * Set rider_position field
-     * Comment: Indicates the rider position value.
-     *
-     * @param riderPosition The new riderPosition value to be set
-     */
-    fun setRiderPosition(riderPosition: RiderPositionType?) {
-        setFieldValue(3, 0, riderPosition?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_RIDER_POSITION)
-    }
+    var riderPosition: RiderPositionType?
+        get() {
+            val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_RIDER_POSITION) ?: return null
+            return RiderPositionType.fromValue(value)
+        }
+        set(riderPosition) {
+            setFieldValue(3, 0, riderPosition?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_RIDER_POSITION)
+        }
 
     /**
      * Get comm_timeout field
      *
      * @return comm_timeout
      */
-    fun getCommTimeout(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_COMM_TIMEOUT)
-    }
-
-    /**
-     * Set comm_timeout field
-     *
-     * @param commTimeout The new commTimeout value to be set
-     */
-    fun setCommTimeout(commTimeout: Int?) {
-        setFieldValue(3, 0, commTimeout, Profile.SubFields.EVENT_MESG_DATA_FIELD_COMM_TIMEOUT)
-    }
+    var commTimeout: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_COMM_TIMEOUT)
+        }
+        set(commTimeout) {
+            setFieldValue(3, 0, commTimeout, Profile.SubFields.EVENT_MESG_DATA_FIELD_COMM_TIMEOUT)
+        }
 
     /**
      * Get dive_alert field
      *
      * @return dive_alert
      */
-    fun getDiveAlert(): DiveAlert? {
-        val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_DIVE_ALERT) ?: return null
-        return DiveAlert.fromValue(value)
-    }
-
-    /**
-     * Set dive_alert field
-     *
-     * @param diveAlert The new diveAlert value to be set
-     */
-    fun setDiveAlert(diveAlert: DiveAlert?) {
-        setFieldValue(3, 0, diveAlert?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_DIVE_ALERT)
-    }
+    var diveAlert: DiveAlert?
+        get() {
+            val value = getFieldShortValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_DIVE_ALERT) ?: return null
+            return DiveAlert.fromValue(value)
+        }
+        set(diveAlert) {
+            setFieldValue(3, 0, diveAlert?.value, Profile.SubFields.EVENT_MESG_DATA_FIELD_DIVE_ALERT)
+        }
 
     /**
      * Get auto_activity_detect_duration field
@@ -674,19 +529,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return auto_activity_detect_duration
      */
-    fun getAutoActivityDetectDuration(): Int? {
-        return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_AUTO_ACTIVITY_DETECT_DURATION)
-    }
-
-    /**
-     * Set auto_activity_detect_duration field
-     * Units: min
-     *
-     * @param autoActivityDetectDuration The new autoActivityDetectDuration value to be set
-     */
-    fun setAutoActivityDetectDuration(autoActivityDetectDuration: Int?) {
-        setFieldValue(3, 0, autoActivityDetectDuration, Profile.SubFields.EVENT_MESG_DATA_FIELD_AUTO_ACTIVITY_DETECT_DURATION)
-    }
+    var autoActivityDetectDuration: Int?
+        get() {
+            return getFieldIntegerValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_AUTO_ACTIVITY_DETECT_DURATION)
+        }
+        set(autoActivityDetectDuration) {
+            setFieldValue(3, 0, autoActivityDetectDuration, Profile.SubFields.EVENT_MESG_DATA_FIELD_AUTO_ACTIVITY_DETECT_DURATION)
+        }
 
     /**
      * Get radar_threat_alert field
@@ -694,37 +543,26 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return radar_threat_alert
      */
-    fun getRadarThreatAlert(): Long? {
-        return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_RADAR_THREAT_ALERT)
-    }
-
-    /**
-     * Set radar_threat_alert field
-     * Comment: The first byte is the radar_threat_level_max, the second byte is the radar_threat_count, third bytes is the average approach speed, and the 4th byte is the max approach speed
-     *
-     * @param radarThreatAlert The new radarThreatAlert value to be set
-     */
-    fun setRadarThreatAlert(radarThreatAlert: Long?) {
-        setFieldValue(3, 0, radarThreatAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_RADAR_THREAT_ALERT)
-    }
+    var radarThreatAlert: Long?
+        get() {
+            return getFieldLongValue(3, 0, Profile.SubFields.EVENT_MESG_DATA_FIELD_RADAR_THREAT_ALERT)
+        }
+        set(radarThreatAlert) {
+            setFieldValue(3, 0, radarThreatAlert, Profile.SubFields.EVENT_MESG_DATA_FIELD_RADAR_THREAT_ALERT)
+        }
 
     /**
      * Get event_group field
      *
      * @return event_group
      */
-    override fun getEventGroup(): Short? {
-        return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set event_group field
-     *
-     * @param eventGroup The new eventGroup value to be set
-     */
-    override fun setEventGroup(eventGroup: Short?) {
-        setFieldValue(4, 0, eventGroup, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    override var eventGroup: Short?
+        get() {
+            return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(eventGroup) {
+            setFieldValue(4, 0, eventGroup, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get score field
@@ -732,19 +570,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return score
      */
-    fun getScore(): Int? {
-        return getFieldIntegerValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set score field
-     * Comment: Do not populate directly. Autogenerated by decoder for sport_point subfield components
-     *
-     * @param score The new score value to be set
-     */
-    fun setScore(score: Int?) {
-        setFieldValue(7, 0, score, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var score: Int?
+        get() {
+            return getFieldIntegerValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(score) {
+            setFieldValue(7, 0, score, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get opponent_score field
@@ -752,19 +584,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return opponent_score
      */
-    fun getOpponentScore(): Int? {
-        return getFieldIntegerValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set opponent_score field
-     * Comment: Do not populate directly. Autogenerated by decoder for sport_point subfield components
-     *
-     * @param opponentScore The new opponentScore value to be set
-     */
-    fun setOpponentScore(opponentScore: Int?) {
-        setFieldValue(8, 0, opponentScore, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var opponentScore: Int?
+        get() {
+            return getFieldIntegerValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(opponentScore) {
+            setFieldValue(8, 0, opponentScore, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get front_gear_num field
@@ -772,19 +598,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return front_gear_num
      */
-    fun getFrontGearNum(): Short? {
-        return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set front_gear_num field
-     * Comment: Do not populate directly. Autogenerated by decoder for gear_change subfield components. Front gear number. 1 is innermost.
-     *
-     * @param frontGearNum The new frontGearNum value to be set
-     */
-    fun setFrontGearNum(frontGearNum: Short?) {
-        setFieldValue(9, 0, frontGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var frontGearNum: Short?
+        get() {
+            return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(frontGearNum) {
+            setFieldValue(9, 0, frontGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get front_gear field
@@ -792,19 +612,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return front_gear
      */
-    fun getFrontGear(): Short? {
-        return getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set front_gear field
-     * Comment: Do not populate directly. Autogenerated by decoder for gear_change subfield components. Number of front teeth.
-     *
-     * @param frontGear The new frontGear value to be set
-     */
-    fun setFrontGear(frontGear: Short?) {
-        setFieldValue(10, 0, frontGear, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var frontGear: Short?
+        get() {
+            return getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(frontGear) {
+            setFieldValue(10, 0, frontGear, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get rear_gear_num field
@@ -812,19 +626,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return rear_gear_num
      */
-    fun getRearGearNum(): Short? {
-        return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set rear_gear_num field
-     * Comment: Do not populate directly. Autogenerated by decoder for gear_change subfield components. Rear gear number. 1 is innermost.
-     *
-     * @param rearGearNum The new rearGearNum value to be set
-     */
-    fun setRearGearNum(rearGearNum: Short?) {
-        setFieldValue(11, 0, rearGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var rearGearNum: Short?
+        get() {
+            return getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(rearGearNum) {
+            setFieldValue(11, 0, rearGearNum, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get rear_gear field
@@ -832,37 +640,26 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return rear_gear
      */
-    fun getRearGear(): Short? {
-        return getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set rear_gear field
-     * Comment: Do not populate directly. Autogenerated by decoder for gear_change subfield components. Number of rear teeth.
-     *
-     * @param rearGear The new rearGear value to be set
-     */
-    fun setRearGear(rearGear: Short?) {
-        setFieldValue(12, 0, rearGear, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var rearGear: Short?
+        get() {
+            return getFieldShortValue(12, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(rearGear) {
+            setFieldValue(12, 0, rearGear, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get device_index field
      *
      * @return device_index
      */
-    fun getDeviceIndex(): Short? {
-        return getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set device_index field
-     *
-     * @param deviceIndex The new deviceIndex value to be set
-     */
-    fun setDeviceIndex(deviceIndex: Short?) {
-        setFieldValue(13, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var deviceIndex: Short?
+        get() {
+            return getFieldShortValue(13, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(deviceIndex) {
+            setFieldValue(13, 0, deviceIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get activity_type field
@@ -870,20 +667,14 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return activity_type
      */
-    fun getActivityType(): ActivityType? {
-        val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ActivityType.fromValue(value)
-    }
-
-    /**
-     * Set activity_type field
-     * Comment: Activity Type associated with an auto_activity_detect event
-     *
-     * @param activityType The new activityType value to be set
-     */
-    fun setActivityType(activityType: ActivityType?) {
-        setFieldValue(14, 0, activityType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var activityType: ActivityType?
+        get() {
+            val value = getFieldShortValue(14, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ActivityType.fromValue(value)
+        }
+        set(activityType) {
+            setFieldValue(14, 0, activityType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_timestamp field
@@ -892,20 +683,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return start_timestamp
      */
-    fun getStartTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set start_timestamp field
-     * Units: s
-     * Comment: Timestamp of when the event started
-     *
-     * @param startTimestamp The new startTimestamp value to be set
-     */
-    fun setStartTimestamp(startTimestamp: DateTime?) {
-        setFieldValue(15, 0, startTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(15, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(startTimestamp) {
+            setFieldValue(15, 0, startTimestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get auto_activity_detect_start_timestamp field
@@ -914,20 +698,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return auto_activity_detect_start_timestamp
      */
-    fun getAutoActivityDetectStartTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(15, 0, Profile.SubFields.EVENT_MESG_START_TIMESTAMP_FIELD_AUTO_ACTIVITY_DETECT_START_TIMESTAMP))
-    }
-
-    /**
-     * Set auto_activity_detect_start_timestamp field
-     * Units: s
-     * Comment: Auto Activity Detect Start Timestamp.
-     *
-     * @param autoActivityDetectStartTimestamp The new autoActivityDetectStartTimestamp value to be set
-     */
-    fun setAutoActivityDetectStartTimestamp(autoActivityDetectStartTimestamp: DateTime?) {
-        setFieldValue(15, 0, autoActivityDetectStartTimestamp?.getTimestamp(), Profile.SubFields.EVENT_MESG_START_TIMESTAMP_FIELD_AUTO_ACTIVITY_DETECT_START_TIMESTAMP)
-    }
+    var autoActivityDetectStartTimestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(15, 0, Profile.SubFields.EVENT_MESG_START_TIMESTAMP_FIELD_AUTO_ACTIVITY_DETECT_START_TIMESTAMP))
+        }
+        set(autoActivityDetectStartTimestamp) {
+            setFieldValue(15, 0, autoActivityDetectStartTimestamp?.getTimestamp(), Profile.SubFields.EVENT_MESG_START_TIMESTAMP_FIELD_AUTO_ACTIVITY_DETECT_START_TIMESTAMP)
+        }
 
     /**
      * Get radar_threat_level_max field
@@ -935,20 +712,14 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return radar_threat_level_max
      */
-    fun getRadarThreatLevelMax(): RadarThreatLevelType? {
-        val value = getFieldShortValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return RadarThreatLevelType.fromValue(value)
-    }
-
-    /**
-     * Set radar_threat_level_max field
-     * Comment: Do not populate directly. Autogenerated by decoder for threat_alert subfield components.
-     *
-     * @param radarThreatLevelMax The new radarThreatLevelMax value to be set
-     */
-    fun setRadarThreatLevelMax(radarThreatLevelMax: RadarThreatLevelType?) {
-        setFieldValue(21, 0, radarThreatLevelMax?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var radarThreatLevelMax: RadarThreatLevelType?
+        get() {
+            val value = getFieldShortValue(21, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return RadarThreatLevelType.fromValue(value)
+        }
+        set(radarThreatLevelMax) {
+            setFieldValue(21, 0, radarThreatLevelMax?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get radar_threat_count field
@@ -956,19 +727,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return radar_threat_count
      */
-    fun getRadarThreatCount(): Short? {
-        return getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set radar_threat_count field
-     * Comment: Do not populate directly. Autogenerated by decoder for threat_alert subfield components.
-     *
-     * @param radarThreatCount The new radarThreatCount value to be set
-     */
-    fun setRadarThreatCount(radarThreatCount: Short?) {
-        setFieldValue(22, 0, radarThreatCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var radarThreatCount: Short?
+        get() {
+            return getFieldShortValue(22, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(radarThreatCount) {
+            setFieldValue(22, 0, radarThreatCount, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get radar_threat_avg_approach_speed field
@@ -977,20 +742,13 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return radar_threat_avg_approach_speed
      */
-    fun getRadarThreatAvgApproachSpeed(): Float? {
-        return getFieldFloatValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set radar_threat_avg_approach_speed field
-     * Units: m/s
-     * Comment: Do not populate directly. Autogenerated by decoder for radar_threat_alert subfield components
-     *
-     * @param radarThreatAvgApproachSpeed The new radarThreatAvgApproachSpeed value to be set
-     */
-    fun setRadarThreatAvgApproachSpeed(radarThreatAvgApproachSpeed: Float?) {
-        setFieldValue(23, 0, radarThreatAvgApproachSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var radarThreatAvgApproachSpeed: Float?
+        get() {
+            return getFieldFloatValue(23, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(radarThreatAvgApproachSpeed) {
+            setFieldValue(23, 0, radarThreatAvgApproachSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get radar_threat_max_approach_speed field
@@ -999,18 +757,11 @@ open class EventMesg : Mesg, MesgWithEvent {
      *
      * @return radar_threat_max_approach_speed
      */
-    fun getRadarThreatMaxApproachSpeed(): Float? {
-        return getFieldFloatValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set radar_threat_max_approach_speed field
-     * Units: m/s
-     * Comment: Do not populate directly. Autogenerated by decoder for radar_threat_alert subfield components
-     *
-     * @param radarThreatMaxApproachSpeed The new radarThreatMaxApproachSpeed value to be set
-     */
-    fun setRadarThreatMaxApproachSpeed(radarThreatMaxApproachSpeed: Float?) {
-        setFieldValue(24, 0, radarThreatMaxApproachSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var radarThreatMaxApproachSpeed: Float?
+        get() {
+            return getFieldFloatValue(24, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(radarThreatMaxApproachSpeed) {
+            setFieldValue(24, 0, radarThreatMaxApproachSpeed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

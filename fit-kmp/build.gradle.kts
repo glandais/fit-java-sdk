@@ -7,6 +7,11 @@ kotlin {
     jvmToolchain(21)
     jvm()
 
+    js(IR) {
+        nodejs()
+        browser()
+    }
+
     @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
     wasmWasi {
         wasmtime()

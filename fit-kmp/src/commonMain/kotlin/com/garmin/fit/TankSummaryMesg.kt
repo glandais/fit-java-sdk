@@ -35,37 +35,26 @@ open class TankSummaryMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sensor field
      *
      * @return sensor
      */
-    fun getSensor(): Long? {
-        return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sensor field
-     *
-     * @param sensor The new sensor value to be set
-     */
-    fun setSensor(sensor: Long?) {
-        setFieldValue(0, 0, sensor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sensor: Long?
+        get() {
+            return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sensor) {
+            setFieldValue(0, 0, sensor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get start_pressure field
@@ -73,19 +62,13 @@ open class TankSummaryMesg : Mesg {
      *
      * @return start_pressure
      */
-    fun getStartPressure(): Float? {
-        return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set start_pressure field
-     * Units: bar
-     *
-     * @param startPressure The new startPressure value to be set
-     */
-    fun setStartPressure(startPressure: Float?) {
-        setFieldValue(1, 0, startPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var startPressure: Float?
+        get() {
+            return getFieldFloatValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(startPressure) {
+            setFieldValue(1, 0, startPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get end_pressure field
@@ -93,19 +76,13 @@ open class TankSummaryMesg : Mesg {
      *
      * @return end_pressure
      */
-    fun getEndPressure(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set end_pressure field
-     * Units: bar
-     *
-     * @param endPressure The new endPressure value to be set
-     */
-    fun setEndPressure(endPressure: Float?) {
-        setFieldValue(2, 0, endPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var endPressure: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(endPressure) {
+            setFieldValue(2, 0, endPressure, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get volume_used field
@@ -113,17 +90,11 @@ open class TankSummaryMesg : Mesg {
      *
      * @return volume_used
      */
-    fun getVolumeUsed(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set volume_used field
-     * Units: L
-     *
-     * @param volumeUsed The new volumeUsed value to be set
-     */
-    fun setVolumeUsed(volumeUsed: Float?) {
-        setFieldValue(3, 0, volumeUsed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var volumeUsed: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(volumeUsed) {
+            setFieldValue(3, 0, volumeUsed, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

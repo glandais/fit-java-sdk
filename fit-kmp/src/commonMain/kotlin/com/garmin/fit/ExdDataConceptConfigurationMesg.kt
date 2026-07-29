@@ -60,200 +60,145 @@ open class ExdDataConceptConfigurationMesg : Mesg {
      *
      * @return screen_index
      */
-    fun getScreenIndex(): Short? {
-        return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set screen_index field
-     *
-     * @param screenIndex The new screenIndex value to be set
-     */
-    fun setScreenIndex(screenIndex: Short?) {
-        setFieldValue(0, 0, screenIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var screenIndex: Short?
+        get() {
+            return getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(screenIndex) {
+            setFieldValue(0, 0, screenIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get concept_field field
      *
      * @return concept_field
      */
-    fun getConceptField(): Byte? {
-        return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set concept_field field
-     *
-     * @param conceptField The new conceptField value to be set
-     */
-    fun setConceptField(conceptField: Byte?) {
-        setFieldValue(1, 0, conceptField, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var conceptField: Byte?
+        get() {
+            return getFieldByteValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(conceptField) {
+            setFieldValue(1, 0, conceptField, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get field_id field
      *
      * @return field_id
      */
-    fun getFieldId(): Short? {
-        return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set field_id field
-     *
-     * @param fieldId The new fieldId value to be set
-     */
-    fun setFieldId(fieldId: Short?) {
-        setFieldValue(2, 0, fieldId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var fieldId: Short?
+        get() {
+            return getFieldShortValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(fieldId) {
+            setFieldValue(2, 0, fieldId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get concept_index field
      *
      * @return concept_index
      */
-    fun getConceptIndex(): Short? {
-        return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set concept_index field
-     *
-     * @param conceptIndex The new conceptIndex value to be set
-     */
-    fun setConceptIndex(conceptIndex: Short?) {
-        setFieldValue(3, 0, conceptIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var conceptIndex: Short?
+        get() {
+            return getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(conceptIndex) {
+            setFieldValue(3, 0, conceptIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get data_page field
      *
      * @return data_page
      */
-    fun getDataPage(): Short? {
-        return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set data_page field
-     *
-     * @param dataPage The new dataPage value to be set
-     */
-    fun setDataPage(dataPage: Short?) {
-        setFieldValue(4, 0, dataPage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var dataPage: Short?
+        get() {
+            return getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(dataPage) {
+            setFieldValue(4, 0, dataPage, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get concept_key field
      *
      * @return concept_key
      */
-    fun getConceptKey(): Short? {
-        return getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set concept_key field
-     *
-     * @param conceptKey The new conceptKey value to be set
-     */
-    fun setConceptKey(conceptKey: Short?) {
-        setFieldValue(5, 0, conceptKey, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var conceptKey: Short?
+        get() {
+            return getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(conceptKey) {
+            setFieldValue(5, 0, conceptKey, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get scaling field
      *
      * @return scaling
      */
-    fun getScaling(): Short? {
-        return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set scaling field
-     *
-     * @param scaling The new scaling value to be set
-     */
-    fun setScaling(scaling: Short?) {
-        setFieldValue(6, 0, scaling, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var scaling: Short?
+        get() {
+            return getFieldShortValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(scaling) {
+            setFieldValue(6, 0, scaling, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get data_units field
      *
      * @return data_units
      */
-    fun getDataUnits(): ExdDataUnits? {
-        val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ExdDataUnits.fromValue(value)
-    }
-
-    /**
-     * Set data_units field
-     *
-     * @param dataUnits The new dataUnits value to be set
-     */
-    fun setDataUnits(dataUnits: ExdDataUnits?) {
-        setFieldValue(8, 0, dataUnits?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var dataUnits: ExdDataUnits?
+        get() {
+            val value = getFieldShortValue(8, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ExdDataUnits.fromValue(value)
+        }
+        set(dataUnits) {
+            setFieldValue(8, 0, dataUnits?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get qualifier field
      *
      * @return qualifier
      */
-    fun getQualifier(): ExdQualifiers? {
-        val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ExdQualifiers.fromValue(value)
-    }
-
-    /**
-     * Set qualifier field
-     *
-     * @param qualifier The new qualifier value to be set
-     */
-    fun setQualifier(qualifier: ExdQualifiers?) {
-        setFieldValue(9, 0, qualifier?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var qualifier: ExdQualifiers?
+        get() {
+            val value = getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ExdQualifiers.fromValue(value)
+        }
+        set(qualifier) {
+            setFieldValue(9, 0, qualifier?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get descriptor field
      *
      * @return descriptor
      */
-    fun getDescriptor(): ExdDescriptors? {
-        val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return ExdDescriptors.fromValue(value)
-    }
-
-    /**
-     * Set descriptor field
-     *
-     * @param descriptor The new descriptor value to be set
-     */
-    fun setDescriptor(descriptor: ExdDescriptors?) {
-        setFieldValue(10, 0, descriptor?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var descriptor: ExdDescriptors?
+        get() {
+            val value = getFieldShortValue(10, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return ExdDescriptors.fromValue(value)
+        }
+        set(descriptor) {
+            setFieldValue(10, 0, descriptor?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get is_signed field
      *
      * @return is_signed
      */
-    fun getIsSigned(): Bool? {
-        val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set is_signed field
-     *
-     * @param isSigned The new isSigned value to be set
-     */
-    fun setIsSigned(isSigned: Bool?) {
-        setFieldValue(11, 0, isSigned?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var isSigned: Bool?
+        get() {
+            val value = getFieldShortValue(11, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(isSigned) {
+            setFieldValue(11, 0, isSigned?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

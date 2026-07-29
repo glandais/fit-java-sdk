@@ -30,36 +30,26 @@ open class VideoMesg : Mesg {
      *
      * @return url
      */
-    fun getUrl(): String? {
-        return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set url field
-     *
-     * @param url The new url value to be set
-     */
-    fun setUrl(url: String?) {
-        setFieldValue(0, 0, url, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var url: String?
+        get() {
+            return getFieldStringValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(url) {
+            setFieldValue(0, 0, url, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get hosting_provider field
      *
      * @return hosting_provider
      */
-    fun getHostingProvider(): String? {
-        return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set hosting_provider field
-     *
-     * @param hostingProvider The new hostingProvider value to be set
-     */
-    fun setHostingProvider(hostingProvider: String?) {
-        setFieldValue(1, 0, hostingProvider, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var hostingProvider: String?
+        get() {
+            return getFieldStringValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(hostingProvider) {
+            setFieldValue(1, 0, hostingProvider, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get duration field
@@ -68,18 +58,11 @@ open class VideoMesg : Mesg {
      *
      * @return duration
      */
-    fun getDuration(): Long? {
-        return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set duration field
-     * Units: ms
-     * Comment: Playback time of video
-     *
-     * @param duration The new duration value to be set
-     */
-    fun setDuration(duration: Long?) {
-        setFieldValue(2, 0, duration, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var duration: Long?
+        get() {
+            return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(duration) {
+            setFieldValue(2, 0, duration, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

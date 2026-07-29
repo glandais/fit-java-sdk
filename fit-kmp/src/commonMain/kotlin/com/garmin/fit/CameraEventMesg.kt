@@ -36,20 +36,13 @@ open class CameraEventMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     * Comment: Whole second part of the timestamp.
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp_ms field
@@ -58,74 +51,52 @@ open class CameraEventMesg : Mesg {
      *
      * @return timestamp_ms
      */
-    fun getTimestampMs(): Int? {
-        return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timestamp_ms field
-     * Units: ms
-     * Comment: Millisecond part of the timestamp.
-     *
-     * @param timestampMs The new timestampMs value to be set
-     */
-    fun setTimestampMs(timestampMs: Int?) {
-        setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestampMs: Int?
+        get() {
+            return getFieldIntegerValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timestampMs) {
+            setFieldValue(0, 0, timestampMs, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get camera_event_type field
      *
      * @return camera_event_type
      */
-    fun getCameraEventType(): CameraEventType? {
-        val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return CameraEventType.fromValue(value)
-    }
-
-    /**
-     * Set camera_event_type field
-     *
-     * @param cameraEventType The new cameraEventType value to be set
-     */
-    fun setCameraEventType(cameraEventType: CameraEventType?) {
-        setFieldValue(1, 0, cameraEventType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var cameraEventType: CameraEventType?
+        get() {
+            val value = getFieldShortValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return CameraEventType.fromValue(value)
+        }
+        set(cameraEventType) {
+            setFieldValue(1, 0, cameraEventType?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get camera_file_uuid field
      *
      * @return camera_file_uuid
      */
-    fun getCameraFileUuid(): String? {
-        return getFieldStringValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set camera_file_uuid field
-     *
-     * @param cameraFileUuid The new cameraFileUuid value to be set
-     */
-    fun setCameraFileUuid(cameraFileUuid: String?) {
-        setFieldValue(2, 0, cameraFileUuid, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var cameraFileUuid: String?
+        get() {
+            return getFieldStringValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(cameraFileUuid) {
+            setFieldValue(2, 0, cameraFileUuid, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get camera_orientation field
      *
      * @return camera_orientation
      */
-    fun getCameraOrientation(): CameraOrientationType? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return CameraOrientationType.fromValue(value)
-    }
-
-    /**
-     * Set camera_orientation field
-     *
-     * @param cameraOrientation The new cameraOrientation value to be set
-     */
-    fun setCameraOrientation(cameraOrientation: CameraOrientationType?) {
-        setFieldValue(3, 0, cameraOrientation?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var cameraOrientation: CameraOrientationType?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return CameraOrientationType.fromValue(value)
+        }
+        set(cameraOrientation) {
+            setFieldValue(3, 0, cameraOrientation?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

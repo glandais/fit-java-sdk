@@ -2,6 +2,8 @@
 // Shims homonymes des classes java.io utilisées par le SDK (DESIGN.md §2.1).
 package com.garmin.fit
 
+import kotlin.jvm.JvmOverloads
+
 open class IOException(message: String? = null, cause: Throwable? = null) :
     Exception(message, cause)
 
@@ -54,11 +56,15 @@ abstract class InputStream {
     open fun close() {}
 }
 
-open class ByteArrayInputStream(
-    protected val buf: ByteArray,
-    offset: Int = 0,
-    length: Int = buf.size
-) : InputStream() {
+// @JvmOverloads : sans lui, un appelant Java devrait passer les trois arguments —
+// `new ByteArrayInputStream(bytes)` est la forme que tout le monde écrit.
+open class ByteArrayInputStream
+    @JvmOverloads
+    constructor(
+        protected val buf: ByteArray,
+        offset: Int = 0,
+        length: Int = buf.size
+    ) : InputStream() {
     protected var pos: Int = offset
     protected var markPos: Int = offset
     protected val count: Int = minOf(offset + length, buf.size)

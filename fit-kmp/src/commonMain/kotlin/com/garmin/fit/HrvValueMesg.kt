@@ -28,18 +28,13 @@ open class HrvValueMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get value field
@@ -48,18 +43,11 @@ open class HrvValueMesg : Mesg {
      *
      * @return value
      */
-    fun getValue(): Float? {
-        return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set value field
-     * Units: ms
-     * Comment: 5 minute RMSSD
-     *
-     * @param value The new value value to be set
-     */
-    fun setValue(value: Float?) {
-        setFieldValue(0, 0, value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var value: Float?
+        get() {
+            return getFieldFloatValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(value) {
+            setFieldValue(0, 0, value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

@@ -54,143 +54,103 @@ open class TrainingFileMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get type field
      *
      * @return type
      */
-    fun getType(): File? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return File.fromValue(value)
-    }
-
-    /**
-     * Set type field
-     *
-     * @param type The new type value to be set
-     */
-    fun setType(type: File?) {
-        setFieldValue(0, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var type: File?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return File.fromValue(value)
+        }
+        set(type) {
+            setFieldValue(0, 0, type?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get manufacturer field
      *
      * @return manufacturer
      */
-    fun getManufacturer(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set manufacturer field
-     *
-     * @param manufacturer The new manufacturer value to be set
-     */
-    fun setManufacturer(manufacturer: Int?) {
-        setFieldValue(1, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var manufacturer: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(manufacturer) {
+            setFieldValue(1, 0, manufacturer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get product field
      *
      * @return product
      */
-    fun getProduct(): Int? {
-        return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set product field
-     *
-     * @param product The new product value to be set
-     */
-    fun setProduct(product: Int?) {
-        setFieldValue(2, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var product: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(product) {
+            setFieldValue(2, 0, product, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get favero_product field
      *
      * @return favero_product
      */
-    fun getFaveroProduct(): Int? {
-        return getFieldIntegerValue(2, 0, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
-
-    /**
-     * Set favero_product field
-     *
-     * @param faveroProduct The new faveroProduct value to be set
-     */
-    fun setFaveroProduct(faveroProduct: Int?) {
-        setFieldValue(2, 0, faveroProduct, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
-    }
+    var faveroProduct: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
+        set(faveroProduct) {
+            setFieldValue(2, 0, faveroProduct, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_FAVERO_PRODUCT)
+        }
 
     /**
      * Get garmin_product field
      *
      * @return garmin_product
      */
-    fun getGarminProduct(): Int? {
-        return getFieldIntegerValue(2, 0, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
-
-    /**
-     * Set garmin_product field
-     *
-     * @param garminProduct The new garminProduct value to be set
-     */
-    fun setGarminProduct(garminProduct: Int?) {
-        setFieldValue(2, 0, garminProduct, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
-    }
+    var garminProduct: Int?
+        get() {
+            return getFieldIntegerValue(2, 0, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
+        set(garminProduct) {
+            setFieldValue(2, 0, garminProduct, Profile.SubFields.TRAINING_FILE_MESG_PRODUCT_FIELD_GARMIN_PRODUCT)
+        }
 
     /**
      * Get serial_number field
      *
      * @return serial_number
      */
-    fun getSerialNumber(): Long? {
-        return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set serial_number field
-     *
-     * @param serialNumber The new serialNumber value to be set
-     */
-    fun setSerialNumber(serialNumber: Long?) {
-        setFieldValue(3, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var serialNumber: Long?
+        get() {
+            return getFieldLongValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(serialNumber) {
+            setFieldValue(3, 0, serialNumber, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get time_created field
      *
      * @return time_created
      */
-    fun getTimeCreated(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set time_created field
-     *
-     * @param timeCreated The new timeCreated value to be set
-     */
-    fun setTimeCreated(timeCreated: DateTime?) {
-        setFieldValue(4, 0, timeCreated?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timeCreated: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timeCreated) {
+            setFieldValue(4, 0, timeCreated?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

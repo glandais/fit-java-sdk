@@ -44,18 +44,13 @@ open class TotalsMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timestamp field
@@ -63,19 +58,13 @@ open class TotalsMesg : Mesg {
      *
      * @return timestamp
      */
-    fun getTimestamp(): DateTime? {
-        return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
-    }
-
-    /**
-     * Set timestamp field
-     * Units: s
-     *
-     * @param timestamp The new timestamp value to be set
-     */
-    fun setTimestamp(timestamp: DateTime?) {
-        setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timestamp: DateTime?
+        get() {
+            return timestampToDateTime(getFieldLongValue(253, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD))
+        }
+        set(timestamp) {
+            setFieldValue(253, 0, timestamp?.getTimestamp(), Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get timer_time field
@@ -84,20 +73,13 @@ open class TotalsMesg : Mesg {
      *
      * @return timer_time
      */
-    fun getTimerTime(): Long? {
-        return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set timer_time field
-     * Units: s
-     * Comment: Excludes pauses
-     *
-     * @param timerTime The new timerTime value to be set
-     */
-    fun setTimerTime(timerTime: Long?) {
-        setFieldValue(0, 0, timerTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var timerTime: Long?
+        get() {
+            return getFieldLongValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(timerTime) {
+            setFieldValue(0, 0, timerTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get distance field
@@ -105,19 +87,13 @@ open class TotalsMesg : Mesg {
      *
      * @return distance
      */
-    fun getDistance(): Long? {
-        return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set distance field
-     * Units: m
-     *
-     * @param distance The new distance value to be set
-     */
-    fun setDistance(distance: Long?) {
-        setFieldValue(1, 0, distance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var distance: Long?
+        get() {
+            return getFieldLongValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(distance) {
+            setFieldValue(1, 0, distance, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get calories field
@@ -125,38 +101,27 @@ open class TotalsMesg : Mesg {
      *
      * @return calories
      */
-    fun getCalories(): Long? {
-        return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set calories field
-     * Units: kcal
-     *
-     * @param calories The new calories value to be set
-     */
-    fun setCalories(calories: Long?) {
-        setFieldValue(2, 0, calories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var calories: Long?
+        get() {
+            return getFieldLongValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(calories) {
+            setFieldValue(2, 0, calories, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport field
      *
      * @return sport
      */
-    fun getSport(): Sport? {
-        val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Sport.fromValue(value)
-    }
-
-    /**
-     * Set sport field
-     *
-     * @param sport The new sport value to be set
-     */
-    fun setSport(sport: Sport?) {
-        setFieldValue(3, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sport: Sport?
+        get() {
+            val value = getFieldShortValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Sport.fromValue(value)
+        }
+        set(sport) {
+            setFieldValue(3, 0, sport?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get elapsed_time field
@@ -165,38 +130,26 @@ open class TotalsMesg : Mesg {
      *
      * @return elapsed_time
      */
-    fun getElapsedTime(): Long? {
-        return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set elapsed_time field
-     * Units: s
-     * Comment: Includes pauses
-     *
-     * @param elapsedTime The new elapsedTime value to be set
-     */
-    fun setElapsedTime(elapsedTime: Long?) {
-        setFieldValue(4, 0, elapsedTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var elapsedTime: Long?
+        get() {
+            return getFieldLongValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(elapsedTime) {
+            setFieldValue(4, 0, elapsedTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sessions field
      *
      * @return sessions
      */
-    fun getSessions(): Int? {
-        return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sessions field
-     *
-     * @param sessions The new sessions value to be set
-     */
-    fun setSessions(sessions: Int?) {
-        setFieldValue(5, 0, sessions, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sessions: Int?
+        get() {
+            return getFieldIntegerValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sessions) {
+            setFieldValue(5, 0, sessions, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get active_time field
@@ -204,35 +157,24 @@ open class TotalsMesg : Mesg {
      *
      * @return active_time
      */
-    fun getActiveTime(): Long? {
-        return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set active_time field
-     * Units: s
-     *
-     * @param activeTime The new activeTime value to be set
-     */
-    fun setActiveTime(activeTime: Long?) {
-        setFieldValue(6, 0, activeTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var activeTime: Long?
+        get() {
+            return getFieldLongValue(6, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(activeTime) {
+            setFieldValue(6, 0, activeTime, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sport_index field
      *
      * @return sport_index
      */
-    fun getSportIndex(): Short? {
-        return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sport_index field
-     *
-     * @param sportIndex The new sportIndex value to be set
-     */
-    fun setSportIndex(sportIndex: Short?) {
-        setFieldValue(9, 0, sportIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sportIndex: Short?
+        get() {
+            return getFieldShortValue(9, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sportIndex) {
+            setFieldValue(9, 0, sportIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }

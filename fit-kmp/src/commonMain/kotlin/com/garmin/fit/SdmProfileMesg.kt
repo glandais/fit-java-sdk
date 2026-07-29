@@ -40,55 +40,40 @@ open class SdmProfileMesg : Mesg {
      *
      * @return message_index
      */
-    fun getMessageIndex(): Int? {
-        return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set message_index field
-     *
-     * @param messageIndex The new messageIndex value to be set
-     */
-    fun setMessageIndex(messageIndex: Int?) {
-        setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var messageIndex: Int?
+        get() {
+            return getFieldIntegerValue(254, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(messageIndex) {
+            setFieldValue(254, 0, messageIndex, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get enabled field
      *
      * @return enabled
      */
-    fun getEnabled(): Bool? {
-        val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set enabled field
-     *
-     * @param enabled The new enabled value to be set
-     */
-    fun setEnabled(enabled: Bool?) {
-        setFieldValue(0, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var enabled: Bool?
+        get() {
+            val value = getFieldShortValue(0, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(enabled) {
+            setFieldValue(0, 0, enabled?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sdm_ant_id field
      *
      * @return sdm_ant_id
      */
-    fun getSdmAntId(): Int? {
-        return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sdm_ant_id field
-     *
-     * @param sdmAntId The new sdmAntId value to be set
-     */
-    fun setSdmAntId(sdmAntId: Int?) {
-        setFieldValue(1, 0, sdmAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sdmAntId: Int?
+        get() {
+            return getFieldIntegerValue(1, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sdmAntId) {
+            setFieldValue(1, 0, sdmAntId, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sdm_cal_factor field
@@ -96,19 +81,13 @@ open class SdmProfileMesg : Mesg {
      *
      * @return sdm_cal_factor
      */
-    fun getSdmCalFactor(): Float? {
-        return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sdm_cal_factor field
-     * Units: %
-     *
-     * @param sdmCalFactor The new sdmCalFactor value to be set
-     */
-    fun setSdmCalFactor(sdmCalFactor: Float?) {
-        setFieldValue(2, 0, sdmCalFactor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sdmCalFactor: Float?
+        get() {
+            return getFieldFloatValue(2, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sdmCalFactor) {
+            setFieldValue(2, 0, sdmCalFactor, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get odometer field
@@ -116,19 +95,13 @@ open class SdmProfileMesg : Mesg {
      *
      * @return odometer
      */
-    fun getOdometer(): Float? {
-        return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set odometer field
-     * Units: m
-     *
-     * @param odometer The new odometer value to be set
-     */
-    fun setOdometer(odometer: Float?) {
-        setFieldValue(3, 0, odometer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var odometer: Float?
+        get() {
+            return getFieldFloatValue(3, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(odometer) {
+            setFieldValue(3, 0, odometer, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get speed_source field
@@ -136,38 +109,27 @@ open class SdmProfileMesg : Mesg {
      *
      * @return speed_source
      */
-    fun getSpeedSource(): Bool? {
-        val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
-        return Bool.fromValue(value)
-    }
-
-    /**
-     * Set speed_source field
-     * Comment: Use footpod for speed source instead of GPS
-     *
-     * @param speedSource The new speedSource value to be set
-     */
-    fun setSpeedSource(speedSource: Bool?) {
-        setFieldValue(4, 0, speedSource?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var speedSource: Bool?
+        get() {
+            val value = getFieldShortValue(4, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD) ?: return null
+            return Bool.fromValue(value)
+        }
+        set(speedSource) {
+            setFieldValue(4, 0, speedSource?.value, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get sdm_ant_id_trans_type field
      *
      * @return sdm_ant_id_trans_type
      */
-    fun getSdmAntIdTransType(): Short? {
-        return getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set sdm_ant_id_trans_type field
-     *
-     * @param sdmAntIdTransType The new sdmAntIdTransType value to be set
-     */
-    fun setSdmAntIdTransType(sdmAntIdTransType: Short?) {
-        setFieldValue(5, 0, sdmAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var sdmAntIdTransType: Short?
+        get() {
+            return getFieldShortValue(5, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(sdmAntIdTransType) {
+            setFieldValue(5, 0, sdmAntIdTransType, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 
     /**
      * Get odometer_rollover field
@@ -175,17 +137,11 @@ open class SdmProfileMesg : Mesg {
      *
      * @return odometer_rollover
      */
-    fun getOdometerRollover(): Short? {
-        return getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
-
-    /**
-     * Set odometer_rollover field
-     * Comment: Rollover counter that can be used to extend the odometer
-     *
-     * @param odometerRollover The new odometerRollover value to be set
-     */
-    fun setOdometerRollover(odometerRollover: Short?) {
-        setFieldValue(7, 0, odometerRollover, Fit.SUBFIELD_INDEX_MAIN_FIELD)
-    }
+    var odometerRollover: Short?
+        get() {
+            return getFieldShortValue(7, 0, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
+        set(odometerRollover) {
+            setFieldValue(7, 0, odometerRollover, Fit.SUBFIELD_INDEX_MAIN_FIELD)
+        }
 }
