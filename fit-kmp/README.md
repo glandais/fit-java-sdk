@@ -56,7 +56,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("io.github.glandais:fit-kmp:21.205.0-kmp.1")
+                implementation("io.github.glandais:fit-kmp:21.205.0-kmp.2")
             }
         }
     }
@@ -68,7 +68,7 @@ Sur un projet JVM pur, `io.github.glandais:fit-kmp-jvm:<version>` fait l'affaire
 Les classes sont dans le package `io.github.glandais.fit` (et non `com.garmin.fit`), pour
 qu'un projet puisse importer les deux SDK sans collision de noms.
 
-> La version porte un suffixe `-kmp.N` (`21.205.0-kmp.1` = port KMP n°2 du SDK Java
+> La version porte un suffixe `-kmp.N` (`21.205.0-kmp.2` = port KMP n°2 du SDK Java
 > 21.205.0). Maven et Gradle le traitent comme un *pre-release qualifier* : épinglez une
 > version exacte, les plages dynamiques ne le sélectionneront pas.
 
