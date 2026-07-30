@@ -818,7 +818,7 @@ def _emit(
     )
     out.append("// Do NOT edit: re-run `python3 converter/convert.py` to regenerate.")
     out.append(bar)
-    out.append("package com.garmin.fit")
+    out.append("package io.github.glandais.fit")
     out.append("")
     out.append(f"open class {cls} : {supertypes} {{")
     out.append("")

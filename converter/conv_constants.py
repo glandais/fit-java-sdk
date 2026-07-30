@@ -33,7 +33,7 @@ HEADER_TEMPLATE = (
     "// Converted from {name}.java (Garmin FIT SDK 21.205.0) by converter/convert.py.\n"
     "// Do NOT edit: re-run `python3 converter/convert.py` to regenerate.\n"
     "/////////////////////////////////////////////////////////////////////////////////////////////\n"
-    "package com.garmin.fit\n"
+    "package io.github.glandais.fit\n"
 )
 
 # DateTime.java / LocalDateTime.java are constants-shaped (they contain

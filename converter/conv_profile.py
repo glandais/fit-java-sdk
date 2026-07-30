@@ -38,7 +38,7 @@ def _header(java_name: str, version: str) -> str:
         f"// Converted from {java_name} (Garmin FIT SDK {version}) by converter/convert.py.\n"
         f"// Do NOT edit: re-run `python3 converter/convert.py` to regenerate.\n"
         f"{bar}\n"
-        "package com.garmin.fit\n"
+        "package io.github.glandais.fit\n"
     )
 
 
@@ -696,7 +696,7 @@ def convert(files: list[Path], out_dir: Path) -> list[Path]:
 
 if __name__ == "__main__":
     src_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("src/main/java/com/garmin/fit")
-    out = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("fit-kmp/src/commonMain/kotlin/com/garmin/fit")
+    out = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("fit-kmp/src/commonMain/kotlin/io/github/glandais/fit")
     targets = [src_dir / n for n in _CONVERTERS]
     for p in convert(targets, out):
         print(p)

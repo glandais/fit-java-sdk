@@ -11,10 +11,10 @@ Usage :
   2. Génération des .kt via conv_enums / conv_constants / conv_listeners /
      conv_mesgs / conv_profile (imports tolérants : un module manquant est
      affiché en SKIP au lieu de faire planter le script).
-  3. Nettoyage puis recréation de fit-kmp/src/commonMain/kotlin/com/garmin/fit.
+  3. Nettoyage puis recréation de fit-kmp/src/commonMain/kotlin/io/github/glandais/fit.
      (src/commonTest/, écrit à la main, est préservé.)
   4. Copie des overrides (converter/overrides/commonMain) vers
-     fit-kmp/src/.../com/garmin/fit, avec suivi de overrides/hashes.json
+     fit-kmp/src/.../io/github/glandais/fit, avec suivi de overrides/hashes.json
      (création si absent, WARNING si le .java source correspondant a changé).
   5. Création (si absents) de settings.gradle.kts / build.gradle.kts /
      gradle.properties.
@@ -39,7 +39,7 @@ FIT_KMP_DIR = REPO_ROOT / "fit-kmp"
 OVERRIDES_DIR = CONVERTER_DIR / "overrides"
 HASHES_JSON = OVERRIDES_DIR / "hashes.json"
 
-COMMON_MAIN_OUT = FIT_KMP_DIR / "src/commonMain/kotlin/com/garmin/fit"
+COMMON_MAIN_OUT = FIT_KMP_DIR / "src/commonMain/kotlin/io/github/glandais/fit"
 
 # category -> (module name, function name) : chaque module expose
 # convert(files: list[Path], out_dir: Path) -> list[Path]
@@ -124,7 +124,7 @@ def clean_generated_sources() -> None:
     if common_main_dir.exists():
         shutil.rmtree(common_main_dir)
     COMMON_MAIN_OUT.mkdir(parents=True, exist_ok=True)
-    (FIT_KMP_DIR / "src/commonTest/kotlin/com/garmin/fit").mkdir(parents=True, exist_ok=True)
+    (FIT_KMP_DIR / "src/commonTest/kotlin/io/github/glandais/fit").mkdir(parents=True, exist_ok=True)
 
 
 def run_classification() -> dict[str, list[Path]]:

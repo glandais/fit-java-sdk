@@ -132,7 +132,7 @@ def create_kotlin_file(java_file: Path, interface_info: dict, out_dir: Path) -> 
 // Converted from {java_file.name} (Garmin FIT SDK 21.205.0) by converter/convert.py.
 // Do NOT edit: re-run `python3 converter/convert.py` to regenerate.
 /////////////////////////////////////////////////////////////////////////////////////////////
-package com.garmin.fit
+package io.github.glandais.fit
 
 {kotlin_code}"""
 

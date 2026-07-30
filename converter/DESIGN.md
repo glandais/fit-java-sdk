@@ -8,11 +8,11 @@ personnel de l'agent.
 
 ## 0. Principes généraux
 
-- **Package unique** : tout le code généré et overridé est dans `com.garmin.fit`.
+- **Package unique** : tout le code généré et overridé est dans `io.github.glandais.fit`.
   Un fichier `X.java` produit exactement un fichier `X.kt` de même nom de base
   (ex. `RecordMesg.java` -> `RecordMesg.kt`). Aucun sous-package.
-- **Sortie** : `fit-kmp/src/commonMain/kotlin/com/garmin/fit/` (généré + overrides
-  commonMain) et `fit-kmp/src/jvmMain/kotlin/com/garmin/fit/` (overrides jvmMain).
+- **Sortie** : `fit-kmp/src/commonMain/kotlin/io/github/glandais/fit/` (généré + overrides
+  commonMain) et `fit-kmp/src/jvmMain/kotlin/io/github/glandais/fit/` (overrides jvmMain).
 - **En-tête obligatoire** de chaque fichier généré par script :
 
 ```kotlin
@@ -20,7 +20,7 @@ personnel de l'agent.
 // Converted from <NomFichier>.java (Garmin FIT SDK 21.205.0) by converter/convert.py.
 // Do NOT edit: re-run `python3 converter/convert.py` to regenerate.
 /////////////////////////////////////////////////////////////////////////////////////////////
-package com.garmin.fit
+package io.github.glandais.fit
 ```
 
   Les overrides manuels portent l'en-tête
@@ -151,7 +151,7 @@ fun setAccumulatedPower(accumulatedPower: Long?) {
 
 ## 2. IO : remplacement des flux JDK en commonMain
 
-### 2.1 Stratégie : shims homonymes dans `com.garmin.fit`
+### 2.1 Stratégie : shims homonymes dans `io.github.glandais.fit`
 
 On recrée en commonMain des classes portant **les mêmes noms simples que les
 classes java.io utilisées** (le code étant dans un package unique, aucune
@@ -449,8 +449,8 @@ fit-kmp/
 ├── build.gradle.kts
 ├── gradle.properties
 └── src/
-    ├── commonMain/kotlin/com/garmin/fit/   # ~460 fichiers générés + overrides commonMain
-    └── jvmMain/kotlin/com/garmin/fit/      # overrides jvmMain uniquement
+    ├── commonMain/kotlin/io/github/glandais/fit/   # ~460 fichiers générés + overrides commonMain
+    └── jvmMain/kotlin/io/github/glandais/fit/      # overrides jvmMain uniquement
 ```
 
 `convert.py` : supprime et régénère intégralement `fit-kmp/src/` ; crée
@@ -471,7 +471,7 @@ plugins {
     kotlin("multiplatform") version "2.2.0"
 }
 
-group = "com.garmin.fit"
+group = "io.github.glandais"
 version = "21.205.0"
 
 repositories {
